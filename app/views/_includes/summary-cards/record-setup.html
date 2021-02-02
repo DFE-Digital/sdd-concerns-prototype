@@ -1,0 +1,64 @@
+
+{% set recordBaseRows = [
+  {
+    key: {
+      text: "Type of training"
+    },
+    value: {
+      text: record.route or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/record-setup" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "route"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Trainee ID"
+    },
+    value: {
+      text: record.trainingDetails.traineeId or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/record-setup" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "trainee ID"
+        }
+      ]
+    } if canAmend
+  }
+  ] %}
+
+
+{% set recordBaseHtml %}
+  {{ govukSummaryList({
+    rows: recordBaseRows
+  }) }}
+{% endset %}
+
+
+
+{% set complete = true if (record.recordSetup | sectionIsCompleted ) %}
+
+{% set status  = record.recordSetup | getStatusText %}
+{% set sectionIsRequired = record | requiresSection("recordSetup") %}
+
+{% if not sectionIsRequired %}
+  {# Section not required #}
+
+{% else %}
+
+  {{ appSummaryCard({
+    classes: "govuk-!-margin-bottom-6",
+    titleText: "Type of training",
+    html: recordBaseHtml
+  }) }}
+  
+{% endif %}

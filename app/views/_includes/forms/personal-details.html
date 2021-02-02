@@ -1,0 +1,164 @@
+<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+{{ govukInput({
+  label: {
+    text: "First names",
+    classes: "govuk-label--s"
+  },
+  classes: "govuk-!-width-two-thirds"
+}| decorateAttributes(record, "record.personalDetails.givenName"))}}
+
+{{ govukInput({
+  label: {
+    text: "Middle names",
+    classes: "govuk-label--s"
+  },
+  classes: "govuk-!-width-two-thirds"
+} | decorateAttributes(record, "record.personalDetails.middleNames"))}}
+
+{{ govukInput({
+  label: {
+    text: "Last name",
+    classes: "govuk-label--s"
+  },
+  classes: "govuk-!-width-two-thirds"
+} | decorateAttributes(record, "record.personalDetails.familyName"))}}
+
+{# Date of birth may be a date object #}
+{% set dateOfBirthArray = record.personalDetails.dateOfBirth | toDateArray %}
+
+{{ govukDateInput({
+  id: "date-of-birth",
+  namePrefix: "record[personalDetails][dateOfBirth]",
+  fieldset: {
+    legend: {
+      text: "Date of birth",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+      {
+        name: "day",
+        classes: "govuk-input--width-2",
+        value: dateOfBirthArray["0"]
+      },
+      {
+        name: "month",
+        classes: "govuk-input--width-2",
+        value: dateOfBirthArray["1"]
+      },
+      {
+        name: "year",
+        classes: "govuk-input--width-4",
+        value: dateOfBirthArray["2"]
+      }
+    ]
+}) }}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "Gender",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  items: [
+    {
+      text: "Female"
+    },
+    {
+      text: "Male"
+    },
+    {
+      text: "Other"
+    },
+    {
+      divider: 'or'
+    },
+    {
+      text: "Not provided"
+    }
+  ]
+} | decorateAttributes(record, "record.personalDetails.sex"))}}
+
+{% set nationalitiesWithoutBritishAndIrish = data.nationalities | removeArrayItems(['British', 'Irish']) %}
+
+{# Separate out nationalities #}
+{% set otherNationalities = record.personalDetails.nationality | removeArrayItems(['British', 'Irish', 'Other'] | removeEmpty )%}
+
+{# {% set otherNationalities = otherNationalities %} #}
+{% set hasOtherNationality = otherNationalities | length > 0 %}
+
+
+{% set nationalityOtherHtml %}
+
+  {# Make sure there's at least one input #}
+  {% if not otherNationalities | length   %}
+    {% set otherNationalities = [''] %}
+  {% endif %}
+
+  {% for nationality in otherNationalities %}
+    {% set nationalityIndex = loop.index0 + 3 %}
+    {{ appAutocomplete({
+      label: {
+        text: "Other nationality",
+        classes: "govuk-label--s"
+      },
+      id: 'nationality-other-' + nationalityIndex,
+      name: "record[personalDetails][nationality][" + nationalityIndex + "]",
+      items: nationalitiesWithoutBritishAndIrish,
+      classes: "app-!-autocomplete--max-width-one-half",
+      value: nationality
+      }
+    ) }}
+  {% endfor %}
+
+  <div class="govuk-form-group">
+    {{ govukButton({
+      text: "Add another nationality",
+      classes: "govuk-button--secondary govuk-!-margin-bottom-1",
+      href: "#"
+    }) }}
+  </div>
+
+{% endset %}
+
+{{ govukCheckboxes({
+  fieldset: {
+    legend: {
+      text: "Nationality",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  items: [
+    {
+      text: "British",
+      hint: {
+        text: "including English, Scottish, Welsh or from Northern Ireland"
+      }
+    },
+    {
+      text: "Irish",
+      hint: {
+        text: "including from Northern Ireland"
+      }
+    },
+    {
+      text: "Other",
+      checked: hasOtherNationality,
+      conditional: {
+        html: nationalityOtherHtml
+      }
+    }
+  ]
+} | decorateAttributes(record, "record.personalDetails.nationality"))}}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

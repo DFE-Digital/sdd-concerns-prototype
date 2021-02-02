@@ -1,0 +1,65 @@
+{% set customQtsOutcomeRecordedDateArray = record.qtsDetails.qtsOutcomeRecordedDate | toDateArray %}
+{% if record.qtsDetails.qtsOutcomeRecordedDate | isInLast(2, "days") and record.qtsDetails.qtsOutcomeRecordedDateRadio != "On another day" %}
+  {% set customQtsOutcomeRecordedDateArray = undefined %}
+{% endif %}
+
+{% set customQtsOutcomeRecordedDateArray %}
+  {{ govukDateInput({
+    id: "custom-qtsOutcomeRecorded-date",
+    namePrefix: "record[qtsDetails][qtsOutcomeRecordedDate]",
+    fieldset: {
+      legend: {
+        text: "On what date?",
+        classes: "govuk-label govuk-label--s"
+      }
+    },
+    hint: {
+      text: "For example, " + "" | today | toDateArray | spaceSeparate
+    },
+    items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2",
+          value: customQtsOutcomeRecordedDateArray["0"]
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: customQtsOutcomeRecordedDateArray["1"]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: customQtsOutcomeRecordedDateArray["2"]
+        }
+      ]
+  }) }}
+{% endset %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-4"
+    }
+  },
+  items: [
+    {
+      text: "Today"
+    },
+    {
+      text: "Yesterday"
+    },
+    {
+      text: "On another day",
+      conditional: {
+        html: customQtsOutcomeRecordedDateArray
+      }
+    }
+  ]
+} | decorateAttributes(record, "record.qtsDetails.qtsOutcomeRecordedDateRadio")) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

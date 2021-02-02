@@ -1,0 +1,113 @@
+{% set selectedTrainees = data.records | getRecordsById(data.bulk.selectedTrainees) | sortRecordsByLastName %}
+
+{% set traineeList %}
+
+  {% if selectedTrainees | length == 1 %}
+
+    {% for trainee in selectedTrainees %}
+      {{trainee.personalDetails.fullName}}<br>
+      <span class="govuk-hint">{{trainee.programmeDetails.subject}}, {{trainee.route | lower}}</span>
+    {% endfor %}
+
+  {% else %}
+    <ul class="govuk-list govuk-list--bullet">
+      {% for trainee in selectedTrainees %}
+        <li>{{trainee.personalDetails.fullName}}<br>
+          <span class="govuk-hint">{{trainee.programmeDetails.subject}}, {{trainee.route | lower}}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endset %}
+
+
+{% set filtersHtml %}
+  Route: {{ (data.bulk.filters.trainingRoutes | commaSeparate | lower) or 'all routes' }}
+  <br>
+  <br>
+  Subject: {{ data.bulk.filters.subject | lower }}
+{% endset %}
+
+{% set rows = [
+  {
+    key: {
+      text: "Action"
+    },
+    value: {
+      text: data.bulk.action or "Recommend a group of trainees for QTS"
+    },
+    actions: {
+      items: [
+        {
+          href: "/bulk-action" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "outcome"
+        }
+      ]
+    } if canAmend
+  } if not data.bulk.directAction and false,
+  {
+    key: {
+      text: "Filters"
+    },
+    value: {
+      html: filtersHtml | safe
+    },
+    actions: {
+      items: [
+        {
+          href: "/bulk-action/filter-trainees" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "filtered trainees"
+        }
+      ]
+    } if canAmend
+  } if not data.bulk.directAction and false,
+  {
+    key: {
+      text: "Trainee selected" if (selectedTrainees | length == 1) else "Trainees selected"
+    },
+    value: {
+      text: traineeList | safe or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: "/bulk-action/select-trainees" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "date standards met"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Date of assessment"
+    },
+    value: {
+      text: data.bulk.date | govukDate or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: "/bulk-action/date" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "date of assessment"
+        }
+      ]
+    } if canAmend
+  } if data.bulk.action == 'Recommend a group of trainees for QTS'
+  ] %}
+
+{% set summaryListHtml %}
+  {{ govukSummaryList({
+    rows: rows
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleText: data.bulk.action,
+  html: summaryListHtml
+}) }}

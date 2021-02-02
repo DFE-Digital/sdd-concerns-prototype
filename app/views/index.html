@@ -1,0 +1,62 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">{{serviceName}} prototype</h1>
+
+    <h2 class="govuk-heading-m">Prototype sections</h2>
+
+    <div class="govuk-form-group">
+      {{ govukButton({
+        text: "Start page",
+        href: "/start-page"
+      }) }}
+    </div>
+    
+    <div class="govuk-form-group">
+      {{ govukButton({
+        text: "Home (logged in)",
+        href: "/home"
+      }) }}
+    </div>
+
+    <h2 class="govuk-heading-m">Pages</h2>
+
+    <p class="govuk-body">Main pages</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="start-page" class="govuk-link">Start page</a></li>
+      <li><a href="sign-in" class="govuk-link">Sign in</a></li>
+      <li><a href="declaration" class="govuk-link">Declaration</a></li>
+      <li><a href="home" class="govuk-link">Home / dashboard</a></li>
+      <li><a href="records" class="govuk-link">Trainee records</a></li>
+      <li><a href="new-record/new" class="govuk-link">Add a trainee</a></li>
+      <li><a href="record/6bee7ea6-d120-4b68-9fc3-3a375c1283ee" class="govuk-link">Draft record</a></li>
+      <li><a href="record/0cd6b365-a287-4099-bad1-14e2aaa13656" class="govuk-link">Trainee record</a></li>
+    </ul>
+
+    <p class="govuk-body">Content pages</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="data-requirements" class="govuk-link">Check what data you need</a></li>
+      <li><a href="guidance" class="govuk-link">Guidance</a></li>
+      <li><a href="accessibility-statement" class="govuk-link">Accessibility statement</a></li>
+      <li><a href="cookies" class="govuk-link">Cookie policy</a></li>
+      <li><a href="privacy-policy" class="govuk-link">Privacy policy</a></li>
+    </ul>
+
+    <p class="govuk-body">Error pages</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="403" class="govuk-link">400 - Access denied</a></li>
+      <li><a href="404" class="govuk-link">404 - Page not found</a></li>
+      <li><a href="500" class="govuk-link">500 - Something went wrong</a></li>
+    </ul>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

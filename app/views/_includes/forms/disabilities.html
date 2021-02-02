@@ -1,0 +1,35 @@
+{{ govukRadios({
+  idPrefix: "disabilities",
+  name: "record[diversity][disabledAnswer]",
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "They shared that they’re disabled",
+      text: "Yes, they shared that they’re disabled"
+    },
+    {
+      value: "They shared that they’re not disabled",
+      text: "They shared that they’re not disabled"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "Not provided",
+      text: "They did not say"
+    }
+  ]
+} | decorateAttributes(record, "record.diversity.disabledAnswer"))}}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

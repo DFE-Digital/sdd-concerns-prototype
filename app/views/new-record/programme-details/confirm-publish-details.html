@@ -1,0 +1,38 @@
+{% extends "_templates/_new-record.html" %}
+
+{% set pageHeading = "Is this the course you want to add?" %}
+{# {% set backLink = './../overview' %}
+{% set backText = "Back to draft record" %} #}
+{% set gridColumn = 'govuk-grid-column-full' %}
+
+{# {% set formAction = "./../overview" | orReferrer(referrer) %} #}
+
+{% block formContent %}
+  <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+  <p class="govuk-body">These are the course details as listed on Publish teacher training courses.</p>
+
+  {% set detailsHtml %}
+    <p class="govuk-body">If the details are incorrect for all trainees, you should <a href="#">update the course on Publish</a>.</p>
+    <p class="govuk-body">If the details are wrong for this trainee only, you can edit them here.</p>
+
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "What if the details are incorrect?",
+    html: detailsHtml
+  }) }}
+  {% set programmeDetails = record.programmeDetails %}
+
+  {# Don't show allocation row as that question comes later #}
+  {% set hideAllocationRow = true %}
+  {% include "_includes/summary-cards/programme-details/publish-course.html" %}
+
+  {{ govukButton({
+    text: "Confirm course"
+  }) }}
+
+  <p class="govuk-body"><a href="#" class="govuk-link">Edit details for this trainee only</a></p>
+  
+
+{% endblock %}
+

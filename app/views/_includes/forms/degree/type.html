@@ -1,0 +1,41 @@
+<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+{% set degreeCount = record.degree.items | length %}
+
+{# Degree data is stored in a temp location before being merged back to array #}
+
+{# Get degree (if it exists) from existing data #}
+{% set degree = record.degree.items[itemIndex] %}
+{# Merge with temp store #}
+{% set degreeTemp = degree | mergeObjects(data.degreeTemp) %}
+
+{% if degreeCount < 1 %}
+  <p class="govuk-body">If the trainee has any other degrees, you can add them next.</p>
+{% endif %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "Is this a UK or non-UK degree?",
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [{
+    value: "false",
+    text: "UK degree"
+  }, {
+    value: "true",
+    text: "Non-UK degree"
+  }]
+} | decorateAttributes(degreeTemp, "degreeTemp.isInternational")) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+
+
+
+

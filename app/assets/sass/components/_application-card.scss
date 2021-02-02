@@ -1,0 +1,124 @@
+.app-application-card {
+  border-bottom: 1px solid govuk-colour('mid-grey');
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+.app-application-card:first-of-type {
+  border-top: 1px solid govuk-colour('mid-grey');
+  padding-top: 15px;
+}
+
+// Trainee column
+.app-application-card_col:nth-last-child(4) {
+  @include govuk-media-query($from: tablet) {
+    width: 5%;
+    padding-right: 10px;
+  }
+}
+
+// Trainee column
+.app-application-card_col:nth-last-child(3) {
+  @include govuk-media-query($from: tablet) {
+    width: 40%;
+    padding-right: 15px;
+  }
+}
+
+// Course details column
+.app-application-card_col:nth-last-child(2) {
+  @include govuk-media-query($until: tablet) {
+    margin-top: govuk-spacing(2);
+    margin-bottom: govuk-spacing(2);
+  }
+  @include govuk-media-query($from: tablet) {
+    width: 25%;
+  }
+}
+
+// Status column
+.app-application-card_col:nth-last-child(1) {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    justify-content: space-between;
+    height: 100%;
+    text-align: right;
+  }
+}
+
+.app-application-card_col .govuk-tag {
+  align-self: flex-end;
+}
+
+.app-application-card__id {
+  overflow-wrap: break-word;
+}
+
+.app-application-card__submitted {
+  overflow-wrap: break-word;
+
+  span {
+    display: block;
+  }
+}
+
+.app-application-card__primary {
+  @include govuk-media-query($from: tablet) {
+    width: 60%;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.app-application-card__secondary {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    text-align: right;
+  }
+}
+
+.app-application-card__status {
+  margin-bottom: govuk-spacing(2);
+  margin-top: govuk-spacing(3);
+  @include govuk-media-query($from: tablet) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.app-application-card__note {
+  margin-bottom: govuk-spacing(0);
+  @include govuk-font(16);
+}
+
+.app-application-card__note {
+  padding-left: 15px;
+  display: inline-block;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: govuk-colour('black');
+  position: relative;
+}
+
+.app-application-card__note:before {
+  border-radius: 25px;
+  height: 10px;
+  width: 10px;
+  background: govuk-colour('black');
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 6px;
+}

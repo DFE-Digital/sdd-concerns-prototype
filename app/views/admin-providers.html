@@ -1,0 +1,110 @@
+
+{% extends "_templates/_page.html" %}
+
+{% set backLink = '/records' %}
+{% set backText = 'All records' %}
+{% set pageHeading = 'Provider settings' %}
+
+{% block content %}
+{{super()}}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+    <form action="" method="post">
+
+      {{ govukRadios({
+        fieldset: {
+          legend: {
+            text: "Provider model",
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            text: "Hat model",
+            value: "hat-model",
+            hint: {
+              text: 'Trainees from just the current provider are shown'
+            }
+          },
+          {
+            text: "Blended",
+            value: "blended-model",
+            hint: {
+              text: 'Trainees from all providers are shown together'
+            }
+          }
+        ]
+      } | decorateAttributes(data, "data.settings.providerModel")) }}
+
+      {{ appAutocomplete({
+        label: {
+          text: "Active provider (hat model only)",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: 'The currently active provider. Must match one of the enabled providers below.'
+        },
+        id: 'active-provider',
+        showAllValues: true,
+        name: "settings[userActiveProvider]",
+        items: data.settings.userProviders,
+        classes: "app-!-autocomplete--max-width-two-thirds",
+        value: data.settings.userActiveProvider
+        }
+      ) }}
+
+
+      {% set providerItems = [] %}
+      {# Sort selected to the front #}
+      {% for provider in data.settings.userProviders %}
+        {% set providerItems = providerItems | push({
+          text: provider
+        }) %}
+      {% endfor %}
+
+      {% for provider in data.providers %}
+        {% if not data.settings.userProviders.includes(provider)  %}
+          {% set providerItems = providerItems | push({
+            text: provider
+          }) %}
+        {% endif %}
+      {% endfor %}
+
+      {% set providersHtml %}
+        {{ govukCheckboxes({
+          fieldset: {
+            legend: {
+              text: "Providers the current user belongs to",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Providers the current signed in user belongs to"
+          },
+          items: providerItems
+        } | decorateAttributes(data, "data.settings.userProviders")) }}
+      {% endset %}
+
+      {{ govukDetails({
+        summaryText: "Enabled providers",
+        html: providersHtml
+      }) }}
+
+
+      {{ govukButton({
+        "text": "Update"
+      }) }}
+
+      <input name="successFlash" type="hidden" value="Prototype settings updated">
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

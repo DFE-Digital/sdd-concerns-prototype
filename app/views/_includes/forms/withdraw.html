@@ -1,0 +1,108 @@
+{% set customWithdrawalDateArray = record.withdrawalDate | toDateArray %}
+{% if record.withdrawalDate | isInLast(2, "days") and record.withdrawalDateRadio != "On another day" %}
+  {% set customWithdrawalDateArray = undefined %}
+{% endif %}
+
+{% set customWithdrawalDate %}
+  {{ govukDateInput({
+    id: "custom-withdrawal-date",
+    namePrefix: "record[withdrawalDate]",
+    fieldset: {
+      legend: {
+        text: "Enter the withdrawal date",
+        classes: "govuk-label govuk-label--s"
+      }
+    },
+    hint: {
+      text: "For example, " + "" | today | toDateArray | spaceSeparate
+    },
+    items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2",
+          value: customWithdrawalDateArray["0"]
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: customWithdrawalDateArray["1"]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: customWithdrawalDateArray["2"]
+        }
+      ]
+  }) }}
+{% endset %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "When did the trainee withdraw?",
+      classes: "govuk-fieldset__legend--s govuk-!-margin-bottom-4"
+    }
+  },
+  items: [
+    {
+      text: "Today"
+    },
+    {
+      text: "Yesterday"
+    },
+    {
+      text: "On another day",
+      conditional: {
+        html: customWithdrawalDate
+      }
+    }
+  ]
+} | decorateAttributes(record, "record.withdrawalDateRadio")) }}
+
+{% set customWithdrawalReason %}
+  {{ govukInput({
+    label: {
+        text: "Enter the reason for withdrawal",
+        classes: "govuk-label govuk-label--s"
+    },
+    classes: "govuk-!-width-two-thirds"
+  } | decorateAttributes(record, "record.withdrawalReasonOther")) }}
+{% endset %}
+
+{% set withdrawalReasonsItems = []  %}
+
+{% for reason in data.withdrawalReasons %}
+  {% set withdrawalReasonsItems = withdrawalReasonsItems | push ({ 
+    text: reason
+  }) %}
+{% endfor %}
+
+{% set withdrawalReasonsItems = withdrawalReasonsItems | push ({ 
+  divider: "or"
+}) %}
+
+{% set withdrawalReasonsItems = withdrawalReasonsItems | push ({ 
+  text: "For another reason",
+  checked: storeWithdrawalReasonOther,
+  conditional: {
+    html: customWithdrawalReason
+  }
+}) %}
+
+{% set withdrawalReasonsItems = withdrawalReasonsItems | push ({ 
+  text: "Unknown"
+}) %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "Reason for leaving",
+      classes: "govuk-fieldset__legend--s govuk-!-margin-bottom-4"
+    }
+  },
+  items: withdrawalReasonsItems
+} | decorateAttributes(record, "record.withdrawalReason")) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

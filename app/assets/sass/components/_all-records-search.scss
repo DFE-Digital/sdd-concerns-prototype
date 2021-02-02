@@ -1,0 +1,107 @@
+// Records search
+
+.records-search {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.records-search .govuk-form-group {
+  flex-grow: 1;
+}
+
+.records-search .govuk-button {
+  @include govuk-media-query($from: tablet) {
+    align-self: flex-start;
+    margin-top: auto;
+    margin-left: govuk-spacing(2);
+  }
+}
+
+///////
+
+// Search button styles from https://components.publishing.service.gov.uk/component-guide/search
+
+$input-size: 40px;
+$large-input-size: 50px;
+
+.gem-c-search__submit {
+  border: 0;
+  cursor: pointer;
+  border-radius: 0;
+  position: relative;
+  padding: 0;
+  width: $input-size;
+  height: $input-size;
+  background-image: url("/public/images/search-button.png");
+  background-repeat: no-repeat;
+  background-position: 2px 50%;
+  text-indent: -5000px;
+  overflow: hidden;
+
+  @include govuk-device-pixel-ratio {
+    background-size: 52.5px auto;
+    background-position: 115% 50%;
+  }
+
+  &:focus {
+    z-index: 2;
+    outline: $govuk-focus-width solid $govuk-focus-colour;
+    // Ensure outline appears outside of the element
+    outline-offset: 0;
+    // Double the border by adding its width again. Use `box-shadow` for this // instead of changing `border-width` - this is for consistency with
+    // Also, `outline` cannot be utilised
+    // here as it is already used for the yellow focus state.
+    box-shadow: inset 0 0 0 $govuk-border-width-form-element * 2 govuk-colour("black");
+
+    @include govuk-if-ie8 {
+      // IE8 doesn't support `box-shadow` so double the border with
+      // `border-width`.
+      border-width: $govuk-border-width-form-element * 2;
+    }
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.gem-c-search__item-wrapper {
+  display: table;
+  width: 100%;
+  background: govuk-colour("white");
+}
+
+//general class applied to search input and button wrapper
+.gem-c-search__item {
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.gem-c-search__submit-wrapper {
+  width: 1%;
+}
+
+.gem-c-search--on-white {
+  .gem-c-search__submit {
+    background-color: govuk-colour("blue");
+    color: govuk-colour("white");
+
+    &:hover {
+      background-color: lighten(govuk-colour("blue"), 5%);
+    }
+  }
+
+  .gem-c-search__input[type="search"] {
+    border-right-width: 0;
+
+    // add the border once focused
+    &:focus {
+      border-right-width: 2px;
+    }
+  }
+}
+
+

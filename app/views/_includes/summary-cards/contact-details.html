@@ -1,0 +1,113 @@
+
+{# Merge fields and strip empty #}
+{% set ukAddress = record.contactDetails.address %}
+{# Make postcode uppercase #}
+{% set ukAddress = ukAddress | setAttribute('postcode', ukAddress.postcode | upper) %}
+{% set ukAddress = ukAddress | objectToArray | separateLines | nl2br %}
+{# Hacky support for international addresses #}
+{% set internationalAddress = record.contactDetails.internationalAddress | nl2br %}
+
+{% if record.contactDetails.addressType == "domestic" %}
+{{ukAddress | log}}
+  {% set address = ukAddress %}
+{% else %}
+  {% set address = internationalAddress %}
+{% endif %}
+{% set address = address or 'Not provided' %}
+
+
+
+{% set contactDetailsRows = [
+  {
+    key: {
+      text: "Address"
+    },
+    value: {
+      html: address | safe
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/contact-details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "address"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Phone number"
+    },
+    value: {
+      text: record.contactDetails.phoneNumber or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/contact-details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "phone number"
+        }
+      ]
+    } if canAmend
+  } if false,
+  {
+    key: {
+      text: "Email address"
+    },
+    value: {
+      text: record.contactDetails.email or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/contact-details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "email"
+        }
+      ]
+    } if canAmend
+  }
+  ] %}
+
+
+
+{% set contactDetailsHtml %}
+  {{ govukSummaryList({
+    rows: contactDetailsRows
+  }) }}
+{% endset %}
+
+{% set complete = true if (record.contactDetails | sectionIsCompleted ) %}
+{% set status  = record.contactDetails | getStatusText %}
+{% set sectionIsRequired = record | requiresSection("contactDetails") %}
+
+{% if not sectionIsRequired %}
+  {# Section not required #}
+{% elseif showIncomplete and not complete %}
+
+  {% set incompleteType = "warning" if errorList %}
+  {% set incompleteId = "contact-details" %}
+  {% if status == "In progress" %}
+    {% set incompleteText = "Contact details not marked as complete" %}
+    {% set incompleteLink = recordPath + "/contact-details/confirm" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Continue section" %}
+  {% else %}
+    {% set incompleteText = "Contact details not started" %}
+    {% set incompleteLink = recordPath + "/contact-details" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Start section" %}
+  {% endif %}
+
+  {% include "_includes/incomplete.njk" %}
+
+{% else %}
+
+  {{ appSummaryCard({
+    classes: "govuk-!-margin-bottom-6",
+    titleText: "Contact details",
+    html: contactDetailsHtml
+  }) }}
+  
+{% endif %}
+

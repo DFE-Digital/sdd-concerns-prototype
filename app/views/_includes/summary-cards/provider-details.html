@@ -1,0 +1,35 @@
+{# NB this summary card not used currently #}
+
+{% set providerRows = [
+  {
+    key: {
+      text: "Provider"
+    },
+    value: {
+      text: record.provider or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/pick-provider" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "provider"
+        }
+      ]
+    } if canAmend and false
+  }
+] %}
+
+{% set providerDetailsHtml %}
+  {{ govukSummaryList({
+    rows: providerRows
+  }) }}
+{% endset %}
+
+{% if data.signedInProviders | length > 1 %}
+  {{ appSummaryCard({
+    classes: "govuk-!-margin-bottom-6",
+    titleText: "Provider",
+    html: providerDetailsHtml
+  }) }}
+{% endif %}

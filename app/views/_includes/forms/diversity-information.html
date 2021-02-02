@@ -1,0 +1,53 @@
+{# Unused page exploring alternate ways of collecting diversity information #}
+
+{% set ethnicities = [] %}
+{% for ethnicGroup, ethnicBackground in data.ethnicities %}
+  {% set ethnicities = ethnicities | push(ethnicGroup) %}
+  {% for ethnicity in ethnicBackground %}
+    {% set ethnicities = ethnicities | push(ethnicGroup + ' - ' + ethnicity) %}
+  {% endfor %}
+{% endfor %}
+
+{% set ethnicityAutocompleteHtml %}
+  {{ appAutocomplete({
+    label: {
+      text: "Degree subject",
+      classes: "govuk-label--s"
+    },
+    id: 'subject',
+    name: "ethnicity",
+    items: ethnicities,
+    classes: "govuk-!-width-two-thirds",
+    value: ethnicity
+    }
+  ) }}
+
+{% endset %}
+
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "Has the trainee disclosed their ethnicity?",
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      text: "Yes, they have",
+      conditional: {
+        html: ethnicityAutocompleteHtml
+      }
+    },
+    {
+      text: "Not provided"
+    }
+  ]
+} | decorateAttributes(data, "data.foo.bar")) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

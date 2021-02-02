@@ -1,0 +1,57 @@
+{% set complete = true if (record.degree | sectionIsCompleted ) %}
+{% set status  = record.degree | getStatusText %}
+
+{% set degrees = record.degree.items %}
+{% set degreeCount = degrees | length %}
+{% set sectionIsRequired = record | requiresSection("degree") %}
+
+{% if not sectionIsRequired %}
+  {# Section not required #}
+{% elseif showIncomplete and not complete %}
+
+  {% set incompleteType = "warning" if errorList %}
+  {% set incompleteId = "degree-details" %}
+  {% if status == "In progress" %}
+    {% set incompleteText = "Degree details not marked as complete" %}
+    {% set incompleteLink = recordPath + "/degree/confirm" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Complete section" %}
+  {% else %}
+    {% set incompleteText = "Degree details not started" %}
+    {% set incompleteLink = recordPath + "/degree/add" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Start section" %}
+  {% endif %}
+
+  {% include "_includes/incomplete.njk" %}
+
+{% else %}
+
+  {# Show a banner on existing records when last degree deleted #}
+  {# TODO: should this reuse the 'incomplete' above?
+  done separately as seed records don't have 'complete' as a concept #}
+  {% if degrees | length == 0 %}
+    {% set incompleteText = "Degree details not provided" %}
+    {% set incompleteLink = recordPath + "/degree/add" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Add degree details" %}
+    {% include "_includes/incomplete.njk" %}
+  {% endif %}
+
+  {% for degree in degrees %}
+    {% include "_includes/summary-cards/degree/single-degree-details.html" %}
+  {% endfor %}
+
+{% endif %}
+
+{# Add a degree button #}
+{% if (degreeCount > 0) %}
+  <div class="govuk-form-group govuk-!-margin-bottom-0">
+    {{ govukButton({
+      text: "Add another degree" if degreeCount > 0 else "Add a degree",
+      href: recordPath + "/degree/add",
+      classes: "govuk-button--secondary"
+    }) }}
+  </div>
+{% endif %}
+
+{% if degreeCount > 1 %}
+  {% include "_includes/summary-cards/degree/bursary-details.html" %}
+{% endif %}

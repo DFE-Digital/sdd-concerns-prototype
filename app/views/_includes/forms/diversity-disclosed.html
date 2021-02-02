@@ -1,0 +1,27 @@
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Includes ethnicity and disabilities"
+  },
+  items: [
+    {
+      value: "true",
+      text: "Yes"
+    },
+    {
+      value: "false",
+      text: "No"
+    }
+  ]
+} | decorateAttributes(record, 'record.diversity.diversityDisclosed') )}}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+

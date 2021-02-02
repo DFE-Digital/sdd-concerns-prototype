@@ -1,0 +1,194 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
+@import "node_modules/@ministryofjustice/frontend/moj/all";
+
+
+// Patterns that aren't in Frontend
+@import "patterns/step-by-step-header";
+@import "patterns/step-by-step-nav";
+@import "patterns/step-by-step-related";
+@import "patterns/task-list";
+@import "patterns/related-items";
+@import "patterns/start-page";
+@import "components/summary-card";
+@import "components/task-list";
+@import "components/autocomplete";
+@import "components/footer";
+
+// Misc
+@import "helpers";
+@import "helpers/field-widths";
+@import "helpers/width-container";
+
+// Components that aren't in Frontend
+@import "components/application-card";
+@import "components/all-records-header";
+@import "components/all-records-search";
+@import "components/banner";
+@import "components/button-as-link";
+@import "components/cookie-banner";
+@import "components/record-header";
+@import "components/record-actions";
+@import "components/sub-navigation";
+@import "components/primary-navigation-dark";
+@import "components/timeline";
+@import "components/status-card";
+
+// Overrides
+@import "overrides/govuk-header";
+@import "overrides/govuk-panel";
+@import "overrides/govuk-error-summary";
+@import "overrides/moj-filter";
+@import "overrides/moj-pagination";
+@import "overrides/tabs";
+@import "overrides/dash-list";
+@import "overrides/summary-card";
+
+
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+h1.register-main-heading {
+  font-size: 3rem;
+  .govuk-tag {
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+  .govuk-tag--dark-grey {
+    background-color: govuk-colour("dark-grey");
+  }
+}
+
+div.govuk-tabs__panel {
+  border: none !important;
+}
+
+div.summary-panel {
+  border: 1px solid $govuk-border-colour;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  div.summary-header {
+    margin: -15px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: govuk-colour("light-grey");
+
+    h2 {
+      margin: 0px;
+      padding-left: 9px;
+    }
+
+    div.link-and-tag {
+      padding-top: 5px;
+      text-align: right;
+      span {
+        margin-left: 15px;
+      }
+    }
+
+  }
+}
+
+fieldset.address {
+  h2 {
+    @include govuk-font($size: 19);
+    font-weight: bold;
+  }
+  label.govuk-label {
+    font-weight: normal;
+  }
+}
+
+a.summary-link {
+  vertical-align: middle;
+}
+
+span.summary-validation-symbol {
+  float: right;
+  &--valid {
+    color: govuk-colour("green");
+  }
+  &--invalid {
+    color: govuk-colour("red");
+  }
+}
+
+.filter-panel {
+  background-color: govuk-colour("light-grey");
+  padding-top: 10px;
+  margin-bottom: 20px;
+  button.search-button {
+    margin-bottom: 0px;
+  }
+  input.search-input {
+    width: 365px;
+  }
+  &__download-data {
+    text-align: right;
+    .govuk-button {
+      background-color: govuk-colour("mid-grey");
+      color: #000;
+    }
+  }
+}
+
+.trainees-table {
+  border-top: 1px solid $govuk-border-colour;
+  &__name-cell {
+    font-weight: bold;
+    padding-left: 5px;
+  }
+  &__dob {
+    color: govuk-colour("mid-grey");
+  }
+  &__course-type {
+    color: govuk-colour("mid-grey");
+  }
+}
+
+.trainee-count {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.trainee-confirmation-panel {
+  text-align: left;
+  margin-bottom: 40px;
+  &__check {
+    border-radius: 50%;
+    width: 50px;
+    height: 40px;
+    background-color: #FFF;
+    color: govuk-colour("green");
+    font-size: 25px;
+    text-align: center;
+    padding-top: 10px;
+    float: left;
+    margin: 0px 20px;
+  }
+  &__content {
+    float: left;
+    width: 80%;
+  }
+  &__emphasis {
+    font-weight: bold;
+  }
+}
+
+.confirmation-next-button {
+  margin-right: 20px;
+}
+
+.align-right {
+  text-align: right;
+  float: right;
+}
+

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="dashboard.html">Dashboard</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Add the outgoing trust name</a>
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-width-container"><br>
+  <h1 class="govuk-heading-xl">Add the outgoing trust name</h1>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+      <label class="govuk-hint" for="my-autocomplete">Search by name, trust reference number or companies house
+      number</label>
+    <div id="my-autocomplete-container"></div>
+    </div>
+  </div>
+</div>
+
+<a href="trust-details.html" role="button" draggable="false" class="govuk-button">
+  Search
+</a>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<link rel="stylesheet" href="/public/stylesheets/accessible-autocomplete.min.css" />
+<script>
+  const countries = [
+    'Our Lady Immaculate Catholic Academies Trust Ltd, TR03117, 09436283',
+    'Star Academies, TR02243, 07353849',
+    'Dixon Academies Trust Ltd, TR00671, 02303464',
+    'The Cardinal Hume Academies Trust Ltd, TR00389, 08148675'
+  ]
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

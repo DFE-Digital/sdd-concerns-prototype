@@ -1,0 +1,32 @@
+{% set providers = data.signedInProviders %}
+
+
+{{providers | log}}
+
+{% set providerItems = [] %}
+
+{% for provider in providers %}
+  {% set providerItems = providerItems | push({
+    text: provider
+  }) %}
+{% endfor %}
+
+{# {% set providerItems = providerItems | push({divider: 'or'}) %}
+ #}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: providerItems
+} | decorateAttributes(record, "record.provider")) }}
+
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}

@@ -1,0 +1,21 @@
+
+{{ appSubNavigation({
+  label: 'Sub navigation',
+  classes: 'govuk-!-margin-bottom-4',
+  items: [{
+    text: 'About their training',
+    href: recordPath,
+    active: (activeTab == "trainee-details")
+  },
+  {
+    text: 'Personal details and education',
+    href: recordPath + '/details-and-education',
+    active: (activeTab == "details-education")
+  },
+  {
+    text: "Timeline",
+    href: recordPath + '/timeline',
+    active: (activeTab == "timeline")
+  } if data.settings.includeTimeline
+  ]
+}) }}

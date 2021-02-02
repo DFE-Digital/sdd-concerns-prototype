@@ -1,0 +1,31 @@
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Submit a group of records and request TRNs",
+      text: "Submit a group of records and request TRNs"
+    },
+    {
+      value: "Recommend a group of trainees for QTS",
+      text: "Recommend a group of trainees for QTS",
+      hint: {
+        text: "The group must have met the standards on the same day. You can submit as many groups as you need."
+      }
+    }
+  ]
+} | decorateAttributes(data, "data.bulk.action")) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}

@@ -1,0 +1,158 @@
+<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+{{data.ittSubjects | log}}
+
+{{ appAutocomplete({
+  label: {
+    text: "Subject",
+    classes: "govuk-label--s"
+  },
+  hint: {
+    text: 'Select the closest matching subject'
+  },
+  id: 'subject',
+  name: "record[programmeDetails][subject]",
+  items: data.ittSubjects,
+  value: record.programmeDetails.subject
+  }
+) }}
+
+{# These account for 91% of choices #}
+{% set commonAgeRanges = [
+  "3 to 11 programme",
+  "5 to 11 programme",
+  "11 to 16 programme",
+  "11 to 19 programme"
+  ] %}
+
+{# Create radio items for each #}
+{% set ageRangeRadioItems = [] %}
+{% for ageRange in commonAgeRanges %}
+  {% set ageRangeRadioItems = ageRangeRadioItems | push({
+    text: ageRange
+  }) %}
+{% endfor %}
+
+{% set uncommonAgeRanges = data.assessmentOnlyAgeRanges | removeArrayItems(commonAgeRanges) %}
+
+{# Prefil existing answer #}
+{% set ageRangeExistingValue = record.programmeDetails.ageRange %}
+{% if ageRangeExistingValue in commonAgeRanges %}
+  {% set ageRangeExistingValue = undefined %}
+{% endif %}
+
+{% set ageRangeAutocomplete %}
+  {{ appAutocomplete({
+    label: {
+      text: "Other age range",
+      classes: "govuk-label--s"
+    },
+    id: 'age-range',
+    name: "record[programmeDetails][ageRangeOther]",
+    items: uncommonAgeRanges,
+    value: ageRangeExistingValue
+    }
+  ) }}
+{% endset %}
+{{ageRangeExistingValue | log}}
+{% set ageRangeRadioItems = ageRangeRadioItems | combineArrays(
+  [{
+    divider: 'or'
+  },
+  {
+    text: "Other age range",
+    checked: 'checked' if ageRangeExistingValue,
+    conditional: {
+      html: ageRangeAutocomplete
+    }
+  }]
+) %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "Age range",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: ageRangeRadioItems
+} | decorateAttributes(record, "record.programmeDetails.ageRange")) }}
+
+{% set programmeStartDateArray = record.programmeDetails.startDate | toDateArray %}
+
+{{ govukDateInput({
+  id: "programme-start-date",
+  namePrefix: "record[programmeDetails][startDate]",
+  fieldset: {
+    legend: {
+      text: "Programme start date",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "For example, " + "" | today | toDateArray | spaceSeparate
+  },
+  items: [
+      {
+        name: "day",
+        classes: "govuk-input--width-2",
+        value: programmeStartDateArray["0"]
+      },
+      {
+        name: "month",
+        classes: "govuk-input--width-2",
+        value: programmeStartDateArray["1"]
+      },
+      {
+        name: "year",
+        classes: "govuk-input--width-4",
+        value: programmeStartDateArray["2"]
+      }
+    ]
+}) }}
+
+{% set programmeEndDateArray = record.programmeDetails.endDate | toDateArray %}
+{{ govukDateInput({
+  id: "programme-end-date",
+  namePrefix: "record[programmeDetails][endDate]",
+  fieldset: {
+    legend: {
+      text: "Programme end date",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "For example, " + "" | today | moment('add', 1, 'years') | toDateArray | spaceSeparate
+  },
+  items: [
+      {
+        name: "day",
+        classes: "govuk-input--width-2",
+        value: programmeEndDateArray["0"]
+      },
+      {
+        name: "month",
+        classes: "govuk-input--width-2",
+        value: programmeEndDateArray["1"]
+      },
+      {
+        name: "year",
+        classes: "govuk-input--width-4",
+        value: programmeEndDateArray["2"]
+      }
+    ]
+}) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+
+
+
+

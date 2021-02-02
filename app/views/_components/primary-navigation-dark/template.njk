@@ -1,0 +1,35 @@
+{# Adapted from https://hmcts-design-system.herokuapp.com/components/primary-navigation #}
+
+<div class="app-primary-navigation-dark {{- ' ' + params.classes if params.classes}}">
+
+  <div class="app-primary-navigation-dark__container">
+
+    <div class="app-primary-navigation-dark__nav">
+
+      <nav class="_app-primary-navigation-dark"{% if (params.label) %} aria-label="{{ params.label }}"{% endif %}>
+
+        <ul class="app-primary-navigation-dark__list">
+
+          {% for item in params.items %}
+            <li class="app-primary-navigation-dark__item {{item.classes if item.classes}}">
+              <a class="app-primary-navigation-dark__link" {{ 'aria-current="page"' | safe if item.active }} href="{{ item.href }}">
+                {{ item.html | safe if item.html else item.text }}
+              </a>
+            </li>
+          {% endfor %}
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  {% if params.searchHtml %}
+    <div class="app-primary-navigation-dark__search">
+      {{ params.searchHtml | safe }}
+    </div>
+  {% endif %}
+
+  </div>
+
+</div>

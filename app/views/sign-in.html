@@ -1,0 +1,28 @@
+
+{% extends "_templates/_page.html" %}
+{% set backLink = '/start-page' %}
+{% set hideNav = true %}
+{% set hidePrimaryNav = true %}
+
+{% set pageHeading = 'Sign in to Register trainee teachers' %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+    <p class="govuk-body">Use DfE Sign-in to access your account.</p>
+
+    {{ govukButton({
+      "text": "Continue to DfE Sign-in",
+      href: "dfe-sign-in"
+    }) }}
+
+    <p class="govuk-body">If you do not have a DfE Sign-in account but need access to Register trainee teachers, email <a class="govuk-link" href="mailto:becomingateacher@digital.education.gov.uk?subject=Get%20access%20to%20Register%20trainee%20teachers">becomingateacher@digital.education.gov.uk</a>.</p>
+
+  </div>
+</div>
+
+{% endblock %}

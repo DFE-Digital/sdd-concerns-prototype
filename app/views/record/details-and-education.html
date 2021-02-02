@@ -1,0 +1,26 @@
+{% extends "_templates/_record.html" %}
+
+{% set backLink = '/records' %}
+{% set backText = 'All records' %}
+{% set pageHeading = data.record.personalDetails.shortName %}
+{% set activeTab = 'details-education' %}
+
+{% block tabContent %}
+
+  {% set referrer = recordPath + "/details-and-education" %}
+
+  {% include "_includes/summary-cards/personal-details.html" %}
+
+  {% include "_includes/summary-cards/contact-details.html" %}
+
+  {% include "_includes/summary-cards/diversity.html" %}
+
+  {% include "_includes/summary-cards/gcse-details.html" %}
+
+  {% include "_includes/summary-cards/degree/details.html" %}
+
+ 
+
+  
+
+{% endblock %}

@@ -1,0 +1,13 @@
+// Trainee record header
+
+.record-header {
+  margin-bottom: govuk-spacing(6);
+}
+
+.record-header .govuk-tag {
+  @include govuk-media-query($from: tablet) {
+    position: relative;
+    top: -5px;
+  }
+
+}

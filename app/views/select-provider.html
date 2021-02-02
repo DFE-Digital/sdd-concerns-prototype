@@ -1,0 +1,46 @@
+
+{% extends "_templates/_page.html" %}
+{% set backLink = '/home' %}
+
+{% if query.initialProvider %}
+  {% set hidePrimaryNav = true %}
+{% endif %}
+
+{% set pageHeading = 'Choose provider' %}
+
+{% set navActive = 'provider' %}
+
+{% block pageNavigation %}
+
+  {% if backLink and not query.initialProvider %}
+    {{ govukBackLink({
+      text: backText,
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+        <ul class="govuk-list">
+          {% for provider in data.settings.userProviders %}
+            <li>
+              {# TODO: make real stles for this element #}
+              <a href="/home?settings[userActiveProvider]={{provider}}&clearQuery=true" class="govuk-heading-m govuk-link govuk-link--no-visited-state">{{provider}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

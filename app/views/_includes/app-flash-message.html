@@ -1,0 +1,18 @@
+{% set flash = flash[0] %}
+
+{% if flash | falsify %}
+  {% if flash | isString %}
+    {# Todo: rework flash usage in routes to avoid sending strings directly #}
+    {{ govukNotificationBanner({
+      text: flash,
+      type: 'success'
+    }) }}
+  {% else %}
+    {{ govukNotificationBanner({
+      title: flash.title,
+      html: flash.html,
+      text: flash.text,
+      type: 'success'
+    }) }}
+  {% endif %}
+{% endif %}

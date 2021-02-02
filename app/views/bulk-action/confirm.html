@@ -1,0 +1,46 @@
+{% extends "_templates/_form.html" %}
+
+{% set pageHeading = "Confirm trainees" %}
+
+{% set navActive = 'bulk' %}
+{% set gridColumn = 'govuk-grid-column-full' %}
+{% set formAction = "./save" | addReferrer(referrer) %}
+
+
+{% block formContent %}
+
+{% set canAmend = true %}
+
+  <span class="govuk-caption-l">{{data.bulk.action}}</span>
+  <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+  {% include "_includes/summary-cards/bulk-details.html" %}
+
+  {% set traineeCount = data.bulk.selectedTrainees | length %}
+
+  {% set submitButtonText %}
+
+    {# Singular #}
+    {% if traineeCount == 1 %}
+      {% if data.bulk.action == 'Submit a group of records and request TRNs' %}
+        Submit record and request TRN
+      {% elseif data.bulk.action == 'Recommend a group of trainees for QTS' %}
+        Recommend trainee for QTS
+      {% endif %}
+
+    {# Plural #}
+    {% else %}
+      {% if data.bulk.action == 'Submit a group of records and request TRNs' %}
+        Submit {{traineeCount}} records and request TRNs
+      {% elseif data.bulk.action == 'Recommend a group of trainees for QTS' %}
+        Recommend {{traineeCount}} trainees for QTS
+      {% endif %}
+    {% endif %}
+
+  {% endset %}
+
+  {{ govukButton({
+    text: submitButtonText
+  }) }}
+
+{% endblock %}

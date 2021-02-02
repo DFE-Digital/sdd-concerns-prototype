@@ -1,0 +1,122 @@
+// Adapted from https://github.com/app/frontend/blob/master/src/components/primary-navigation/_primary-navigation.scss
+
+$govuk-header-border-color: $govuk-brand-colour;
+$govuk-header-border-width: govuk-spacing(2);
+
+.app-primary-navigation-dark {
+  background-color: govuk-colour("black");
+  // Uncomment this for non-full width blue bottom border
+  // border-bottom: $govuk-header-border-width solid govuk-colour("white");
+  border-bottom: $govuk-header-border-width solid $govuk-header-border-color;
+}
+
+
+.app-primary-navigation-dark__container {
+  @include app-width-container;
+  font-size: 0; // Hide whitespace between elements
+  text-align: justify; // Trick to remove the need for floats
+
+  position: relative;
+  margin-bottom: -10px !important;
+  border-bottom: $govuk-header-border-width solid $govuk-header-border-color;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+
+}
+
+.app-primary-navigation-dark__nav {
+  width: 100%;
+  text-align: left;
+  @include mq($from: desktop) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+.app-primary-navigation-dark__list {
+  font-size: 0; // Removes white space when using inline-block on child element.
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.app-primary-navigation-dark__item {
+  @include govuk-font($size: 19, $weight: bold);
+  display: inline-block;
+  margin-right: govuk-spacing(4);
+  margin-top: 0;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+}
+
+
+.app-primary-navigation-dark__link {
+  display: block;
+  padding-bottom: 13px;
+  padding-top: 12px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:link,
+  &:visited {
+    color: govuk-colour("white");
+  }
+
+  &:focus {
+    color: govuk-colour("black"); // Focus colour on yellow should really be black.
+    position: relative; // Ensure focus sits above everything else.
+    z-index: 1;
+    outline: 3px solid $govuk-focus-colour;
+    outline-offset: 0;
+    box-shadow: none; // remove design system link focus styles
+  }
+
+  &[aria-current] {
+    color: govuk-colour("white");
+    position: relative;
+    text-decoration: none;
+
+    &:before {
+      background-color: govuk-colour("white");
+      content: "";
+      display: block;
+      height: 5px;
+      position: absolute; bottom: 0; left: 0;
+      width: 100%;
+    }
+
+    &:focus {
+      color: govuk-colour("black"); // Focus colour on yellow should really be black.
+      position: relative; // Ensure focus sits above everything else.
+
+      &:before {
+        background-color: govuk-colour("black");
+      }
+
+    }
+
+  }
+
+}
+
+
+.app-primary-navigation-dark__search {
+
+  @include mq($from: desktop) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+}

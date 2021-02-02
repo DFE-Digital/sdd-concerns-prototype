@@ -1,0 +1,32 @@
+{% set deferDetailsRows = [
+  {
+    key: {
+      text: "Date of deferral"
+    },
+    value: {
+      text: record.deferredDate | govukDate or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/defer" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "deferral date"
+        }
+      ]
+    } if canAmend
+  }
+] %}
+
+{% set deferDetailsHtml %}
+  {{ govukSummaryList({
+    rows: deferDetailsRows
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleText: "Deferral details",
+  html: deferDetailsHtml
+}) }}
+

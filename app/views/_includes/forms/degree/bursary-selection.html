@@ -1,0 +1,54 @@
+{# <h1 class="govuk-heading-l">{{pageHeading}}</h1> #}
+
+{% set degreeCount = record.degree.items | length %}
+
+{# Get degree (if it exists) from existing data #}
+{% set degrees = record.degree.items %}
+
+{% set degreeItems = [] %}
+
+{% for degree in degrees %}
+
+  {% set degreeItems = degreeItems | push({
+    text: degree | getDegreeName,
+    value: degree.id,
+    hint: {
+      text: degree | getDegreeHint
+    }
+  }) %}
+
+{% endfor %}
+
+{% set degreeItems = degreeItems | push({
+  divider: "Or"
+}) %}
+
+{% set degreeItems = degreeItems | push({
+  text: "Not applicable"
+}) %}
+
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: degreeItems
+} | decorateAttributes(record, "record.degree.degreeToBeUsedForBursaries")) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+
+
+
+

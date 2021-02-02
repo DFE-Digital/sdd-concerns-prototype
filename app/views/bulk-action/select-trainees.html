@@ -1,0 +1,26 @@
+{% extends "_templates/_form.html" %}
+
+{% set pageHeading = "Select trainees" %}
+
+{% if filteredRecords | length == 0 %}
+  {% set pageHeading = "No records found" %}
+{% endif %}
+
+{# {% if data.bulk.action == 'Recommend a group of trainees for QTS' %}
+  {% set pageHeading = "Select trainees to submit for QTS" if filteredRecords | length > 0 else "No records found" %}
+{% else %}
+  {% set pageHeading = "Select trainees to submit for QTS" if filteredRecords | length > 0 else "No records found" %}
+{% endif %} #}
+
+
+{% set navActive = 'bulk' %}
+
+{% set formAction = "./select-trainees-answer" | addReferrer(referrer) %}
+
+ {% set hideReturnLink = true if filteredRecords | length == 0 %}
+
+{% block formContent %}
+<span class="govuk-caption-l">{{data.bulk.action}}</span>
+  {% include "_includes/forms/bulk/select-trainees.html" %}
+
+{% endblock %}

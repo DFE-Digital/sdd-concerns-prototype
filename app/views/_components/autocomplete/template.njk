@@ -1,0 +1,146 @@
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% set defaultSelected = true %}
+{% if params.value %}
+  {% if params.value in params.items %}
+    {% set defaultSelected = false %}
+  {% endif %}
+{% endif %}
+
+{% set selectItems = [{
+  value: "",
+  text: "Please select",
+  disabled: true,
+  selected: defaultSelected
+}] %}
+
+{% for item in params.items %}
+  {% if item | isArray %}
+    {% set selectItems = selectItems | push({
+      value: item[1],
+      text: item[0],
+      selected: params.value == item[1]
+    }) %}
+  {% else %}
+    {% set selectItems = selectItems | push({
+      value: item,
+      text: item,
+      selected: params.value == item
+    }) %}
+  {% endif %}
+  
+{% endfor %}
+
+{# This needs margin manually applied because the design system removes
+ bottom margin from the last govuk-form-group in a div - which happens
+  for *each* autocomplete #}
+<div class="{{params.classes}} govuk-!-margin-bottom-6">
+  {{ govukSelect({
+    label: params.label,
+    hint: params.hint,
+    id: params.id,
+    classes: params.classes,
+    name: params.name,
+    items: selectItems
+  }) }}
+  {# <div class="govuk-form-group"></div> #}
+</div>
+
+
+{# {% if data.class %}
+  {% set class = data.class %}
+{% else %}
+  {% set class = 'govuk-fieldset__legend govuk-fieldset__legend--l' %}
+{% endif %}
+
+{% if data.legend %}
+  <legend for="{{data.idPrefix}}-autocomplete" class="{{class}} ">
+    {{data.legend}}
+  </legend>
+{% endif %}
+
+{% if data.hint %}
+  <span class="govuk-hint">{{data.hint | safe}}</span>
+{% endif %}
+
+{% if not data.width %}
+  {% set width = 'govuk-!-width-one-half' %}
+{% else %}
+  {% set width = data.width %}
+{% endif %} #}
+
+<script src="/public/javascripts/autocomplete.min.js"></script>
+<script>
+
+  var values = [{% for value in params.items %}"{{value}}",{% endfor %}];
+
+  var element = document.querySelector('#{{params.id}}');
+  // id = '{{params.id}}--autocomplete';
+  var defaultValue = '{{params.value}}';
+  var showAllValues = ('{{params.showAllValues}}' == 'false') ? false : true;
+  var autoSelect = ('{{params.autoSelect}}' == 'false') ? false : true;
+  var minLength = ('{{params.minLength}}' == false) ? 0 : parseInt('{{params.minLength}}');
+
+  // Conditional not used
+  // confirmFunction = function(val) {
+  //   {% if params.conditional %}
+
+  //     if (val == 'Other'){
+  //       $('.{{params.idPrefix}}-conditional-container').removeClass("hidden")
+  //       console.log('removing hidden class')
+  //     }
+  //     else if (typeof(val) != 'undefined') {
+  //       $('.{{params.idPrefix}}-conditional-container').addClass("hidden")
+  //       console.log('adding hidden class')
+  //     }
+  //   {% endif %}
+  // }
+
+  var inputValue = (result) => {
+      if (result) {
+        const name = result.split(' | ')
+        if (name[1]) {
+          return name[0] && name[0]
+        }
+        return result && result
+      }
+      return result && result
+    }
+
+  var suggestion = (result) => {
+      const name = result.split(' | ')
+      if (name[1]) {
+        return name[0] && name[0] + '<span class="autocomplete__option-hint">' + name[1] + '</span>'
+      }
+      else {
+        return result && result
+      }
+      
+    }
+
+
+  accessibleAutocomplete.enhanceSelectElement({
+    selectElement: element,
+    showAllValues: showAllValues,
+    autoselect: autoSelect,
+    minLength: minLength,
+    // source: values,
+    defaultValue: defaultValue,
+    templates: {
+      inputValue,
+      suggestion}
+
+  });
+    // onConfirm: confirmFunction
+
+
+</script>
+
+{% if data.conditional %}
+  {# In case the autocomplete starts with 'Other' #}
+  {% set hiddenClass = 'hidden' if data.value != 'Other' else '' %}
+  {{ govukInsetText({
+    html: data.conditional,
+    classes: data.idPrefix + "-conditional-container app-inset-conditional " + hiddenClass
+  }) }}
+{% endif %}

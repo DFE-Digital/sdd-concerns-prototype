@@ -1,0 +1,68 @@
+{% set dateArray = data.bulk.date | toDateArray %}
+
+{# Clear date array if answer is today or yesterday - so the wrong thing isn't prefilled #}
+{% if dateArray | isInLast(2, "days") and data.bulk.dateRadio != "On another day" %}
+  {% set dateArray = undefined %}
+{% endif %}
+
+{% set dateInputHtml %}
+  {{ govukDateInput({
+    id: "bulk-outcome-date",
+    namePrefix: "[bulk][date]",
+    fieldset: {
+      legend: {
+        text: "On what date?",
+        classes: "govuk-label govuk-label--s"
+      }
+    },
+    hint: {
+      text: "For example, " + "" | today | toDateArray | spaceSeparate
+    },
+    items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2",
+          value: customQtsOutcomeRecordedDateArray["0"]
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: customQtsOutcomeRecordedDateArray["1"]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: customQtsOutcomeRecordedDateArray["2"]
+        }
+      ]
+  }) }}
+{% endset %}
+
+<span class="govuk-caption-l">{{data.bulk.action}}</span>
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-4"
+    }
+  },
+  items: [
+    {
+      text: "Today"
+    },
+    {
+      text: "Yesterday"
+    },
+    {
+      text: "On another day",
+      conditional: {
+        html: dateInputHtml
+      }
+    }
+  ]
+} | decorateAttributes(data, "data.bulk.dateRadio")) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

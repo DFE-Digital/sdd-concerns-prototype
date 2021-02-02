@@ -1,0 +1,20 @@
+{% extends "_templates/_record.html" %}
+
+{% set pageHeading = data.record.personalDetails.shortName %}
+{% set pageSubHeading = "QTS recommend" %}
+{% set activeTab = 'qts-recommend' %}
+{% set formAction = "./personal-details/confirm" %}
+  
+{% block tabContent %}
+  <h2 class="govuk-heading-l">{{pageSubHeading}}</h1>
+
+  <p class="govuk-body">{{pageHeading}} has not yet been recomended for QTS.</p>
+
+  <div class="govuk-form-group">
+    {{ govukButton({
+      text: "Recommend a group of trainees for QTS",
+      href: "recommend-for-qts"
+    }) }}
+  </div>
+
+{% endblock %}

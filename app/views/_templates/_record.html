@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% set navActive = "records" %}
+
+{% if not backLink %}
+    {% set backLink      = 'javascript:history.back();' %}
+{% endif %}
+{% if not backText %}
+    {% set backText      = 'Back'  %}
+{% endif %}
+
+{% if backLink == 'false' %}
+    {% set backLink = false %}
+{% endif %}
+
+{% if backText == 'false' %}
+    {% set backText = '' %}
+{% endif %}
+
+
+{% block pageTitle %}
+  {{ pageHeading }} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block pageNavigation %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: backText,
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{# Record could be set by locals, or in session data #}
+{% set record = record or data.record %}
+{% if not record %}
+  {% set record = {} %}
+{% endif %}
+
+
+
+{% set canAmend = record.status | getAmendsAllowed %}
+{# {% set showIncomplete = true %} #}
+
+
+{# Used by summary cards #}
+{% set recordPath = "/record/" + record.id %}
+
+{% block content %}
+
+  {% include "_includes/app-flash-message.html" %}
+
+  <div class="record-header">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">
+      {{pageHeading}}
+      {{govukTag({
+          text: record.status,
+          classes: record.status | getStatusClass
+      })}}
+    </h1>
+    {% if record.trn %}
+      <span class="govuk-caption-l">TRN: {{record.trn}}
+      </span>
+    {% endif %}
+  </div>
+
+  {% include "_includes/record-sub-nav.njk" %}
+
+  {% block tabContent %}
+    
+  {% endblock %}
+
+{% endblock %}
+
+

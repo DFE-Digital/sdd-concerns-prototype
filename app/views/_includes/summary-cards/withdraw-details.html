@@ -1,0 +1,57 @@
+{% set withdrawalReason %}
+  {% if record.withdrawalReason == "For another reason" %}
+    {{record.withdrawalReasonOther}}
+  {% else%}
+    {{record.withdrawalReason}}
+  {% endif %}
+{% endset %}
+
+{% set withdrawDetailsRows = [
+  {
+    key: {
+      text: "Date of withdrawal"
+    },
+    value: {
+      text: record.withdrawalDate | govukDate or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/withdraw" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "withdrawal date"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Reason for withdrawal"
+    },
+    value: {
+      text: withdrawalReason or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/withdraw" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "withdrawal reason"
+        }
+      ]
+    } if canAmend
+  }
+] %}
+
+{% set withdrawDetailsHtml %}
+  {{ govukSummaryList({
+    rows: withdrawDetailsRows
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleText: "Withdrawal details",
+  html: withdrawDetailsHtml
+}) }}
+

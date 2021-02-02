@@ -1,0 +1,151 @@
+
+{% set expectedDuration = 'Not provided' %}
+{% if record.programmeDetails.duration | falsify %}
+  {% set expectedDuration = record.programmeDetails.duration + " years" %}
+{% endif %}
+
+{% set programmeDetailsRows = [
+  {
+    key: {
+      text: "Type of course"
+    },
+    value: {
+      text: record.route | safe or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/programme-details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "type of course"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Subject"
+    },
+    value: {
+      text: record.programmeDetails.subject or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/programme-details/details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "subject"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Age range"
+    },
+    value: {
+      text: record.programmeDetails.ageRange or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/programme-details/details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "age range"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Programme start date"
+    },
+    value: {
+      text: record.programmeDetails.startDate | govukDate or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/programme-details/details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "programme start date"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Programme end date"
+    },
+    value: {
+      text: record.programmeDetails.endDate | govukDate or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/programme-details/details" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "programme end date"
+        }
+      ]
+    } if canAmend
+  },
+  {
+    key: {
+      text: "Trainee using an allocated place"
+    },
+    value: {
+      text: record.programmeDetails.allocatedPlace or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/programme-details/allocated-place" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "allocated place"
+        }
+      ]
+    } if canAmend
+  } if record | hasAllocatedPlaces
+  ] %}
+
+
+
+{% set programmeDetailsHtml %}
+  {{ govukSummaryList({
+    rows: programmeDetailsRows
+  }) }}
+{% endset %}
+
+
+
+
+
+{% set complete = true if (record.programmeDetails | sectionIsCompleted ) %}
+{% set status  = record.programmeDetails | getStatusText %}
+
+{% if showIncomplete and not complete %}
+
+  {% set incompleteType = "warning" if errorList %}
+  {% set incompleteId = "programme-details" %}
+  {% if status == "In progress" %}
+    {% set incompleteText = "Programme details not marked as complete" %}
+    {% set incompleteLink = recordPath + "/programme-details/confirm" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Continue section" %}
+  {% else %}
+    {% set incompleteText = "Programme details not started" %}
+    {% set incompleteLink = recordPath + "/programme-details" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Start section" %}
+  {% endif %}
+
+  {% include "_includes/incomplete.njk" %}
+
+{% else %}
+
+  {{ appSummaryCard({
+    classes: "govuk-!-margin-bottom-6",
+    titleText: "Programme details",
+    html: programmeDetailsHtml
+  }) }}
+  
+{% endif %}

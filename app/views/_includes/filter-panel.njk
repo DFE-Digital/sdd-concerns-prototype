@@ -1,0 +1,243 @@
+{% set filterOptionsHtml %}
+
+  {{ govukCheckboxes({
+    classes: "govuk-checkboxes--small js-auto-submit",
+    fieldset: {
+      legend: {
+        text: "Course start",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        text: "2020 to 2021 (current)",
+        checked: checked(query.filterCycle, "2020 to 2021 (current)") if query.filterCycle else 'checked'
+      },
+      {
+        text: "2019 to 2020",
+        checked: checked(query.filterCycle, "2019 to 2020")
+      }
+    ]
+  } | decorateAttributes(data, "data.filterCycle"))}}
+
+  {% if data.signedInProviders | length > 1 %}
+    
+    {% set userProviders = data.settings.userProviders %}
+
+    {# Only show route filter if there's more than 1 route #}
+
+    {% set providerItems = [] %}
+    {% for provider in userProviders %}
+      {% set providerItems = providerItems | push({
+        text: provider,
+        checked: checked(query.filterUserProviders, provider)
+      }) %}
+    {% endfor %}
+    {{ govukCheckboxes({
+      classes: "govuk-checkboxes--small js-auto-submit",
+      fieldset: {
+        legend: {
+          text: "Provider",
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: ""
+      },
+      items: providerItems
+    } | decorateAttributes(data, "data.filterUserProviders")) }}
+
+  {% endif %}
+
+  {% set enabledTrainingRoutes = data.settings.enabledTrainingRoutes %}
+
+  {# Only show route filter if there's more than 1 route #}
+  {% if enabledTrainingRoutes | length > 1 %}
+
+    {% set routeItems = [] %}
+    {% for route in enabledTrainingRoutes %}
+      {% set routeItems = routeItems | push({
+        text: route,
+        checked: checked(query.filterTrainingRoutes, route)
+      }) %}
+    {% endfor %}
+    {{ govukCheckboxes({
+      classes: "govuk-checkboxes--small js-auto-submit",
+      fieldset: {
+        legend: {
+          text: "Routes",
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: ""
+      },
+      items: routeItems
+    } | decorateAttributes(data, "data.filterTrainingRoutes")) }}
+    
+  {% endif %}
+
+  {{ govukCheckboxes({
+    classes: "govuk-checkboxes--small js-auto-submit",
+    attributes: {
+      "id": 'filterStatusCheckboxes'
+    }
+    ,
+    fieldset: {
+      legend: {
+        text: "Status",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        text: "Draft",
+        checked: checked(query.filterStatus, "Draft")
+      },
+      {
+        text: "Pending TRN",
+        checked: checked(query.filterStatus, "Pending TRN")
+      },
+      {
+        text: "TRN received",
+        checked: checked(query.filterStatus, "TRN received")
+      },
+      {
+        text: "QTS recommended",
+        checked: checked(query.filterStatus, "QTS recommended")
+      },
+      {
+        text: "QTS awarded",
+        checked: checked(query.filterStatus, "QTS awarded")
+      },
+      {
+        text: "Deferred",
+        checked: checked(query.filterStatus, "Deferred")
+      },
+      {
+        text: "Withdrawn",
+        checked: checked(query.filterStatus, "Withdrawn")
+      }
+    ]
+  } | decorateAttributes(data, "data.filterStatus"))}}
+
+
+  {% set subjectItems = [] %}
+
+  {# Default state - first value is 'all' #}
+  {% set subjectItems = subjectItems | push({
+    value: "All subjects",
+    text: "All subjects",
+    selected: true if (not query.filterSubject or query.filterSubject ==  "All subjects")
+  }) %}
+  
+  {# Remaining subjects #}
+  {% for subject in data.ittSubjects %}
+    {% set subjectItems = subjectItems | push({
+      value: subject,
+      text: subject,
+      selected: true if (subject == query.filterSubject)
+    }) %}
+  {% endfor %}
+
+  {{ govukSelect({
+    id: "subject-select",
+    name: "filterSubject",
+    classes: "js-auto-submit",
+    label: {
+      text: "Subject",
+      classes: "govuk-label--s"
+    },
+    items: subjectItems
+  }) }}
+
+  {# Disabled because of usability issues with clearing answer #}
+  {# {{ appAutocomplete({
+    label: {
+      text: "Subject",
+      classes: "govuk-label--s"
+    },
+    id: 'subject',
+    name: "filterSubject",
+    autoSelect: false,
+    items: subjects,
+    value: query.filterSubject
+    }
+  ) }} #}
+
+{% endset %}
+
+<div class="moj-filter" tabindex="-1">
+  <div class="moj-filter__header">
+    <div class="moj-filter__header-title">
+      <h2 class="govuk-heading-m">Filters</h2>
+    </div>
+    <div class="moj-filter__header-action"></div>
+  </div>
+  <div class="moj-filter__content">
+    {% if selectedFilters %}
+      <div class="moj-filter__selected">
+        <div class="moj-filter__selected-heading">
+          <div class="moj-filter__heading-title">
+            <h2 class="govuk-heading-m">Selected filters</h2>
+          </div>
+          <div class="moj-filter__heading-action">
+            <p><a class="govuk-link govuk-link--no-visited-state" href="/records">Clear</a></p>
+          </div>
+        </div>
+
+        {% for category in selectedFilters.categories %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ category.heading.text }}</h3>
+          <ul class="moj-filter-tags">
+            {% for item in category.items %}
+              <li><a class="moj-filter__tag" href="{{item.href}}"><span class="govuk-visually-hidden">Remove this filter</span> {{item.text}}</a></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="moj-filter__options">
+
+      {# <div class="records-search">
+        {{ govukInput({
+          label: {
+            html: "Search records",
+            classes: "govuk-label--s"
+          },
+          id: "search",
+          name: "searchQuery",
+          value: query.searchQuery
+        }) }}
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+      </div> #}
+
+      {# button code stollen from https://components.publishing.service.gov.uk/component-guide/search #}
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="search">
+          Search records
+        </label>
+        <div class="gem-c-search__item-wrapper gem-c-search--on-white">
+          <input class="govuk-input" id="search" name="searchQuery" type="text" value="{{query.searchQuery}}">
+          {# <div class="gem-c-search__item gem-c-search__submit-wrapper">
+            <button type="submit" class="gem-c-search__submit">Search</button>
+          </div> #}
+        </div>
+      </div>
+
+      {# Button for no-js only #}
+      <button class="govuk-button app-no-js-only" data-module="govuk-button">
+        Apply filters
+      </button>
+      {{filterOptionsHtml | safe}}
+      <script>
+
+      </script>
+    </div>
+  </div>
+</div>

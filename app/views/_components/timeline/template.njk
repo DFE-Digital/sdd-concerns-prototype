@@ -1,0 +1,30 @@
+<div class="app-timeline {{- ' ' + params.classes if params.classes}}" {%- for attribute, value in params.attributes -%} {{ attribute }}="{{ value }}"{% endfor %}>
+
+  {%- for item in params.items %}
+  <div class="app-timeline__item {{- ' ' + item.classes if item.classes}}" {%- for attribute, value in item.attributes -%} {{ attribute }}="{{ value }}"{% endfor %}>
+
+    <div class="app-timeline__header">
+      <h{{ params.headingLevel | default(2) }} class="app-timeline__title">
+        {{- item.label.html | safe if item.label.html else item.label.text -}}
+      </h{{ params.headingLevel | default(2) }}>
+      {% if item.byline %}
+        <p class="app-timeline__byline">
+          {{ item.byline.html | safe if item.byline.html else item.byline.text -}}{% if item.datetime %}, {% endif %}
+          <time datetime="{{ item.datetime.timestamp }}">
+            {{- item.datetime.timestamp | govukDate }} at {{item.datetime.timestamp | time }}
+          </time>
+        </p>
+
+      {% endif %}
+    </div>
+
+    <div class="app-timeline__description">
+      {% if item.link %}
+        <a href="{{item.link.href}}">{{item.link.text}}</a>
+      {% endif %}
+    </div>
+
+  </div>
+  {% endfor -%}
+
+</div>

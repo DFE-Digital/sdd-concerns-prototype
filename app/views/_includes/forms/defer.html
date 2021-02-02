@@ -1,0 +1,64 @@
+{% set customDeferDateArray = record.deferredDate | toDateArray %}
+{% if record.deferredDate | isInLast(2, "days") and record.deferredDateRadio != "On another day" %}
+  {% set customDeferDateArray = undefined %}
+{% endif %}
+
+{% set customDeferDate %}
+  {{ govukDateInput({
+    id: "custom-defer-date",
+    namePrefix: "record[deferredDate]",
+    fieldset: {
+      legend: {
+        text: "Enter the deferral date",
+        classes: "govuk-label govuk-label--s"
+      }
+    },
+    hint: {
+      text: "For example, " + "" | today | toDateArray | spaceSeparate
+    },
+    items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2",
+          value: customDeferDateArray["0"]
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: customDeferDateArray["1"]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: customDeferDateArray["2"]
+        }
+      ]
+  }) }}
+{% endset %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
+    }
+  },
+  items: [
+    {
+      text: "Today"
+    },
+    {
+      text: "Yesterday"
+    },
+    {
+      text: "On another day",
+      conditional: {
+        html: customDeferDate
+      }
+    }
+  ]
+} | decorateAttributes(record, "record.deferredDateRadio")) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

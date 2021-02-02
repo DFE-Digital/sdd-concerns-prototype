@@ -1,0 +1,15 @@
+// Records actions header
+
+.records-header {
+  @include govuk-media-query($from: tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.records-header .govuk-button {
+  @include govuk-media-query($from: tablet) {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+}

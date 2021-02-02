@@ -1,0 +1,33 @@
+{% set reinstateDetailsRows = [
+  {
+    key: {
+      text: "Date of return"
+    },
+    value: {
+      text: record.reinstateDate | govukDate or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/reinstate" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "reinstate date"
+        }
+      ]
+    } if canAmend
+  }
+] %}
+
+{% set reinstateDetailsHtml %}
+  {{ govukSummaryList({
+    rows: reinstateDetailsRows
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleText: "Reinstatement details",
+  html: reinstateDetailsHtml
+}) }}
+  
+

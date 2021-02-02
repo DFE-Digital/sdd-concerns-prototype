@@ -1,0 +1,64 @@
+{% set customReinstateDateArray = record.reinstateDate | toDateArray %}
+{% if record.reinstateDate | isInLast(2, "days") and record.reinstateDateRadio != "On another day" %}
+  {% set customReinstateDateArray = undefined %}
+{% endif %}
+
+{% set customReinstateDate %}
+  {{ govukDateInput({
+    id: "custom-reinstate-date",
+    namePrefix: "record[reinstateDate]",
+    fieldset: {
+      legend: {
+        text: "Enter the return date",
+        classes: "govuk-label govuk-label--s"
+      }
+    },
+    hint: {
+      text: "For example, " + "" | today | toDateArray | spaceSeparate
+    },
+    items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2",
+          value: customReinstateDateArray["0"]
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2",
+          value: customReinstateDateArray["1"]
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4",
+          value: customReinstateDateArray["2"]
+        }
+      ]
+  }) }}
+{% endset %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
+    }
+  },
+  items: [
+    {
+      text: "Today"
+    },
+    {
+      text: "Yesterday"
+    },
+    {
+      text: "On another day",
+      conditional: {
+        html: customReinstateDate
+      }
+    }
+  ]
+} | decorateAttributes(record, "record.reinstateDateRadio")) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

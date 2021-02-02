@@ -1,0 +1,17 @@
+{% extends "_templates/_record-form.html" %}
+
+{% set pageHeading = "When did the trainee return?" %}
+{# {% set formAction = "./reinstate/confirm" %} #}
+  
+{% block formContent %}
+
+  {% set headingHtml %}
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-0">
+      <span class="govuk-caption-l">{{ record.personalDetails | getShortName }}</span>
+      {{pageHeading}}
+    </h1>
+  {% endset %}
+
+  {% include "_includes/forms/reinstate.html" %}
+
+{% endblock %}

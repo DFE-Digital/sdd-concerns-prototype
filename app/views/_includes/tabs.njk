@@ -1,0 +1,18 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-2 govuk-!-margin-bottom-6">
+
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item {% if activeTab == 'record' %} govuk-tabs__list-item--selected {% endif %}">
+        <a class="govuk-tabs__tab" href="{{recordPath}}">
+          Trainee details
+        </a>
+      </li>
+      <li class="govuk-tabs__list-item {% if activeTab == 'details-education' %} govuk-tabs__list-item--selected{% endif %}">
+        <a class="govuk-tabs__tab" href="{{recordPath}}/details-and-education">
+          Personal details and education
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</div>

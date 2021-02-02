@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+{% block content %}
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">{{serviceName}}</h1>
+        <p class="govuk-body-l">Manage trusts and their academy schools for the Department for Education.</p>
+        {{ govukButton({
+          text: "Start a new project",
+          href: "./new-record/new",
+          isStartButton: true
+        }) }}
+      </div>
+    </div>
+
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-one-quarter">
+        <h2 class="govuk-heading-m"><a href="/transfers/trust-name.html" class="govuk-link govuk-link--no-visited-state">Academy transfers</a></h2>
+        <p class="govuk-body">Review and manage your transfer projectss.</p>
+      </div>
+     
+        <div class="govuk-grid-column-one-quarter">
+          <h2 class="govuk-heading-m"><a href="/sig-change" class="govuk-link govuk-link--no-visited-state">Significant change</a></h2>
+          <p class="govuk-body">Review and manage your Significant change projects.</p>
+        </div>
+      <div class="govuk-grid-column-one-quarter">
+        <h2 class="govuk-heading-m"><a href="/concerns" class="govuk-link govuk-link--no-visited-state">Concerns</a></h2>
+        <p class="govuk-body">Your Concerns casework can be managed and reviewed here</p>
+      </div>
+      <div class="govuk-grid-column-one-quarter">
+        <h2 class="govuk-heading-m"><a href="/a2b" class="govuk-link govuk-link--no-visited-state">Apply to Become</a></h2>
+        <p class="govuk-body">Academies that are in the process or staring their journey to become a trust.</p>
+      </div>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Your 2020 to 2021 projects</h2>
+
+    {% set records = data.providerRecords | filterByYear(data.currentYear)| filterDisabledTrainingRoutes %}
+
+    {% macro statusCard(records, status) %}
+      <a href="/records?filterStatus={{status}}" class="status-card status-card--{{status | lower | kebabCase }}">
+        {% set recordCount = records | where("status", status) | length %}
+        <span class="status-card__count">{{recordCount}}</span>
+        {{status}}
+      </a>
+    {% endmacro %}
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      {% set statuses = ['Draft', 'Pending HTB', 'HTB received'] %}
+      {% for status in statuses %}
+        <div class="govuk-grid-column-one-third">
+          {{ statusCard(records, status) }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="govuk-grid-row govuk-!-margin-bottom-6">
+      {% set statuses = ['HTB recommended', 'HTB approved', 'Deferred', 'Withdrawn'] %}
+      {% for status in statuses %}
+        <div class="govuk-grid-column-one-quarter">
+          {{ statusCard(records, status) }}
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

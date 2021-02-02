@@ -1,0 +1,74 @@
+{% set lastNameLink %}
+<span class="govuk-!-margin-left-2 govuk-!-margin-right-1">
+  {% if query.sortOrder == "lastName" %}
+    <span class="">Last name</span>
+  {% else %}
+    <a href="{{ linkSortByName }}" class="govuk-link govuk-link--no-visited-state">Last name</a>
+  {% endif %}
+</span>
+ 
+{% endset %}
+
+{% set dateUpdatedLink %}
+<span class="govuk-!-margin-left-1 govuk-!-margin-right-1">
+  {% if query.sortOrder == "dateUpdated" or not query.sortOrder %}
+    <span class="">Date updated</span>
+  {% else %}
+    <a href="{{ linkSortByDateUpdated }}" class="govuk-link govuk-link--no-visited-state">Date updated</a>
+  {% endif %}
+</span>
+
+{% endset %}
+
+<p class="govuk-visually-hidden">Records sorted by {{query.sortOrder}}</p>
+<p class="govuk-body">
+  <span class="govuk-!-font-weight-bold">Sort by:</span> {{ dateUpdatedLink | safe }} | {{ lastNameLink | safe }} 
+</p>
+
+
+{# {{ govukSelect({
+  id: "sortOrder",
+  name: "sortOrder",
+  label: {
+    text: "Sort by",
+    classes: "govuk-label--s"
+  },
+  items: [
+    {
+      value: "dateUpdated",
+      text: "Date updated",
+      selected: true if (query.sortOrder == "dateUpdated") or (not query.sortOrder)
+    },
+    {
+      value: "dateAdded",
+      text: "Date added",
+      selected: true if query.sortOrder == "dateAdded"
+    } if false,
+    {
+      value: "lastName",
+      text: "Last name",
+      selected: true if query.sortOrder == "lastName"
+    },
+    {
+      value: "firstName",
+      text: "First name",
+      selected: true if query.sortOrder == "firstName"
+    }
+  ]
+}) }} #}
+
+{# <div class="records-search">
+  {{ govukInput({
+    label: {
+      html: "Search records",
+      classes: "govuk-label--s"
+    },
+    id: "search",
+    name: "searchQuery",
+    value: query.searchQuery
+  }) }}
+  {{ govukButton({
+    text: "Search"
+  }) }}
+
+</div> #}

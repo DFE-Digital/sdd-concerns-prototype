@@ -1,0 +1,99 @@
+{% set gcseRows = [] %}
+
+{% set gcseSubjects = ["english", "maths", "science"] %}
+
+{# Force to false until edit journey is built #}
+{# {% set canAmend = false %} #}
+
+{% for subject in gcseSubjects %}
+
+  {% set gcse = record.gcse[subject] %}
+
+  {# Show empty row if missing #}
+  {% if gcse %}
+    {% set grades = [] %}
+    {% for item in gcse.grade %}
+      {% if gcse.country != "United Kingdom" %}
+        {% set grade %}
+          Grade {{item.grade}}<br>
+          <span class="govuk-hint">{{gcse.type}}, {{gcse.country}}</span>
+        {% endset %}
+        {# {% set grade = gcse.type + ", " + gcse.country + " (" + item.grade + ")"  %} #}
+      {% elseif item.exam %}
+        {% set grade = item.grade + " — " + item.exam + "" %}
+      {% else %}
+        {% set grade = item.grade %}  
+      {% endif %}
+
+      {% set grades = grades | push(grade) %}
+    {% endfor %}
+
+    {% set grades = grades | commaSeparateLines | safe %}
+    
+  {% endif %}
+
+
+  {% set gcseRow = {
+      key: {
+        text: subject | sentenceCase
+      },
+      value: {
+        text: gcse.gradeBoundary or 'Not provided'
+      },
+      actions: {
+        items: [
+          {
+            href: recordPath + "/gcse-details" | addReferrer(referrer),
+            text: "Change",
+            visuallyHiddenText: "gcse details"
+          }
+        ]
+      } if canAmend
+    } %}
+    
+  {% set gcseRows = gcseRows | push(gcseRow) %}
+
+{% endfor %}
+
+
+
+
+{% set gcseDetailsHtml %}
+  {{ govukSummaryList({
+    rows: gcseRows
+  }) }}
+{% endset %}
+
+
+
+{% set complete = true if (record.gcse | sectionIsCompleted ) %}
+{% set status  = record.gcse | getStatusText %}
+{% set sectionIsRequired = record | requiresSection("gcse") %}
+
+{% if not sectionIsRequired %}
+  {# Section not required #}
+{% elseif showIncomplete and not complete %}
+
+  {% set incompleteType = "warning" if errorList %}
+  {% set incompleteId = "gcse-details" %}
+  {% if status == "In progress" %}
+    {% set incompleteText = "GCSE details not marked as complete" %}
+    {% set incompleteLink = recordPath + "/gcse/confirm" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Continue section" %}
+  {% else %}
+    {% set incompleteText = "GCSE details not started" %}
+    {% set incompleteLink = recordPath + "/gcse-details" | addReferrer(referrer) %}
+    {% set incompleteLinkText = "Start section" %}
+  {% endif %}
+
+  {% include "_includes/incomplete.njk" %}
+
+{% else %}
+
+  {{ appSummaryCard({
+    classes: "govuk-!-margin-bottom-6",
+    titleText: "GCSE or equivalent",
+    html: gcseDetailsHtml
+  }) }}
+  
+{% endif %}

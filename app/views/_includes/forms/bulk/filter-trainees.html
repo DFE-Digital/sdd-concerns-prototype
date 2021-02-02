@@ -1,0 +1,62 @@
+
+<span class="govuk-caption-l">{{data.bulk.action}}</span>
+<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+
+{% set enabledTrainingRoutes = data.settings.enabledTrainingRoutes %}
+
+{# Only show route filter if there's more than 1 route #}
+{% if enabledTrainingRoutes | length > 1 %}
+
+  {% set routeItems = [] %}
+  {% for route in enabledTrainingRoutes %}
+    {% set routeItems = routeItems | push({
+      text: route
+    }) %}
+  {% endfor %}
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Select the training types",
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    hint: {
+      text: ""
+    },
+    items: routeItems
+  } | decorateAttributes(data, "data.bulk.filters.trainingRoutes")) }}
+
+{% endif %}
+
+{% set subjectItems = [] %}
+
+{# Default state - first value is 'all' #}
+{% set subjectItems = subjectItems | push({
+  value: "All subjects",
+  text: "All subjects",
+  selected: true if (not data.bulk.filters.subject or data.bulk.filters.subject ==  "All subjects")
+}) %}
+
+{# Remaining subjects #}
+{% for subject in data.ittSubjects %}
+  {% set subjectItems = subjectItems | push({
+    value: subject,
+    text: subject,
+    selected: true if (subject == data.bulk.filters.subject)
+  }) %}
+{% endfor %}
+
+{{ govukSelect({
+  id: "subject-select",
+  name: "bulk[filters][subject]",
+  label: {
+    text: "Select the subject",
+    classes: "govuk-label--s"
+  },
+  items: subjectItems
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}

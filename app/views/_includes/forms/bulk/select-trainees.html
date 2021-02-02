@@ -1,0 +1,120 @@
+
+{% set checkboxItems = [] %}
+
+{% for trainee in filteredRecords  %}
+
+  {% set traineeHintHtml %}
+    <span class="govuk-hint">{{trainee.programmeDetails.subject}}, {{trainee.route | lower}}</span>
+    {{govukTag({
+      text: trainee.status,
+      classes: trainee.status | getStatusClass
+    })}}
+  {% endset %}
+
+  {% set checkboxItems = checkboxItems | push({
+    value: trainee.id,
+    _text: trainee.personalDetails.fullName,
+    checked: checked(selectedTrainees, trainee.id),
+    text: trainee.personalDetails.fullName,
+    hint: {
+      html: traineeHintHtml
+    }
+  }) %}
+
+{% endfor %}
+
+{% set draftIncompleteMessage %}
+
+  {% set draftLinkHtml %}
+    <p class="govuk-body govuk-!-margin-bottom-0">
+      <a href="/records" class="govuk-link">Complete the {{'draft' | pluralise(incompleteDraftCount)}} to add the {{'trainee' | pluralise(inompleteDraftCount)}} to your list</a>
+    </p>
+    
+  {% endset %}
+
+  {% set incompleteDraftTextHtml %}
+    {% if incompleteDraftCount != 1 %}
+      <p class="govuk-body">
+        There are {{incompleteDraftCount}} {{'more ' if filteredRecords | length }}draft records that fit your search criteria. {{ draftLinkHtml | safe }}
+      </p>
+    {% else %}
+      <p class="govuk-body">
+        There is {{incompleteDraftCount}} {{'more ' if filteredRecords | length }}draft record that fits your search criteria. {{ draftLinkHtml | safe }}
+      </p>
+    {% endif %}
+  {% endset %}
+  {{ govukInsetText({
+    html: incompleteDraftTextHtml
+  }) }}
+{% endset %}
+
+
+
+
+{% if filteredRecords | length > 0 %}
+
+  {# H1 separate from legend as we have inset text to put in between #}
+  {% if data.bulk.action == 'Recommend a group of trainees for QTS' %}
+
+    <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+    {{ govukInsetText({
+      text: "Select trainees that met the QTS standards on the same day. You can submit as many groups as you need."
+    }) }}
+
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          isPageHeading: false,
+          classes: "govuk-visually-hidden"
+        }
+      },
+      hint: {
+        text: ""
+      },
+      items: checkboxItems
+    } | decorateAttributes(data, "data.bulk.selectedTrainees")) }}
+
+  {# No inset text, so legend is the h1 #}
+  {% else %}
+    
+    {{ govukCheckboxes({
+      fieldset: {
+        legend: {
+          text: pageHeading,
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: ""
+      },
+      items: checkboxItems
+    } | decorateAttributes(data, "data.bulk.selectedTrainees")) }}
+
+    {% if incompleteDraftCount %}
+      {{ draftIncompleteMessage | safe }}
+    {% endif %}
+
+  {% endif %}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% else %}
+
+  <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+  {% if incompleteDraftCount %}
+    {{ draftIncompleteMessage | safe }}
+  {% endif %}
+
+  {{ govukButton({
+    text: "Return to records list",
+    href: "/records"
+  }) }}
+
+
+{% endif %}

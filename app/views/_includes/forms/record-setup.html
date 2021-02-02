@@ -1,0 +1,37 @@
+{# <span class="govuk-caption-l">{{'Add a trainee'}}</span> #}
+<h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+{% set enabledTrainingRoutes = [] %}
+{% for route in data.settings.enabledTrainingRoutes %}
+  {% set enabledTrainingRoutes = enabledTrainingRoutes | push({text: route}) %}
+{% endfor %}
+{% set enabledTrainingRoutes = enabledTrainingRoutes | push({text: "Other"}) %}
+
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: "What type of training are they on?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: enabledTrainingRoutes
+} | decorateAttributes(record, "record.route")) }}
+
+{{ govukInput({
+  label: {
+    text: "Trainee ID (optional)",
+    classes: "govuk-label--s"
+  },
+  hint: {
+    text: "Your internal identifier for this trainee or candidate"
+  },
+  classes: "govuk-!-width-one-half"
+} | decorateAttributes(record, "record.traineeId"))}}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+

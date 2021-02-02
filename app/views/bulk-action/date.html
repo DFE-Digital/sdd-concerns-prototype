@@ -1,0 +1,11 @@
+{% extends "_templates/_form.html" %}
+
+{% set navActive = 'bulk' %}
+{% set pageHeading = "When did they meet the standards?" %}
+{% set formAction = "./date-answer" %}
+  
+{% block formContent %}
+
+  {% include "_includes/forms/bulk/date.html" %}
+
+{% endblock %}

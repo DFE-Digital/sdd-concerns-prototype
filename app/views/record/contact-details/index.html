@@ -1,0 +1,10 @@
+{% extends "_templates/_record-form.html" %}
+
+{% set pageHeading = "Contact details" %}
+
+{% set formAction = "./contact-details/confirm" | addReferrer(referrer) %}
+
+{% block formContent %}
+  {% include "_includes/forms/contact-details.html" %}
+{% endblock %}
+

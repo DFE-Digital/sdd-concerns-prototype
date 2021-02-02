@@ -1,0 +1,26 @@
+{{ govukRadios({
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "Staying on programme",
+      text: "Yes, they will stay on the programmee"
+    },
+    {
+      value: "Withdrawing from programme",
+      text: "No, they are withdrawing from the programme"
+    }
+  ]
+} | decorateAttributes(record, "record.qtsDetails.withdrawalStatus")) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}

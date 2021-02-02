@@ -1,0 +1,70 @@
+
+{% extends "_templates/_record.html" %}
+
+{% set backLink = '/records' %}
+{% set backText = 'All records' %}
+{% set pageHeading = record.personalDetails.shortName %}
+{% set activeTab = 'trainee-details' %}
+
+{% block tabContent %}
+{% set referrer = recordPath %}
+
+{% set canAmend = record.status | getAmendsAllowed %}
+
+{% set hasCommencementDate = record.trainingDetails.traineeStarted | falsify %}
+
+{% set recordPath = "/record/" + record.id %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    
+    {# Hide the record actions ui if it's empty #}
+    {% if (record.status | getCanDefer) or (record.status | getCanReinstate) %}
+      <div class="record-actions">
+        {% if record.status | getCanRecommendForQts %}
+          {% if hasCommencementDate%}
+            {{ govukButton({
+              text: "Recommend trainee for QTS",
+              href: referrer + '/qts/outcome-date',
+              classes: "govuk-!-margin-bottom-0"
+            }) }}
+          {% else %}
+            {{ govukInsetText({
+              text: "You need to give a start date for this trainee",
+              classes: "govuk-!-margin-0"
+            }) }}
+          {% endif %}
+        {% elseif record.status == "Pending TRN" %}
+          {{ govukInsetText({
+            text: "This record is pending a TRN",
+            classes: "govuk-!-margin-0"
+          }) }}
+        {% elseif record.status == "Deferred" %}
+          {{ govukInsetText({
+            text: "This record is deferred",
+            classes: "govuk-!-margin-0"
+          }) }}
+        {% endif %}
+
+        <div class="record-actions__links">
+          {% if record.status | getCanDefer %}
+            <p class="govuk-body govuk-!-margin-bottom-0"><a href="{{referrer}}/defer" class="govuk-link--no-visited-state">Defer</a> or <a href="{{referrer}}/withdraw" class="govuk-link--no-visited-state">withdraw</a> this trainee</p>
+          {% elseif record.status | getCanReinstate %}
+            <p class="govuk-body govuk-!-margin-bottom-0"><a href="{{referrer}}/reinstate" class="govuk-link--no-visited-state">Reinstate</a> or <a href="{{referrer}}/withdraw" class="govuk-link--no-visited-state">withdraw</a> this trainee</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    {% endif %}
+
+    {# <h2 class="govuk-heading-m">Trainee record</h2> #}
+    {% include "_includes/summary-cards/student-record.html" %}
+    {# <h2 class="govuk-heading-m">Programme details</h2> #}
+    {% include "_includes/summary-cards/programme-details.html" %}
+
+  </div>
+<div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "_templates/_new-record.html" %}
+
+{% set pageHeading = "Which of the following best describes their " + data.record.diversity.ethnicGroup + " background?" %}
+
+{% set formAction = "disabilities" | addReferrer(referrer) %}
+
+{% block formContent %}
+  {% include "_includes/forms/ethnic-background.html" %}
+{% endblock %}
+

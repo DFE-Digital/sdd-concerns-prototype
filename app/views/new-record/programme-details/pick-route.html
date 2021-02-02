@@ -1,0 +1,12 @@
+{% extends "_templates/_new-record.html" %}
+
+
+{% set pageHeading = "What type of course are they doing?" %}  
+
+
+{# {% set formAction = "./assessment-details/confirm" %} #}
+
+{% block formContent %}
+  {% include "_includes/forms/programme-details/pick-route.html" %}
+{% endblock %}
+

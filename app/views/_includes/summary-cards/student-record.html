@@ -1,0 +1,247 @@
+{% set expectedDuration = 'Not provided' %}
+{% if record.programmeDetails.duration | falsify %}
+  {% set expectedDuration = record.programmeDetails.duration + " years" %}
+{% endif %}
+
+{% set studentRecordRows = [
+  {
+    key: {
+      text: "Provider"
+    },
+    value: {
+      text: record.provider or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/pick-provider" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "provider"
+        }
+      ]
+    } if canAmend and false
+  } if data.settings.userProviders | length > 1,
+  {
+    key: {
+      text: "Trainee ID"
+    },
+    value: {
+      text: record.trainingDetails.traineeId or 'Not provided'
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/trainee-id" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "trainee ID"
+        }
+      ]
+    } if canAmend
+  }
+  ] %}
+
+{% if record.status == "Pending TRN" %}
+  {% set submittedAge = record.submittedDate | formatDate('relative') %}
+
+  {% set submittedDate %}
+    <p class="govuk-body">{{record.submittedDate | govukDate}}</p>
+    <span class="govuk-hint">{{submittedAge}}</span>
+  {% endset %}
+
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: "Submitted for TRN"
+    },
+    value: {
+      text: submittedDate | safe
+    }
+  }) %}
+{% endif %}
+
+{% if record.trn %}
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: "TRN"
+    },
+    value: {
+      text: record.trn or 'Not provided'
+    }
+  }) %}
+{% endif %}
+
+{% if record.status == "QTS recommended" %}
+
+  {% set qtsContent %}
+    {{govukTag({
+      text: "QTS recommended",
+      classes: record.status | getStatusClass + " govuk-!-margin-bottom-2"
+    })}} <br>
+    {% if record.qtsDetails.qtsOutcomeRecordedDate %}
+      Recommended: {{recommendedDate}}
+    {% endif %}
+  {% endset %}
+
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: "QTS"
+    },
+    value: {
+      html: qtsContent
+    }
+  }) %}
+{% endif %}
+
+{% if record.status == "QTS awarded" %}
+
+  {% set qtsContent %}
+    {{govukTag({
+      text: "QTS awarded",
+      classes: record.status | getStatusClass + " govuk-!-margin-bottom-2"
+    })}} <br>
+    Awarded: 2 September 2020
+  {% endset %}
+
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: "QTS"
+    },
+    value: {
+      html: qtsContent
+    }
+  }) %}
+{% endif %}
+
+{% if (record.status == "Deferred") %}
+  {% set deferredContent %}
+      {{govukTag({
+        text: "Deferred",
+        classes: record.status | getStatusClass + " govuk-!-margin-bottom-2"
+      })}} <br>
+      Deferral date: {{record.deferredDate | govukDate}}
+  {% endset %}
+
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: "Trainee status"
+    },
+    value: {
+      html: deferredContent
+    }
+  }) %}
+{% endif %}
+
+{% if (record.status == "Withdrawn") %}
+  {% set withdrawalContent %}
+      {{govukTag({
+        text: "Withdrawn",
+        classes: record.status | getStatusClass
+      })}} <br>
+      {# Withdrawal date: {{record.withdrawalDate | govukDate}} <br>  #}
+  {% endset %}
+
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: "Trainee status"
+    },
+    value: {
+      html: withdrawalContent
+    }
+  }) %}
+{% endif %}
+
+{% set previousQtsOutcome %}
+  {% if record.previousQtsOutcome == "For another reason" %}
+    {{record.previousQtsOutcomeOther}}
+  {% else%}
+    {{record.previousQtsOutcome}}
+  {% endif %}
+{% endset %}
+
+{% set qtsRowText %}
+    {% if record.status == "QTS recommended" %}
+      Previous QTS outcome
+    {% else %}
+      QTS outcome
+    {% endif %}
+{% endset %}
+
+{% if record.qtsNotPassedOutcomeDate | length %}
+  {% set qtsOutcomeContent %}
+      Not recommended: {{previousQtsOutcome}}
+  {% endset %}
+
+  {% set studentRecordRows = studentRecordRows | push({
+    key: {
+      text: qtsRowText
+    },
+    value: {
+      html: qtsOutcomeContent
+    }
+  }) %}
+{% endif %}
+
+{% set updatedDate %}
+  <p class="govuk-body">{{record.updatedDate | govukDate or 'Not provided'}}</p>
+  {% if record.updatedDate | isInLast( 7, 'days') %}
+    <span class="govuk-hint">{{ record.updatedDate | formatDate('relative') }}</span>
+  {% endif %}
+{% endset %}
+
+{% set traineeStarted = record.trainingDetails.traineeStarted | falsify %}
+
+{% set commencementDateLabel %}
+  {% if traineeStarted %}
+    {{(record.trainingDetails.commencementDate | govukDate) or 'Not provided'}}
+  {% else %}
+    Trainee yet to start course
+  {% endif %}
+{% endset %}
+
+{% set datesRows = [{
+    key: {
+      text: "Last updated"
+    },
+    value: {
+      html: updatedDate
+    }
+  },
+  {
+    key: {
+      text: "Record created"
+    },
+    value: {
+      text: record.submittedDate | govukDate or 'Not provided'
+    }
+  },
+  {
+    key: {
+      text: "Trainee start date"
+    },
+    value: {
+      text: commencementDateLabel or "Not provided"
+    },
+    actions: {
+      items: [
+        {
+          href: recordPath + "/trainee-start-date" | addReferrer(referrer),
+          text: "Change",
+          visuallyHiddenText: "trainee start date"
+        }
+      ]
+    } if canAmend
+  }
+] %}
+
+{% set studentRecordRows = studentRecordRows | combineArrays(datesRows) %}
+
+{% set studentRecordHtml %}
+  {{ govukSummaryList({
+    rows: studentRecordRows
+  }) }}
+{% endset %}
+
+{{ appSummaryCard({
+  classes: "govuk-!-margin-bottom-6",
+  titleText: "Trainee progress",
+  html: studentRecordHtml
+}) }}

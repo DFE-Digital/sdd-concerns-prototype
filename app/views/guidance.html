@@ -1,0 +1,58 @@
+
+{% extends "_templates/_page.html" %}
+{% set backLink = '/home' %}
+
+{% set pageHeading = 'Guidance' %}
+
+{% block pageNavigation %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: backText,
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+        <h2 class="govuk-heading-m">Contents</h2>
+        <ul class="govuk-list govuk-list--dash govuk-!-margin-bottom-8">
+          <li><a class="govuk-link" href="#section-assessment-only">Assessment Only (AO) route guidance</a></li>
+          <li><a class="govuk-link" href="#section-provider-led">Provider-led route guidance</a></li>
+        </ul>
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <section id="section-assessment-only"> 
+          <h2 class="govuk-heading-m">Assessment Only (AO) route guidance</h2>
+          <p class="govuk-body">Assessment Only is a route to Qualified Teacher Status (QTS) in England for:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>experienced teachers with a degree</li>
+            <li>people with teaching qualifications from other countries</li>
+          </ul>
+          <p class="govuk-body">It allows teachers to demonstrate that they already meet all the QTS standards over a period of no more than 12 weeks. They are not considered to be trainees as they already have experience or qualifications.</p>
+          <p class="govuk-body">To find out more details on the criteria that ITT providers need to meet and entry requirements, read <a href="https://www.gov.uk/government/publications/the-assessment-only-route-to-qts" class="govuk-link">AO: criteria and supporting advice</a>.</p>
+          <h2 class="govuk-heading-m">Registering AO candidates and census</h2>
+          <p class="govuk-body">AO candidates do not count towards the ITT census as they are already teaching or have a teaching qualification from another country. This means that there are no deadlines for registering AO candidates.</p>
+          <p class="govuk-body">You can register AO candidates at any stage during the academic year.</p>
+        </section>
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        
+        <section id="section-provider-led"> 
+          <h2 class="govuk-heading-m">Provider-led route guidance</h2>
+          <p class="govuk-body">This is a placeholder for Provider-led route guidance.</p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

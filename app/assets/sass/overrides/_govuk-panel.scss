@@ -1,0 +1,7 @@
+.govuk-panel__title {
+  @include govuk-font(36, bold);
+}
+
+.govuk-panel__body {
+  @include govuk-font(24);
+}

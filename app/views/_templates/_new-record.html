@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{# {% set report = data.new.report %} #}
+{% set navActive = "records" %}
+
+{% if not backLink %}
+    {% set backLink = 'javascript:history.back();' %}
+{% endif %}
+{% if not backText %}
+    {% set backText      = 'Back'  %}
+{% endif %}
+
+{% if backLink == 'false' %}
+    {% set backLink = false %}
+{% endif %}
+
+{% if backText == 'false' %}
+    {% set backText = '' %}
+{% endif %}
+
+
+{% block pageTitle %}
+  {{ pageHeading }} - {{serviceName}} - GOV.UK
+{% endblock %}
+
+{% block pageNavigation %}
+  {% if backLink %}
+    {{ govukBackLink({
+      text: backText,
+      href: backLink
+    }) }}
+  {% endif %}
+{% endblock %}
+
+{% set record = data.record %}
+
+{% if not record %}
+  {% set record = {} %}
+{% endif %}
+
+{% set canAmend = (record.status or 'Draft') | getAmendsAllowed %}
+
+{# Used by summary cards #}
+{% set recordPath = "/new-record" %}
+
+{% block content %}
+  {% include "_includes/app-flash-message.html" %}
+
+  {% block beforePageTitle %}{% endblock %}
+  {# {{referrer}} #}
+  {% set hasReferrer = '' | addReferrer(referrer) | falsify %}
+  {% set formActionHtml -%}
+  {%- if formAction -%}
+    action={{- formAction -}}
+  {%- elseif hasReferrer -%}
+    action={{- '' | addReferrer(referrer) -}}
+  {%- endif -%} 
+  {%- endset %}
+  
+  <form {{formActionHtml}} method="post" novalidate>
+    <div class="govuk-grid-row">
+      <div class="{{ gridColumn or 'govuk-grid-column-two-thirds-from-desktop'}}">
+        {% block formContent %}
+
+        {% endblock %}
+
+        {% if returnLink %}
+          <p class="govuk-body"><a href="{{returnLink.href}}" class="govuk-link">{{returnLink.text}}</a></p>
+        {% endif %}
+
+        {# {% if not hideReturnLink %}
+          <p class="govuk-body"><a href="{{ '/new-record/overview' | orReferrer(referrer)}}" class="govuk-link">Cancel</a></p>
+        {% endif %} #}
+      </div>
+      {% if hasSecondary %}
+        <div class="govuk-grid-column-one-third">
+          {% block secondary %}{% endblock %}
+        </div>
+      {% endif %}
+
+
+    </div>
+  </form>
+{% endblock %}
+
+
