@@ -1,9 +1,9 @@
 module.exports = [
   'Draft',
-  'Pending TRN',
-  'TRN received',
-  'QTS recommended',
-  'QTS awarded',
+  'Pending HTB',
+  'HTB received',
+  'HTB recommended',
+  'HTB approved',
   'Deferred',
   'Withdrawn'
 ]

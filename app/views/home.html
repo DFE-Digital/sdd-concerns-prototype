@@ -24,7 +24,7 @@
 
       <div class="govuk-grid-column-one-quarter">
         <h2 class="govuk-heading-m"><a href="/transfers/trust-name.html" class="govuk-link govuk-link--no-visited-state">Academy transfers</a></h2>
-        <p class="govuk-body">Review and manage your transfer projectss.</p>
+        <p class="govuk-body">Review and manage your transfer projects.</p>
       </div>
      
         <div class="govuk-grid-column-one-quarter">
@@ -57,7 +57,7 @@
     {% endmacro %}
 
     <div class="govuk-grid-row govuk-!-margin-bottom-6">
-      {% set statuses = ['Draft', 'Pending HTB', 'HTB received'] %}
+      {% set statuses = ['Draft', 'Newly assigned', 'In progress'] %}
       {% for status in statuses %}
         <div class="govuk-grid-column-one-third">
           {{ statusCard(records, status) }}
@@ -65,7 +65,7 @@
       {% endfor %}
     </div>
     <div class="govuk-grid-row govuk-!-margin-bottom-6">
-      {% set statuses = ['HTB recommended', 'HTB approved', 'Deferred', 'Withdrawn'] %}
+      {% set statuses = ['At review', 'Awaiting HTB', 'Academy order', 'Archieved'] %}
       {% for status in statuses %}
         <div class="govuk-grid-column-one-quarter">
           {{ statusCard(records, status) }}

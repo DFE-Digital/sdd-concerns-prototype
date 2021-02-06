@@ -4,7 +4,7 @@
     classes: "govuk-checkboxes--small js-auto-submit",
     fieldset: {
       legend: {
-        text: "Course start",
+        text: "Tasks",
         isPageHeading: false,
         classes: "govuk-fieldset__legend--s"
       }
@@ -20,13 +20,12 @@
       }
     ]
   } | decorateAttributes(data, "data.filterCycle"))}}
-
+{#
   {% if data.signedInProviders | length > 1 %}
     
     {% set userProviders = data.settings.userProviders %}
 
-    {# Only show route filter if there's more than 1 route #}
-
+    {# Only show route filter if there's more than 1 route 
     {% set providerItems = [] %}
     {% for provider in userProviders %}
       {% set providerItems = providerItems | push({
@@ -97,43 +96,43 @@
         checked: checked(query.filterStatus, "Draft")
       },
       {
-        text: "Pending TRN",
-        checked: checked(query.filterStatus, "Pending TRN")
+        text: "Newly assigned",
+        checked: checked(query.filterStatus, "Newly assigned")
       },
       {
-        text: "TRN received",
-        checked: checked(query.filterStatus, "TRN received")
+        text: "In progress",
+        checked: checked(query.filterStatus, "In progress")
       },
       {
-        text: "QTS recommended",
-        checked: checked(query.filterStatus, "QTS recommended")
+        text: "At review",
+        checked: checked(query.filterStatus, "At review")
       },
       {
-        text: "QTS awarded",
-        checked: checked(query.filterStatus, "QTS awarded")
+        text: "Awaiting HTB",
+        checked: checked(query.filterStatus, "Awaiting HTB")
       },
       {
-        text: "Deferred",
-        checked: checked(query.filterStatus, "Deferred")
+        text: "Academy order issued",
+        checked: checked(query.filterStatus, "Academy order issued")
       },
       {
-        text: "Withdrawn",
-        checked: checked(query.filterStatus, "Withdrawn")
+        text: "Archieved",
+        checked: checked(query.filterStatus, "Archieved")
       }
     ]
   } | decorateAttributes(data, "data.filterStatus"))}}
 
-
+{#
   {% set subjectItems = [] %}
 
-  {# Default state - first value is 'all' #}
+  {# Default state - first value is 'all' 
   {% set subjectItems = subjectItems | push({
     value: "All subjects",
     text: "All subjects",
     selected: true if (not query.filterSubject or query.filterSubject ==  "All subjects")
   }) %}
   
-  {# Remaining subjects #}
+  {# Remaining subjects 
   {% for subject in data.ittSubjects %}
     {% set subjectItems = subjectItems | push({
       value: subject,
@@ -220,7 +219,7 @@
       {# button code stollen from https://components.publishing.service.gov.uk/component-guide/search #}
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--s" for="search">
-          Search records
+          Search tasks
         </label>
         <div class="gem-c-search__item-wrapper gem-c-search--on-white">
           <input class="govuk-input" id="search" name="searchQuery" type="text" value="{{query.searchQuery}}">

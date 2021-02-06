@@ -1,5 +1,5 @@
 {% extends "_templates/_page.html" %}
-{% set pageHeading = "Trainee records" %}
+{% set pageHeading = "Tasks" %}
 
 {% set backLink = 'false' %}
 {% set navActive = "records" %}
@@ -31,7 +31,7 @@
     <h1 class="govuk-heading-xl">{{pageHeading}}</h1>
     <div class="records-header">
       {{ govukButton({
-        text: "Add a trainee",
+        text: "Add a new task",
         href: "./new-record/new",
         isStartButton: true
       }) }}
@@ -79,7 +79,7 @@
             {% include "_includes/filter-panel.njk" %}
           </div>
         </form>
-        <p class="govuk-body"><a href="#" class="govuk-link">Export these records</a></p>
+        <p class="govuk-body"><a href="#" class="govuk-link">Export these tasks</a></p>
       </div>
 
       <div class="moj-filter-layout__content">
