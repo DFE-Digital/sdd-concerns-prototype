@@ -10,9 +10,36 @@
     "establishmentTypeGroup": "Multi-academy trust",
     "ukprn": "10060516",
     "upin": "137626",
-    "status": [
-        "Draft"
+    "diversity": {
+      "diversityDisclosed": "false",
+      "status": "Completed"
+    },
+    "personalDetails": {
+      "givenName": "Alsager Multi",
+      "familyName": "Academy Trust",
+      "middleNames": "Lorene",
+      "nationality": [
+        "British",
+        "French",
+        "Swiss"
+      ],
+      "sex": "Female",
+      "dateOfBirth": "1990-11-14T07:44:59.316Z",
+      "status": "Completed"
+    },
+    "provider": "Coventry University",
+    "route": "Multi-academy trust",
+    "status": "Draft",
+    "updatedDate": "2021-01-14T07:48:11.589Z",
+    "events": {
+      "items": [
+        {
+          "title": "Record created",
+          "user": "provider",
+          "date": "2020-03-26T13:43:46.690Z"
+        }
       ]
+    }
   },
     {
         "academicYear": 2020,
@@ -25,9 +52,19 @@
         "establishmentTypeGroup": "Multi-academy trust",
         "ukprn": "10059591",
         "upin": "136855",
-        "status": [
-        "Draft"
+        "provider": "University of Buckingham",
+    "route": "Assessment only",
+    "status": "At review",
+    "updatedDate": "2021-01-14T07:48:11.589Z",
+    "events": {
+      "items": [
+        {
+          "title": "Record created",
+          "user": "Provider",
+          "date": "2020-03-26T13:43:46.690Z"
+        }
       ]
+    }
     },
     {
         "academicYear": 2020,
@@ -40,9 +77,7 @@
         "establishmentTypeGroup": "Multi-academy trust",
         "ukprn": "10059141",
         "upin": "135666",
-        "status": [
-        "Draft"
-      ]
+        "status": "Draft"
     },
     {
         "academicYear": 2020,
@@ -55,9 +90,8 @@
         "establishmentTypeGroup": "Multi-academy trust",
         "ukprn": "10045584",
         "upin": "136400",
-        "status": [
-        "Newly assigned"
-      ]
+        "status": "Newly assigned"
+      
     },
     {
         "academicYear": 2020,
@@ -85,9 +119,19 @@
         "establishmentTypeGroup": "Multi-academy trust",
         "ukprn": "10058463",
         "upin": "135739",
-        "status": [
-        "Newly assigned"
+         "provider": "University of Buckingham",
+    "route": "Assessment only",
+    "status": "At review",
+    "updatedDate": "2021-01-14T07:48:11.589Z",
+    "events": {
+      "items": [
+        {
+          "title": "Record created",
+          "user": "Provider",
+          "date": "2020-03-26T13:43:46.690Z"
+        }
       ]
+    }
     },
     {
         "academicYear": 2020,

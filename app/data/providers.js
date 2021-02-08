@@ -293,7 +293,8 @@ const allProviders = [
   "Wildern School",
   "York St John University",
   "Yorkshire and Humber Teacher Training",
-  "Yorkshire Wolds Teacher Training"
+  "Yorkshire Wolds Teacher Training",
+  "Alsager Multi Academy Trust"
 ]
 
 const permProviders = [
@@ -303,7 +304,8 @@ const permProviders = [
   "Leeds Trinity University",
   "Bournemouth Poole",
   "Dorset Teacher Training Partnership",
-  "South Coast SCITT"
+  "South Coast SCITT",
+  "Alsager Multi Academy Trust"
 ]
 
 

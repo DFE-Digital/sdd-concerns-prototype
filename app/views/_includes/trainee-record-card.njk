@@ -19,7 +19,7 @@
     <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
       <a href="/record/{{ record.id }}" class="govuk-link govuk-link--no-visited-state">
         {% if record | hasName %}
-          {% if query.sortOrder == "lastName" %}
+          {% if query.sortOrder == "givenName" %}
             {{ record.personalDetails | getShortNameReversed }}
           {% else %}
             {{ record.personalDetails | getShortName }}
