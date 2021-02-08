@@ -1,4 +1,4 @@
-# Register trainee teachers (prototype)
+# SDD Services (prototype)
 
 This prototype is based on the [GOV.UK prototype kit](https://github.com/alphagov/govuk-prototype-kit)
 
@@ -18,22 +18,17 @@ This prototype is based on the [GOV.UK prototype kit](https://github.com/alphago
 
 Go to [http://localhost:3000]() in your browser.
 
-## Deployed versions
+## Deployed versions are not available yet
 
-### Latest designs
+### This prototype has been based on the below design
 
 URL: https://register-prototype.herokuapp.com/
 
 This version deploys automatically from merges to master and is the 'latest' version for UR and UX iteration.
 
-### Developer Reference
-
-URL: https://register-prototype-dev-ref.herokuapp.com/
-
-This version deploys automatically when the `dev-ref` branch is updated and is used as the more stable version for developer reference. Updating this should be accompanied by planned work to update the production codebase.
 
 ### Design history
 
-URL: https://bat-design-history.netlify.app/register-trainee-teachers/
+URL: https://sdd-servies-design-history.netlify.app/
 
 A history of the design of this service
