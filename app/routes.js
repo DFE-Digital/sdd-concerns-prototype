@@ -93,5 +93,6 @@ require('./routes/existing-record-routes')(router)
 // =============================================================================
 require('./routes/bulk-action-routes')(router)
 
+require('./routes/transfers/dashboard-routes')(router)
 
 module.exports = router
