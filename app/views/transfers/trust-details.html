@@ -1,0 +1,67 @@
+{% extends "layout.html" %} {% block header %} {{ govukHeader({ homepageUrl:
+"/", serviceName: "Transfer an academy to another trust", serviceUrl: "#",
+containerClasses: "govuk-width-container", navigation: [ ] }) }} {% endblock %}
+{% block pageTitle %} Trust details {% endblock %} {% block beforeContent %} {{
+govukPhaseBanner({ tag: { text: "alpha" }, html: 'This is a new service - your
+<a href="#" class="govuk-link">feedback</a> will help us to improve it.' }) }}
+{% endblock %} {% block content %}
+
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="dashboard.html">Dashboard</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="incoming-2.html">Add the outgoing trust name</a>
+    </li>
+     <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Outgoing trust details</a>
+    </li>
+  </ol>
+</div>
+
+
+<div class="govuk-width-container">
+  <br />
+  <h1 class="govuk-heading-xl">Outgoing trust details</h1>
+</div>
+
+<dl class="govuk-summary-list govuk-summary-list--no-border">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Name</dt>
+    <dd class="govuk-summary-list__value">
+      Our Lady Immaculate Catholic Academies Trust Ltd
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Companies House Number</dt>
+    <dd class="govuk-summary-list__value">09436283</dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Type</dt>
+    <dd class="govuk-summary-list__value">Multi Academy Trust</dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Trust Reference Number</dt>
+    <dd class="govuk-summary-list__value">TR03117</dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">Address</dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">C/O St Thomas More Catholic,</p>
+      <p class="govuk-body">Secondary school, Tyne</p>
+      <p class="govuk-body">Cresent, Bedford</p>
+      <p class="govuk-body">MK41 7UL</p>
+    </dd>
+  </div>
+</dl>
+
+<a
+  href="add-academies.html"
+  role="button"
+  draggable="false"
+  class="govuk-button"
+>
+  Select Trust
+</a>
+{% endblock %}

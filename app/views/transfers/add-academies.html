@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Transfer an academy to another trust",
+  serviceUrl: "#",
+  containerClasses: "govuk-width-container",
+  navigation: [
+  
+  ]
+}) }}
+{% endblock %}
+
+{% block pageTitle %}
+Search
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+  text: "alpha"
+},
+html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
+}) }}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="dashboard.html">Dashboard</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="trust-name.html">Outgoing trust details</a>
+    </li>
+     <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Add the transferring academies</a>
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-width-container"><br>
+<div class="govuk-form-group">
+  <form action="/add-academies" method="post" class="form">
+
+
+    <fieldset class="govuk-fieldset" aria-describedby="add-academies-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">Add the transferring academies</h1>
+      </legend>
+      <div id="add-academies-hint" class="govuk-hint">
+        Select all the academies that are transferring.
+      </div>
+      <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="add-academies-John" name="add-academies" type="checkbox" value="John" {{ checked("add-academies", "John") }}>
+          <label class="govuk-label govuk-checkboxes__label" for="add-academies-1">
+            St John Rigby Catholic Primary School (URN 139515)
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="add-academies-Tom" name="add-academies" type="checkbox" value="Tom"
+            {{ checked("add-academies", "Tom") }}>
+          <label class="govuk-label govuk-checkboxes__label" for="add-academies-2">
+            St Thomas More Catholic Primary School (URN 139517)
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="add-academies-Mary" name="add-academies" type="checkbox"
+            value="Mary" {{ checked("add-academies", "Mary") }}>
+          <label class="govuk-label govuk-checkboxes__label" for="add-academies-3">
+            St Mary's Catholic Primary School (URN 142738)
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div> 
+</div>
+
+<a href="incoming.html" role="button" draggable="false" class="govuk-button">
+  Save and continue
+</a>
+
+</form>
+
+{% endblock %}
