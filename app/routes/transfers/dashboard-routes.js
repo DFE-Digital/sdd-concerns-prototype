@@ -11,6 +11,14 @@ const filterDataByStatus = (data, statuses) => {
   return filteredData;
 }
 
+const filterDataByProjectType = (data, types) => {
+  filteredData = []
+  types.forEach(type => {
+    data.filter(project => project.project == type).forEach(project => filteredData.push(project))
+  })
+  return filteredData;
+}
+
 const filterDataByNameOrId = (data, nameOrId) => {
   nameOrId = nameOrId.toLowerCase()
 
@@ -32,13 +40,19 @@ const groupDataByStatus = (data) =>
 module.exports = router => {
   // Flush data when starting bulk action flow from the beginning
   router.get('/transfers/dashboard/:variantId', (req, res) => {
-    let data = require(path.join(__dirname, "../../data/transfers/dashboards/variant-1.json"))
+    let data = require(path.join(__dirname, `../../data/transfers/dashboards/variant-${req.params.variantId}.json`))
     let selectedStatuses = []
+    let selectedProjectTypes = []
     let nameSearched = ""
 
     if (req.query.status?.length > 0 && req.query.status != "_unchecked") {
       selectedStatuses = req.query.status
       data = filterDataByStatus(data, req.query.status)
+    }
+
+    if (req.query.project?.length > 0 && req.query.project != "_unchecked") {
+      selectedProjectTypes = req.query.project
+      data = filterDataByProjectType(data, req.query.project)
     }
 
     if (req.query['project-name-or-number']?.length > 0) {
@@ -47,6 +61,6 @@ module.exports = router => {
     }
 
     data = groupDataByStatus(data)
-    res.render(`transfers/dashboards/variant-${req.params.variantId}`, { projects: data, selectedStatuses, nameSearched })
+    res.render(`transfers/dashboards/variant-${req.params.variantId}`, { projects: data, selectedStatuses, nameSearched, selectedProjectTypes })
   })
 }

@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+{% macro display_project_info(project_type) %}
+  {% if project_type == 'a2b' %}
+    Application to become an academy
+  {% elif project_type == 'transfers' %}
+    Application to join Dynamics Academy
+  {% elif project_type == 'change' %}
+    Application to change age range
+  {% elif project_type == 'concerns' %}
+    Concerns on financial deficit
+  {% endif %}
+{% endmacro %}
+
+{% macro display_project(data) %}
+  <p>{{ data.name }} | {{ data.status }}</p>
+  <p>{{ data.joining }} | {{ data.la }}</p>
+  <p>{{ data.date }} | {{ data.reference }}</p>
+  <p>{{ display_project_info(data.project) }}</p>
+  <hr />
+{% endmacro %}
+
+{% macro projects_for_field(data, heading, field) %}
+  <h2 class="govuk-heading-l">{{ heading }} ({{ data[field].length }})</h2>
+  {% for project in data[field] %}
+    {{ display_project(project) }}
+  {% endfor %}
+{% endmacro %}
+
+
+
+{% block content %}
+
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="dashboard.html">Dashboard</a>
+    </li>
+  </ol>
+</div>
+
+<div class="govuk-width-container"><br>
+  <h1 class="govuk-heading-xl">Dashboard</h1>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <form method="GET">
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button" type="submit">
+          Apply filters
+        </button>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <label for="project-name-or-number"><legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Project number or name
+            </legend></label>
+            <input 
+              class="govuk-input" 
+              id="project-name-or-number" 
+              name="project-name-or-number" 
+              type="text"
+              {% if nameSearched %} value={{nameSearched}} {% endif %}
+            >
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Project
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small">
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="project" 
+                  name="project" 
+                  type="checkbox" 
+                  value="a2b"
+                  {% if selectedProjectTypes.includes("a2b") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="project">
+                  Apply to Become
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="project-2" 
+                  name="project" 
+                  type="checkbox" 
+                  value="transfers"
+                  {% if selectedProjectTypes.includes("transfers") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="project-2">
+                  Transfers
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="project-3" 
+                  name="project" 
+                  type="checkbox" 
+                  value="change"
+                  {% if selectedProjectTypes.includes("change") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="project-3">
+                  Significant change
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="project-4" 
+                  name="project" 
+                  type="checkbox" 
+                  value="concerns"
+                  {% if selectedProjectTypes.includes("concerns") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="project-4">
+                  Concerns
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Status
+            </legend>
+            <div class="govuk-checkboxes govuk-checkboxes--small">
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="status" 
+                  name="status" 
+                  type="checkbox" 
+                  value="newly_assigned"
+                  {% if selectedStatuses.includes("newly_assigned") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="status">
+                  Newly assigned
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="status-2" 
+                  name="status" 
+                  type="checkbox" 
+                  value="in_progress"
+                  {% if selectedStatuses.includes("in_progress") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="status-2">
+                  In progress
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="status-3" 
+                  name="status" 
+                  type="checkbox" 
+                  value="at_review"
+                  {% if selectedStatuses.includes("at_review") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="status-3">
+                  At review
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="status-4" 
+                  name="status" 
+                  type="checkbox" 
+                  value="awaiting_htb"
+                  {% if selectedStatuses.includes("awaiting_htb") %} checked {% endif %}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="status-4">
+                  Awaiting HTB
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    {% if projects.newly_assigned %}
+      {{ projects_for_field(projects, 'Newly assigned to me', 'newly_assigned')}}
+    {% endif %}
+
+    {% if projects.in_progress %}
+      {{ projects_for_field(projects, 'In progress', 'in_progress')}}
+    {% endif %}
+
+    {% if projects.at_review %}
+      {{ projects_for_field(projects, 'At review', 'at_review')}}
+    {% endif %}
+
+    {% if projects.awaiting_htb %}
+      {{ projects_for_field(projects, 'Awaiting HTB', 'awaiting_htb')}}
+    {% endif %}
+  </div>
+
+</div>
+
+{% endblock %}
