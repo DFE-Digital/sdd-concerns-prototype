@@ -1,13 +1,36 @@
 {% extends "layout.html" %}
 {% set navActive = "home" %}
 
+{% macro display_status_tag(status) %}
+  {% if status == 'newly_assigned' %}
+    <span class="govuk-body status-badge status-badge__newly-assigned">NEWLY ASSIGNED</span>
+  {% elif status == 'in_progress' %}
+    <span class="govuk-body status-badge status-badge__in-progress">IN PROGRESS</span>
+  {% elif status == 'at_review' %}
+    <span class="govuk-body status-badge status-badge__at-review">AT REVIEW</span>
+  {% elif status == 'awaiting_htb' %}
+    <span class="govuk-body status-badge status-badge__awaiting-htb">SUBMITTED</span>
+  {% endif %}
+{% endmacro %}
+
 {% macro projects_for_field(data, heading, field) %}
   <h2 class="govuk-heading-l">{{ heading }} ({{ data[field].length }})</h2>
   {% for project in data[field] %}
-    <p>{{ project.name }} | {{ project.status }}</p>
-    <p>{{project.joining }} | {{ project.la }}</p>
-    <p>{{project.date }} | {{ project.reference }}</p>
-    <hr />
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">
+          <a class="govuk-link" href="#">{{project.name}}</a>
+        </h3>
+        <p class="govuk-body govuk-!-margin-bottom-1">Application to join {{project.joining}}</p>
+        <p class="govuk-body-s dashboard-project__small-text">{{project.la}}</p>
+      </div>
+      <div class="govuk-grid-column-one-third dashboard-project-right">
+        {{ display_status_tag(project.status) }}
+        <p class="govuk-body govuk-!-margin-bottom-1">{{project.reference}}</p>
+        <p class="govuk-body-s dashboard-project__small-text">{{project.date}}</p>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0">
   {% endfor %}
 {% endmacro %}
 
@@ -24,12 +47,24 @@
 </div>
 
 <div class="govuk-width-container"><br>
-  <h1 class="govuk-heading-xl">Dashboard</h1>
+  <h1 class="govuk-heading-xl">Academy Transfers</h1>
 </div>
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body">
+      Set up a new academy transfer project
+    </p>
+    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Start a new transfer project
+    </a>
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+<div class="govuk-grid-row govuk-!-margin-top-2">
   <div class="govuk-grid-column-one-third">
     <form method="GET">
-      <div class="govuk-form-group">
+      <div class="govuk-form-group dashboard__filter-list">
+        <h2 class="govuk-heading-l">Filter</h2>
         <button class="govuk-button" data-module="govuk-button" type="submit">
           Apply filters
         </button>
