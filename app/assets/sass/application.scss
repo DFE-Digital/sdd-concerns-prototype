@@ -51,6 +51,9 @@ $govuk-assets-path: '/govuk/assets/';
 @import "overrides/dash-list";
 @import "overrides/summary-card";
 
+// Academies
+
+@import "components/dashboard";
 
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you

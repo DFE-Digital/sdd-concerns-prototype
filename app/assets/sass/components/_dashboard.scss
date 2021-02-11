@@ -1,0 +1,52 @@
+    // "colour":            govuk-shade(govuk-colour("dark-grey", $legacy: "grey-1"), 30),
+    // "background-colour": govuk-tint(govuk-colour("dark-grey", $legacy: "grey-1"), 90),
+    // "hover":             govuk-tint(govuk-colour("dark-grey", $legacy: "grey-1"), 80)
+
+
+.dashboard-project-right {
+  text-align: right;
+}
+
+.dashboard__urgent-projects {
+  background-color: govuk-tint(govuk-colour("light-grey"), 30);
+}
+
+.dashboard__filter-list {
+  border: 1px solid #979797;
+  padding: 12px;
+}
+
+.dashboard-project__small-text {
+  color: $govuk-secondary-text-colour;
+}
+
+.status-badge {
+  font-weight: 700;
+  padding: 0 10px;
+  display: inline-block;
+
+  &.status-badge__urgent {
+    color: govuk-colour("red");
+    background-color: govuk-tint(govuk-colour("red"), 90);
+  }
+
+  &.status-badge__newly-assigned {
+    color: govuk-colour("green");
+    background-color: govuk-tint(govuk-colour("green"), 90);
+  }
+
+  &.status-badge__in-progress {
+    color: govuk-colour("blue");
+    background-color: govuk-tint(govuk-colour("blue"), 90);
+  }
+
+  &.status-badge__at-review {
+    color: #594E00;
+    background-color: #FEF5BB;
+  }
+
+  &.status-badge__awaiting-htb {
+    color: govuk-colour("purple");
+    background-color: govuk-tint(govuk-colour("purple"), 90);
+  }
+}
