@@ -7,6 +7,10 @@
   text-align: right;
 }
 
+.dashboard__urgent-projects {
+  background-color: govuk-tint(govuk-colour("light-grey"), 30);
+}
+
 .dashboard__filter-list {
   border: 1px solid #979797;
   padding: 12px;
@@ -20,6 +24,11 @@
   font-weight: 700;
   padding: 0 10px;
   display: inline-block;
+
+  &.status-badge__urgent {
+    color: govuk-colour("red");
+    background-color: govuk-tint(govuk-colour("red"), 90);
+  }
 
   &.status-badge__newly-assigned {
     color: govuk-colour("green");

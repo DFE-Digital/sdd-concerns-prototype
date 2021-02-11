@@ -3,6 +3,14 @@ const fs = require('fs')
 const path = require('path')
 const { default: request } = require('sync-request')
 
+const removeUrgentProjects = (data) => {
+  return data.filter(project => !project.urgent)
+}
+
+const getUrgentProjects = (data) => {
+  return data.filter(project => project.urgent)
+}
+
 const filterDataByStatus = (data, statuses) => {
   filteredData = []
   statuses.forEach(status => {
@@ -44,6 +52,8 @@ module.exports = router => {
     let selectedStatuses = []
     let selectedProjectTypes = []
     let nameSearched = ""
+    let urgentProjects = getUrgentProjects(data);
+    data = removeUrgentProjects(data);
 
     if (req.query.status?.length > 0 && req.query.status != "_unchecked") {
       selectedStatuses = req.query.status
@@ -52,15 +62,23 @@ module.exports = router => {
 
     if (req.query.project?.length > 0 && req.query.project != "_unchecked") {
       selectedProjectTypes = req.query.project
+      urgentProjects = filterDataByProjectType(urgentProjects, req.query.project)
       data = filterDataByProjectType(data, req.query.project)
     }
 
     if (req.query['project-name-or-number']?.length > 0) {
       nameSearched = req.query['project-name-or-number']
+      urgentProjects = filterDataByNameOrId(urgentProjects, req.query['project-name-or-number'])
       data = filterDataByNameOrId(data, req.query['project-name-or-number'])
     }
 
     data = groupDataByStatus(data)
-    res.render(`transfers/dashboards/variant-${req.params.variantId}`, { projects: data, selectedStatuses, nameSearched, selectedProjectTypes })
+    res.render(`transfers/dashboards/variant-${req.params.variantId}`, {
+      projects: data,
+      urgentProjects,
+      selectedStatuses,
+      nameSearched,
+      selectedProjectTypes
+    })
   })
 }

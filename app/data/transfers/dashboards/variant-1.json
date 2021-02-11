@@ -5,6 +5,7 @@
     "la": "Warrington LA",
     "status": "newly_assigned",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
   {
@@ -13,6 +14,7 @@
     "la": "Warrington LA",
     "status": "newly_assigned",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
 
@@ -22,6 +24,7 @@
     "la": "Warrington LA",
     "status": "in_progress",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
   {
@@ -30,6 +33,7 @@
     "la": "Warrington LA",
     "status": "in_progress",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
   {
@@ -38,6 +42,7 @@
     "la": "Warrington LA",
     "status": "in_progress",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
   {
@@ -46,6 +51,7 @@
     "la": "Warrington LA",
     "status": "in_progress",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
 
@@ -55,6 +61,7 @@
     "la": "Warrington LA",
     "status": "at_review",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
   {
@@ -63,6 +70,7 @@
     "la": "Warrington LA",
     "status": "at_review",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
   {
@@ -71,6 +79,7 @@
     "la": "Warrington LA",
     "status": "at_review",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   },
 
@@ -80,6 +89,7 @@
     "la": "Warrington LA",
     "status": "awaiting_htb",
     "reference": "AS_6759840",
+    "daysUntilHTB": 2,
     "date": "12 January 2021"
   }
 ]
