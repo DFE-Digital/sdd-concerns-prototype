@@ -60,9 +60,9 @@
   {# Set serviceName in config.js. #}
   {% set headerClass = 'app-dark-header' if data.settings.useDarkHeader else 'app-light-header' %}
   {{ govukHeader({
-    homepageUrl: "/start-page",
+    homepageUrl: "/",
     productName: serviceName,
-    serviceUrl: "/records",
+    serviceUrl: "/",
     classes: headerClass,
     containerClasses: "govuk-width-container",
     navigation: [
@@ -71,7 +71,7 @@
         text: "Your account"
       } if false,
       {
-        href: "/start-page",
+        href: "/",
         text: "Sign out"
       }
     ] if not hideNav
