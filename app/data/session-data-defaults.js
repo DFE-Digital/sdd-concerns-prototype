@@ -3,31 +3,9 @@ let ethnicities             = require('./ethnicities')
 let nationalities           = require('./nationalities')
 let statuses                = require('./status')
 
-// Degree stuff
-let awards                  = require('./awards') // Types of degree
-let degreeData              = require('./degree')()
-let degreeTypes             = degreeData.types.undergraduate.map(type => type.text).sort()
-let subjects                = degreeData.subjects
-let ukComparableDegrees     = degreeData.ukComparableDegrees
-let degreeOrganisations     = degreeData.orgs
-
-// Assessment only
-let assessmentOnlyAgeRanges = require('./assessmentOnlyAgeRanges')
-let ittSubjects = require('./itt-subjects').allSubjects
-
-let withdrawalReasons       = require('./withdrawal-reasons')
-let notPassedReasons       = require('./not-passed-reasons')
-
 // Different training routes
 let trainingRouteData          = require('./training-route-data')
 let trainingRoutes = trainingRouteData.trainingRoutes
-let allTrainingRoutes       = Object.values(trainingRoutes).map(route => route.name)
-
-let courses                 = require('./courses.json')
-
-let providerData            = require('./providers.js')
-let providers               = providerData.selectedProviders
-let allProviders            = providerData.allProviders
 
 let currentYear             = 2020
 
@@ -100,25 +78,12 @@ records = records.map(record => {
 })
 
 module.exports = {
-  allTrainingRoutes,
-  assessmentOnlyAgeRanges,
-  awards,
   countries,
-  courses,
   currentYear,
-  degreeOrganisations,
-  degreeTypes,
   ethnicities,
-  ittSubjects,
   nationalities,
-  notPassedReasons,
-  providers,
-  allProviders,
   records,
   settings,
   statuses,
-  subjects,
   trainingRoutes,
-  ukComparableDegrees,
-  withdrawalReasons
 }
