@@ -3,13 +3,13 @@
 
 {% macro display_status_tag(status) %}
   {% if status == 'newly_assigned' %}
-    <span class="govuk-body status-badge status-badge__newly-assigned">NEWLY ASSIGNED</span>
+    <span class="govuk-tag govuk-tag--green">NEWLY ASSIGNED</span>
   {% elif status == 'in_progress' %}
-    <span class="govuk-body status-badge status-badge__in-progress">IN PROGRESS</span>
+    <span class="govuk-tag govuk-tag--blue">IN PROGRESS</span>
   {% elif status == 'at_review' %}
-    <span class="govuk-body status-badge status-badge__at-review">AT REVIEW</span>
+    <span class="govuk-tag govuk-tag--yellow">AT REVIEW</span>
   {% elif status == 'awaiting_htb' %}
-    <span class="govuk-body status-badge status-badge__awaiting-htb">SUBMITTED</span>
+    <span class="govuk-tag govuk-tag--purple">SUBMITTED</span>
   {% endif %}
 {% endmacro %}
 

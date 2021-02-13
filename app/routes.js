@@ -64,35 +64,6 @@ router.post('*', function(req, res, next){
   next()
 })
 
-// =============================================================================
-// Individual pages
-// =============================================================================
-// Records list
-require('./routes/records-list-routes')(router)
-
-// =============================================================================
-// Shared routes - add / edit record data
-//
-// These routes are for editing data on new records and existing records
-// Match against 'new-record' and 'uuid record' paths and work for both.
-// =============================================================================
-require('./routes/shared-edit-routes')(router)
-
-// =============================================================================
-// New records
-// =============================================================================
-require('./routes/new-record-routes')(router)
-
-// =============================================================================
-// Existing records
-// =============================================================================
-require('./routes/existing-record-routes')(router)
-
-// =============================================================================
-// Bulk actions
-// =============================================================================
-require('./routes/bulk-action-routes')(router)
-
 require('./routes/transfers/dashboard-routes')(router)
 
 module.exports = router
