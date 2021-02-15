@@ -1,496 +1,95 @@
 [
   {
-    "academicYear": 2020,  
-    "id": "677be920-eaa0-e911-a83f-000d3a3852a3",
-    "trustName": "Alsager Multi Academy Trust",
-    "companiesHouseNumber": "08597784",
-    "trustReferenceNumber": "TR00057",
-    "address": "Hassall Road\r\nAlsager, Cheshire ST7 2HR",
-    "establishmentType": "Multi-academy trust",
-    "establishmentTypeGroup": "Multi-academy trust",
-    "ukprn": "10060516",
-    "upin": "137626",
-    "diversity": {
-      "diversityDisclosed": "false",
-      "status": "Completed"
-    },
-    "personalDetails": {
-      "givenName": "Alsager Multi",
-      "familyName": "Academy Trust",
-      "middleNames": "Lorene",
-      "nationality": [
-        "British",
-        "French",
-        "Swiss"
-      ],
-      "sex": "Female",
-      "dateOfBirth": "1990-11-14T07:44:59.316Z",
-      "status": "Completed"
-    },
-    "provider": "Coventry University",
-    "route": "Multi-academy trust",
-    "status": "Draft",
-    "updatedDate": "2021-01-14T07:48:11.589Z",
-    "events": {
-      "items": [
-        {
-          "title": "Record created",
-          "user": "provider",
-          "date": "2020-03-26T13:43:46.690Z"
-        }
-      ]
-    }
+    "name": "St Wilfred's primary school",
+    "joining": "Dynamics academy",
+    "la": "Warrington LA",
+    "status": "newly_assigned",
+    "reference": "AS_6759840",
+    "daysUntilHTB": 2,
+    "date": "12 January 2021"
   },
-    {
-        "academicYear": 2020,
-        "id": "7a7be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Education Partnership Trust",
-        "companiesHouseNumber": "07950891",
-        "trustReferenceNumber": "TR00059",
-        "address": "Education Partnership Trust\r\nPleckgate Road\r\nBlackburn BB1 8QA",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059591",
-        "upin": "136855",
-        "provider": "University of Buckingham",
-    "route": "Assessment only",
-    "status": "At review",
-    "updatedDate": "2021-01-14T07:48:11.589Z",
-    "events": {
-      "items": [
-        {
-          "title": "Record created",
-          "user": "Provider",
-          "date": "2020-03-26T13:43:46.690Z"
-        }
-      ]
-    }
-    },
-    {
-        "academicYear": 2020,
-        "id": "857be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Abbey Multi Academy Trust",
-        "companiesHouseNumber": "07705552",
-        "trustReferenceNumber": "TR00002",
-        "address": "Abbey Grange Church Of England Academy\r\nButcher Hill\r\nLeeds, West Yorkshire LS16 5EA",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059141",
-        "upin": "135666",
-        "status": "Draft"
-    },
-    {
-        "academicYear": 2020,
-        "id": "867be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Ascent Academies' Trust",
-        "companiesHouseNumber": "08098007",
-        "trustReferenceNumber": "TR00090",
-        "address": "Portland Academy\r\nWeymouth Road\r\nChapelgarth, Sunderland SR3 2NQ",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10045584",
-        "upin": "136400",
-        "status": "Newly assigned"
-      
-    },
-    {
-        "academicYear": 2020,
-        "id": "8a7be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "South Manchester Learning Trust",
-        "companiesHouseNumber": "08137701",
-        "trustReferenceNumber": "TR00060",
-        "address": "Altrincham College Green Lane\r\nTimperley\r\nAltrincham WA15 8QW",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059912",
-        "upin": "137133",
-        "status": [
-        "Newly assigned"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "9c7be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Hamblin Education Trust",
-        "companiesHouseNumber": "07484717",
-        "trustReferenceNumber": "TR00061",
-        "address": "Altrincham Grammar School For Boys\r\nMarlborough Road\r\nBowdon, Cheshire WA14 2RS",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10058463",
-        "upin": "135739",
-         "provider": "University of Buckingham",
-    "route": "Assessment only",
-    "status": "At review",
-    "updatedDate": "2021-01-14T07:48:11.589Z",
-    "events": {
-      "items": [
-        {
-          "title": "Record created",
-          "user": "Provider",
-          "date": "2020-03-26T13:43:46.690Z"
-        }
-      ]
-    }
-    },
-    {
-        "academicYear": 2020,
-        "id": "ab7be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Ash Field Academy Trust",
-        "companiesHouseNumber": "07988444",
-        "trustReferenceNumber": "TR00093",
-        "address": "Ash Field Academy\r\nBroad Avenue\r\nLeicester, Leicestershire LE5 4PY",
-        "establishmentType": "Single-academy Trust",
-        "establishmentTypeGroup": "Single-academy trust",
-        "ukprn": "10059690",
-        "upin": "136985",
-        "status": [
-        "Newly assigned"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "ad7be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Wigston Academies Trust",
-        "companiesHouseNumber": "07975551",
-        "trustReferenceNumber": "TR00006",
-        "address": "Wigston Academy\r\nStation Road\r\nWigston, Leicestershire LE18 2DU",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059647",
-        "upin": "136947",
-        "status": [
-        "Newly assigned"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "bf7be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Aspire Educational Trust",
-        "companiesHouseNumber": "08689696",
-        "trustReferenceNumber": "TR00094",
-        "address": "Ash Grove Academy\r\nBelgrave Road\r\nMacclesfield SK11 7TF",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10060601",
-        "upin": "137898",
-        "status": [
-        "In progress"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "c17be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Academies Enterprise Trust",
-        "companiesHouseNumber": "06625091",
-        "trustReferenceNumber": "TR00008",
-        "address": "3rd Floor 183 Eversholt Street\r\nLondon NW1 1BU",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10033736",
-        "upin": "122836",
-        "status": [
-        "In progress"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "d17be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Ashby Hill Top Primary School Academy Trust",
-        "companiesHouseNumber": "08197381",
-        "trustReferenceNumber": "TR00095",
-        "address": "Ashby Hill Top Primary School\r\nBeaumont Avenue\r\nAshby-De-La-Zouch, Leicestershire LE65 2NF",
-        "establishmentType": "Single-academy Trust",
-        "establishmentTypeGroup": "Single-academy trust",
-        "ukprn": "10060056",
-        "upin": "137282",
-        "status": [
-        "In progress"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "d37be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Academy @ Ridgewood Trust",
-        "companiesHouseNumber": "07795736",
-        "trustReferenceNumber": "TR00009",
-        "address": "Ridgewood School Barnsley Road\r\nScawsby\r\nDoncaster, South Yorkshire DN5 7UB",
-        "establishmentType": "Single-academy Trust",
-        "establishmentTypeGroup": "Single-academy trust",
-        "ukprn": "10059335",
-        "upin": "136243",
-        "status": [
-        "At review"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "d47be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Anglo European Academy Trust",
-        "companiesHouseNumber": "07846848",
-        "trustReferenceNumber": "TR00067",
-        "address": "Willow Green\r\nIngatestone, Essex CM4 0DJ",
-        "establishmentType": "Single-academy Trust",
-        "establishmentTypeGroup": "Single-academy trust",
-        "ukprn": "10059438",
-        "upin": "136654",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "e57be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Ansford Academy Trust",
-        "companiesHouseNumber": "07657806",
-        "trustReferenceNumber": "TR00069",
-        "address": "Ansford Academy\r\nMaggs Lane\r\nCastle Cary, Somerset BA7 7JJ",
-        "establishmentType": "Single-academy Trust",
-        "establishmentTypeGroup": "Single-academy trust",
-        "ukprn": "10058838",
-        "upin": "135131",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "f37be920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Two Counties Trust",
-        "companiesHouseNumber": "07972029",
-        "trustReferenceNumber": "TR00097",
-        "address": "Ashfield School\r\nSutton Road\r\nKirby In Ashfield, Nottinghamshire NG17 8HP",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059639",
-        "upin": "136939",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "067ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Transforming Lives Educational Trust",
-        "companiesHouseNumber": "07515832",
-        "trustReferenceNumber": "TR00098",
-        "address": "Ashlawn School\r\nAshlawn Road\r\nRugby, Warwickshire CV22 5ET",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10058492",
-        "upin": "135866",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "1d7ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Lionheart Academies Trust",
-        "companiesHouseNumber": "08473899",
-        "trustReferenceNumber": "TR00158",
-        "address": "Beauchamp College Ridge Way\r\nOadby\r\nLeicester, Leicestershire LE2 5TP",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10055191",
-        "upin": "136495",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "257ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Bath And Wells Diocesan Academies Trust",
-        "companiesHouseNumber": "08207095",
-        "trustReferenceNumber": "TR00145",
-        "address": "Flourish House\r\nCathedral Avenue\r\nWells, Somerset BA5 1FD",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10060066",
-        "upin": "137292",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "3d7ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Batley Multi Academy Trust",
-        "companiesHouseNumber": "07732537",
-        "trustReferenceNumber": "TR00147",
-        "address": "Windmill Lane\r\nBatley, West Yorkshire WF17 0LD",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059240",
-        "upin": "136119",
-        "status": [
-        "Awaiting HTB"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "447ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "M20 Learning Trust",
-        "companiesHouseNumber": "08698831",
-        "trustReferenceNumber": "TR00161",
-        "address": "Beaver Road Primary School Beaver Road\r\nDidsbury\r\nManchester M20 6SX",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10060604",
-        "upin": "137907",
-        "status": [
-        "Academy order"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "5d7ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Beckfoot Trust",
-        "companiesHouseNumber": "08155088",
-        "trustReferenceNumber": "TR00163",
-        "address": "Beckfoot Trust\r\nWagon Lane\r\nBingley, West Yorkshire BD16 1EE",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059960",
-        "upin": "137182",
-        "status": [
-        "Archieved"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "617ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Baylis Court Trust",
-        "companiesHouseNumber": "07662414",
-        "trustReferenceNumber": "TR00151",
-        "address": "Bct Central Offices C/O Reading Girls School\r\nNorthumberland Avenue\r\nReading, Berkshire RG2 7PY",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10058858",
-        "upin": "135180",
-        "status": [
-        "Archieved"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "697ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Heart Academies Trust",
-        "companiesHouseNumber": "06969741",
-        "trustReferenceNumber": "TR00165",
-        "address": "Bedford Academy\r\nMile Road\r\nBedford MK42 9TR",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10058270",
-        "upin": "135249",
-        "status": [
-        "Completed"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "6d7ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Beacon Community College Academy Trust",
-        "companiesHouseNumber": "07959980",
-        "trustReferenceNumber": "TR00153",
-        "address": "Beacon Community College Academy Trust\r\nNorth Beeches Road\r\nCrowborough, East Sussex TN6 2AS",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059615",
-        "upin": "136879",
-        "status": [
-        "Archieved"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "847ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Bedfordshire Schools Trust Limited",
-        "companiesHouseNumber": "07546141",
-        "trustReferenceNumber": "TR00167",
-        "address": "Best House Shefford Road\r\nClifton\r\nShefford, Bedfordshire SG17 5QS",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10055198",
-        "upin": "136496",
-        "status": [
-        "Completed"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "9b7ce920-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Evolve Trust",
-        "companiesHouseNumber": "07827747",
-        "trustReferenceNumber": "TR00339",
-        "address": "C/O The Beech Academy\r\nFairholme Drive\r\nMansfield, Nottinghamshire NG19 6DX",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059397",
-        "upin": "136608",
-        "status": [
-        "Archieved"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "adbae526-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "The Castle Partnership Trust",
-        "companiesHouseNumber": "07657731",
-        "trustReferenceNumber": "TR00406",
-        "address": "The Castle School\r\nWellington Road\r\nTaunton, Somerset TA1 5AU",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10058834",
-        "upin": "135127",
-        "status": [
-        "Completed"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "b7bae526-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Bullers Wood Multi Academy Trust",
-        "companiesHouseNumber": "07588418",
-        "trustReferenceNumber": "TR00345",
-        "address": "Bullers Wood School St Nicholas Lane\r\nLogs Hill\r\nChislehurst, Kent BR7 5LJ",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10058676",
-        "upin": "134871",
-        "status": [
-        "Archieved"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "b9bae526-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Castle Phoenix Trust",
-        "companiesHouseNumber": "08331385",
-        "trustReferenceNumber": "TR00407",
-        "address": "Caludon Castle School\r\nAxholme Road\r\nCoventry, West Midlands CV2 5BD",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10060243",
-        "upin": "137470",
-        "status": [
-        "Completed"
-      ]
-    },
-    {
-        "academicYear": 2020,
-        "id": "c5bae526-eaa0-e911-a83f-000d3a3852a3",
-        "trustName": "Apollo Partnership Trust",
-        "companiesHouseNumber": "08114513",
-        "trustReferenceNumber": "TR00408",
-        "address": "Castle Rock High School\r\nMeadow Lane\r\nCoalville, Leicestershire LE67 4BR",
-        "establishmentType": "Multi-academy trust",
-        "establishmentTypeGroup": "Multi-academy trust",
-        "ukprn": "10059859",
-        "upin": "137079",
-        "status": [
-        "Completed"
-      ]
-    }
+  {
+    "name": "Alsager Primary School",
+    "joining": "Focus academy",
+    "la": "Cheshire LA",
+    "status": "newly_assigned",
+    "reference": "AS_1234567",
+    "daysUntilHTB": 3,
+    "date": "2 March 2021"
+  },
+
+  {
+    "name": "Portland Academy",
+    "joining": "The Ascent Academies' Trust",
+    "la": "Portland LA",
+    "status": "in_progress",
+    "reference": "AS_2345678",
+    "daysUntilHTB": 13,
+    "date": "21 April 2021"
+  },
+  {
+    "name": "Altrincham College Green Lane",
+    "joining": "South Manchester Learning Trust",
+    "la": "Manchester LA",
+    "status": "in_progress",
+    "reference": "AS_6759840",
+    "daysUntilHTB": 22,
+    "date": "12 January 2021"
+  },
+  {
+    "name": "Altrincham Grammar School For Boys",
+    "joining": "The Hamblin Education Trust",
+    "la": "Altrincham LA",
+    "status": "in_progress",
+    "reference": "AS_6752340",
+    "daysUntilHTB": 10,
+    "date": "1 January 2021"
+  },
+  {
+    "name": "Wigston Academy",
+    "joining": "Wigston Academies Trust",
+    "la": "Wingston LA",
+    "status": "in_progress",
+    "reference": "AS_6321840",
+    "daysUntilHTB": 23,
+    "date": "12 January 2021"
+  },
+
+  {
+    "name": "Ash Grove Academy",
+    "joining": "The Aspire Educational Trust",
+    "la": "Macclesfield LA",
+    "status": "at_review",
+    "reference": "AS_1239840",
+    "daysUntilHTB": 5,
+    "date": "12 August 2021"
+  },
+  {
+    "name": "Ridgewood School Barnsley Road",
+    "joining": "The Academy @ Ridgewood Trust",
+    "la": "Scawsby LA",
+    "status": "at_review",
+    "reference": "AS_6750000",
+    "daysUntilHTB": 29,
+    "date": "9 September 2021"
+  },
+  {
+    "name": "Ashfield School",
+    "joining": "The Two Counties Trust",
+    "la": "Ashfield LA",
+    "status": "at_review",
+    "reference": "AS_5432140",
+    "daysUntilHTB": 52,
+    "date": "1 January 2021"
+  },
+
+  {
+    "name": "Flourish House",
+    "joining": "he Bath And Wells Diocesan Academies Trust",
+    "la": "Somerset LA",
+    "status": "awaiting_htb",
+    "reference": "AS_6339840",
+    "daysUntilHTB": 21,
+    "date": "30 May 2021"
+  }
 ]

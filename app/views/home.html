@@ -57,7 +57,7 @@
     {% endmacro %}
 
     <div class="govuk-grid-row govuk-!-margin-bottom-6">
-      {% set statuses = ['Draft', 'Newly assigned', 'In progress'] %}
+      {% set statuses = ['Draft', 'newly_assigned', 'in_progress'] %}
       {% for status in statuses %}
         <div class="govuk-grid-column-one-third">
           {{ statusCard(records, status) }}
