@@ -159,7 +159,7 @@ const generateFakeApplicationsForProvider = (provider, year, count) => {
   // Current year should be mostly trn recieved
   if (year == currentYear){
     targetCounts = {
-      draft: 0.05,
+      : 0.05,
       pendingTrn: 0.05,
       trnReceived: 0.76,
       qtsRecommended: 0.05,
@@ -171,7 +171,7 @@ const generateFakeApplicationsForProvider = (provider, year, count) => {
   // Previous years will be mostly awarded with some withdrawn and a handful of deferred
   else {
     targetCounts = {
-      draft: 0,
+      : 0,
       pendingTrn: 0,
       trnReceived: 0,
       qtsRecommended: 0,
@@ -183,9 +183,9 @@ const generateFakeApplicationsForProvider = (provider, year, count) => {
 
   const stubApplication = {} 
 
-  // Todo: make these drafts more random
-  stubApplication.draft = {
-    status: 'Draft',
+  // Todo: make these s more random
+  stubApplication. = {
+    status: '',
     trainingDetails: {
       status: 'Completed'
     },

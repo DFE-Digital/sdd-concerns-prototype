@@ -97,28 +97,21 @@
       },
       {
         text: "Newly assigned",
-        checked: checked(query.filterStatus, "Newly assigned")
+        checked: checked(query.filterStatus, "newly_assigned")
       },
       {
         text: "In progress",
-        checked: checked(query.filterStatus, "In progress")
+        checked: checked(query.filterStatus, "in_progress")
       },
       {
         text: "At review",
-        checked: checked(query.filterStatus, "At review")
+        checked: checked(query.filterStatus, "at_review")
       },
       {
         text: "Awaiting HTB",
-        checked: checked(query.filterStatus, "Awaiting HTB")
+        checked: checked(query.filterStatus, "awaiting_htb")
       },
       {
-        text: "Academy order issued",
-        checked: checked(query.filterStatus, "Academy order issued")
-      },
-      {
-        text: "Archieved",
-        checked: checked(query.filterStatus, "Archieved")
-      }
     ]
   } | decorateAttributes(data, "data.filterStatus"))}}
 

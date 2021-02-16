@@ -1,9 +1,7 @@
 module.exports = [
   'Draft',
-  'Pending HTB',
-  'HTB received',
-  'HTB recommended',
-  'HTB approved',
-  'Deferred',
-  'Withdrawn'
+  'Newly assigned',
+  'In progress',
+  'At review',
+  'Awaiting HTB'
 ]

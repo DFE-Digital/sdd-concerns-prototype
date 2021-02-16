@@ -46,7 +46,7 @@ filters.getStatusClass = (status) => {
       return 'govuk-tag--blue'
 
     // Record statuses
-    case 'Draft':
+    case '':
       return 'govuk-tag--grey'
       // return 'govuk-tag--yellow'
     case 'Pending TRN':
@@ -90,7 +90,7 @@ filters.reviewIfInProgress = (url, data, path) => {
 
 filters.getAmendsAllowed = status => {
   let statusesThatCanAmend = [
-    'Draft',
+    '',
     'Pending TRN',
     'TRN received',
     'Deferred'
