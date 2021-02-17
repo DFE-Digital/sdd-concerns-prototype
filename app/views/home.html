@@ -49,26 +49,26 @@
     {% set records = data.providerRecords | filterByYear(data.currentYear)| filterDisabledTrainingRoutes %}
 
     {% macro statusCard(records, status) %}
-      <a href="/transfers/dashboard/1?filterStatus={{status}}" class="status-card status-card--{{status | lower | kebabCase }}">
-        {% set recordCount = records | where("status", status) | length %}
+      <a href="/transfers/dashboard/1?status={{status[1]}}" class="status-card status-card--{{status[0] | lower | kebabCase }}">
+        {% set recordCount = records[status[1]] | length %}
         <span class="status-card__count">{{recordCount}}</span>
-        {{status}}
+        {{status[0]}}
       </a>
     {% endmacro %}
 
     <div class="govuk-grid-row govuk-!-margin-bottom-6">
-      {% set statuses = ['Draft', 'Newly assigned', 'In progress'] %}
+      {% set statuses = [['Draft', 'draft'], ['Newly assigned', 'newly_assigned'], ['In progress', 'in_progress']] %}
       {% for status in statuses %}
         <div class="govuk-grid-column-one-third">
-          {{ statusCard(records, status) }}
+          {{ statusCard(projects, status) }}
         </div>
       {% endfor %}
     </div>
     <div class="govuk-grid-row govuk-!-margin-bottom-6">
-      {% set statuses = ['At review', 'Awaiting HTB'] %}
+      {% set statuses = [['At review', 'at_review'], ['Awaiting HTB', 'awaiting_htb']] %}
       {% for status in statuses %}
         <div class="govuk-grid-column-one-quarter">
-          {{ statusCard(records, status) }}
+          {{ statusCard(projects, status) }}
         </div>
       {% endfor %}
     </div>

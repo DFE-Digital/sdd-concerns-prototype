@@ -12,6 +12,7 @@ const getUrgentProjects = (data) => {
 }
 
 const filterDataByStatus = (data, statuses) => {
+  if(!Array.isArray(statuses)) statuses = [statuses]
   filteredData = []
   statuses.forEach(status => {
     data.filter(project => project.status == status).forEach(project => filteredData.push(project))
@@ -46,7 +47,12 @@ const groupDataByStatus = (data) =>
   }, [])
 
 module.exports = router => {
-  // Flush data when starting bulk action flow from the beginning
+  router.get('/home', (req, res) => {
+    let data = require(path.join(__dirname, `../../data/transfers/dashboards/variant-1.json`))
+    data = groupDataByStatus(data)
+    res.render('home', { projects: data })
+  })
+
   router.get('/transfers/dashboard/:variantId', (req, res) => {
     let data = require(path.join(__dirname, `../../data/transfers/dashboards/variant-${req.params.variantId}.json`))
     let selectedStatuses = []
