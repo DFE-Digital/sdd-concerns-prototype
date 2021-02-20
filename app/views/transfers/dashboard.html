@@ -1,32 +1,5 @@
 {% extends "layout.html" %}
-
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-  serviceName: "Manage trusts and academy schools",
-  serviceUrl: "#",
-  containerClasses: "govuk-width-container",
-  navigation: [
-  
-  ]
-}) }}
-{% endblock %}
-
-{% block pageTitle %}
-Dashboard
-{% endblock %}
-
-{% block beforeContent %}
-
-{{ govukPhaseBanner({
-  tag: {
-  text: "alpha"
-},
-html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-}) }}
-
-
-{% endblock %}
+{% set navActive = "home" %}
 
 {% block content %}
 
@@ -45,29 +18,8 @@ html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> 
   <h2 class="govuk-tabs__title">
     Dashboard
   </h2>
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#transfers">
-        Transfers
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#conversions">
-        Conversions
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#significant-change">
-        Significant Change
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#concerns">
-        Concerns
-      </a>
-    </li>
-  </ul>
-  <div class="govuk-tabs__panel" id="transfers">
+  
+ 
     <h2 class="govuk-heading-l">Academy transfer projects</h2>
     <p class="govuk-body">Set up a new academy transfer project</p>
 
@@ -210,65 +162,7 @@ html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> 
     </table>
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="significant-change">
-    <h2 class="govuk-heading-l">Past month</h2>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Case manager</th>
-          <th scope="col" class="govuk-table__header">Cases opened</th>
-          <th scope="col" class="govuk-table__header">Cases closed</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">David Francis</td>
-          <td class="govuk-table__cell">98</td>
-          <td class="govuk-table__cell">95</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Paul Farmer</td>
-          <td class="govuk-table__cell">122</td>
-          <td class="govuk-table__cell">131</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rita Patel</td>
-          <td class="govuk-table__cell">126</td>
-          <td class="govuk-table__cell">142</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
-    <h2 class="govuk-heading-l">Past year</h2>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Case manager</th>
-          <th scope="col" class="govuk-table__header">Cases opened</th>
-          <th scope="col" class="govuk-table__header">Cases closed</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">David Francis</td>
-          <td class="govuk-table__cell">1380</td>
-          <td class="govuk-table__cell">1472</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Paul Farmer</td>
-          <td class="govuk-table__cell">1129</td>
-          <td class="govuk-table__cell">1083</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rita Patel</td>
-          <td class="govuk-table__cell">1539</td>
-          <td class="govuk-table__cell">1265</td>
-        </tr>
-      </tbody>
-    </table>
-
+  
   </div>
 </div>
 

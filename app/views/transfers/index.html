@@ -1,32 +1,5 @@
 {% extends "layout.html" %}
-
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/",
-  serviceName: "Manage trusts and academy schools",
-  serviceUrl: "#",
-  containerClasses: "govuk-width-container",
-  navigation: [
-  
-  ]
-}) }}
-{% endblock %}
-
-{% block pageTitle %}
-Sign in
-{% endblock %}
-
-{% block beforeContent %}
-
-{{ govukPhaseBanner({
-  tag: {
-  text: "alpha"
-},
-html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-}) }}
-
-
-{% endblock %}
+{% set navActive = "home" %}
 
 {% block content %}
 

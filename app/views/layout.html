@@ -95,25 +95,25 @@
   {% endset %}
 
   {% set navItems = [{
-      text: 'Home',
+      text: 'Academy transfers',
       href: '/index',
       active: true if navActive == 'home'
     },
     {
-      text: 'Tasks',
-      href: '/index',
-      active: true if navActive == 'tasks'
+      text: 'Conversions',
+      href: '/404',
+      active: true if navActive == 'convert'
     },
     {
-      text: 'Outstanding actions',
-      href: '/index',
-      active: true if navActive == 'outstanding'
+      text: 'Significant change',
+      href: '/404',
+      active: true if navActive == 'change'
     },
     {
-      text: 'Courses',
-      href: '/root/case-list',
-      active: true if navActive == 'courses'
-    } if false
+      text: 'Concerns',
+      href: '/404',
+      active: true if navActive == 'cases'
+    } 
     ] %}
 
   {% if not hidePrimaryNav %}
@@ -178,10 +178,7 @@
         },{
           href: "/privacy-policy",
           text: "Privacy policy"
-        }, {
-          href: "/admin",
-          text: "Prototype admin"
-        }, {
+        },{
           href: "/admin/clear-data",
           text: "Clear data"
         }, {
