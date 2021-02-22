@@ -1,10 +1,7 @@
-{% extends "layout.html" %} {% block header %} {{ govukHeader({ homepageUrl:
-"/", serviceName: "Transfer an academy to another trust", serviceUrl: "#",
-containerClasses: "govuk-width-container", navigation: [ ] }) }} {% endblock %}
-{% block pageTitle %} Trust details {% endblock %} {% block beforeContent %} {{
-govukPhaseBanner({ tag: { text: "alpha" }, html: 'This is a new service - your
-<a href="#" class="govuk-link">feedback</a> will help us to improve it.' }) }}
-{% endblock %} {% block content %}
+{% extends "layout.html" %} 
+{% set navActive = "home" %}
+
+{% block content %}
 
 <div class="govuk-breadcrumbs ">
   <ol class="govuk-breadcrumbs__list">
