@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+{% block content %}
+
+
+<main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
+    <div class="govuk-grid-row">
+
+        <!-- Heading -->
+
+
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-xl">Sign in to your DfE account</h1>
+        </div>
+    </div>
+    <style>
+        .govuk-input {
+            max-width: 400px;
+        }
+    </style>
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-l">Sign in</h2>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                    Email address
+                </label>
+                <span id="email-hint" class="govuk-hint">
+                    Sign in using your DfE email address
+                </span>
+                <input class="govuk-input" id="email" name="email" type="email" aria-describedby="email-hint">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="password">
+                    Password
+                </label>
+                <span id="email-hint" class="govuk-hint">
+                    Sign in using your previously created password
+                </span>
+                <input class="govuk-input" id="password" name="password" type="password" aria-describedby="email-hint">
+            </div>
+            <a href="password-reset.html" class="govuk-link">Forgotten your password?</a>
+
+
+        </div>
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-l">Not registered yet?</h2>
+            <p class="govuk-body">If this is the first time you are using the Trusts and Academies Tool, you will need
+                to<a href="register.html" class="govuk-link"> be registered.</a></p>
+            <br>
+            <p class="govuk-body">Once registered, you will be able to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>manage trusts and academies</li>
+                <li>view tasks in your portfolio</li>
+                <li>create and edit projects</li>
+                <li>manage your portfolio</li>
+            </ul>
+
+            <div class="govuk-inset-text">
+                You will only need to register once
+            </div>
+
+
+        </div>
+
+</main>
+
+<!-- Green Button -->
+
+<a href="/transfers/dashboard/1" role="button" draggable="false" class="govuk-button govuk-button--start">
+    Sign in
+</a>
+</div>
+
+
+
+</body>
+
+{% endblock %}
