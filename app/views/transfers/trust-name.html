@@ -2,16 +2,7 @@
 {% set navActive = "home" %}
 
 {% block beforeContent %}
-    <div class="govuk-breadcrumbs ">
-        <ol class="govuk-breadcrumbs__list">
-            <li class="govuk-breadcrumbs__list-item">
-                <a class="govuk-breadcrumbs__link" href="/transfers/dashboard/1">Home</a>
-            </li>
-            <li class="govuk-breadcrumbs__list-item">
-                <a class="govuk-breadcrumbs__link" href="#">Add the outgoing trust name</a>
-            </li>
-        </ol>
-    </div>
+    <a class="govuk-back-link" href="/transfers/dashboard/1">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -22,7 +13,9 @@
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" aria-required="true">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                                <h1 class="govuk-fieldset__heading">Add the outgoing trust name</h1>
+                                <h1 class="govuk-fieldset__heading">
+                                    Add the outgoing trust name
+                                </h1>
                             </legend>
                             <label class="govuk-hint" for="outgoing-trust-search-query"
                                    id="outgoing-trust-search-query-hint">Search
