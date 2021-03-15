@@ -1,64 +1,47 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 {% set navActive = "home" %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link"
+       href="/transfers/outgoing-trust-search.html?outgoing-trust-search-query={{ data['outgoing-trust-search-query'] }}">Back</a>
+{% endblock %}
 
 {% block content %}
 
-<div class="govuk-breadcrumbs ">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="/transfers/dashboard/1">Home</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="incoming-2.html">Add the outgoing trust name</a>
-    </li>
-     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Outgoing trust details</a>
-    </li>
-  </ol>
-</div>
+    {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
-
-<div class="govuk-width-container">
-  <br />
-  <h1 class="govuk-heading-xl">Outgoing trust details</h1>
-</div>
-
-<dl class="govuk-summary-list govuk-summary-list--no-border">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Name</dt>
-    <dd class="govuk-summary-list__value">
-      Our Lady Immaculate Catholic Academies Trust Ltd
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Companies House Number</dt>
-    <dd class="govuk-summary-list__value">09436283</dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Type</dt>
-    <dd class="govuk-summary-list__value">Multi Academy Trust</dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Trust Reference Number</dt>
-    <dd class="govuk-summary-list__value">TR03117</dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">Address</dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">C/O St Thomas More Catholic,</p>
-      <p class="govuk-body">Secondary school, Tyne</p>
-      <p class="govuk-body">Cresent, Bedford</p>
-      <p class="govuk-body">MK41 7UL</p>
-    </dd>
-  </div>
-</dl>
-
-<a
-  href="add-academies.html"
-  role="button"
-  draggable="false"
-  class="govuk-button"
->
-  Select Trust
-</a>
+    <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l">Outgoing trust details</h1>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Name</dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ trust.trust_name }}
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Companies House Number</dt>
+                        <dd class="govuk-summary-list__value">{{ trust.companies_house_number }}</dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Type</dt>
+                        <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Trust Reference Number</dt>
+                        <dd class="govuk-summary-list__value">{{ trust.trust_reference_number }}</dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Address</dt>
+                        <dd class="govuk-summary-list__value">
+                            <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
+                        </dd>
+                    </div>
+                </dl>
+                <a class="govuk-button" draggable="false" href="add-academies.html">Save and continue</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

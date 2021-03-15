@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+{% block beforeContent %}
+    <a class="govuk-back-link" href="/transfers/incoming.html">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l">Select the incoming trust</h1>
+                <ul class="govuk-list--bullet">
+                    {% for trust in data["trusts"] | filterTrustsBySearchString(data["incoming-trust-search-query"]) %}
+                        <li>
+                            <a href="/transfers/summary.html?incoming-trust-id={{ trust.id }}">
+                                {{ trust.trust_name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
