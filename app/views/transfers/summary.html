@@ -2,8 +2,13 @@
 {% set navActive = "home" %}
 
 {% block beforeContent %}
+    {% if data['autocompleted-incoming-trust-id'] %}
+    <a class="govuk-back-link"
+       href="/transfers/incoming.html">Back</a>
+    {% else %}
     <a class="govuk-back-link"
        href="incoming-trust-search.html?incoming-trust-search-query{{ data['incoming-trust-search-query'] }}">Back</a>
+    {% endif %}
 {% endblock %}
 
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}

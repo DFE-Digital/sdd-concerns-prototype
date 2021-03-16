@@ -34,6 +34,15 @@ filters.filterTrustsBySearchString = (trusts, searchString) => {
   })
 }
 
+filters.trustsForAutocomplete = (trusts) => {
+  return trusts.map(
+    trust => ({
+      id: trust.id,
+      searchString: `${trust.trust_name}, ${trust.trust_reference_number}, ${trust.companies_house_number}`
+    })
+  )
+}
+
 filters.getTrustById = (trusts, id) => {
   return trusts.find(trust => trust.id === id)
 }
