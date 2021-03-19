@@ -11,7 +11,7 @@
             <div class="govuk-grid-column-two-thirds">
                 <form method="get" action="/transfers/incoming-trust-search">
                     <div class="govuk-form-group">
-                        <fieldset class="govuk-fieldset" aria-required="true">
+                        <fieldset class="govuk-fieldset" data-required data-error="Search cannot be blank" aria-required="true">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                                 <h1 class="govuk-fieldset__heading">Add the incoming trust name</h1>
                             </legend>
@@ -19,7 +19,7 @@
                                    id="incoming-trust-search-query-hint">Search
                                 by name, trust reference number or
                                 companies house number</label>
-                            <input class="govuk-input" name="incoming-trust-search-query"
+                                <input class="govuk-input form-control" name="incoming-trust-search-query"
                                    id="incoming-trust-search-query"
                                    type="text" aria-describedby="incoming-trust-search-query-hint">
                             <div id="autocomplete-container"></div>
