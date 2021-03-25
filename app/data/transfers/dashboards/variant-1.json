@@ -7,8 +7,7 @@
     "reference": "AS_6759840",
     "daysUntilHTB": 2,
     "transferMonth": "May",
-    "date": "12 January 2021",
-    "overdue": false
+    "date": "Assigned on 12 January 2021"
   },
   {
     "name": "Alsager Primary School",
@@ -18,8 +17,7 @@
     "reference": "AS_1234567",
     "daysUntilHTB": 3,
     "transferMonth": "June",
-    "date": "2 March 2021",
-    "overdue": false
+    "date": "Assigned on 2 March 2021"
   },
   {
     "name": "Portland Academy",
@@ -29,8 +27,7 @@
     "reference": "AS_2345678",
     "daysUntilHTB": 13,
     "transferMonth": "July",
-    "date": "21 April 2021",
-    "overdue": "overdue"
+    "date": "HTB Agenda on21 April 2021"
   },
   {
     "name": "Altrincham College Green Lane",
@@ -40,8 +37,7 @@
     "reference": "AS_6759840",
     "daysUntilHTB": 22,
     "transferMonth": "August",
-    "date": "12 January 2021",
-    "overdue": false
+    "date": "Baseline on 12 January 2021"
   },
   {
     "name": "Altrincham Grammar School For Boys",
@@ -51,8 +47,7 @@
     "reference": "AS_6752340",
     "daysUntilHTB": 10,
     "transferMonth": "September",
-    "date": "1 January 2021",
-    "overdue": false
+    "date": "Baseline on 1 September 2021"
   },
   {
     "name": "Wigston Academy",
@@ -62,8 +57,7 @@
     "reference": "AS_6321840",
     "daysUntilHTB": 23,
     "transferMonth": "October",
-    "date": "12 January 2021",
-    "overdue": false
+    "date": "Baseline on 12 October 2021"
   },
   {
     "name": "Ash Grove Academy",
@@ -73,8 +67,7 @@
     "reference": "AS_1239840",
     "daysUntilHTB": 5,
     "transferMonth": "November",
-    "date": "12 August 2021",
-    "overdue": false
+    "date": "Baseline on 12 November 2021"
   },
   {
     "name": "Ridgewood School Barnsley Road",
@@ -84,8 +77,7 @@
     "reference": "AS_6750000",
     "daysUntilHTB": 29,
     "transferMonth": "December",
-    "date": "9 September 2021",
-    "overdue": false
+    "date": "Baseline on 9 December 2021"
   },
   {
     "name": "Ashfield School",
@@ -94,9 +86,8 @@
     "status": "on_hold",
     "reference": "AS_5432140",
     "daysUntilHTB": 52,
-    "transferMonth": "January",
-    "date": "1 January 2021",
-    "overdue": false
+    "transferMonth": "Withdrawn",
+    "date": "Ofsted improvements in ratings"
   },
   {
     "name": "Flourish House",
@@ -105,8 +96,7 @@
     "status": "dismissed",
     "reference": "AS_6339840",
     "daysUntilHTB": 21,
-    "transferMonth": "March",
-    "date": "30 May 2021",
-    "overdue": false
+    "transferMonth": "Rejected",
+    "date": "Financial concerns"
   }
 ]
