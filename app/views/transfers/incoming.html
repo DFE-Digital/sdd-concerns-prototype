@@ -5,15 +5,17 @@
     <a class="govuk-back-link" href="add-academies.html">Back</a>
 {% endblock %}
 
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+
 {% block content %}
     <div class="govuk-width-container">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-grid-column-three-quarters">
                 <form method="get" action="/transfers/incoming-trust-search">
                     <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" data-required data-error="Search cannot be blank" aria-required="true">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                                <h1 class="govuk-fieldset__heading">Add the incoming trust name</h1>
+                                <h1 class="govuk-fieldset__heading">Add the incoming trust name for</h1> <p style="text-decoration:underline" class="govuk-fieldset__heading"> {{ outgoingTrust.trust_name }} </p>
                             </legend>
                             <label class="govuk-hint" for="incoming-trust-search-query"
                                    id="incoming-trust-search-query-hint">Search
