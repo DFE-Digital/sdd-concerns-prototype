@@ -29,6 +29,6 @@ This version deploys automatically from merges to master and is the 'latest' ver
 
 ### Design history
 
-URL: https://sdd-servies-design-history.netlify.app/
+URL: https://sdd-design-history.netlify.app/
 
 A history of the design of this service
