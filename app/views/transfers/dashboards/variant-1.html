@@ -6,8 +6,6 @@
     <span class="govuk-tag govuk-tag--green">NEWLY ASSIGNED</span>
   {% elif status == 'pre_htb' %}
     <span class="govuk-tag govuk-tag--purple">PRE HTB</span>
-  {% elif status == 'pre_htb_overdue' %}
-    <span class="govuk-tag govuk-tag--red">OVERDUE</span> <span class="govuk-tag govuk-tag--purple">PRE HTB</span>
   {% elif status == 'post_htb' %}
     <span class="govuk-tag govuk-tag--yellow">POST HTB</span>
   {% elif status == 'on_hold' %}
@@ -154,10 +152,6 @@
   <div class="govuk-grid-column-full">
     {% if projects.newly_assigned %}
       {{ projects_for_field(projects, 'Newly assigned to me', 'newly_assigned')}}
-    {% endif %}
-
-    {% if projects.pre_htb_overdue %}
-      {{ projects_for_field(projects, 'Overdue', 'pre_htb_overdue')}}
     {% endif %}
 
     {% if projects.pre_htb %}
