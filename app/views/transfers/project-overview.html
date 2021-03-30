@@ -48,6 +48,13 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
+
+            <strong class="{{data|featuresOverviewStatusClass(['overview-status'] )}} app-task-list__tag" id="project-overview">  
+              {{data|featuresOverviewStatusText(
+                ['overview-status']
+              )}} 
+            </strong>
+
               <span class="app-task-list__task-name">
                 <a href="/transfers/features.html" aria-describedby="eligibility-status">
                   Features of a transfer
