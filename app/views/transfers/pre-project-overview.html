@@ -2,8 +2,10 @@
 {% set navActive = "home" %}
 
 {% block beforeContent %}
-    <a class="govuk-back-link" href="/transfers/dashboard/1">Back</a>
+    <a class="govuk-back-link" href="summary.html">Back</a>
 {% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
 {% block content %}
 
@@ -11,9 +13,9 @@
  <div class="govuk-width-container ">
   <div class="govuk-grid-row">
    <div class="govuk-grid-column-full">
-     <h2 class="govuk-hint">AS_6759840</h2>
+     <h2 class="govuk-hint">AS_6785909</h2>
       <h1 class="govuk-heading-xl">
-         St Wilfred's primary school
+        {{ outgoingTrust.trust_name }}
       </h1>
 
      <nav class="app-sub-navigation" aria-label="sub menu">
@@ -34,7 +36,7 @@
       </ul>
     </nav>
    </div>
-<div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-column-three-quarters">
       <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Create HTB template</h2>
       <p class="govuk-body govuk-!-margin-bottom-5">This information in each section is pre-populated from TRAMS and the school’s application form.</p>
       <p class="govuk-body govuk-!-margin-bottom-5">You can make changes to the sections which will also populate into the HTB template.</p>
@@ -170,7 +172,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-           Trust/sponson template
+           Trust/sponsor template
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -182,7 +184,9 @@
           </ul>
         </li>
       </ol>
-    </div>
+    
+
+<!--
 
          <div class="govuk-grid-column-one-third">
           <div class="status-box">
@@ -200,5 +204,14 @@
             </p>
             </div>
         </div>
+-->
+                <h3 class="govuk-heading-l govuk-!-margin-bottom-2l">
+                    Preview and generate template
+                </p>
+
+                <a href="#" role="button" draggable="false" class="govuk-button">
+                    Preview HTB papers
+                </a>
+      </div>
 
 {% endblock %}
