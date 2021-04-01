@@ -1,0 +1,231 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set incomingTrust = data['trusts'] | getTrustById(data['incoming-trust-id']) %}
+
+{% block content %}
+
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/transfers/dashboard/1">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/transfers/project-overview.html">Project overview</a>
+    </li>
+     <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">HTB template preview</a>
+    </li>
+  </ol>
+</div>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-hint"> {{ outgoingTrust.trust_name }} </h2>
+
+        <h1 class="govuk-heading-l">Preview headteacher board (HTB) template</h1>
+
+        <!-- error summary-->
+      </div>
+    
+<div>
+{% if data['htb-date']%}
+
+<div class="govuk-warning-text">
+<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+<strong class="govuk-warning-text__text">
+  <span class="govuk-warning-text__assistive">Warning</span>
+  There is missing information in the template. <br>If you continue, you will need to fill out the missing information in the generated Word document.
+</strong>
+</div>
+
+   {% else %} 
+    <div class="govuk-grid-column-full">
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is missing information in the HTB template
+        </h2>
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="/overview/set-htb.html">Set an HTB date before you generate your template</a></li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+{% endif %}
+</div>  
+
+    <h2 class="govuk-heading-m">Headteacher board (HTB) template</h2>
+
+        <section class="app-summary-card govuk-!-margin-bottom-6">
+          
+          <header class="app-summary-card__header">
+      
+            <h2 class="app-summary-card__title">
+               Transfer overview
+           </h2>
+          </header>
+    <div class="app-summary-card__body">
+      <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Recommendation
+            </dt>
+            <dd class="govuk-summary-list__value">
+               To approve te voluntary transfer of  St.Wilfred’s Primary School to CAM AT
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of HTB
+            </dt>
+            <dd class="govuk-summary-list__value">
+               
+            </dd>
+            
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project name 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> {{ outgoingTrust.trust_name }} </p>
+            </dd>
+          </div>
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Unique reference number (URN)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> 120620 </p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of sponsor/MAT
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Current MAT: {{ outgoingTrust.trust_name }}
+              Proposed MAT: {{ incomingTrust.trust_name }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Academy type and route
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Voluntary MAT merger, achieved by transferring academies from {{ outgoingTrust.trust_name }} to {{ incomingTrust.trust_name }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proposed academy transfer date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01 July 2021
+            </dd>
+          </div>
+        </dl>
+    </section>
+
+    <section class="app-summary-card govuk-!-margin-bottom-6">
+          
+          <header class="app-summary-card__header">
+      
+            <h2 class="app-summary-card__title">
+               Transfer overview
+           </h2>
+          </header>
+    <div class="app-summary-card__body">
+      <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Recommendation
+            </dt>
+            <dd class="govuk-summary-list__value">
+               To approve te voluntary transfer of  St.Wilfred’s Primary School to CAM AT
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of HTB
+            </dt>
+            <dd class="govuk-summary-list__value">
+               
+            </dd>
+            
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Project name 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> {{ outgoingTrust.trust_name }} </p>
+            </dd>
+          </div>
+         <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Unique reference number (URN)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> 120620 </p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of sponsor/MAT
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Current MAT: {{ outgoingTrust.trust_name }}
+              Proposed MAT: {{ incomingTrust.trust_name }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Academy type and route
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Voluntary MAT merger, achieved by transferring academies from {{ outgoingTrust.trust_name }} to {{ outgoingTrust.trust_name }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Proposed academy transfer date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01 July 2021
+            </dd>
+          </div>
+        </dl>
+    </section>
+
+    
+    
+
+<!-- Buttons -->
+<div>
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Export to Word
+  </button>
+
+  <a class="govuk-link" href="project-overview.html">Cancel</a>
+</div>      
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+{% endblock %}
