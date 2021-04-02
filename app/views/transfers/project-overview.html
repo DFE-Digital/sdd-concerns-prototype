@@ -66,7 +66,11 @@
                   Set dates
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['dates-status'] )}} app-task-list__tag" id="project-dates">
+                {{data|taskListStatus(
+                  ['dates-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -74,7 +78,11 @@
                   General information
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['info-status'] )}} app-task-list__tag" id="project-info">
+                {{data|taskListStatus(
+                  ['info-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -82,7 +90,11 @@
                   Benefits and other factors
                 </a>
               </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['benefits-status'] )}} app-task-list__tag" id="project-benefits">
+                {{data|taskListStatus(
+                  ['benefits-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">

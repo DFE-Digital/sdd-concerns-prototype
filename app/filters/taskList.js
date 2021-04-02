@@ -42,7 +42,7 @@ filters.taskListStatus = function (data, completedFields, inProgressFields = [])
   const flag = inProgressFields.some(field => data[field])
 
   if (data[completedFields]) {
-    return 'Complete'
+    return 'Completed'
   } else if (flag) {
     return 'In Progress'
   } else {
