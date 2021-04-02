@@ -227,21 +227,25 @@
 
 <hr class="govuk-grid govuk-section-break govuk-section-break--xl govuk-section-break--visible"></hr>
 
-    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="features-section-ready" name="contact" type="checkbox" value="htb-ready" data-aria-controls="htb-section-ready">
-        <label class="govuk-label govuk-checkboxes__label" for="contact">
-          This section is ready to include to the HTB template
-        </label>
-      </div>
-    </div>
-
-<!-- Green Button  -->
-
-<a href="project-overview.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-7">
-    Continue
-</a>
-</div>
+    <form action="/transfers/project-overview" method="post"> 
+              {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+              {% from "govuk/components/button/macro.njk" import govukButton %}
+            
+              {{ govukCheckboxes({
+                idPrefix: "dates-status",
+                name: "dates-status",
+                items: [
+                  {
+                    value: "Completed",
+                    text: "This section is ready to be included in the HTB template"
+                  }
+                  ]
+                }) }}
+              {{ govukButton({
+                text: "Continue"
+              }) }}
+            
+              </form>
 
     
 

@@ -48,12 +48,17 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
+
               <span class="app-task-list__task-name">
                 <a href="/transfers/features.html" aria-describedby="eligibility-status">
                   Features of a transfer
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['overview-status'] )}} app-task-list__tag" id="project-overview">
+                {{data|taskListStatus(
+                  ['overview-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -61,7 +66,11 @@
                   Set dates
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['dates-status'] )}} app-task-list__tag" id="project-dates">
+                {{data|taskListStatus(
+                  ['dates-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -69,7 +78,11 @@
                   General information
                 </a>
               </span>
-              <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['info-status'] )}} app-task-list__tag" id="project-info">
+                {{data|taskListStatus(
+                  ['info-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -77,7 +90,11 @@
                   Benefits and other factors
                 </a>
               </span>
-              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+              <strong class="govuk-tag {{data|taskListStatusClass(['benefits-status'] )}} app-task-list__tag" id="project-benefits">
+                {{data|taskListStatus(
+                  ['benefits-status']
+                )}}
+              </strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -87,7 +104,7 @@
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Reference only</strong>
             </li>
-          
+
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <a href="#" aria-describedby="list-convictions-status">
@@ -115,7 +132,7 @@
             </li>
             <li class="app-task-list__item">
               <a href="#" aria-describedby="list-convictions-status">
-                 Attainment 
+                 Attainment
                 </a>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="medical-information-status">Reference only</strong>
             </li>
@@ -145,7 +162,7 @@
             </li>
             <li class="app-task-list__item">
               <a href="#" aria-describedby="list-convictions-status">
-                 Capability and capacity 
+                 Capability and capacity
                 </a>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="medical-information-status">Reference only</strong>
             </li>
@@ -197,7 +214,7 @@
               <a href="preview-templates/preview">Preview HTB template</a>
             </p>
             <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m" />
-      
+
             <h3 class="govuk-heading-m">Generate HTB papers</h3>
               <p class="govuk-body-s">You can make changes after generating the HTB papers. <p>
               <a href="404.html" class="govuk-button govuk-!-margin-bottom-2">Generate HTB papers</a>
