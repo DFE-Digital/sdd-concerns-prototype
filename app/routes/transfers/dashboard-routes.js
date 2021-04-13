@@ -12,7 +12,7 @@ const getUrgentProjects = (data) => {
 }
 
 const filterDataByStatus = (data, statuses) => {
-  if(!Array.isArray(statuses)) statuses = [statuses]
+  if (!Array.isArray(statuses)) statuses = [statuses]
   filteredData = []
   statuses.forEach(status => {
     data.filter(project => project.status == status).forEach(project => filteredData.push(project))
@@ -61,18 +61,18 @@ module.exports = router => {
     let urgentProjects = getUrgentProjects(data);
     data = removeUrgentProjects(data);
 
-    if (req.query.status?.length > 0 && req.query.status != "_unchecked") {
+    if (req.query.status.length > 0 && req.query.status != "_unchecked") {
       selectedStatuses = req.query.status
       data = filterDataByStatus(data, req.query.status)
     }
 
-    if (req.query.project?.length > 0 && req.query.project != "_unchecked") {
+    if (req.query.project.length > 0 && req.query.project != "_unchecked") {
       selectedProjectTypes = req.query.project
       urgentProjects = filterDataByProjectType(urgentProjects, req.query.project)
       data = filterDataByProjectType(data, req.query.project)
     }
 
-    if (req.query['project-name-or-number']?.length > 0) {
+    if (req.query['project-name-or-number'].length > 0) {
       nameSearched = req.query['project-name-or-number']
       urgentProjects = filterDataByNameOrId(urgentProjects, req.query['project-name-or-number'])
       data = filterDataByNameOrId(data, req.query['project-name-or-number'])
