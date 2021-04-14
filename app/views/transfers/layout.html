@@ -60,7 +60,7 @@
   {# Set serviceName in config.js. #}
   {% set headerClass = 'app-dark-header' if data.settings.useDarkHeader else 'app-light-header' %}
   {{ govukHeader({
-    homepageUrl: "/",
+    concerns/homepageUrl: "/",
     productName: serviceName,
     serviceUrl: "/",
     classes: headerClass,

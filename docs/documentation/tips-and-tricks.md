@@ -21,7 +21,7 @@ Import the header component macro place it in the `{% block header %}`and provid
 
     {% block header %}
       {{ govukHeader({
-        homepageUrl: "/",
+        concerns/homepageUrl: "/",
         serviceName: "Service Name",
         serviceUrl: "#",
         containerClasses: "govuk-width-container",

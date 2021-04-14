@@ -48,13 +48,13 @@ const groupDataByStatus = (data) =>
 
 module.exports = router => {
   router.get('/home', (req, res) => {
-    let data = require(path.join(__dirname, `../../data/transfers/dashboards/variant-1.json`))
+    let data = require(path.join(__dirname, `../../data/concers/dashboards/variant-1.json`))
     data = groupDataByStatus(data)
     res.render('home', { projects: data })
   })
 
   router.get('/transfers/dashboard/:variantId', (req, res) => {
-    let data = require(path.join(__dirname, `../../data/transfers/dashboards/variant-${req.params.variantId}.json`))
+    let data = require(path.join(__dirname, `../../data/concerns/dashboards/variant-${req.params.variantId}.json`))
     let selectedStatuses = []
     let selectedProjectTypes = []
     let nameSearched = ""
@@ -79,7 +79,7 @@ module.exports = router => {
     }
 
     data = groupDataByStatus(data)
-    res.render(`transfers/dashboards/variant-${req.params.variantId}`, {
+    res.render(`concerns/dashboards/variant-${req.params.variantId}`, {
       projects: data,
       urgentProjects,
       selectedStatuses,

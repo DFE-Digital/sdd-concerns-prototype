@@ -46,6 +46,8 @@
 {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 {%- from "moj/components/pagination/macro.njk" import mojPagination -%}
 {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+{%- from "moj/components/search/macro.njk" import mojSearch -%}
+{%- from "moj/components/header/macro.njk" import mojHeader -%}
 
 {% block head %}
   {% include "_includes/head.html" %}
@@ -58,76 +60,75 @@
 {% block header %}
   {% include "_includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
-  {% set headerClass = 'app-dark-header' if data.settings.useDarkHeader else 'app-light-header' %}
-  {{ govukHeader({
-    homepageUrl: "/",
-    productName: serviceName,
-    serviceUrl: "/",
-    classes: headerClass,
-    containerClasses: "govuk-width-container",
-    navigation: [
-      {
-        href: "#1",
-        text: "Your account"
-      } if false,
-      {
-        href: "/transfers/sign-in-1",
-        text: "Sign out"
-      }
-    ] if not hideNav
-  }) }}
+{% set headerClass = 'app-dark-header' if data.settings.useDarkHeader else 'app-light-header' %}
+{{ mojHeader({
+organisationLabel: {
+text: 'DfE',
+href: '#'
+},
+serviceLabel: {
+text: 'Concerns casework',
+href: '/admin'
+},
+navigation: {
+label: 'Account navigation',
+items: [{
+  text: 'Account',
+  href: '#',
+  active: true
+}, {
+  text: 'Sign out',
+  href: '#'
+}]
+}
 
-  {% set rightHandSideNavHtml %}
-    {% if data.isHatModel %}
-      <nav class="moj-primary-navigation">
-        <ul class="moj-primary-navigation__list">
-          
-            <li class="moj-primary-navigation__item">
-              <a class="moj-primary-navigation__link" {{ 'aria-current="page"' | safe if navActive == 'provider' }} href="/select-provider">
-                {{ data.settings.userActiveProvider }}
-              </a>
-            </li>
-          
-        </ul>
+}) }} 
 
-      </nav>
-    {% endif %}
-  {% endset %}
 
-  {% set navItems = [{
-      text: 'Academy transfers (10)',
-      href: '/transfers/dashboard/1',
-      active: true if navActive == 'home'
+{%- set toggleSearchHtml %}
+<div class="moj-search-toggle" data-module="moj-search-toggle" data-moj-search-toggle-text="Find case">
+<div class="moj-search-toggle__toggle"></div>
+<div class="moj-search-toggle__search">
+  {{ mojSearch({
+    classes: 'moj-search--ondark moj-search--toggle moj-js-hidden',
+    input: {
+      id: 'search2',
+      name: 'search2'
     },
-    {
-      text: 'Conversions (0)',
-      href: '/404',
-      active: true if navActive == 'convert'
+    label: {
+      classes: 'govuk-visually-hidden',
+      text: 'Search'
     },
-    {
-      text: 'Significant change (0)',
-      href: '/404',
-      active: true if navActive == 'change'
+    hint: {
+      text: 'Enter case number, for example 123456'
+    },
+    button: {
+      text: 'Search'
     }
-    ] %}
+  }) }}
+</div>
+</div>
+{% endset -%}
 
-  {% if not hidePrimaryNav %}
-
-    {% if data.settings.useDarkHeader %}
-      {{ appPrimaryNavigationDark({
-        label: 'Primary navigation',
-        items: navItems,
-        searchHtml: rightHandSideNavHtml
-      }) }}
-    {% else %}
-      {{ mojPrimaryNavigation({
-      label: 'Primary navigation',
-      items: navItems,
-      searchHtml: rightHandSideNavHtml
-      }) }}
-    {% endif %}
-
-  {% endif %}
+{{ mojPrimaryNavigation({
+label: 'Primary navigation',
+items: [
+{
+  text: 'Home',
+  href: '/concerns/homepage',
+  active: true
+},
+{
+  text: 'Notifications (5)',
+  href: '/404'
+},
+{
+  text: 'Queue (4)',
+  href: '/404'
+}
+],
+searchHtml: toggleSearchHtml
+}) }} 
 
 {% endblock %}
 

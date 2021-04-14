@@ -1084,3 +1084,14 @@ overflow: hidden;
 .app-banner__message *:last-child {
 margin-bottom: 0;
 }
+
+.govuk-grid-row-extra {
+  max-width: 2000px;
+  font-size: 0;
+  text-align: justify;
+}
+.govuk-grid-column-full-extra {
+  max-width: 2000px;
+  font-size: 0;
+  text-align: justify;
+}

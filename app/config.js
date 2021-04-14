@@ -4,7 +4,7 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'Manage trusts and academy schools',
+  serviceName: 'Concerns Casework',
 
   // Default port that prototype runs on
   port: '3000',
@@ -31,6 +31,6 @@ module.exports = {
   // Enable or disable Browser Sync
   useBrowserSync: 'true',
 
-  pageTitle: 'Manage trusts and academy schools'
+  pageTitle: 'Concerns Casework'
 
 }

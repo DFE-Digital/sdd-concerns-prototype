@@ -1,5 +1,6 @@
 
 {% extends "layout.html" %}
+{% set navActive = "notifications" %}
 
 {% block content %}
 
@@ -12,7 +13,7 @@
     <div class="govuk-form-group">
       {{ govukButton({
         text: "Variant 1",
-        href: "/transfers/sign-in-1"
+        href: "/concerns/homepage"
       }) }}
     </div>
   </div>
@@ -20,42 +21,20 @@
     <div class="govuk-form-group">
       {{ govukButton({
         text: "Variant 2",
-        href: "/transfers/sign-in-2"
+        href: "/concerns/homepage-no-crm"
       }) }}
     </div>
   </div>
-  <div class="govuk-grid-column-one-quarter">
-    <div class="govuk-form-group">
-      {{ govukButton({
-        text: "Variant 3",
-        href: "/transfers/variant-3"
-      }) }}
-    </div>
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-  <div class="govuk-form-group">
-      {{ govukButton({
-        text: "Variant 4",
-        href: "/home"
-      }) }}
-    </div>
-  </div>
+
 </div>
 <div class="govuk-grid-row">
     <h2 class="govuk-heading-m">Pages</h2>
   <div class="govuk-grid-column-one-third">
     <h3 class="govuk-heading-s">Content pages</h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="/transfers/trust-name" class="govuk-link">Add outgoing trust</a></li>
-      <li><a href="/transfers/trust-details" class="govuk-link">Verify trust details</a></li>
-      <li><a href="/transfers/add-academies" class="govuk-link">Add academies</a></li>
-      <li><a href="/transfers/incoming" class="govuk-link">Add incoming trust</a></li>
-      <li><a href="/transfers/summary" class="govuk-link">Summary</a></li>
-      <li><a href="/transfers/features" class="govuk-link">Features of the transfer</a></li>
-      <li><a href="/transfers/task-list" class="govuk-link">Transfer task list</a></li>
-      <li><a href="/transfers/incoming-trust-tasks-2" class="govuk-link">Trust tasks 2</a></li>
-      <li><a href="/transfers/incoming-trust-tasks-3" class="govuk-link">Trust tasks 3</a></li>
-      <li><a href="/transfers/incoming-trust-tasks-4" class="govuk-link">Trust tasks 4</a></li>
+      <li><a href="/concerns/homepage" class="govuk-link">Homepage</a></li>
+      <li><a href="/concerns/homepage-no-crm" class="govuk-link">Homepage without the CRM tabs</a></li>
+      
     </ul>
   </div>
   <div class="govuk-grid-column-one-third">
