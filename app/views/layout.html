@@ -87,10 +87,10 @@ items: [{
 
 {%- set toggleSearchHtml %}
 <div class="moj-search-toggle" data-module="moj-search-toggle" data-moj-search-toggle-text="Find case">
-<div class="moj-search-toggle__toggle"></div>
+<div class="moj-search-toggle__toggle">
 <div class="moj-search-toggle__search">
   {{ mojSearch({
-    classes: 'moj-search--ondark moj-search--toggle moj-js-hidden',
+    classes: 'moj-search--toggle moj-js-hidden',
     input: {
       id: 'search2',
       name: 'search2'
@@ -106,6 +106,7 @@ items: [{
       text: 'Search'
     }
   }) }}
+</div>
 </div>
 </div>
 {% endset -%}

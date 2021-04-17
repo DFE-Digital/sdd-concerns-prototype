@@ -1,13 +1,33 @@
 {% extends "layout.html" %}
 
+{% block pageScripts %}
+<script type="text/javascript">
+new MOJFrontend.ButtonMenu({
+  container: $('.moj-button-menu'),
+  mq: '(min-width: 200em)',
+  buttonText: 'Actions',
+  menuClasses: 'moj-button-menu__wrapper--right'
+});
+{% endblock %}
 
 {% block content %}
 
+<div class="govuk-breadcrumbs ">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="/concerns/homepage">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#"> CI - 1004634 </a>
+    </li>
+  </ol>
+</div>
+
     <div class="govuk-grid-row govuk-grid-row-extra">
         <div class="govuk-grid-column-full-extra">
-        <h2 class="govuk-hint"> Caseworker </h2>
+        <h2 class="govuk-hint govuk-!-margin-top-9"> Caseload </h2>
 
-        <h1 class="govuk-heading-l">Nikolaos Gkionis</h1>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-9">Initial contact</h1>
 
       </div>
     
@@ -17,93 +37,90 @@
       <div class="govuk-grid-row govuk-grid-row-extra">
         <div class="govuk-grid-column-full-extra">
 
-    <section class="app-summary-card  govuk-!-margin-bottom-9">
+    <section class="app-summary-card  govuk-!-margin-top-9 govuk-!-margin-bottom-6">
           
           <header class="app-summary-card__header">
       
             <h2 class="app-summary-card__title">
-               <strong>Your notifications</strong>
+               <strong>Case</strong>
            </h2>
           </header>
     <div class="app-summary-card__body">
       <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Date
+              Case Id
+            </dt>
+            <dt class="govuk-summary-list__value">
+               CI - 1004634
             </dt>
             <dt class="govuk-summary-list__key">
-               Case Id
+               Trust
             </dt>
-            <dt class="govuk-summary-list__key">
-               Organisation
-            </dt>
-            <dt class="govuk-summary-list__key">
-               Case Type
+            <dt class="govuk-summary-list__value">
+               <a href="#" class="govuk-link govuk-link--no-visited-state">
+               St, Wilfred’s primary school</a>
             </dt>
             
           </div>
           
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             <span class="govuk-tag govuk-tag--pink">Overdue</span>
+            <dd class="govuk-summary-list__key">
+             Owner
             </dt>
             <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10078904</a>
+               TBC
+            </dd>
+            <dd class="govuk-summary-list__key">
+              Contact
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> St Wilfred's primary school </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Financial query responce </p>
+              Sarah Deloitte (Chair)
             </dd>
             
           </div>
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             <span class="govuk-tag govuk-tag--green">Today</span>
+            <dd class="govuk-summary-list__key">
+             Territory
             </dt>
             <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10078991</a>
+             Northern
+            </dd>
+            <dd class="govuk-summary-list__key">
+              Telephone
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> St Isadore’s Primary School </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> SRMA Report </p>
+              01234 567890
             </dd>
             
           </div>
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Tue 06 April 2021
+            <dd class="govuk-summary-list__key">
+             Academy
             </dt>
             <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10077789</a>
+            Lady Jane Academy
+            </dd>
+            <dd class="govuk-summary-list__key">
+              Email
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Wintermute Academy Trust </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Governance statement </p>
+              s.deloitte@wintermute.ac.uk
             </dd>
             
           </div>
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Tue 13 April 2021
+            <dd class="govuk-summary-list__key">
+             URN
             </dt>
             <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10075656</a>
+            145788
+            </dd>
+            <dd class="govuk-summary-list__key">
+              Website
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> The Linda Lee Academy </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Final report </p>
+              wintermutetrust.ac.uk
             </dd>
             
           </div>
@@ -111,103 +128,119 @@
         </dl>
     </section>
 
- 
+<div class="moj-button-menu">
+<div class="moj-button-menu__wrapper govuk-!-margin-bottom-9">
+
+<a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item  " data-module="govuk-button">
+  Take on
+</a>
+
+<a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
+  Assign
+</a>
+
+<a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary " data-module="govuk-button">
+  Triage
+</a>
+
+</div>
+</div> 
+
+
+      <div class="govuk-grid-row govuk-grid-row-extra">
+        <div class="govuk-grid-column-full-extra">
 
     <section class="app-summary-card  govuk-!-margin-bottom-9">
           
           <header class="app-summary-card__header">
       
             <h2 class="app-summary-card__title">
-               <strong>Your active casework</strong>
+               <strong>Case Email</strong>
            </h2>
           </header>
     <div class="app-summary-card__body">
       <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Organisation
+             From
+            </dt>
+            <dt class="govuk-summary-list__value">
+                ACCIU
             </dt>
             <dt class="govuk-summary-list__key">
-               Case Id
+               
             </dt>
-            <dt class="govuk-summary-list__key">
-               Status
+            <dt class="govuk-summary-list__value">
+               Sent 11:23am 15/01/2021
             </dt>
-            <dt class="govuk-summary-list__key">
-               Case Type
-            </dt>
+            
           </div>
           
           <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-             St Wilfred's primary school</a>
+            <dd class="govuk-summary-list__key">
+             Subject
             </dt>
             <dd class="govuk-summary-list__value">
-               CI - 10078904
+                South Armitage Academy 
             </dd>
             <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-green">green</span>
-              <span class="govuk-tag govuk-tag-amber">amber</span>
+                Finance issue
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Financial query responce </p>
-            </dd>
-          </div>
-            
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-             St Isadore’s Primary School</a>
-            </dt>
-            <dd class="govuk-summary-list__value">
-               CI - 100789918
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-              <span class="govuk-tag govuk-tag-red">red</span
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> SRMA Report </p>
+              
             </dd>
             
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-             Wintermute Academy Trust</a>
+              Hi there,
             </dt>
             <dd class="govuk-summary-list__value">
-               CI - 10077789
+             
+            </dd>
+            <dd class="govuk-summary-list__key">
+               
             </dd>
             <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-green">green</span>
-              <span class="govuk-tag govuk-tag-amber">amber</span>
+              
             </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Governance statement </p>
-            </dd>
-            
+          </dl>  
           </div>
           <div class="govuk-summary-list__row">
+            
             <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-             The Linda Lee Academy</a>
+             <p class="govuk-body govuk-!-margin-bottom-9 govuk-!-margin-left-4">    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-left-4">    Many thanks</p>
+            <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-left-4">    Daniel Cho</p>
+            <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-left-4">    Academies Operations Delivery</p>
             </dt>
-            <dd class="govuk-summary-list__value">
-               CI - 10075656
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-              <span class="govuk-tag govuk-tag-red">red</span
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Final report </p>
-            </dd>
             
           </div>
-
-        </dl>
+          
     </section>
-    
+
+<div style="float: right;">
+{{ mojButtonMenu({
+items: [{
+  text: "Reply",
+  href: "#"
+}, {
+  text: "Record",
+  href: "#",
+  classes: "govuk-button--secondary"
+}, {
+  text: "Archieve",
+  href: "#",
+  classes: "govuk-button--secondary"
+}]
+}) }}
+</div> 
+
+
+
 {% endblock %}
