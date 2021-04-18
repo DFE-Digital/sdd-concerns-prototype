@@ -1,0 +1,272 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-grid-row-extra">
+        <div class="govuk-grid-column-full-extra">
+    
+        <h2 class="govuk-hint"> Academy Overview </h2>
+
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-9">Lady Jane Academy</h1>
+
+      </div>
+    
+    <div>
+
+<section>
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Academy
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#details">
+        Details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#governance">
+       Governance
+      </a>
+    </li>
+  </ul>
+
+  <div class="govuk-tabs__panel" id="details">
+    
+  <table class="govuk-table">
+      
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">URN</td>
+          <td class="govuk-table__header">145788</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Type</td>
+          <td class="govuk-table__header">Academy Converter</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">UKPRN</td>
+          <td class="govuk-table__header">10044387</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Status</td>
+          <td class="govuk-table__header">Open</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Trust</td>
+          <td class="govuk-table__header">Wintermute Academy Trust</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Headteacher</td>
+          <td class="govuk-table__header">Tess Aspool</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Phase</td>
+          <td class="govuk-table__header">Secondary</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Telephone</td>
+          <td class="govuk-table__header">01204 567890</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Local Authority</td>
+          <td class="govuk-table__header">Blackburn with Darwen</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Email</td>
+          <td class="govuk-table__header">t.aspool@ladyjaneacademy.sch.uk<td>
+        </tr>
+        <tr class="govuk-table__row">
+         <td class="govuk-table__cell">Age range</td>
+          <td class="govuk-table__header">11 -16</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Website</td>
+          <td class="govuk-table__header">ladyjaneacademy.sch.uk</td>
+        </tr>
+        <tr class="govuk-table__row">
+         <td class="govuk-table__cell">Capacity</td>
+          <td class="govuk-table__header">900</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Address</td>
+          <td class="govuk-table__header">Lady Jane Academy, Fontain Dr,</td>
+        </tr>
+        <tr class="govuk-table__row">
+         <td class="govuk-table__cell">No of Pupils</td>
+          <td class="govuk-table__header">907</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__header">Blackburn, BB1 7GG</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="governance">
+    
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Created</th>
+          <th scope="col" class="govuk-table__header">Owner</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Case ID</th>
+          <th scope="col" class="govuk-table__header">Case Type</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 10 2020</td>
+          <td class="govuk-table__cell">Tess Aspool</td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-green">green</span>
+          <span class="govuk-tag govuk-tag-amber">amber</span></td>
+          <td class="govuk-table__cell">CI - 10078904</td>
+          <td class="govuk-table__cell">Financial query responce</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">25 11 2020</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link ">
+             St Isadore’s Primary School</a></td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-amber">amber</span>
+              <span class="govuk-tag govuk-tag-red">red</span></td>
+          <td class="govuk-table__cell">CI - 10078991</td>
+          <td class="govuk-table__cell">SRMA Report</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 10 2020</td>
+          <td class="govuk-table__cell"><a href="#" class="govuk-link ">
+             Wintermute Academy Trust</a></td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-green">green</span>
+          <span class="govuk-tag govuk-tag-amber">amber</span></td>
+          <td class="govuk-table__cell">CI - 10077789</td>
+          <td class="govuk-table__cell">Governance statemente</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">17 01 2021</td>
+          <td class="govuk-table__cell"><a href="/concerns/academy-overview-1" class="govuk-link">Lady Jane Academy</a></td>
+          <td class="govuk-table__cell">
+         <span class="govuk-tag govuk-tag-amber">amber</span>
+              <span class="govuk-tag govuk-tag-red">red</span></td>
+          <td class="govuk-table__cell">CI - 10075656</td>
+          <td class="govuk-table__cell">Final report</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+<section>
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Cases
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#open">
+        Open (1)
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#closed">
+       Closed (3)
+      </a>
+    </li>
+  </ul>
+
+
+  <div class="govuk-tabs__panel" id="open">
+    
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Created</th>
+          <th scope="col" class="govuk-table__header">Owner</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Case ID</th>
+          <th scope="col" class="govuk-table__header">Case Type</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 10 2020</td>
+          <td class="govuk-table__cell">Tess Aspool</td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-green">green</span>
+          <span class="govuk-tag govuk-tag-amber">amber</span></td>
+          <td class="govuk-table__cell"><a href="/concerns/case-timeline" class="govukuk-link">CI - 10078904</a></td>
+          <td class="govuk-table__cell">Financial query responce</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="closed">
+    
+    <table class="govuk-table">
+      
+      <tbody class="govuk-table__body">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Created</th>
+          <th scope="col" class="govuk-table__header">Owner</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Case ID</th>
+          <th scope="col" class="govuk-table__header">Case Type</th>
+        </tr>
+      </thead>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 10 2020</td>
+          <td class="govuk-table__cell">Tess Aspool</td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-green">green</span>
+          <span class="govuk-tag govuk-tag-amber">amber</span></td>
+          <td class="govuk-table__cell"><a href="/concerns/case-timeline" class="govukuk-link">CI - 10078904</a></td>
+          <td class="govuk-table__cell">Financial query responce</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">25 11 2020</td>
+          <td class="govuk-table__cell">Tess Aspool</td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-amber">amber</span>
+              <span class="govuk-tag govuk-tag-red">red</span></td>
+          <td class="govuk-table__cell"><a href="/concerns/case-timeline" class="govukuk-link">CI - 10078991</a></td>
+          <td class="govuk-table__cell">SRMA Report</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">19 10 2020</td>
+          <td class="govuk-table__cell">Tess Aspool</td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag govuk-tag-green">green</span>
+          <span class="govuk-tag govuk-tag-amber">amber</span></td>
+          <td class="govuk-table__cell"><a href="/concerns/case-timeline" class="govukuk-link">CI - 10077789</td>
+          <td class="govuk-table__cell">Governance statemente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    
+    
+
+
+
+
+
+{% endblock %}

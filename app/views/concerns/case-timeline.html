@@ -1,0 +1,252 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% block content %}
+
+<h2 class="govuk-hint"> Caseload </h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9">Case timeline</h1>
+
+<section class="app-summary-card govuk-!-margin-bottom-6">
+
+  <header class="app-summary-card__header">
+
+    <h2 class="app-summary-card__title">
+      <strong>Case</strong>
+    </h2>
+  </header>
+  <div class="app-summary-card__body">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Case Id
+        </dt>
+        <dt class="govuk-summary-list__value">
+          CI - 1004634
+        </dt>
+        <dt class="govuk-summary-list__key">
+          Trust
+        </dt>
+        <dt class="govuk-summary-list__value">
+          <a href="/concerns/trust-overview-1" class="govuk-link govuk-link--no-visited-state">
+            Wintermute Academy trust</a>
+        </dt>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Owner
+          </dt>
+        <dd class="govuk-summary-list__value">
+          TBC
+        </dd>
+        <dd class="govuk-summary-list__key">
+          Contact
+        </dd>
+        <dd class="govuk-summary-list__value">
+          Sarah Deloitte (Chair)
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Territory
+          </dt>
+        <dd class="govuk-summary-list__value">
+          Northern
+        </dd>
+        <dd class="govuk-summary-list__key">
+          Telephone
+        </dd>
+        <dd class="govuk-summary-list__value">
+          01234 567890
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          Academy
+          </dt>
+        <dd class="govuk-summary-list__value">
+          Lady Jane Academy
+        </dd>
+        <dd class="govuk-summary-list__key">
+          Email
+        </dd>
+        <dd class="govuk-summary-list__value">
+          s.deloitte@wintermute.ac.uk
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__key">
+          URN
+          </dt>
+        <dd class="govuk-summary-list__value">
+          145788
+        </dd>
+        <dd class="govuk-summary-list__key">
+          Website
+        </dd>
+        <dd class="govuk-summary-list__value">
+          wintermutetrust.ac.uk
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+</section>
+
+<button class="govuk-button govuk-button--warning" data-module="govuk-button">
+  Close Case
+</button>
+
+<section>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Case timeline</h2>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Action type
+              </span>
+            </h2>
+          </div>
+        
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+            aria-labelledby="accordion-default-heading-1">
+
+            <div class="govuk-form-group">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="updated" selected>Finance</option>
+                <option value="views">Governance</option>
+                <option value="comments">Irregularity</option>
+                <option value="comments">Safeguarding</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+          <div class="govuk-accordion__section ">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                  Action detail
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-2" class="govuk-accordion__section-content"
+              aria-labelledby="accordion-default-heading-2">
+
+              <div class="govuk-form-group">
+                <select class="govuk-select" id="sort" name="sort">
+                  <option value="updated" selected>Analysis</option>
+                  <option value="views">Comment</option>
+                  <option value="comments">Escalation</option>
+                  <option value="comments">Decision</option>
+                  <option value="views">Update RMF</option>
+                  <option value="comments">Link a case</option>
+                  <option value="comments">Whistleblower</option>
+                   <option value="comments">Case outcome</option>
+                  <option value="comments">Lesson learned</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+<button class="govuk-button" data-module="govuk-button">
+  Add
+</button>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="timeline">
+        <ul>
+          <li class="action_needed">
+            <h2>Assigned to Tom Brady</h2>
+            <p class="time">2 September 2017 at 1.01pm</p>
+            <p>Finance Case No: CI10078934</p>
+            <p><a class="button" href="#0">Continue</a></p>
+          </li>
+          <li>
+            <h2>Email to ACCIU</h2>
+            <p class="time">2 September 2017 at 11.32am</p>
+            <p>The Case has now been triaged and PL will be assigned</p>
+          </li>
+          <li>
+            <h2>ACCIU Create case - Finance</h2>
+            <p class="time">28 August 2017 at 8.12pm</p>
+            <p>Tom Brady opened case No: CI10078934</p>
+          </li>
+          <li>
+            <h2>Email from Academy</h2>
+            <p class="time">28 August 2017</p>
+          </li>
+          <li>
+            <h2>Finance Concerns - Urgern!</h2>
+            <p class="time">20 August 2017</p>
+            <div class="timeline-details">
+              <details>
+                <summary>Initial details</summary>
+                <span>Time stamp: 20 August 2017 at 8.23am</span>
+                <span>Region: London</span>
+                <span>Type: Urgent case</span>
+              </details>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  <div class="govuk-grid-column-one-third">
+
+          <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+          <aside class="app-related-items" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+              Useful links
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+              <ul class="govuk-list govuk-!-font-size-16">
+                <li>
+                  <a class="govuk-link" href="#">
+                    Guidance home
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">
+                    Case folder
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="govuk-link govuk-!-font-weight-bold">
+                    More <span class="govuk-visually-hidden">in Subsection</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+        </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+{% endblock %}
