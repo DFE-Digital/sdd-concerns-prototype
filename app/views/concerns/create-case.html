@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% block content %}
+
+<h2 class="govuk-hint"> Caseload </h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9">Create case</h1>
+
+<section class="app-summary-card govuk-!-margin-bottom-6">
+
+    <header class="app-summary-card__header">
+
+        <h2 class="app-summary-card__title">
+            <strong>Case</strong>
+        </h2>
+    </header>
+    <div class="app-summary-card__body">
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Case Id
+                </dt>
+                <dt class="govuk-summary-list__value">
+                    CI - 1004634
+                </dt>
+                <dt class="govuk-summary-list__key">
+                    Trust
+                </dt>
+                <dt class="govuk-summary-list__value">
+                    <a href="/concerns/trust-overview-1" class="govuk-link govuk-link--no-visited-state">
+                        Wintermute Academy trust</a>
+                </dt>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                    Owner
+                    </dt>
+                <dd class="govuk-summary-list__value">
+                    TBC
+                </dd>
+                <dd class="govuk-summary-list__key">
+                    Contact
+                </dd>
+                <dd class="govuk-summary-list__value">
+                    Sarah Deloitte (Chair)
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                    Territory
+                    </dt>
+                <dd class="govuk-summary-list__value">
+                    Northern
+                </dd>
+                <dd class="govuk-summary-list__key">
+                    Telephone
+                </dd>
+                <dd class="govuk-summary-list__value">
+                    01234 567890
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                    Academy
+                    </dt>
+                <dd class="govuk-summary-list__value">
+                    Lady Jane Academy
+                </dd>
+                <dd class="govuk-summary-list__key">
+                    Email
+                </dd>
+                <dd class="govuk-summary-list__value">
+                    s.deloitte@wintermute.ac.uk
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dd class="govuk-summary-list__key">
+                    URN
+                    </dt>
+                <dd class="govuk-summary-list__value">
+                    145788
+                </dd>
+                <dd class="govuk-summary-list__key">
+                    Website
+                </dd>
+                <dd class="govuk-summary-list__value">
+                    wintermutetrust.ac.uk
+                </dd>
+            </div>
+        </dl>
+    </div>
+
+</section>
+
+
+
+{% endblock %}
