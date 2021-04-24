@@ -1,0 +1,223 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% block content %}
+
+
+<h2 class="govuk-hint govuk-!-margin-top-3"> Caseload </h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-3">Initial contact</h1>
+
+<div class="govuk-width-container">
+
+  <section class="app-summary-card  govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+
+    <header class="app-summary-card__header">
+
+      <h2 class="app-summary-card__title">
+        <strong>Case</strong>
+      </h2>
+    </header>
+    <div class="app-summary-card__body">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Case Id
+          </dt>
+          <dt class="govuk-summary-list__value">
+            CI - 1004634
+          </dt>
+          <dt class="govuk-summary-list__key">
+            Trust
+          </dt>
+          <dt class="govuk-summary-list__value">
+            <a href="/concerns/trust-overview-2" class="govuk-link">
+              Wintermute Academy trust</a>
+          </dt>
+
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Owner
+            </dt>
+          <dd class="govuk-summary-list__value">
+            TBC
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Contact
+          </dd>
+          <dd class="govuk-summary-list__value">
+            Sarah Deloitte (Chair)
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Territory
+            </dt>
+          <dd class="govuk-summary-list__value">
+            Northern
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Telephone
+          </dd>
+          <dd class="govuk-summary-list__value">
+            01234 567890
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Academy
+            </dt>
+          <dd class="govuk-summary-list__value">
+            Lady Jane Academy
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Email
+          </dd>
+          <dd class="govuk-summary-list__value">
+            s.deloitte@wintermute.ac.uk
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            URN
+            </dt>
+          <dd class="govuk-summary-list__value">
+            145788
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Website
+          </dd>
+          <dd class="govuk-summary-list__value">
+            wintermutetrust.ac.uk
+          </dd>
+
+        </div>
+
+      </dl>
+    </div>
+
+
+  </section>
+
+
+  <section class="app-summary-card  govuk-!-margin-top-9">
+
+    <header class="app-summary-card__header">
+
+      <h2 class="app-summary-card__title">
+        <strong>Case Email</strong>
+      </h2>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button govuk-button--secondary moj-badge--green moj-badge--large"
+          data-module="govuk-button">
+          Reply
+        </button>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add to queue
+        </button>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add to timeline
+        </button>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Triage
+        </button>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Assign
+        </button>
+
+        <a href="/concerns/create-case" class="govuk-button govuk-button--secondary moj-badge--green moj-badge--large govuk-link">
+          Take on</a>
+
+      </div>
+
+    </header>
+    <div class="app-summary-card__body">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            From
+          </dt>
+          <dt class="govuk-summary-list__value">
+            ACCIU
+          </dt>
+          <dt class="govuk-summary-list__key">
+
+          </dt>
+          <dt class="govuk-summary-list__value">
+            Sent 11:23am 15/01/2021
+          </dt>
+
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Subject
+            </dt>
+          <dd class="govuk-summary-list__value">
+            South Armitage Academy
+          </dd>
+          <dd class="govuk-summary-list__value">
+            Finance issue
+          </dd>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__value">
+            Hi there,
+            </dt>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+          <dd class="govuk-summary-list__key">
+
+          </dd>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+      </dl>
+    </div>
+    <div class="govuk-summary-list__row">
+
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body govuk-!-margin-bottom-9 govuk-!-margin-left-4"> Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
+        </p>
+        <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-left-4"> Many thanks</p>
+        <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-left-4"> Daniel Cho</p>
+        <p class="govuk-body govuk-!-margin-bottom-6 govuk-!-margin-left-4"> Academies Operations Delivery</p>
+        </dt>
+
+    </div>
+
+  </section>
+
+
+
+
+
+  {% endblock %}

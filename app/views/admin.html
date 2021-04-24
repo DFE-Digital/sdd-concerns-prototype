@@ -1,5 +1,5 @@
 
-{% extends "layout2.html" %}
+{% extends "layout-cc.html" %}
 {% set navActive = "notifications" %}
 
 {% block content %}
@@ -21,7 +21,7 @@
     <div class="govuk-form-group">
       {{ govukButton({
         text: "Variant B",
-        href: "/concerns-v2/homepage-no-crm"
+        href: "/concerns/homepage-no-crm"
       }) }}
     </div>
   </div>
@@ -33,7 +33,7 @@
     <h3 class="govuk-heading-s">Content pages</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/concerns/homepage" class="govuk-link">Homepage</a></li>
-      <li><a href="/concerns-v2/homepage-no-crm" class="govuk-link">Homepage without the CRM tabs</a></li>
+      <li><a href="/concerns/homepage-no-crm" class="govuk-link">Homepage without the CRM tabs</a></li>
       <li><a href="/concerns/initial-contact" class="govuk-link">Initial contact</a></li>
       <li><a href="/concerns/trust-overview-1" class="govuk-link">Trust overview</a></li>
       <li><a href="/concerns/academy-overview-1" class="govuk-link">Academy overview</a></li>

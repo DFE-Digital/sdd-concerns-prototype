@@ -1,7 +1,34 @@
-{% if shouldShowCookieMessage %}
-  <div class="app-cookie-banner">
-    <p class="app-cookie-banner__message">
-      {{cookieText | safe }}
-    </p>
+
+
+<div class="govuk-cookie-banner" role="region" aria-label="Cookies on Concerns casework" id="myDIV">
+  <div class="govuk-cookie-banner__message govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on Concerns casework</h2>
+
+        <div class="govuk-cookie-banner__content">
+          <p class="govuk-body">We use some essential cookies to make this service work.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-button-group">
+      <a class="govuk-link" href="/cookies">View cookies</a>
+      <button onclick="myFunction()" type="button" class="govuk-button" data-module="govuk-button">
+        Hide this message
+      </button>
+    </div>
   </div>
-{% endif %}
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
