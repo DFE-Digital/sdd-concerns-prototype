@@ -13,7 +13,7 @@
 
 <h2 class="govuk-hint"> Caseload </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-9">Create case</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9">Case management</h1>
 
 <section class="app-summary-card govuk-!-margin-bottom-6">
 
@@ -105,139 +105,201 @@
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <section>
+    <h2 class="govuk-heading-m">Create case</h2>
 
-    <button onclick="myFunction()" type="button" class="govuk-button" data-module="govuk-button">
-        Toggle
-    </button>
 
-<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
+        Please select the issue that is more closely assosiated with this case. A case can have more than one issue can
+        become a concern
+        at any point of the history of the case.
+    </p>
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-6">Case timeline</h2>
+    </a>
+    <div class="govuk-o-grid govuk-!-margin-top-6"><a>
+        </a>
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
 
-    <div class="govuk-grid-row" id="showHide">
-
-        <div class="govuk-grid-column-two-thirds">
-            <div class="timeline">
-                <ul>
-                    <li class="action_needed">
-                        <h2>Assigned to Tom Brady</h2>
-                        <p class="time">2 September 2017 at 1.01pm</p>
-                        <p>Finance Case No: CI10078934</p>
-                        <p><a class="button" href="#0">Continue</a></p>
-                    </li>
-                    <li>
-                        <h2>Email to ACCIU</h2>
-                        <p class="time">28 August 2017 at 8.12pm</p>
-                        <p>Tom Brady opened case No: CI10078934</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="govuk-grid-column-one-third">
-
-            <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
-
-            <aside class="app-related-items" role="complementary">
-                <h2 class="govuk-heading-m" id="subsection-title">
-                    Useful links
-                </h2>
-                <nav role="navigation" aria-labelledby="subsection-title">
-                    <ul class="govuk-list govuk-!-font-size-32">
-                        <li>
-                            <a class="govuk-link" href="#">
-                                Guidance home
-                            </a>
-                        </li>
-                        <li>
-                            <a class="govuk-link" href="#">
-                                Case folder
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="govuk-link govuk-!-font-weight-bold">
-                                More <span class="govuk-visually-hidden">in Subsection</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-                    <div class="govuk-accordion__section ">
-                        <div class="govuk-accordion__section-header">
-                            <h2 class="govuk-accordion__section-heading">
-                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                                    Action type
-                                </span>
-                            </h2>
-                        </div>
-
-                        <div id="accordion-default-content-1" class="govuk-accordion__section-content"
-                            aria-labelledby="accordion-default-heading-1">
-
-                            <div class="govuk-form-group">
-                                <select class="govuk-select" id="sort" name="sort">
-                                    <option value="updated" selected>Finance</option>
-                                    <option value="views">Governance</option>
-                                    <option value="comments">Irregularity</option>
-                                    <option value="comments">Safeguarding</option>
-                                </select>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="govuk-accordion__section ">
-                        <div class="govuk-accordion__section-header">
-                            <h2 class="govuk-accordion__section-heading">
-                                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-                                    Action detail
-                                </span>
-                            </h2>
-                        </div>
-                        <div id="accordion-default-content-2" class="govuk-accordion__section-content"
-                            aria-labelledby="accordion-default-heading-2">
-
-                            <div class="govuk-form-group">
-                                <select class="govuk-select" id="sort" name="sort">
-                                    <option value="updated" selected>Analysis</option>
-                                    <option value="views">Comment</option>
-                                    <option value="comments">Escalation</option>
-                                    <option value="comments">Decision</option>
-                                    <option value="views">Update RMF</option>
-                                    <option value="comments">Link a case</option>
-                                    <option value="comments">Whistleblower</option>
-                                    <option value="comments">Case outcome</option>
-                                    <option value="comments">Lesson learned</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+            </a>
+            <div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+                <a href="/concerns/finance"></a>
+                <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Finance</h3>
+                    <p class="govuk-body">A short overview of the content
+                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    </p>
                 </div>
+            </div>
 
 
-                <button class="govuk-button" data-module="govuk-button">
-                    Select and Add
-                </button>
-
-            </aside>
         </div>
 
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
+
+            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                <!--</a><a onclick="myFunction()"></a>-->
+                <a href="#"></a>
+                <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Governance</h3>
+                    <p class="govuk-body">A short overview of the content
+                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
+                        <span class="govuk-!-margin-top-8 moj-badge moj-badge--red moj-badge--large">Primary</span>    
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="govuk-o-grid__item govuk-o-grid__item--one-third govuk-!-mb-r3">
+
+            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+                <a href="#"></a>
+                <div class="govuk-card__content">
+                    <h3 class="govuk-heading-m">Irregularity</h3>
+                    <p class="govuk-body">A short overview of the content
+                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
 
     </div>
 
+    <section>
 
-</section>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-<script>
-    function myFunction() {
-        var x = document.getElementById("showHide");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Case timeline</h2>
+
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column">
+                <div class="timeline">
+                    <ul>
+                        <li class="action_needed">
+                            <h2>Assigned to Tom Brady</h2>
+                            <p class="time">2 September 2017 at 1.01pm</p>
+                            <p>Finance Case No: CI10078934</p>
+                            <p><a class="button" href="#0">Continue</a></p>
+                        </li>
+                        <li>
+                            <h2>Email to ACCIU</h2>
+                            <p class="time">28 August 2017 at 8.12pm</p>
+                            <p>Tom Brady opened case No: CI10078934</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+
+                <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit 
+
+                <aside class="app-related-items" role="complementary">
+                    <h2 class="govuk-heading-m" id="subsection-title">
+                        Useful links
+                    </h2>
+                    <nav role="navigation" aria-labelledby="subsection-title">
+                        <ul class="govuk-list govuk-!-font-size-32">
+                            <li>
+                                <a class="govuk-link" href="#">
+                                    Guidance home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="govuk-link" href="#">
+                                    Case folder
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="govuk-link govuk-!-font-weight-bold">
+                                    More <span class="govuk-visually-hidden">in Subsection</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                        <div class="govuk-accordion__section ">
+                            <div class="govuk-accordion__section-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        Action type
+                                    </span>
+                                </h2>
+                            </div>
+
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+                                aria-labelledby="accordion-default-heading-1">
+
+                                <div class="govuk-form-group">
+                                    <select class="govuk-select" id="sort" name="sort">
+                                        <option value="updated" selected>Finance</option>
+                                        <option value="views">Governance</option>
+                                        <option value="comments">Irregularity</option>
+                                        <option value="comments">Safeguarding</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="govuk-accordion__section ">
+                            <div class="govuk-accordion__section-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                                        Action detail
+                                    </span>
+                                </h2>
+                            </div>
+                            <div id="accordion-default-content-2" class="govuk-accordion__section-content"
+                                aria-labelledby="accordion-default-heading-2">
+
+                                <div class="govuk-form-group">
+                                    <select class="govuk-select" id="sort" name="sort">
+                                        <option value="updated" selected>Analysis</option>
+                                        <option value="views">Comment</option>
+                                        <option value="comments">Escalation</option>
+                                        <option value="comments">Decision</option>
+                                        <option value="views">Update RMF</option>
+                                        <option value="comments">Link a case</option>
+                                        <option value="comments">Whistleblower</option>
+                                        <option value="comments">Case outcome</option>
+                                        <option value="comments">Lesson learned</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button class="govuk-button" data-module="govuk-button">
+                        Select and Add
+                    </button>
+
+                </aside>
+            </div>
+
+
+        </div>
+-->
+
+    </section>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("showHide");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
         }
-    }
-</script>
+    </script>
 
-{% endblock %}
+    {% endblock %}
