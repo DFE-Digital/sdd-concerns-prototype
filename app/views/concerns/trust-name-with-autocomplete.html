@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+
+<div class="govuk-width-container"><br>
+  <h1 class="govuk-heading-xl">Add the outgoing trust name</h1>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group">
+     <fieldset data-required data-error="Cannot be blank">
+      <label class="govuk-hint" class="form-control" for="my-autocomplete">Search by name, trust reference number or companies house
+      number</label>
+     </fieldset>
+    <div id="my-autocomplete-container"></div>
+    </div>
+  </div>
+</div>
+
+<a href="trust-details.html" role="button" draggable="false" class="govuk-button">
+  Search
+</a>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript" src="/public/javascripts/validation.js"></script>
+<script type="text/javascript" src="/public/javascripts/autocomplete.min.js"></script>
+<link rel="stylesheet" href="/public/stylesheets/autocomplete.min.css" />
+<script>
+  const trusts = {{ data["trusts"] | trustsBySearchString | dump | safe }}
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: trusts
+  })
+</script>
+
+{% endblock %}
