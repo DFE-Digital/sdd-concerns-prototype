@@ -4,7 +4,7 @@
 {% block beforeContent %}
     {% if data['autocompleted-incoming-trust-id'] %}
     <a class="govuk-back-link"
-       href="/transfers/incoming.html">Back</a>
+       href="/concerns/add-academies.html">Back</a>
     {% else %}
     <a class="govuk-back-link"
        href="incoming-trust-search.html?incoming-trust-search-query{{ data['incoming-trust-search-query'] }}">Back</a>
@@ -13,14 +13,13 @@
 
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 {% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
-{% set incomingTrust = data['trusts'] | getTrustById(data['incoming-trust-id']) %}
 
 {% block content %}
     <div class="govuk-width-container">
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
                 <h1 class="govuk-heading-l">Check trust and academy details</h1>
-                <h2 class="govuk-heading-m">Outgoing trust</h2>
+                <h2 class="govuk-heading-m">Trust name</h2>
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">Name</dt>
@@ -83,7 +82,8 @@
                         <dd class="govuk-summary-list__value">{{ outgoingAcademy.ofsted_inspection_date | dateToGovukDate }}</dd>
                         <dd class="govuk-summary-list__value"></dd>
                     </div>
-                    <div class="govuk-summary-list__row">
+ 
+<!--                   <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">PFI (private finance initiative)</dt>
                         {% if outgoingAcademy.pfi %}
                             <dd class="govuk-summary-list__value">{{ outgoingAcademy.pfi }}Does not apply</dd>
@@ -107,14 +107,10 @@
                             </a>
                         </dd>
                     </div>
-                </dl>
+ -->
+               </dl>
 
-                <p class="govuk-body-l">
-                    Once you select save and continue, you’ll answer a few questions about the
-                    features of this transfer project.
-                </p>
-
-                <a href="project-overview.html" role="button" draggable="false" class="govuk-button">
+                <a href="/concerns/create-case.html" role="button" draggable="false" class="govuk-button">
                     Save and continue
                 </a>
             </div>

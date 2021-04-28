@@ -3,7 +3,7 @@
 // =============================================================================
 const settings = {}
 const records = require('./records.json')
-const trusts = require('./transfers/trusts.json')
+const trusts = require('./concerns/trusts.json')
 
 module.exports = {
   records,
