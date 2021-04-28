@@ -1,45 +1,45 @@
-
 {% extends "layout-cc.html" %}
 {% set navActive = "notifications" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-    <h2 class="govuk-heading-m">Prototype variant starting points</h2>
+  <h2 class="govuk-heading-m">Concerns casework Prototype</h2>
 </div>
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-three-quarters">
+  <p class="govuk-body">
+    This is fisrt iteration of a minimum viable service, to flesh out gaps, highlight patterns and inform design
+    decisions.
+  </p>
+</div>
+</div>
+
 <br>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-quarter">
     <div class="govuk-form-group">
       {{ govukButton({
-        text: "Variant A",
+        text: "MVP",
         href: "/concerns/homepage"
       }) }}
     </div>
   </div>
-  <div class="govuk-grid-column-one-quarter">
-    <div class="govuk-form-group">
-      {{ govukButton({
-        text: "Variant B",
-        href: "/concerns/homepage-no-crm"
-      }) }}
-    </div>
-  </div>
-
 </div>
+
 <div class="govuk-grid-row">
-    <h2 class="govuk-heading-m">Pages</h2>
+  <h2 class="govuk-heading-m">Pages</h2>
   <div class="govuk-grid-column-one-third">
     <h3 class="govuk-heading-s">Content pages</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/concerns/homepage" class="govuk-link">Homepage</a></li>
-      <li><a href="/concerns/homepage-no-crm" class="govuk-link">Homepage without the CRM tabs</a></li>
+      <li><a href="/concerns/trust-name" class="govuk-link">Trust name</a></li>
+      <li><a href="/concerns/trust-details" class="govuk-link">Trust details</a></li>
+      <li><a href="/concerns/add-academies" class="govuk-link">Add Academies</a></li>
+      <li><a href="/concerns/summary" class="govuk-link">Summary</a></li>
       <li><a href="/concerns/initial-contact" class="govuk-link">Initial contact</a></li>
-      <li><a href="/concerns/initial-contact-2" class="govuk-link">Initial contact v2</a></li>
-      <li><a href="/concerns/trust-overview-1" class="govuk-link">Trust overview</a></li>
-      <li><a href="/concerns/trust-overview-2" class="govuk-link">Trust overview v2</a></li>
-      <li><a href="/concerns/academy-overview-1" class="govuk-link">Academy overview</a></li>
-      <li><a href="/concerns/academy-overview-2" class="govuk-link">Academy overview v2</a></li>
+      <li><a href="/concerns/trust-overview" class="govuk-link">Trust overview</a></li>
+      <li><a href="/concerns/academy-overview" class="govuk-link">Academy overview</a></li>
       <li><a href="/concerns/case-timeline" class="govuk-link">Case timeline</a></li>
       <li><a href="/concerns/case-timeline-2" class="govuk-link">Case timeline v2</a></li>
       <li><a href="/concerns/create-case" class="govuk-link">Case creation</a></li>

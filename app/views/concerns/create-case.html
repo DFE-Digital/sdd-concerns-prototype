@@ -9,6 +9,9 @@
   }}
 {% endblock %}
 
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
 {% block content %}
 
 <h2 class="govuk-hint"> Caseload </h2>
@@ -37,7 +40,7 @@
                 </dt>
                 <dt class="govuk-summary-list__value">
                     <a href="/concerns/trust-overview-1" class="govuk-link govuk-link--no-visited-state">
-                        Wintermute Academy trust</a>
+                        {{ outgoingTrust.trust_name }}</a>
                 </dt>
             </div>
 
@@ -74,13 +77,13 @@
                     Academy
                     </dt>
                 <dd class="govuk-summary-list__value">
-                    Lady Jane Academy
+                    {{ outgoingAcademy.academy_name }}
                 </dd>
                 <dd class="govuk-summary-list__key">
                     Email
                 </dd>
                 <dd class="govuk-summary-list__value">
-                    s.deloitte@wintermute.ac.uk
+                    
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -88,13 +91,13 @@
                     URN
                     </dt>
                 <dd class="govuk-summary-list__value">
-                    145788
+                    {{ outgoingAcademy.urn }}
                 </dd>
                 <dd class="govuk-summary-list__key">
                     Website
                 </dd>
                 <dd class="govuk-summary-list__value">
-                    wintermutetrust.ac.uk
+                     
                 </dd>
             </div>
         </dl>
@@ -102,7 +105,6 @@
 
 </section>
 
-<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 <section>
     <h2 class="govuk-heading-m">Create case</h2>
@@ -122,13 +124,12 @@
         <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
 
             </a>
-            <div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+            <div class="govuk-card govuk-card--contained govuk-card--selectable" ><a>
                 <a href="/concerns/finance"></a>
                 <div class="govuk-card__content">
                     <h3 class="govuk-heading-m">Finance</h3>
                     <p class="govuk-body">A short overview of the content
-                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit."
                     </p>
                 </div>
             </div>
@@ -138,14 +139,14 @@
 
         <div class="govuk-o-grid__item govuk-o-grid__item--one-third">
 
-            <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <div class="govuk-card govuk-card--contained govuk-card--selectable" onclick="selectedFunction()" id="selected">
                 <!--</a><a onclick="myFunction()"></a>-->
                 <a href="#"></a>
                 <div class="govuk-card__content">
                     <h3 class="govuk-heading-m">Governance</h3>
                     <p class="govuk-body">A short overview of the content
-                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
-                        <span class="govuk-!-margin-top-8 moj-badge moj-badge--red moj-badge--large">Primary</span>    
+                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit."
+                <!--    <span class="govuk-!-margin-top-8 moj-badge moj-badge--red moj-badge--large">Primary</span>  -->  
                     </p>
                 </div>
             </div>
@@ -160,8 +161,7 @@
                 <div class="govuk-card__content">
                     <h3 class="govuk-heading-m">Irregularity</h3>
                     <p class="govuk-body">A short overview of the content
-                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        "Lorem ipsum dolor sit amet, consectetaur adipisicing elit."
                     </p>
                 </div>
             </div>
@@ -301,6 +301,10 @@
             } else {
                 x.style.display = "none";
             }
+        }
+        function selectedFunction() {
+            var r = document.getElementById("selected");
+             (r.style.setProperty === 'background-color: #005ea5, color: #ffffff, !important');    
         }
     </script>
 
