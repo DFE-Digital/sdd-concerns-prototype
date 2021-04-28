@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% set navActive = "home" %}
+
+{% block beforeContent %}
+    {% if data['autocompleted-incoming-trust-id'] %}
+    <a class="govuk-back-link"
+       href="/transfers/incoming.html">Back</a>
+    {% else %}
+    <a class="govuk-back-link"
+       href="incoming-trust-search.html?incoming-trust-search-query{{ data['incoming-trust-search-query'] }}">Back</a>
+    {% endif %}
+{% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+{% set incomingTrust = data['trusts'] | getTrustById(data['incoming-trust-id']) %}
+
+{% block content %}
+    <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h1 class="govuk-heading-l">Check trust and academy details</h1>
+                <h2 class="govuk-heading-m">Outgoing trust</h2>
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Name</dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ outgoingTrust.trust_name }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="trust-name.html">
+                                Change<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Trust Reference Number</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingTrust.trust_reference_number }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                </dl>
+
+                <h2 class="govuk-heading-m">Academy details</h2>
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Name</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.academy_name }}</dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="add-academies.html">
+                                Change<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">URN</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.urn }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Local authority</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.local_authority_name }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">School type</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.establishment_type }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Faith school</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.religious_character }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Ofsted rating</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.ofsted_rating }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Last inspection</dt>
+                        <dd class="govuk-summary-list__value">{{ outgoingAcademy.ofsted_inspection_date | dateToGovukDate }}</dd>
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">PFI (private finance initiative)</dt>
+                        {% if outgoingAcademy.pfi %}
+                            <dd class="govuk-summary-list__value">{{ outgoingAcademy.pfi }}Does not apply</dd>
+                        {% else %}
+                            <dd class="govuk-summary-list__value">Does not apply</dd>
+                        {% endif %}
+                        <dd class="govuk-summary-list__value"></dd>
+                    </div>
+                </dl>
+
+                <h2 class="govuk-heading-m">Incoming trust</h2>
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Name</dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ incomingTrust.trust_name }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="incoming.html">
+                                Change<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+                </dl>
+
+                <p class="govuk-body-l">
+                    Once you select save and continue, you’ll answer a few questions about the
+                    features of this transfer project.
+                </p>
+
+                <a href="project-overview.html" role="button" draggable="false" class="govuk-button">
+                    Save and continue
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
