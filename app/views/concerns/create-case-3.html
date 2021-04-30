@@ -164,7 +164,7 @@
         </fieldset>
     </div>
 
-     <div class="govuk-form-group">
+     <div class="govuk-form-group"  id="rr">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m" id="myId">
       <h1 class="govuk-fieldset__heading">
@@ -214,7 +214,71 @@
 </div>
 
 
-    <a href="/concerns/#.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
+<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+                Risk rating
+            </h1>
+        </legend>
+        <div class="govuk-radios">
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio"
+                    value="england">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                    <span class="govuk-tag govuk-tag-green">green</span>
+                </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio"
+                    value="scotland">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    <span class="govuk-tag govuk-tag-green">green</span>
+                    <span class="govuk-tag govuk-tag-amber">amber</span>
+                </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio"
+                    value="wales">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                    <span class="govuk-tag govuk-tag-amber">amber</span>
+                    <span class="govuk-tag govuk-tag-red">red</span>
+                </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio"
+                    value="northern-ireland">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                    <span class="govuk-tag govuk-tag-red">red</span>
+                </label>
+            </div>
+            <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio"
+                    value="northern-ireland">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                    <span class="govuk-tag govuk-tag-red">red plus</span>
+                </label>
+            </div>
+        </div>
+
+    </fieldset>
+</div>
+
+<div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+        <div class="govuk-checkboxes govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox"
+                    value="hmrc">
+                <label class="govuk-label govuk-checkboxes__label govuk-!-font-weight-bold" for="organisation">
+                    Make this issue Primary
+                </label>
+            </div>
+    </fieldset>
+</div> 
+
+
+    <a href="/concerns/case-governance.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
         Save and continue
     </a>
 
