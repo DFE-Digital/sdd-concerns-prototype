@@ -117,6 +117,8 @@
 
 
 <section>
+
+<!--
     <h2 class="govuk-heading-m">Case issue and or concern</h2>
 
     <div class="govuk-grid-row">
@@ -129,7 +131,7 @@
         </div>
     </div>
     </a>
-
+-->
 
 
     <div class="govuk-form-group">
@@ -145,7 +147,7 @@
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no" checked />
                     <label class="govuk-label govuk-radios__label" for="changed-name-2">
                         Governance
                     </label>
@@ -157,12 +159,62 @@
                     </label>
                 </div>
             </div>
+
+
         </fieldset>
     </div>
 
-   
+     <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m" id="myId">
+      <h1 class="govuk-fieldset__heading">
+        Type of governcance concern
+      </h1>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          Financial returns compliance
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal" checked />
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+          Financial reporting compliance 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+          Executive pay
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT" checked />
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Governance 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Closure 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Safeguarding 
+        </label>
+      </div>
+    </div>
 
-    <a href="/concerns/create-case-2.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
+  </fieldset>
+</div>
+
+
+    <a href="/concerns/#.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
         Save and continue
     </a>
 
