@@ -117,6 +117,8 @@
 
 
 <section>
+
+<!--
     <h2 class="govuk-heading-m">Case issue and or concern</h2>
 
     <div class="govuk-grid-row">
@@ -131,39 +133,89 @@
     </a>
 
 
-<form action="/concerns/create-case-answer" method="post" class="form"> 
 
     <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-            <div id="changed-name-hint" class="govuk-hint">
-                Please select only one issue or concern from the radio buttons
-            </div>
+            
             <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name" name="concern-type" type="radio" value="finance">
+                    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
                     <label class="govuk-label govuk-radios__label" for="changed-name">
                         Finance
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="concern-type" type="radio" value="governance">
+                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
                     <label class="govuk-label govuk-radios__label" for="changed-name-2">
                         Governance
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="concern-type" type="radio" value="irregularity">
+                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no" checked />
                     <label class="govuk-label govuk-radios__label" for="changed-name-3">
                         Irregularity
                     </label>
                 </div>
+                <a class="govuk-link" href="javascript: window.history.go(-1)">Change</a>
             </div>
+         
+
         </fieldset>
-        </div>
-    
+    </div>
+-->
 
-   <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+     <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Type of irregularity issue or concern
+      </h1>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          Financial returns compliance
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+          Financial reporting compliance 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+          Executive pay
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Governance 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Closure 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Safeguarding 
+        </label>
+      </div>
+    </div>
 
-    
-</form>
+  </fieldset>
+</div>
+
+
+    <a href="/concerns/irregularity/create-case-3#rr" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
+        Save and continue
+    </a>
+
     {% endblock %}

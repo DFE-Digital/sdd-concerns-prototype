@@ -117,53 +117,107 @@
 
 
 <section>
-    <h2 class="govuk-heading-m">Case issue and or concern</h2>
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
-                Please select the one issue that is more closely assosiated with this case.
-                A case can have more than one issue and become a concern
-                at a later point of the history of the case.
-            </p>
-        </div>
-    </div>
-    </a>
 
 
-<form action="/concerns/create-case-answer" method="post" class="form"> 
 
+<!--
     <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-            <div id="changed-name-hint" class="govuk-hint">
-                Please select only one issue or concern from the radio buttons
-            </div>
+            
             <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name" name="concern-type" type="radio" value="finance">
+                    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes" checked />
                     <label class="govuk-label govuk-radios__label" for="changed-name">
                         Finance
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="concern-type" type="radio" value="governance">
+                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
                     <label class="govuk-label govuk-radios__label" for="changed-name-2">
                         Governance
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="concern-type" type="radio" value="irregularity">
+                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
                     <label class="govuk-label govuk-radios__label" for="changed-name-3">
                         Irregularity
                     </label>
                 </div>
+                <a class="govuk-link" href="javascript: window.history.go(-1)">Change</a>
             </div>
+
+
         </fieldset>
-        </div>
-    
+    </div>
 
-   <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+-->
 
-    
-</form>
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Issue or Concern
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Finance
+      <a class="govuk-link" style="float: right;" href="javascript: window.history.go(-1)">Change</a>
+    </p>
+  </div>
+</div>
+
+     <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Type of finance issue or concern
+      </h1>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          Financial returns compliance
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+          Financial reporting compliance 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+          Executive pay
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Governance 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Closure 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Safeguarding 
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+
+    <a href="/concerns/finance/create-case-3#rr" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
+        Save and continue
+    </a>
+
     {% endblock %}

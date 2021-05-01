@@ -1,0 +1,266 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
+{% block content %}
+
+<h2 class="govuk-hint"> CI 1004634 </h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case management</h1>
+
+
+<details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            Case details
+        </span>
+    </summary>
+
+
+    <section class="app-summary-card govuk-!-margin-bottom-6">
+
+        <header class="app-summary-card__header">
+
+            <h2 class="app-summary-card__title">
+                <strong>Case</strong>
+            </h2>
+        </header>
+        <div class="app-summary-card__body">
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Case Id
+                    </dt>
+                    <dt class="govuk-summary-list__value">
+                        CI - 1004634
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Trust
+                    </dt>
+                    <dt class="govuk-summary-list__value">
+                        <a href="/concerns/trust-overview-1" class="govuk-link govuk-link--no-visited-state">
+                            {{ outgoingTrust.trust_name }}</a>
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        Owner
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        TBC
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Contact
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+                        Sarah Deloitte (Chair)
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        Territory
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        Northern
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Telephone
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+                        01234 567890
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        Academy
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ outgoingAcademy.academy_name }}
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Email
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        URN
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ outgoingAcademy.urn }}
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Website
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+    </section>
+</details>
+
+
+<section>
+
+<div class="govuk-width-container">
+ 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body-l">Primary concern: <strong> Irregularity </strong></p>
+      </div>
+  
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body-l">Risk rating:
+            <span class="govuk-tag govuk-tag-green">green</span>
+            <span class="govuk-tag govuk-tag-amber">amber</span>
+        </p>
+      </div>
+    </div>
+
+</div>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+           Current status
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-hint"> Current status <p>
+            <p class="govuk-body-m">Lorem ipsum dolor si amet.</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+            <p class="govuk-hint" for="sort">
+                Direction of travel
+            </p>
+            <select class="govuk-select" id="sort" name="sort">
+                <option value="published" selected >Select..</option>
+                <option value="updated">Option one</option>
+                <option value="views">Option two</option>
+                <option value="views">Option three</option>
+            </select>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          Issue
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+  <div class="govuk-form-group">
+    <div id="with-hint-hint" class="govuk-hint">
+      Please provide details about this current issue for this trust and or academy.
+    </div>
+    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+  </div>
+
+  <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+    You can enter up to 200 characters
+  </div>
+
+</div>
+    </div>
+  </div>
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+          Next steps
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+  <div class="govuk-form-group">
+    <div id="with-hint-hint" class="govuk-hint">
+      Please provide a recommendation as to what the next steps might be for this case.
+    </div>
+    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+  </div>
+
+  <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+    You can enter up to 200 characters
+  </div>
+
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    
+      <div class="timeline">
+        <ul>
+          <li class="action_needed">
+            <h2>Assigned to Tom Brady</h2>
+            <p class="time">2 September 2017 at 1.01pm</p>
+            <p>Finance Case No: CI10078934</p>
+            <p><a class="button" href="#0">Continue</a></p>
+          </li>
+          <li>
+            <h2>Email to ACCIU</h2>
+            <p class="time">2 September 2017 at 11.32am</p>
+            <p>The Case has now been triaged and PL will be assigned</p>
+          </li>
+          <li>
+            <h2>ACCIU Create case - Finance</h2>
+            <p class="time">28 August 2017 at 8.12pm</p>
+            <p>Tom Brady opened case No: CI10078934</p>
+          </li>
+          <li>
+            <h2>Email from Academy</h2>
+            <p class="time">28 August 2017</p>
+          </li>
+          <li>
+            <h2>Finance Concerns - Urgern!</h2>
+            <p class="time">20 August 2017</p>
+            <div class="timeline-details">
+              <details>
+                <summary>Initial details</summary>
+                <span>Time stamp: 20 August 2017 at 8.23am</span>
+                <span>Region: London</span>
+                <span>Type: Urgent case</span>
+              </details>
+            </div>
+          </li>
+        </ul>
+      </div>
+    
+    <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+  Close Case
+</button>
+
+
+   
+
+    {% endblock %}
