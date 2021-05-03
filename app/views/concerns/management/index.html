@@ -1,18 +1,24 @@
-{% extends "layout.html" %}
+{% extends "layout-not.html" %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
 
 {% block content %}
 
-    <div class="govuk-grid-row govuk-grid-row-extra">
-        <div class="govuk-grid-column-full-extra">
         <h2 class="govuk-hint"> Caseworker </h2>
 
         <h1 class="govuk-heading-l">Nikolaos Gkionis</h1>
 
-      </div>
-    
-    <div>
-
-   
+ 
       <div class="govuk-grid-row govuk-grid-row-extra">
         <div class="govuk-grid-column-full-extra">
 
@@ -35,14 +41,36 @@
                Case Id
             </dt>
             <dt class="govuk-summary-list__key">
-               Status
+               Risk
             </dt>
             <dt class="govuk-summary-list__key">
                Case Type
             </dt>
+            <dt class="govuk-summary-list__key">
+               Status
+            </dt>
           </div>
           
           <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value">
+            <a href="/concerns/management/case-management" class="govuk-link govuk-link--no-visited-state">
+             {{ outgoingTrust.trust_name }}</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+               CI - 1004634
+            </dd>
+            <dd class="govuk-summary-list__value">
+              {{ data['risk-rating'] }}
+            </dd>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> {{ data['concern-type'] }} </p>
+            </dd>
+             <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> <span id="notifications" class="moj-notification-badge">New</span> </p>
+            </dd>
+          </div>
+          
+           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
             <a href="#" class="govuk-link govuk-link--no-visited-state">
              Settlebeck School Academy Trust</a>
@@ -56,6 +84,9 @@
             </dd>
             <dd class="govuk-summary-list__value">
               <p class="govuk-body"> Financial query responce </p>
+            </dd>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> </p>
             </dd>
           </div>
             
@@ -74,7 +105,9 @@
             <dd class="govuk-summary-list__value">
               <p class="govuk-body"> SRMA Report </p>
             </dd>
-            
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> </p>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
@@ -91,7 +124,9 @@
             <dd class="govuk-summary-list__value">
               <p class="govuk-body"> Governance statement </p>
             </dd>
-            
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> </p>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dd class="govuk-summary-list__value">
@@ -108,7 +143,9 @@
             <dd class="govuk-summary-list__value">
               <p class="govuk-body"> Final report </p>
             </dd>
-            
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body"> </p>
+            </dd>
           </div>
 
         </dl>

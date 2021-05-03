@@ -1,0 +1,253 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
+{% block content %}
+
+<h2 class="govuk-hint"> CI 1004634 </h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case overview</h1>
+
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Case details
+    </span>
+  </summary>
+
+
+  <section class="app-summary-card govuk-!-margin-bottom-6">
+
+    <header class="app-summary-card__header">
+
+      <h2 class="app-summary-card__title">
+        <strong>Case</strong>
+      </h2>
+    </header>
+    <div class="app-summary-card__body">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Case Id
+          </dt>
+          <dt class="govuk-summary-list__value">
+            CI - 1004634
+          </dt>
+          <dt class="govuk-summary-list__key">
+            Trust
+          </dt>
+          <dt class="govuk-summary-list__value">
+            <a href="/concerns/trust-overview-1" class="govuk-link govuk-link--no-visited-state">
+              {{ outgoingTrust.trust_name }}</a>
+          </dt>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Owner
+            </dt>
+          <dd class="govuk-summary-list__value">
+            TBC
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Contact
+          </dd>
+          <dd class="govuk-summary-list__value">
+            Sarah Deloitte (Chair)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Territory
+            </dt>
+          <dd class="govuk-summary-list__value">
+            Northern
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Telephone
+          </dd>
+          <dd class="govuk-summary-list__value">
+            01234 567890
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            Academy
+            </dt>
+          <dd class="govuk-summary-list__value">
+            {{ outgoingAcademy.academy_name }}
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Email
+          </dd>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dd class="govuk-summary-list__key">
+            URN
+            </dt>
+          <dd class="govuk-summary-list__value">
+            {{ outgoingAcademy.urn }}
+          </dd>
+          <dd class="govuk-summary-list__key">
+            Website
+          </dd>
+          <dd class="govuk-summary-list__value">
+
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+  </section>
+</details>
+
+
+<section>
+
+  <div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body-l">Primary concern: <strong> {{ data['concern-type'] }} </strong></p>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body-l">Risk rating: <strong> {{ data['risk-rating'] }} </strong></p>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <form action="/concerns/management/" method="post" class="form"> 
+
+  <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+            Current status
+          </span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+        aria-labelledby="accordion-default-heading-1">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-hint"> Current status <p>
+                <input class="govuk-input" id="current-status" name="current-status" value="{{ data['current-status'] }}">
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+              <p class="govuk-hint" for="sort">
+                Direction of travel
+              </p>
+              <select class="govuk-select" id="travel-sort" name="travel-sort" value="{{ data['travel-sort'] }}">
+                <option value="published" selected>Select..</option>
+                <option value="Static">Static</option>
+                <option value="Improving">Improving</option>
+                <option value="Declining">Declining</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+            Issue
+          </span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-2" class="govuk-accordion__section-content"
+        aria-labelledby="accordion-default-heading-2">
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+          <div class="govuk-form-group">
+            <div id="with-hint-hint" class="govuk-hint">
+              Please provide details about this current issue for this trust and or academy.
+            </div>
+            <textarea class="govuk-textarea govuk-js-character-count" id="issue-text" name="issue-text" value="{{ data['issue-text'] }}" rows="5"
+              aria-describedby="with-hint-info with-hint-hint"></textarea>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+            Next steps
+          </span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+        aria-labelledby="accordion-default-heading-3">
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+          <div class="govuk-form-group">
+            <div id="with-hint-hint" class="govuk-hint">
+              Please provide a recommendation as to what the next steps might be for this case.
+            </div>
+            <textarea class="govuk-textarea govuk-js-character-count" id="next-steps" name="next-steps" value="{{ data['next-steps'] }}" rows="5"
+              aria-describedby="with-hint-info with-hint-hint"></textarea>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+  <div class="govuk-grid-row">
+
+    <div class="timeline">
+      <ul>
+        <li class="action_needed">
+          <h2>Is this issue or concern Primary ? {{ data['primary'] }}</h2>
+          <p class="time">2 September 2017 at 1.01pm</p>
+          <p><a class="button" href="javascript: window.history.go(-1)">Change</a></p>
+        </li>
+        <li>
+          <h2>Type of issue or concern</h2>
+          <p>{{ data['types'] }}</p>
+          <p class="time">28 August 2017 at 8.14pm</p>
+        </li>
+        <li>
+          <h2>Case issue or concern</h2>
+          <p>{{ data['concern-type'] }}</p>
+          <p class="time">28 August 2017 at 8.12pm</p>
+        </li>
+        <li>
+          <h2>Assigned to: {{ data['assigned'] }}</h2>
+          <h2>Case Id: CI 1004634 </h2>
+          <p class="time">28 August 2017</p>
+        </li>
+      </ul>
+    </div>
+-->
+
+   <button class="govuk-button" data-module="govuk-button">
+  Create case
+</button>
+
+</form>
+
+
+    {% endblock %}

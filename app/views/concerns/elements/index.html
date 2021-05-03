@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case creation</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case management</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -117,53 +117,68 @@
 
 
 <section>
-    <h2 class="govuk-heading-m">Case issue and or concern</h2>
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
-                Please select the one issue that is more closely assosiated with this case.
-                A case can have more than one issue and become a concern
-                at a later point of the history of the case.
-            </p>
+    <form action="/concerns/elements/types" method="post" class="form">
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                        Type of {{ data['concern-type'] }} issue or concern
+                    </h1>
+                </legend>
+                <div class="govuk-checkboxes govuk-checkboxes--small">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types" name="types" type="checkbox"
+                            value="Financial returns compliance" {{ checked("types", "Financial returns compliance") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types">
+                            Financial returns compliance
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-2" name="types" type="checkbox"
+                            value="Financial reporting compliance"
+                            {{ checked("types", "Financial reporting compliance") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-2">
+                            Financial reporting compliance
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-3" name="types" type="checkbox"
+                            value="Executive pay" {{ checked("types", "Executive pay") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-3">
+                            Executive pay
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox"
+                            value="Governance" {{ checked("types", "Governance") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-4">
+                            Governance
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox" value="Closure"
+                            {{ checked("types", "Closure") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-4">
+                            Closure
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox"
+                            value="Safeguarding" {{ checked("types", "Safeguarding") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-4">
+                            Safeguarding
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
         </div>
-    </div>
-    </a>
 
 
-<form action="/concerns/elements/" method="post" class="form"> 
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-    <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-            <div id="changed-name-hint" class="govuk-hint">
-                Please select only one issue or concern from the radio buttons
-            </div>
-            <div class="govuk-radios govuk-radios--inline">
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name" name="concern-type" type="radio" value="Finance" {{ checked("concern-type", "Finance") }}>
-                    <label class="govuk-label govuk-radios__label" for="changed-name">
-                        Finance
-                    </label>
-                </div>
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="concern-type" type="radio" value="Governance" {{ checked("concern-type", "Governance") }}>
-                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
-                        Governance
-                    </label>
-                </div>
-                <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="changed-name-2" name="concern-type" type="radio" value="Irregularity" {{ checked("concern-type", "Irregularity") }}>
-                    <label class="govuk-label govuk-radios__label" for="changed-name-3">
-                        Irregularity
-                    </label>
-                </div>
-            </div>
-        </fieldset>
-        </div>
-    
+    </form>
 
-   <button class="govuk-button" data-module="govuk-button">Save and continue</button>
-
-    
-</form>
     {% endblock %}
