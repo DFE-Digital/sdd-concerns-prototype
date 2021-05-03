@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+{% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
+{% block content %}
+
+<h2 class="govuk-hint"> CI 1004634 </h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case management</h1>
+
+
+<details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            Case details
+        </span>
+    </summary>
+
+
+    <section class="app-summary-card govuk-!-margin-bottom-6">
+
+        <header class="app-summary-card__header">
+
+            <h2 class="app-summary-card__title">
+                <strong>Case</strong>
+            </h2>
+        </header>
+        <div class="app-summary-card__body">
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Case Id
+                    </dt>
+                    <dt class="govuk-summary-list__value">
+                        CI - 1004634
+                    </dt>
+                    <dt class="govuk-summary-list__key">
+                        Trust
+                    </dt>
+                    <dt class="govuk-summary-list__value">
+                        <a href="/concerns/trust-overview-1" class="govuk-link govuk-link--no-visited-state">
+                            {{ outgoingTrust.trust_name }}</a>
+                    </dt>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        Owner
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        TBC
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Contact
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+                        Sarah Deloitte (Chair)
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        Territory
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        Northern
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Telephone
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+                        01234 567890
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        Academy
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ outgoingAcademy.academy_name }}
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Email
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__key">
+                        URN
+                        </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ outgoingAcademy.urn }}
+                    </dd>
+                    <dd class="govuk-summary-list__key">
+                        Website
+                    </dd>
+                    <dd class="govuk-summary-list__value">
+
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+    </section>
+</details>
+
+
+<section>
+
+    <form action="/concerns/elements/case-overview" method="post" class="form">
+
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                        Risk rating
+                    </h1>
+                </legend>
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating" name="risk-rating" type="radio"
+                            value="Green" {{ checked("risk-rating", "Green") }}>
+                        <label class="govuk-label govuk-radios__label" for="green">
+                            <span class="govuk-tag govuk-tag-green">green</span>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-2" name="risk-rating" type="radio"
+                            value="Green Amber" {{ checked("risk-rating", "Green Amber") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-2">
+                            <span class="govuk-tag govuk-tag-green">green</span>
+                            <span class="govuk-tag govuk-tag-amber">amber</span>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-3" name="risk-rating" type="radio"
+                            value="Amber Red" {{ checked("risk-rating", "Amber Red") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-3">
+                            <span class="govuk-tag govuk-tag-amber">amber</span>
+                            <span class="govuk-tag govuk-tag-red">red</span>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-4" name="risk-rating" type="radio"
+                            value="Red" {{ checked("risk-rating", "Red") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-4">
+                            <span class="govuk-tag govuk-tag-red">red</span>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-4" name="risk-rating" type="radio"
+                            value="Red plus" {{ checked("risk-rating", "Red plus") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-4">
+                            <span class="govuk-tag govuk-tag-red">red plus</span>
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h2 class="govuk-fieldset__heading govuk-!-margin-bottom-6">
+                      Is this issue or concern Primary?
+                    </h2>
+                <div class="govuk-radios govuk-radios--inline">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="primary" name="primary" type="radio"
+                            value="Yes" {{ checked("primary", "Yes") }}>
+                        <label class="govuk-label govuk-radios__label" for="primary">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="primary-2" name="primary" type="radio"
+                            value="No" {{ checked("primary", "No") }}>
+                        <label class="govuk-label govuk-radios__label" for="Primary-2">
+                            No
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+    </form>
+
+    {% endblock %}

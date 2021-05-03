@@ -4,33 +4,24 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <h2 class="govuk-heading-m">Concerns casework Prototype</h2>
-</div>
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-three-quarters">
-  <p class="govuk-body">
-    This is fisrt iteration of a minimum viable service, to flesh out gaps, highlight patterns and inform design
-    decisions.
-  </p>
-</div>
-</div>
-
-<br>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-quarter">
-    <div class="govuk-form-group">
-      {{ govukButton({
-        text: "MVP",
-        href: "/concerns/homepage"
-      }) }}
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-card govuk-card--contained govuk-card--selectable"><a>
+        <a href="/concerns/homepage"></a>
+        <div class="govuk-card__content">
+          <h3 class="govuk-heading-m">Concerns casework prototype</h3>
+          <p class="govuk-body">This is fisrt iteration of a minimum viable service,
+            to flesh out gaps, highlight patterns and inform design decisions.
+          </p>
+        </div>
     </div>
   </div>
 </div>
 
+
 <div class="govuk-grid-row">
   <h2 class="govuk-heading-m">Pages</h2>
   <div class="govuk-grid-column-one-third">
-    <h3 class="govuk-heading-s">Content pages</h3>
+    <h3 class="govuk-heading-s">Old content pages</h3>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="/concerns/homepage" class="govuk-link">Homepage</a></li>
       <li><a href="/concerns/trust-name" class="govuk-link">Trust name</a></li>
@@ -61,6 +52,15 @@
       <li><a href="404" class="govuk-link">404 - Page not found</a></li>
       <li><a href="500" class="govuk-link">500 - Something went wrong</a></li>
     </ul>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-s">Before you start</h3>
+    <p class="govuk-body">Some of the old content pages might not work as the server has not yet recorded any actions
+      for them.
+    </p>
   </div>
 </div>
 

@@ -60,7 +60,7 @@
 
 {% block header %}
 
-  {% include "_includes/cookie-banner.html" %}
+  
   {# Set serviceName in config.js. #}
 {% set headerClass = 'app-dark-header' if data.settings.useDarkHeader else 'app-light-header' %}
 {{ mojHeader({
@@ -92,7 +92,7 @@ items: [{
 <div class="moj-search-toggle__toggle">
 <div class="moj-search-toggle__search">
   {{ mojSearch({
-    classes: 'moj-search--toggle',
+    classes: 'moj-search--toggle moj-js-hidden',
     input: {
       id: 'search2',
       name: 'search2'
@@ -126,7 +126,7 @@ items: [{
       </li>
 
       <li class="moj-primary-navigation__item">
-        <a class="moj-primary-navigation__link" href="/404">Notifications  </a>
+        <a class="moj-primary-navigation__link" href="/404">Notifications <span id="notifications" class="moj-notification-badge">1</span> </a>
       </li>
 
       <li class="moj-primary-navigation__item">

@@ -37,7 +37,7 @@ router.post('/concerns/create-case-answer', function (req, res) {
   if (concern === 'governance') {
     res.redirect('/concerns/governance/create-case-2')
   } else {
-    res.redirect('/concerns/irregularity/create-case-2')
+    res.redirect('/concerns/elements/')
   }
 })
 

@@ -114,12 +114,30 @@
                 <div class="govuk-grid-column-two-thirds">
                     <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
                         Before you create the case make sure the correct trust and academy have been selected.
-                        A unique case identifier number will be created for this case.
+                        Assign the case to a caseworker, and a unique case identifier number will be created for this
+                        case.
                     </p>
                 </div>
             </div>
 
-            <a href="/concerns/create-case.html" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6">
+            <form action="/concerns/elements/case-overview" method="post" class="form">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="sort">
+                        Assign case to:
+                    </label>
+                    <select class="govuk-select" id="assigned" name="assigned"
+                        {{ checked("assigned", "Nikolaos Gkionis") }}>
+                        <option value="Nikolaos Gkionis" selected>My self</option>
+                        <option value="Jonathan Briggs">Jonathan Briggs</option>
+                        <option value="Harry Miles">Harry Miles</option>
+                        <option value="Harry Miles">Sharon Morris</option>
+                        <option value="Harry Miles">Faye Rumsen</option>
+                    </select>
+                </div>
+            </form>
+
+            <a href="/concerns/create-case.html" role="button" draggable="false"
+                class="govuk-button govuk-!-margin-top-6">
                 Create case
             </a>
         </div>
