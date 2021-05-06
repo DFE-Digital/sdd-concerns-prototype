@@ -38,14 +38,54 @@
                         <dd class="govuk-summary-list__value">{{ trust.trust_reference_number }}</dd>
                     </div>
                     <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">UKPRN</dt>
+                    <dd class="govuk-summary-list__value">{{ trust.ukprn }}</dd>
+                    <dd class="govuk-summary-list__value"></dd>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">UPIN</dt>
+                    <dd class="govuk-summary-list__value">{{ trust.upin }}</dd>
+                    <dd class="govuk-summary-list__value"></dd>
+                </div>
+                    <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">Address</dt>
                         <dd class="govuk-summary-list__value">
                             <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
                         </dd>
                     </div>
                 </dl>
-                <a class="govuk-button" draggable="false" href="add-academies.html">Save and continue</a>
+                  <div class="govuk-grid-row">
+                
+                    <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
+                        Before you create the case make sure the correct trust has been selected.
+                        Assign the case to a caseworker, and a unique case identifier number will be created for this
+                        case.
+                    </p>
+                
             </div>
+
+            <form action="/concerns/elements/case-overview" method="post" class="form">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="sort">
+                        Assign case to:
+                    </label>
+                    <select class="govuk-select" id="assigned" name="assigned"
+                        {{ checked("assigned", "Nikolaos Gkionis") }}>
+                        <option value="Nikolaos Gkionis" selected>My self</option>
+                        <option value="Jonathan Briggs">Jonathan Briggs</option>
+                        <option value="Harry Miles">Harry Miles</option>
+                        <option value="Harry Miles">Sharon Morris</option>
+                        <option value="Harry Miles">Faye Rumsen</option>
+                    </select>
+                </div>
+            </form>
+
+            <a href="/concerns/elements/case-overview.html" role="button" draggable="false"
+                class="govuk-button govuk-!-margin-top-6">
+                Create case
+            </a>
         </div>
     </div>
+</div>
 {% endblock %}

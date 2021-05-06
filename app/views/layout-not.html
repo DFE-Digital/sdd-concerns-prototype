@@ -87,75 +87,35 @@ items: [{
 }) }} 
 
 
-{%- set toggleSearchHtml %}
-<div class="moj-search-toggle" data-module="moj-search-toggle" data-moj-search-toggle-text="Find case">
-<div class="moj-search-toggle__toggle">
-<div class="moj-search-toggle__search">
-  {{ mojSearch({
-    classes: 'moj-search--toggle moj-js-hidden',
-    input: {
-      id: 'search2',
-      name: 'search2'
-    },
-    label: {
-      text: 'Search'
-    },
-    hint: {
-      text: 'Enter case number, for example 123456'
-    },
-    button: {
-      text: 'Search'
-    }
-  }) }}
-</div>
-</div>
-</div>
-{% endset -%}
 
 <div class="moj-primary-navigation">
 
-<div class="moj-primary-navigation__container">
+  <div class="moj-primary-navigation__container">
 
-<div class="moj-primary-navigation__nav">
+    <div class="moj-primary-navigation__nav">
 
-  <nav class="moj-primary-navigation" aria-label="Primary navigation">
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
 
-    <ul class="moj-primary-navigation__list">
-      <li class="moj-primary-navigation__item">
-        <a class="moj-primary-navigation__link" aria-current="page" href="/concerns/homepage">Home</a>
-      </li>
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page" href="/concerns/management/">Home</a>
+          </li>
+        </ul>
 
-      <li class="moj-primary-navigation__item">
-        <a class="moj-primary-navigation__link" href="/404">Notifications <span id="notifications" class="moj-notification-badge">1</span> </a>
-      </li>
+      </nav>
 
-      <li class="moj-primary-navigation__item">
-        <a class="moj-primary-navigation__link" href="/500">Queue <span id="notifications" class="moj-notification-badge">4</span> </a>
-      </li>
-    </ul>
+    </div>
+    <div class="moj-primary-navigation__search">
 
-  </nav>
-
-</div>
-<div class="moj-primary-navigation__search">
-  <div class="moj-search-toggle" data-module="moj-search-toggle" data-moj-search-toggle-text="Find case">
-    <div class="moj-search-toggle__toggle"></div>
-    <div class="moj-search-toggle__search">
-
-      <div class="moj-search moj-search--ondark moj-search--toggle moj-js-hidden">
-
-        <form action="" method="get">
+      <div class="moj-search moj-search--ondark moj-search--inline">
+        <form method="get" action="search">
 
           <div class="govuk-form-group">
-            <label class="govuk-label moj-search__label govuk-visually-hidden" for="search2">
+            <label class="govuk-label moj-search__label govuk-visually-hidden" for="search-1">
               Search
             </label>
 
-            <div id="search2-hint" class="govuk-hint moj-search__hint ">
-              Enter case number, for example 123456
-            </div>
-
-            <input class="govuk-input moj-search__input " id="search2" name="search2" type="search" aria-describedby="search2-hint">
+            <input class="govuk-input moj-search__input " id="search-1" name="search-1" type="search">
           </div>
 
           <button class="govuk-button moj-search__button " data-module="govuk-button">
@@ -167,8 +127,9 @@ items: [{
 
     </div>
   </div>
+
 </div>
-</div>
+
 
 </div> 
 {% endblock %}

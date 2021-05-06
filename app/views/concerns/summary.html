@@ -11,7 +11,6 @@
 {% endblock %}
 
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
-{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
 
 {% block content %}
 <div class="govuk-width-container">
@@ -37,35 +36,31 @@
                     <dd class="govuk-summary-list__value">{{ outgoingTrust.trust_reference_number }}</dd>
                     <dd class="govuk-summary-list__value"></dd>
                 </div>
-            </dl>
-
-            <h2 class="govuk-heading-m">Academy details</h2>
-            <dl class="govuk-summary-list">
+           
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">Name</dt>
-                    <dd class="govuk-summary-list__value">{{ outgoingAcademy.academy_name }}</dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="add-academies.html">
-                            Change<span class="govuk-visually-hidden"> name</span>
-                        </a>
+                    <dt class="govuk-summary-list__key">UKPRN</dt>
+                    <dd class="govuk-summary-list__value">{{ outgoingTrust.ukprn }}</dd>
+                    <dd class="govuk-summary-list__value"></dd>
                     </dd>
                 </div>
 
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">URN</dt>
-                    <dd class="govuk-summary-list__value">{{ outgoingAcademy.urn }}</dd>
+                    <dt class="govuk-summary-list__key">UPIN</dt>
+                    <dd class="govuk-summary-list__value">{{ outgoingTrust.upin }}</dd>
                     <dd class="govuk-summary-list__value"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Local authority</dt>
-                    <dd class="govuk-summary-list__value">{{ outgoingAcademy.local_authority_name }}</dd>
+                    <dd class="govuk-summary-list__value">{{ outgoingTrust.academies.local_authority_name }}</dd>
                     <dd class="govuk-summary-list__value"></dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">School type</dt>
-                    <dd class="govuk-summary-list__value">{{ outgoingAcademy.establishment_type }}</dd>
+                    <dd class="govuk-summary-list__value">{{ outgoingTrust.academies.establishment_type }}</dd>
                     <dd class="govuk-summary-list__value"></dd>
                 </div>
+            </dl>
+ <!-- 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Faith school</dt>
                     <dd class="govuk-summary-list__value">{{ outgoingAcademy.religious_character }}</dd>
@@ -83,7 +78,7 @@
                     <dd class="govuk-summary-list__value"></dd>
                 </div>
 
-                <!--                   <div class="govuk-summary-list__row">
+                                 <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">PFI (private finance initiative)</dt>
                         {% if outgoingAcademy.pfi %}
                             <dd class="govuk-summary-list__value">{{ outgoingAcademy.pfi }}Does not apply</dd>
@@ -108,7 +103,7 @@
                         </dd>
                     </div>
  -->
-            </dl>
+            
 
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
