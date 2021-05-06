@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-not.html" %}
 
 
 {% block beforeContent %}
@@ -10,13 +10,13 @@
 {% endblock %}
 
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
-{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
 
 {% block content %}
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case management</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Risk rating</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -125,7 +125,7 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                     <h1 class="govuk-fieldset__heading">
-                        Risk rating
+                        RAG rating
                     </h1>
                 </legend>
                 <div class="govuk-radios">
@@ -175,7 +175,7 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                     <h2 class="govuk-fieldset__heading govuk-!-margin-bottom-6">
-                      Is this issue or concern Primary?
+                      Is this the primary concern for this case?
                     </h2>
                 <div class="govuk-radios govuk-radios--inline">
                     <div class="govuk-radios__item">

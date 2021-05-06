@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-not.html" %}
 
 
 {% block beforeContent %}
@@ -10,13 +10,13 @@
 {% endblock %}
 
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
-{% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+
 
 {% block content %}
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case management</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add an element</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -124,7 +124,7 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                     <h1 class="govuk-fieldset__heading">
-                        Type of {{ data['concern-type'] }} issue or concern
+                        Type of {{ data['concern-type'] }} concern
                     </h1>
                 </legend>
                 <div class="govuk-checkboxes govuk-checkboxes--small">

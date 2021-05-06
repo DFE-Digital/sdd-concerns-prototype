@@ -1,3 +1,7 @@
+ {% set outgoingAcademy = data['trusts'] | getTrustById(data['outgoing-trust-id']) | getAcademiesByIds(data['outgoing-academies']) | first %}
+ 
+ 
+ 
  <div class="govuk-o-grid govuk-!-margin-top-6"><a>
         </a>
         <div class="govuk-o-grid__item govuk-o-grid__item--one-third"><a>
