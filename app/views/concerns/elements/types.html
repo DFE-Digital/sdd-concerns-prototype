@@ -64,15 +64,15 @@
                         Contact
                     </dd>
                     <dd class="govuk-summary-list__value">
-                        Sarah Deloitte (Chair)
+                        {{ outgoingTrust.contact}}
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__key">
-                        Territory
+                        Local Authority
                         </dt>
                     <dd class="govuk-summary-list__value">
-                        Northern
+                        {{ outgoingTrust.local_authority_name }}
                     </dd>
                     <dd class="govuk-summary-list__key">
                         Telephone
@@ -83,30 +83,30 @@
                 </div>
                 <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__key">
-                        Academy
+                        Number of Academies
                         </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ outgoingAcademy.academy_name }}
+                        1
                     </dd>
                     <dd class="govuk-summary-list__key">
                         Email
                     </dd>
                     <dd class="govuk-summary-list__value">
-
+                        {{ outgoingTrust.email }}
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dd class="govuk-summary-list__key">
-                        URN
+                        UKPRN
                         </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ outgoingAcademy.urn }}
+                        {{ outgoingTrust.ukprn }}
                     </dd>
                     <dd class="govuk-summary-list__key">
                         Website
                     </dd>
                     <dd class="govuk-summary-list__value">
-
+                        {{ outgoingTrust.website }}
                     </dd>
                 </div>
             </dl>
@@ -175,24 +175,24 @@
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                     <h2 class="govuk-fieldset__heading govuk-!-margin-bottom-6">
-                      Is this the primary concern for this case?
+                        Is this the primary concern for this case?
                     </h2>
-                <div class="govuk-radios govuk-radios--inline">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="primary" name="primary" type="radio"
-                            value="Yes" {{ checked("primary", "Yes") }}>
-                        <label class="govuk-label govuk-radios__label" for="primary">
-                            Yes
-                        </label>
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="primary" name="primary" type="radio" value="Yes"
+                                {{ checked("primary", "Yes") }}>
+                            <label class="govuk-label govuk-radios__label" for="primary">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="primary-2" name="primary" type="radio" value="No"
+                                {{ checked("primary", "No") }}>
+                            <label class="govuk-label govuk-radios__label" for="Primary-2">
+                                No
+                            </label>
+                        </div>
                     </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="primary-2" name="primary" type="radio"
-                            value="No" {{ checked("primary", "No") }}>
-                        <label class="govuk-label govuk-radios__label" for="Primary-2">
-                            No
-                        </label>
-                    </div>
-                </div>
 
             </fieldset>
         </div>

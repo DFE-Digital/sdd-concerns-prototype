@@ -60,7 +60,7 @@
                         {{ data['concern-type'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/concerns/create-case">
+                        <a class="govuk-link" href="javascript: window.history.go(-4)">
                             Change<span class="govuk-visually-hidden"> name</span>
                         </a>
                     </dd>
@@ -73,7 +73,7 @@
                         {{ data['risk-rating'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/concerns/elements/types">
+                        <a class="govuk-link" href="javascript: window.history.go(-2)">
                             Change<span class="govuk-visually-hidden"> date of birth</span>
                         </a>
                     </dd>
@@ -86,7 +86,7 @@
                         {{ data['current-status'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/concerns/elements/case-overview">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
                             Change<span class="govuk-visually-hidden"> contact information</span>
                         </a>
                     </dd>
@@ -99,7 +99,7 @@
                         {{ data['travel-sort'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/concerns/elements/case-overview">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
                             Change<span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -112,7 +112,7 @@
                         {{ data['primary'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/concerns/elements/case-overview">
+                        <a class="govuk-link" href="javascript: window.history.go(-2)">
                             Change<span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -125,7 +125,7 @@
                         {{ data['concern-type'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/concerns/elements/case-overview">
+                        <a class="govuk-link" href="javascript: window.history.go(-3)">
                             Change<span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -305,8 +305,7 @@
                 </thead>
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="#"
-                                class="govuk-link">{{ outgoingTrust.trust_name }}</a>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ outgoingTrust.trust_name }}</a>
                         </td>
                         <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
                         <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
@@ -324,9 +323,14 @@
 
 <section>
 
-    <button class="govuk-button govuk-button--warning" data-module="govuk-button">
-        Close case
-    </button>
+    <a href="/concerns/closure/" role="button" draggable="false" class="govuk-button govuk-button--warning govuk-!-margin-bottom-9" style="float:right;">
+        Close options
+    </a>
+
+    <a href="/concerns/create-case" class="govuk-button govuk-button--secondary  govuk-link">
+        Add a concern
+    </a>
+
 
 </section>
 

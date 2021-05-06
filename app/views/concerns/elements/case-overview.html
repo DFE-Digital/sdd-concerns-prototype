@@ -64,15 +64,15 @@
             Contact
           </dd>
           <dd class="govuk-summary-list__value">
-            Sarah Deloitte (Chair)
+            {{ outgoingTrust.contact}}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dd class="govuk-summary-list__key">
-            Territory
+            Local Authority
             </dt>
           <dd class="govuk-summary-list__value">
-            Northern
+            {{ outgoingTrust.local_authority_name }}
           </dd>
           <dd class="govuk-summary-list__key">
             Telephone
@@ -83,30 +83,30 @@
         </div>
         <div class="govuk-summary-list__row">
           <dd class="govuk-summary-list__key">
-            Academy
+            Number of Academies
             </dt>
           <dd class="govuk-summary-list__value">
-            {{ outgoingAcademy.academy_name }}
+            1
           </dd>
           <dd class="govuk-summary-list__key">
             Email
           </dd>
           <dd class="govuk-summary-list__value">
-
+            {{ outgoingTrust.email }}
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dd class="govuk-summary-list__key">
-            URN
+            UKPRN
             </dt>
           <dd class="govuk-summary-list__value">
-            {{ outgoingAcademy.urn }}
+            {{ outgoingTrust.ukprn }}
           </dd>
           <dd class="govuk-summary-list__key">
             Website
           </dd>
           <dd class="govuk-summary-list__value">
-
+            {{ outgoingTrust.website }}
           </dd>
         </div>
       </dl>
@@ -229,24 +229,24 @@
               <div id="with-hint-hint" class="govuk-hint">
                 Add a Resolution strategy
               </div>
-              <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint"
-                rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+              <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5"
+                aria-describedby="with-hint-info with-hint-hint"></textarea>
             </div>
             <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-    You can enter up to 200 characters
-  </div>
+              You can enter up to 200 characters
+            </div>
           </div>
         </div>
       </div>
     </div>
- 
-      <button class="govuk-button" data-module="govuk-button">
-        Manage case
-      </button>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Manage case
+    </button>
 
   </form>
-  
-<a href="/concerns/create-case" class="govuk-button govuk-button--secondary  govuk-link">
-          Add a concern</a>
+
+  <a href="/concerns/create-case" class="govuk-button govuk-button--secondary  govuk-link">
+    Add a concern</a>
 
   {% endblock %}
