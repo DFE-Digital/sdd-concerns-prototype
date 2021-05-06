@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-9"> {{ outgoingAcademy.academy_name }} </h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9"> {{ outgoingTrust.trust_name }} </h1>
 
 <section>
 
@@ -60,7 +60,7 @@
                         {{ data['concern-type'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/create-case">
                             Change<span class="govuk-visually-hidden"> name</span>
                         </a>
                     </dd>
@@ -73,7 +73,7 @@
                         {{ data['risk-rating'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/types">
                             Change<span class="govuk-visually-hidden"> date of birth</span>
                         </a>
                     </dd>
@@ -86,7 +86,7 @@
                         {{ data['current-status'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             Change<span class="govuk-visually-hidden"> contact information</span>
                         </a>
                     </dd>
@@ -99,7 +99,7 @@
                         {{ data['travel-sort'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             Change<span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -112,7 +112,7 @@
                         {{ data['primary'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             Change<span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -125,7 +125,7 @@
                         {{ data['concern-type'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             Change<span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -138,7 +138,7 @@
                         {{ data['issue-text'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             <span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -151,7 +151,7 @@
                         {{ data['next-steps'] }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             <span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -165,7 +165,7 @@
                         count on the previous step.
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
+                        <a class="govuk-link" href="/concerns/elements/case-overview">
                             <span class="govuk-visually-hidden"> contact details</span>
                         </a>
                     </dd>
@@ -246,16 +246,16 @@
 
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">URN</td>
-                        <td class="govuk-table__header">{{ outgoingAcademy.urn }}</td>
+                        <td class="govuk-table__cell">UKPRN</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.ukprn }}</td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell">Contact</td>
-                        <td class="govuk-table__header"></td>
+                        <td class="govuk-table__header">{{ outgoingTrust.contact}}</td>
                     </tr>
                     <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">UID</td>
-                        <td class="govuk-table__header">6470</td>
+                        <td class="govuk-table__cell">UPIN</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.upin }}</td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell">Telephone</td>
@@ -263,11 +263,11 @@
                     </tr>
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell">Type</td>
-                        <td class="govuk-table__header">{{ outgoingAcademy.establishment_type }}</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.establishment_type }}</td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell">Email</td>
-                        <td class="govuk-table__header"></td>
+                        <td class="govuk-table__header">{{ outgoingTrust.email }}</td>
                     </tr>
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell">Number of Academies</td>
@@ -275,15 +275,15 @@
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell">Website</td>
-                        <td class="govuk-table__header"></td>
+                        <td class="govuk-table__header">{{ outgoingTrust.website }}</td>
                     </tr>
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell">Local Authority</td>
-                        <td class="govuk-table__header">{{ outgoingAcademy.local_authority_name }}</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.local_authority_name }}</td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell"></td>
                         <td class="govuk-table__cell">Address</td>
-                        <td class="govuk-table__header">{{ outgoingAcademy.address }}
+                        <td class="govuk-table__header">{{ outgoingTrust.address }}
                         <td>
                     </tr>
                 </tbody>
@@ -306,12 +306,12 @@
                 <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
                         <td class="govuk-table__cell"><a href="#"
-                                class="govuk-link">{{ outgoingAcademy.academy_name }}</a>
+                                class="govuk-link">{{ outgoingTrust.trust_name }}</a>
                         </td>
-                        <td class="govuk-table__cell">123456</td>
-                        <td class="govuk-table__cell">12345678</td>
-                        <td class="govuk-table__cell">Chris Mitchell</td>
-                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
+                        <td class="govuk-table__cell"> CI 1004634</td>
                     </tr>
 
                 </tbody>

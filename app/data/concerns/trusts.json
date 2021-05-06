@@ -12,12 +12,12 @@
       "upin": "135393",
       "local_authority_number": "909",
       "local_authority_name": "Cumbria",
-      "religious_character": "Does not apply",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
+      "religious_character": "Sarah Deloitte (Chair) ",
+      "website": "settlebeck.trust.sch.uk",
+      "contact": "Sarah Deloitte (Chair) ",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2013-11-20T00:00:00Z",
-      "pfi": null
+      "email": "sarah.deloitte@settlebeck.sch.uk"
     },
     {
       "id": "2",
@@ -31,12 +31,12 @@
       "upin": "137017",
       "local_authority_number": "305",
       "local_authority_name": "Bromley",
-      "religious_character": "Does not apply",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
+      "religious_character": "George Soros (Chair) ",
+      "website": "burntash.trust.sch.uk",
+      "contact": "Sarah Deloitte (Chair) ",
       "ofsted_rating": "Outstanding",
       "ofsted_inspection_date": "2019-10-03T00:00:00Z",
-      "pfi": null
+      "email": "george.soros@burntash.sch.uk"
       
     },
     {
@@ -52,11 +52,11 @@
       "local_authority_number": "886",
       "local_authority_name": "Kent",
       "religious_character": "Church of England",
-      "diocese_name": null,
-      "religious_ethos": "Church of England",
+      "website": "thetenax.trust.sch.uk",
+      "contact": "Mike Myers",
       "ofsted_rating": null,
       "ofsted_inspection_date": null,
-      "pfi": null
+      "email": "mike.myers@tenax.sch.uk"
     },
     {
       "id": "4",
@@ -70,12 +70,12 @@
       "upin": "135246",
       "local_authority_number": "855",
       "local_authority_name": "Leicestershire",
-      "religious_character": "Does not apply",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
+      "religious_character": "Sarah Deloitte (Chair) ",
+      "website": "woodbrook.trust.sch.uk",
+      "contact": "Peter Parker (Chair) ",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2015-07-02T00:00:00Z",
-      "pfi": null
+      "email": "p.parker@woodbrook.sch.uk"
     },
     {
       "id": "5",
@@ -89,12 +89,12 @@
       "upin": "135160",
       "local_authority_number": "866",
       "local_authority_name": "Swindon",
-      "religious_character": "Does not apply",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
+      "religious_character": "Mary Jane (Chair) ",
+      "website": "highworth.trust.sch.uk",
+      "contact": "Sarah Deloitte (Chair) ",
       "ofsted_rating": "Requires Improvement",
       "ofsted_inspection_date": "2018-03-23T00:00:00Z",
-      "pfi": null
+      "email": "mary.jane@highworth.sch.uk"
     },
     {
       "id": "6",
@@ -109,11 +109,11 @@
       "local_authority_number": "821",
       "local_authority_name": "Luton",
       "religious_character": "None",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
+      "website": "icknield.trust.sch.uk",
+      "contact": "John Smith (Chair) ",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2013-01-24T00:00:00Z",
-      "pfi": null
+      "email": "john.smith@icknield.sch.uk"
     },
     {
       "id": "7",
@@ -128,11 +128,11 @@
       "local_authority_number": "811",
       "local_authority_name": "East Riding of Yorkshire",
       "religious_character": "None",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
+      "website": "beverlygrammar.trust.sch.uk",
+      "contact": "Margaret Gnasher (Chair) ",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2015-04-16T00:00:00Z",
-      "pfi": null
+      "email": "m.gnasher@be.grammar.sch.uk"
     },
     {
       "id": "8",
@@ -147,11 +147,11 @@
       "local_authority_number": "352",
       "local_authority_name": "Manchester",
       "religious_character": "Church of England",
-      "diocese_name": "Diocese of Manchester",
-      "religious_ethos": "Does not apply",
+      "website": "trinity.trust.sch.uk",
+      "contact": "Tony Chocoloney (Chair) ",
       "ofsted_rating": "Outstanding",
       "ofsted_inspection_date": "2014-01-16T00:00:00Z",
-      "pfi": null
+      "email": "tony.c@trinity.sch.uk"
     },
     {
       "id": "9",
@@ -166,11 +166,11 @@
       "local_authority_number": "801",
       "local_authority_name": "Bristol, City of",
       "religious_character": "Roman Catholic",
-      "diocese_name": "Diocese of Clifton",
-      "religious_ethos": "Does not apply",
+      "website": "spsc.trust.sch.uk",
+      "contact": "Jonathan Bikkes (Chair) ",
       "ofsted_rating": "Outstanding",
       "ofsted_inspection_date": "2013-06-12T00:00:00Z",
-      "pfi": null
+      "email": "j.bikkes@spcst.sch.uk"
     },
     {
       "id": "10",
@@ -184,11 +184,11 @@
       "upin": "137550",
       "local_authority_number": "352",
       "local_authority_name": "Manchester",
-      "religious_character": "Does not apply",
-      "diocese_name": "Not applicable",
-      "religious_ethos": "Does not apply",
-      "ofsted_rating": "Good",
-      "ofsted_inspection_date": "2011-03-08T00:00:00Z",
-      "pfi": null
+      "religious_character": "Sarah Deloitte (Chair) ",
+      "website": "webster.trust.sch.uk",
+      "contact": "Asif Patel (Chair) ",
+      "ofsted_rating": "Outstanding",
+      "ofsted_inspection_date": "2013-06-12T00:00:00Z",
+      "email": "asif.patel@webster.sch.uk"
     }
   ]
