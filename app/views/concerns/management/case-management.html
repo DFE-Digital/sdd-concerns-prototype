@@ -161,7 +161,8 @@
                         Resolution strategy
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{ data['resolution'] }}
+                        This will not return any real data, for the purpose of the prototype to highlight the character
+                        count on the previous step.
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -170,34 +171,35 @@
                     </dd>
                 </div>
             </dl>
-        
+
 
         </div>
-        
+
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timeline">
 
             <div class="govuk-grid-row">
 
-            <h2 class="govuk-heading-m">Action</h2>
+                <h2 class="govuk-heading-m">Action</h2>
 
-            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
-  <div class="govuk-form-group">
-    
-    <div id="with-hint-hint" class="govuk-hint">
-      Add an action you have taken for this case and or concern.
-    </div>
-    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-  </div>
+                <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                    <div class="govuk-form-group">
 
-  <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-    You can enter up to 200 characters
-  </div>
+                        <div id="with-hint-hint" class="govuk-hint">
+                            Add an action you have taken for this case and or concern.
+                        </div>
+                        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint"
+                            rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+                    </div>
 
-<button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add to timeline
-</button>
+                    <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 200 characters
+                    </div>
 
-</div>
+                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        Add to timeline
+                    </button>
+
+                </div>
 
                 <div class="timeline">
                     <ul>
@@ -322,9 +324,9 @@
 
 <section>
 
-<button class="govuk-button govuk-button--warning" data-module="govuk-button">
-  Close case
-</button>
+    <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+        Close case
+    </button>
 
 </section>
 
