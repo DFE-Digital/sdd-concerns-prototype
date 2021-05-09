@@ -18,13 +18,11 @@ This prototype is based on the [GOV.UK prototype kit](https://github.com/alphago
 
 Go to [http://localhost:3000]() in your browser.
 
-## Deployed versions are not available yet
+## Deployed version is available at: sdd-concerns-prototype.herokuapp.com 
 
-### This prototype has been based on the below design
+### This prototype is behind a Config Vars, to gain access please contact the main author of this repo.
 
-URL: https://register-prototype.herokuapp.com/
-
-This version deploys automatically from merges to master and is the 'latest' version for UR and UX iteration.
+This version deploys automatically from merges to main qand is the 'latest' version for UR and UX iteration.
 
 
 ### Design history
