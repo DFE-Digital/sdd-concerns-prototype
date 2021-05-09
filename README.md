@@ -1,4 +1,4 @@
-# SDD Services (prototype)
+# SDD Concerns casework (prototype)
 
 This prototype is based on the [GOV.UK prototype kit](https://github.com/alphagov/govuk-prototype-kit)
 
