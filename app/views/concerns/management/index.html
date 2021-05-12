@@ -1,177 +1,347 @@
 {% extends "layout.html" %}
 
+
 {% block beforeContent %}
 {{ govukBackLink({
       "text": "Back",
       "href": "javascript: window.history.go(-1)"
     }) 
   }}
+
 {% endblock %}
 
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
-
-
 {% block content %}
 
-<h2 class="govuk-hint"> Caseworker </h2>
+<h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l">Nikolaos Gkionis</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9"> {{ outgoingTrust.trust_name }} </h1>
 
+<section>
 
-<div class="govuk-grid-row govuk-grid-row-extra">
-  <div class="govuk-grid-column-full-extra">
-
-
-    <section class="app-summary-card  govuk-!-margin-bottom-9">
-
-      <header class="app-summary-card__header">
-
-        <h2 class="app-summary-card__title">
-          <strong>Your active casework</strong>
+    <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+            Trust
         </h2>
-      </header>
-      <div class="app-summary-card__body">
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Organisation
-            </dt>
-            <dt class="govuk-summary-list__key">
-              Case Id
-            </dt>
-            <dt class="govuk-summary-list__key">
-              Risk
-            </dt>
-            <dt class="govuk-summary-list__key">
-              Case Type
-            </dt>
-            <dt class="govuk-summary-list__key">
-              Days old
-            </dt>
-          </div>
+        <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#concerns">
+                    Case details
+                </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#timeline">
+                    Timeline
+                </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#details">
+                    Trust Details
+                </a>
+            </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#academies">
+                    Academies
+                </a>
+            </li>
+        </ul>
 
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-                {{ outgoingTrust.trust_name }}
-              </dt>
-            <dd class="govuk-summary-list__value">
-            <a href="/concerns/management/case-management" class="govuk-link govuk-link--no-visited-state">
-              CI - 1004634</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              {{ data['risk-rating'] }}
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> {{ data['concern-type'] }} </p>
-            </dd>
-            <dd class="govuk-summary-list__value">Today</p>
-            </dd>
-          </div>
 
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Settlebeck School Academy Trust
-            </dd>
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10078904</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-green">green</span>
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> No concern </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> 35 </p>
-            </dd>
-          </div>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
+
+<!--
             
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Burnt Ash School Trust
-            </dd>
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 100789918</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-              <span class="govuk-tag govuk-tag-red">red</span
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Finance Primary </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> 23 </p>
-            </dd>
-          </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Primary concern:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['concern-type'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-4)">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Risk rating:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['risk-rating'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-2)">
+                            Change<span class="govuk-visually-hidden"> date of birth</span>
+                        </a>
+                    </dd>
+                </div>
 
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Woodbrook Vale School Trust
-            </dd>
-            <dd class="govuk-summary-list__value">
-            <a href="/concerns/trust-overview" class="govuk-link govuk-link--no-visited-state">
-               CI - 10077789</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-green">green</span>
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Governance Primary </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> 10 </p>
-            </dd>
-          </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Direction of travel:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['travel-sort'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
+                            Change<span class="govuk-visually-hidden"> contact details</span>
+                        </a>
+                    </dd>
+                </div>
 
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Highworth Warneford School Trust
-            </dt>
-            <dd class="govuk-summary-list__value">
-            <a href="/concerns/academy-overview" class="govuk-link govuk-link--no-visited-state">
-               CI - 10075656</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-              <span class="govuk-tag govuk-tag-red">red</span
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Irregularity Primary </p>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> 6 </p>
-            </dd>
-          </div>
+                 <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Issue or concern Primary?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['primary'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-2)">
+                            Change<span class="govuk-visually-hidden"> contact details</span>
+                        </a>
+                    </dd>
+                </div>
 
-        </dl>
-    </section>
+               
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Type of issue or concern:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['concern-type'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-3)">
+                            Change<span class="govuk-visually-hidden"> contact details</span>
+                        </a>
+                    </dd>
+                </div>
+-->
+            <dl class="govuk-summary-list">
 
-    <section>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Issue:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['issue-text'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
+                            Change<span class="govuk-visually-hidden"> information</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Current status:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['current-status'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
+                            Change<span class="govuk-visually-hidden"> information</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Next steps:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['next-steps'] }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
+                            Change<span class="govuk-visually-hidden"> information</span>
+                        </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Resolution strategy
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        This will not return any real data, for the purpose of the prototype to highlight the character
+                        count on the previous step.
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="javascript: window.history.go(-1)">
+                            Change<span class="govuk-visually-hidden"> information</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
 
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h2 class="govuk-fieldset__heading">
-              Create a case
-            </h2>
-          </legend>
-          <div id="p-hint" class="govuk-hint govuk-!-margin-bottom-6">
-            Select trust to create a case, you can always add a concern later.
-          </div>
+        </div>
 
-          <a href="/concerns/trust-name" role="button" draggable="false" class="govuk-button govuk-button--start"
-            data-module="govuk-button">
-            Start now
-            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19"
-              viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-            </svg></a>
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timeline">
 
-          {% endblock %}
+            <div class="govuk-grid-row">
+
+                <h2 class="govuk-heading-m">Action</h2>
+
+                <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                    <div class="govuk-form-group">
+
+                        <div id="with-hint-hint" class="govuk-hint">
+                            Add an action you have taken for this case and or concern.
+                        </div>
+                        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint"
+                            rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+                    </div>
+
+                    <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 200 characters
+                    </div>
+
+                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        Add to timeline
+                    </button>
+
+                </div>
+
+                <div class="timeline">
+                    <ul>
+                        <li class="action_needed">
+                            <h2>Next steps:</h2>
+                            <p>{{ data['next-steps'] }}</p>
+                            <p class="time">2 September 2017 at 1.01pm</p>
+                        </li>
+                        <li>
+                            <h2>Issue:</h2>
+                            <p>{{ data['issue-text'] }}</p>
+                            <p class="time">28 August 2017 at 8.12pm</p>
+                        </li>
+                        <li>
+                            <h2>Issue or concern Primary? {{ data['primary'] }}</h2>
+                            <h2>Case Id: CI 1004634 </h2>
+                            <p class="time">28 August 2017</p>
+                        </li>
+                        <li>
+                            <h2>Type of issue or concern</h2>
+                            <p>{{ data['types'] }}</p>
+                            <p class="time">28 August 2017 at 8.14pm</p>
+                        </li>
+                        <li>
+                            <h2>Case issue or concern</h2>
+                            <p>{{ data['concern-type'] }}</p>
+                            <p class="time">28 August 2017 at 8.12pm</p>
+                        </li>
+                        <li>
+                            <h2>Assigned to: {{ data['assigned'] }}</h2>
+                            <h2>Case Id: CI 1004634 </h2>
+                            <p class="time">28 August 2017</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="govuk-tabs__panel" id="details">
+
+            <table class="govuk-table">
+
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">UKPRN</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">Contact</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.contact}}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">UPIN</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">Telephone</td>
+                        <td class="govuk-table__header">12345 67890</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Type</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.establishment_type }}</td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">Email</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.email }}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Number of Academies</td>
+                        <td class="govuk-table__header">1</td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">Website</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.website }}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Local Authority</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.local_authority_name }}</td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">Address</td>
+                        <td class="govuk-table__header">{{ outgoingTrust.address }}
+                        <td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="academies">
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Organisation</th>
+                        <th scope="col" class="govuk-table__header">UPIN</th>
+                        <th scope="col" class="govuk-table__header">UKPRN</th>
+                        <th scope="col" class="govuk-table__header">Headteacher</th>
+                        <th scope="col" class="govuk-table__header">Case Id</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ outgoingTrust.trust_name }}</a>
+                        </td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
+                        <td class="govuk-table__cell"> CI 1004634</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</section>
+
+<section>
+
+    <a href="/concerns/closure/" role="button" draggable="false" class="govuk-button govuk-button--warning govuk-!-margin-bottom-9" style="float:right;">
+        Close case
+    </a>
+
+    <a href="/concerns/elements/create-case" class="govuk-button govuk-button--secondary  govuk-link">
+        Add a concern
+    </a>
+
+
+</section>
+
+
+{% endblock %}

@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add an element</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add an element for {{ outgoingTrust.trust_name }}</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -130,14 +130,14 @@
                 <div class="govuk-checkboxes govuk-checkboxes--small">
                     <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="types" name="types" type="checkbox"
-                            value="Financial returns compliance" {{ checked("types", "Financial returns compliance") }}>
+                            value="Financial - Deficit" {{ checked("types", "Financial returns compliance") }}>
                         <label class="govuk-label govuk-checkboxes__label" for="types">
                             Financial - Deficit
                         </label>
                     </div>
                     <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="types-2" name="types" type="checkbox"
-                            value="Financial reporting compliance"
+                            value="Financial - Projected Deficit"
                             {{ checked("types", "Financial reporting compliance") }}>
                         <label class="govuk-label govuk-checkboxes__label" for="types-2">
                             Financial - Projected Deficit
@@ -145,7 +145,7 @@
                     </div>
                     <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="types-3" name="types" type="checkbox"
-                            value="Executive pay" {{ checked("types", "Executive pay") }}>
+                            value="Financial - Viability" {{ checked("types", "Executive pay") }}>
                         <label class="govuk-label govuk-checkboxes__label" for="types-3">
                             Financial - Viability
                         </label>

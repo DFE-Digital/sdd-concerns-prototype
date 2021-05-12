@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add a concern</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add a concern for {{ outgoingTrust.trust_name }}</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -139,23 +139,23 @@
                 </div>
                 <div class="govuk-radios govuk-radios--inline">
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="finance" name="concern-type" type="radio"
-                            value="finance" {{ checked("concern-type", "finance") }}>
-                        <label class="govuk-label govuk-radios__label" for="finance">
+                        <input class="govuk-radios__input" id="Finance" name="concern-type" type="radio"
+                            value="Finance" {{ checked("concern-type", "Finance") }}>
+                        <label class="govuk-label govuk-radios__label" for="Finance">
                             Finance
                         </label>
                     </div>
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="governance" name="concern-type" type="radio"
-                            value="governance" {{ checked("concern-type", "governance") }}>
-                        <label class="govuk-label govuk-radios__label" for="governance">
+                        <input class="govuk-radios__input" id="Governance" name="concern-type" type="radio"
+                            value="Governance" {{ checked("concern-type", "Governance") }}>
+                        <label class="govuk-label govuk-radios__label" for="Governance">
                             Governance
                         </label>
                     </div>
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="irregularity" name="concern-type" type="radio"
-                            value="irregularity" {{ checked("concern-type", "irregularity") }}>
-                        <label class="govuk-label govuk-radios__label" for="irregularity">
+                        <input class="govuk-radios__input" id="Irregularity" name="concern-type" type="radio"
+                            value="Irregularity" {{ checked("concern-type", "Irregularity") }}>
+                        <label class="govuk-label govuk-radios__label" for="Irregularity">
                             Irregularity
                         </label>
                     </div>

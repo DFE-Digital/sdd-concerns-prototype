@@ -27,7 +27,7 @@
         <ul class="govuk-tabs__list">
             <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                 <a class="govuk-tabs__tab" href="#concerns">
-                    Case details
+                    Concern details
                 </a>
             </li>
             <li class="govuk-tabs__list-item">
@@ -50,7 +50,7 @@
 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
 
-<!--
+            <dl class="govuk-summary-list">
             
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -92,37 +92,6 @@
                         </a>
                     </dd>
                 </div>
-
-                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Issue or concern Primary?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['primary'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-2)">
-                            Change<span class="govuk-visually-hidden"> contact details</span>
-                        </a>
-                    </dd>
-                </div>
-
-               
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Type of issue or concern:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['concern-type'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-3)">
-                            Change<span class="govuk-visually-hidden"> contact details</span>
-                        </a>
-                    </dd>
-                </div>
--->
-            <dl class="govuk-summary-list">
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -332,8 +301,8 @@
 
 <section>
 
-    <a href="/concerns/closure/" role="button" draggable="false" class="govuk-button govuk-button--warning govuk-!-margin-bottom-9" style="float:right;">
-        Close case
+    <a href="/concerns/closure/concern-closure" role="button" draggable="false" class="govuk-button govuk-button--warning govuk-!-margin-bottom-9" style="float:right;">
+        Close concern
     </a>
 
     <a href="/concerns/elements/create-case" class="govuk-button govuk-button--secondary  govuk-link">

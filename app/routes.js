@@ -23,6 +23,7 @@ router.get('/concerns/incoming-trust-search', (req, res) => {
   }
 })
 
+
 // Branching
 router.post('/concerns/elements/create-case-answer', function (req, res) {
   // Get the answer from session data
@@ -31,10 +32,10 @@ router.post('/concerns/elements/create-case-answer', function (req, res) {
 
   const concern = req.session.data['concern-type']
 
-  if (concern === 'finance') {
+  if (concern === 'Finance') {
     res.redirect('/concerns/elements/finance')
   }
-  if (concern === 'governance') {
+  if (concern === 'Governance') {
     res.redirect('/concerns/elements/governance')
   } else {
     res.redirect('/concerns/elements/irregularity')

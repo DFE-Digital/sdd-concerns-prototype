@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add an element</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add an element for {{ outgoingTrust.trust_name }}</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -131,13 +131,13 @@
                     
                     <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox"
-                            value="Governance" {{ checked("types", "Governance") }}>
+                            value="Compliance - Governance" {{ checked("types", "Governance") }}>
                         <label class="govuk-label govuk-checkboxes__label" for="types-4">
                             Compliance - Governance
                         </label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox" value="Closure"
+                        <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox" value="Compliance - Compliance"
                             {{ checked("types", "Closure") }}>
                         <label class="govuk-label govuk-checkboxes__label" for="types-4">
                             Compliance - Compliance
@@ -145,7 +145,7 @@
                     </div>
                     <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="types-4" name="types" type="checkbox"
-                            value="Safeguarding" {{ checked("types", "Safeguarding") }}>
+                            value="Compliance - Safeguarding" {{ checked("types", "Safeguarding") }}>
                         <label class="govuk-label govuk-checkboxes__label" for="types-4">
                             Compliance - Safeguarding
                         </label>
