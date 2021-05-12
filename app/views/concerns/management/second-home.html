@@ -18,11 +18,6 @@
 
 <h1 class="govuk-heading-l">Nikolaos Gkionis</h1>
 
-
-<div class="govuk-grid-row govuk-grid-row-extra">
-  <div class="govuk-grid-column-full-extra">
-
-
     <section class="app-summary-card  govuk-!-margin-bottom-9">
 
       <header class="app-summary-card__header">
@@ -31,23 +26,24 @@
           <strong>Your active casework</strong>
         </h2>
       </header>
-      <div class="app-summary-card__body">
-        <dl class="govuk-summary-list">
+
+     <div class="app-summary-card__body">
+      <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
+            <dt class="govuk-summary-list__key" style="padding-right: 160px;">
               Organisation
             </dt>
             <dt class="govuk-summary-list__key">
-              Case Id
+               Case Id
+            </dt>
+            <dt class="govuk-summary-list__key" style="padding-right: 80px;">
+               RAG rating
             </dt>
             <dt class="govuk-summary-list__key">
-              Risk
+               Case Type
             </dt>
-            <dt class="govuk-summary-list__key">
-              Case Type
-            </dt>
-            <dt class="govuk-summary-list__key">
-              Days old
+            <dt class="govuk-summary-list__key" style="text-align: center;">
+               Days open
             </dt>
           </div>
 
@@ -65,7 +61,8 @@
             <dd class="govuk-summary-list__value">
               <p class="govuk-body"> {{ data['concern-type'] }} </p>
             </dd>
-            <dd class="govuk-summary-list__value">Today</p>
+            <dd class="govuk-summary-list__value" style="text-align: center;">
+              <p class="govuk-body">Today</p>
             </dd>
           </div>
 
@@ -78,13 +75,12 @@
                CI - 10078904</a>
             </dd>
             <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-green">green</span>
-              <span class="govuk-tag govuk-tag-amber">amber</span>
+              N / A
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> No concern </p>
+              <p class="govuk-body"> Basic case </p>
             </dd>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="text-align: center;">
               <p class="govuk-body"> 35 </p>
             </dd>
           </div>
@@ -102,9 +98,9 @@
               <span class="govuk-tag govuk-tag-red">red</span
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Finance Primary </p>
+              <p class="govuk-body"> Finance </p>
             </dd>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="text-align: center;">
               <p class="govuk-body"> 23 </p>
             </dd>
           </div>
@@ -114,7 +110,7 @@
              Woodbrook Vale School Trust
             </dd>
             <dd class="govuk-summary-list__value">
-            <a href="/concerns/trust-overview" class="govuk-link govuk-link--no-visited-state">
+            <a href="#" class="govuk-link govuk-link--no-visited-state">
                CI - 10077789</a>
             </dd>
             <dd class="govuk-summary-list__value">
@@ -122,9 +118,9 @@
               <span class="govuk-tag govuk-tag-amber">amber</span>
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Governance Primary </p>
+              <p class="govuk-body"> Governance  </p>
             </dd>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="text-align: center;">
               <p class="govuk-body"> 10 </p>
             </dd>
           </div>
@@ -134,7 +130,7 @@
              Highworth Warneford School Trust
             </dt>
             <dd class="govuk-summary-list__value">
-            <a href="/concerns/academy-overview" class="govuk-link govuk-link--no-visited-state">
+            <a href="#" class="govuk-link govuk-link--no-visited-state">
                CI - 10075656</a>
             </dd>
             <dd class="govuk-summary-list__value">
@@ -142,9 +138,9 @@
               <span class="govuk-tag govuk-tag-red">red</span
             </dd>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Irregularity Primary </p>
+              <p class="govuk-body"> Irregularity </p>
             </dd>
-            <dd class="govuk-summary-list__value">
+            <dd class="govuk-summary-list__value" style="text-align: center;">
               <p class="govuk-body"> 6 </p>
             </dd>
           </div>
