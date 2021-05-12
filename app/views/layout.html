@@ -75,18 +75,18 @@ href: '/admin'
 navigation: {
 label: 'Account navigation',
 items: [{
-  text: 'Account',
+  text: '',
   href: '#',
   active: true
 }, {
-  text: 'Sign out',
+  text: '',
   href: '#'
 }]
 }
 
 }) }} 
 
-
+<!--
 
 <div class="moj-primary-navigation">
 
@@ -132,6 +132,8 @@ items: [{
 
 
 </div> 
+
+-->
 {% endblock %}
 
 {% block beforeContent %}
@@ -155,8 +157,7 @@ items: [{
     <li>Email: <a class="govuk-link govuk-footer__link" href="mailto:sddservicessupport@education.gov.uk">sddservicessupport<wbr>@education.gov.uk</a></li>
     <li>We aim to respond within 5 working days, or one working day for more urgent&nbsp;queries</li>
   </ul>
-  {% set guidanceLink = '/guidance' if data.settings.includeGuidance else '#' %}
-  <p class="govuk-body govuk-!-font-size-16"><a href="{{guidanceLink}}" class="govuk-link govuk-footer__link">Guidance</a></p>
+
 {% endset %}
 
 {% if useAutoStoreData %}

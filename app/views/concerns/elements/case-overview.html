@@ -1,4 +1,4 @@
-{% extends "layout-not.html" %}
+{% extends "layout.html" %}
 
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case overview</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Case overview for {{ outgoingTrust.trust_name }}</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -118,6 +118,7 @@
 
 <section>
 
+<!--
   <div class="govuk-width-container">
 
     <div class="govuk-grid-row">
@@ -132,38 +133,28 @@
     </div>
 
   </div>
-
+-->
   <form action="/concerns/management/case-management" method="post" class="form">
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Current status
+              Issue
             </span>
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-1">
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-              <p class="govuk-hint"> Current status <p>
-                  <input class="govuk-input" id="current-status" name="current-status"
-                    value="{{ data['current-status'] }}">
-            </div>
-            <div class="govuk-grid-column-one-third">
-              <div class="govuk-form-group">
-                <p class="govuk-hint" for="sort">
-                  Direction of travel
-                </p>
-                <select class="govuk-select" id="travel-sort" name="travel-sort" value="{{ data['travel-sort'] }}">
-                  <option value="" selected>Select..</option>
-                  <option value="Static">Unchanged</option>
-                  <option value="Improving">Improving</option>
-                  <option value="Declining">Deteriorating</option>
-                </select>
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+            <div class="govuk-form-group">
+              <div id="with-hint-hint" class="govuk-hint">
+                Please provide details about this current issue for this trust and or academy.
               </div>
+              <textarea class="govuk-textarea govuk-js-character-count" id="issue-text" name="issue-text"
+                value="{{ data['issue-text'] }}" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
             </div>
           </div>
         </div>
@@ -173,7 +164,7 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-              Issue
+              Current status
             </span>
           </h2>
         </div>
@@ -182,15 +173,16 @@
           <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
             <div class="govuk-form-group">
               <div id="with-hint-hint" class="govuk-hint">
-                Please provide details about this current issue for this trust and or academy.
+                Please provide details about the current status of this case and or concern.
               </div>
-              <textarea class="govuk-textarea govuk-js-character-count" id="issue-text" name="issue-text"
-                value="{{ data['issue-text'] }}" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+              <textarea class="govuk-textarea govuk-js-character-count" id="current-status" name="current-status"
+                value="{{ data['current-status'] }}" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
             </div>
-
           </div>
         </div>
       </div>
+
+
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
@@ -209,7 +201,6 @@
               <textarea class="govuk-textarea govuk-js-character-count" id="next-steps" name="next-steps"
                 value="{{ data['next-steps'] }}" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
             </div>
-
           </div>
         </div>
       </div>
@@ -218,22 +209,22 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-              Resolution
+              Resolution strategy
             </span>
           </h2>
         </div>
         <div id="accordion-default-content-4" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-44">
-          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+          <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="400">
             <div class="govuk-form-group">
               <div id="with-hint-hint" class="govuk-hint">
-                Add a Resolution strategy
+                Please provide a resolution strategy for this case and or concern.
               </div>
               <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5"
                 aria-describedby="with-hint-info with-hint-hint"></textarea>
             </div>
             <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-              You can enter up to 200 characters
+              You can enter up to 400 characters
             </div>
           </div>
         </div>

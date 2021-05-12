@@ -16,7 +16,7 @@
 
 <h2 class="govuk-hint"> CI 1004634 </h2>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add a concern</h1>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-4">Add an element</h1>
 
 
 <details class="govuk-details" data-module="govuk-details">
@@ -117,55 +117,48 @@
 
 
 <section>
-    <h2 class="govuk-heading-m">Case concern</h2>
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
-                Please only select a concern for this case.
-                In the next steps you can select the concern relevant elements.
-            </p>
-        </div>
-    </div>
-    </a>
-
-
-    <form action="/concerns/elements/create-case-answer" method="post" class="form">
+    <form action="/concerns/elements/types" method="post" class="form">
 
         <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-                <div id="changed-name-hint" class="govuk-hint">
-                    Please select only one issue or concern from the radio buttons
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                        Type of {{ data['concern-type'] }} concern
+                    </h1>
+                </legend>
+                <div class="govuk-checkboxes govuk-checkboxes--small">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types" name="types" type="checkbox"
+                            value="Financial returns compliance" {{ checked("types", "Financial returns compliance") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types">
+                            Financial - Deficit
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-2" name="types" type="checkbox"
+                            value="Financial reporting compliance"
+                            {{ checked("types", "Financial reporting compliance") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-2">
+                            Financial - Projected Deficit
+                        </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="types-3" name="types" type="checkbox"
+                            value="Executive pay" {{ checked("types", "Executive pay") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="types-3">
+                            Financial - Viability
+                        </label>
+                    </div>
+                    
                 </div>
-                <div class="govuk-radios govuk-radios--inline">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="finance" name="concern-type" type="radio"
-                            value="finance" {{ checked("concern-type", "finance") }}>
-                        <label class="govuk-label govuk-radios__label" for="finance">
-                            Finance
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="governance" name="concern-type" type="radio"
-                            value="governance" {{ checked("concern-type", "governance") }}>
-                        <label class="govuk-label govuk-radios__label" for="governance">
-                            Governance
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="irregularity" name="concern-type" type="radio"
-                            value="irregularity" {{ checked("concern-type", "irregularity") }}>
-                        <label class="govuk-label govuk-radios__label" for="irregularity">
-                            Irregularity
-                        </label>
-                    </div>
-                </div>
+
             </fieldset>
         </div>
 
 
         <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
-
     </form>
+
     {% endblock %}

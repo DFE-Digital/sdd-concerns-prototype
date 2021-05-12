@@ -1,4 +1,4 @@
-{% extends "layout-not.html" %}
+{% extends "layout.html" %}
 
 
 {% block beforeContent %}
@@ -118,7 +118,7 @@
 
 <section>
 
-    <form action="/concerns/management/case-management" method="post" class="form">
+    <form action="/concerns/management/consern-management" method="post" class="form">
 
 
         <div class="govuk-form-group">
@@ -129,13 +129,7 @@
                     </h1>
                 </legend>
                 <div class="govuk-radios">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="risk-rating" name="risk-rating" type="radio"
-                            value="Green" {{ checked("risk-rating", "Green") }}>
-                        <label class="govuk-label govuk-radios__label" for="green">
-                            <span class="govuk-tag govuk-tag-green">green</span>
-                        </label>
-                    </div>
+                    
                     <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="risk-rating-2" name="risk-rating" type="radio"
                             value="Green Amber" {{ checked("risk-rating", "Green Amber") }}>
@@ -171,6 +165,8 @@
             </fieldset>
         </div>
 
+
+<!--
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -196,8 +192,9 @@
 
             </fieldset>
         </div>
+-->
 
-        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        <button class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Save and continue</button>
 
     </form>
 

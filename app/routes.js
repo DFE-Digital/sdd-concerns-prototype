@@ -24,7 +24,7 @@ router.get('/concerns/incoming-trust-search', (req, res) => {
 })
 
 // Branching
-router.post('/concerns/create-case-answer', function (req, res) {
+router.post('/concerns/elements/create-case-answer', function (req, res) {
   // Get the answer from session data
   // The name between the quotes is the same as the 'name' attribute on the input elements
   // However in JavaScript we can't use hyphens in variable names
@@ -32,12 +32,12 @@ router.post('/concerns/create-case-answer', function (req, res) {
   const concern = req.session.data['concern-type']
 
   if (concern === 'finance') {
-    res.redirect('/concerns/finance/create-case-2')
+    res.redirect('/concerns/elements/finance')
   }
   if (concern === 'governance') {
-    res.redirect('/concerns/governance/create-case-2')
+    res.redirect('/concerns/elements/governance')
   } else {
-    res.redirect('/concerns/elements/')
+    res.redirect('/concerns/elements/irregularity')
   }
 })
 
