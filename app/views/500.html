@@ -1,12 +1,11 @@
-
 {% extends "_templates/_page.html" %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+"text": "Back",
+"href": "javascript: window.history.go(-1)"
+})
+}}
 {% endblock %}
 
 {% block content %}
@@ -14,14 +13,15 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Sorry, something went wrong</h1>
+    <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
 
     <p class="govuk-body">
       Try again later.
     </p>
 
     <p class="govuk-body">
-      If you continue to get this message, email the SDD support team at <a class="govuk-link" href="mailto:sddservicessupport@education.gov.uk">sddservicessupport<wbr>@education.gov.uk </a>
+      If you continue to get this message, email the SDD support team at <a class="govuk-link"
+        href="mailto:sddservicessupport@education.gov.uk">sddservicessupport<wbr>@education.gov.uk </a>
     </p>
 
   </div>
