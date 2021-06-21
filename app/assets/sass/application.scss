@@ -1,5 +1,6 @@
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
+$govuk-new-link-styles: true;
 
 // We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
 $govuk-assets-path: '/govuk/assets/';
@@ -211,117 +212,58 @@ span.summary-validation-symbol {
   float: right;
 }
 
-.govuk-tag-blue {
-  font-family: nta, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  font-size: 14px;
-  font-size: .875rem;
-  line-height: 1.25;
-  display: inline-block;
-  padding: 4px 8px;
-  padding-bottom: 1px;
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-  color: #fff;
-  background-color: rgb(7, 86, 133);
-  letter-spacing: 1px;
-  text-decoration: none;
-  text-transform: uppercase;
+/// RAG rating tags ///
+
+.ragtag {
   text-align: center;
-  min-width: 70px;
+  color: #000;
+
+  &__black {
+    color: #dbdbdb;
+    background-color: #262626;
+  }
+
+  &__red {
+    background-color: #e77375;
+  }
+
+  &__redamber {
+    background: linear-gradient(90deg,#e77375 39.5%,#f89360 39.5%);
+  }
+
+  &__ambergreen {
+    background: linear-gradient(90deg,#f89360 50.5%, #2bbf7a 50.5%);
+  }
 }
 
-.govuk-tag-grey {
-  font-family: nta, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  font-size: 14px;
-  font-size: .875rem;
-  line-height: 1.25;
-  display: inline-block;
-  padding: 4px 8px;
-  padding-bottom: 1px;
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-  color: #fff;
-  background-color: gray;
-  letter-spacing: 1px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  min-width: 70px;
+/// Tables ///
+
+.govuk-table__header__cases, .govuk-table__cell__cases {
+    vertical-align: middle;
 }
 
-.govuk-tag-red {
-  font-family: nta, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  font-size: 14px;
-  font-size: .875rem;
-  line-height: 1.25;
-  display: inline-block;
-  padding: 4px 8px;
-  padding-bottom: 1px;
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-  color: #fff;
-  background-color: #df3034;
-  letter-spacing: 1px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  min-width: 70px;
+.tr__large {
+    height: 60px;
 }
 
-.govuk-tag-amber {
-  font-family: nta, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  font-size: 14px;
-  font-size: .875rem;
-  line-height: 1.25;
-  display: inline-block;
-  padding: 4px 8px;
-  padding-bottom: 1px;
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-  color: rgb(0, 0, 0);
-  background-color: #f47738;
-  letter-spacing: 1px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  min-width: 70px;
+/// ///
 
+.flexalign__right {
+  flex-direction: row-reverse;
 }
 
-.govuk-tag-green {
-  font-family: nta, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
-  font-size: 14px;
-  font-size: .875rem;
-  line-height: 1.25;
-  display: inline-block;
-  padding: 4px 8px;
-  padding-bottom: 1px;
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-  color: #fff;
-  background-color: #006435;
-  letter-spacing: 1px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  min-width: 70px;
+.govuk-textarea {
+  padding: 10px;
 }
+// -- //
 
+.govuk-label--s {
+  font-size: 19px;
+  font: size 1.1875rem;
+  line-height: 1.31579;
+  font-weight: 700;
+
+}
 
 .govuk-button--nikos {
   margin-top: 0;

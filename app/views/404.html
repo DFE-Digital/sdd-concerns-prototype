@@ -1,13 +1,12 @@
-
 {% extends "_templates/_page.html" %}
 {% set navActive = "home" %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
+{{ govukBackLink({
+"text": "Back",
+"href": "javascript: window.history.go(-1)"
+})
+}}
 {% endblock %}
 
 {% block content %}
@@ -18,11 +17,17 @@
     <h1 class="govuk-heading-l">Page not found</h1>
 
     <p class="govuk-body">
-      Check the web address and try again.
+      If you entered a web address, check it is correct.
     </p>
 
     <p class="govuk-body">
-      If you continue to get this message, email the SDD support team at <a class="govuk-link" href="mailto:sddservicessupport@education.gov.uk">sddservicessupport<wbr>@education.gov.uk </a>
+      Alternatively you can return to the <a class="govuk-link" href="#">service homepage to find what you are looking
+        for</a>.
+    </p>
+
+    <p class="govuk-body">
+      If you continue to get this message, email the SDD support team at <a class="govuk-link"
+        href="mailto:sddservicessupport@education.gov.uk">sddservicessupport<wbr>@education.gov.uk </a>
     </p>
 
 
