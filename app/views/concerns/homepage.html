@@ -1,141 +1,118 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Casework Dashboard</title>
+</head>
+<body>
+  {% extends "layout.html" %} {% block content %}
 
-{% block content %}
+  <div class="govuk-!-margin-top-0">
 
-    
-        <h2 class="govuk-hint"> Home </h2>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
 
-        <h1 class="govuk-heading-l">Nikolaos Gkionis</h1>
-
-    <section class="app-summary-card  govuk-!-margin-bottom-9">
-          
-          <header class="app-summary-card__header">
-      
-            <h2 class="app-summary-card__title">
-               <strong>Your active casework</strong>
-           </h2>
-          </header>
-          
-    <div class="app-summary-card__body">
-      <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Organisation
-            </dt>
-            <dt class="govuk-summary-list__key">
-               Case Id
-            </dt>
-            <dt class="govuk-summary-list__key" style="padding-right: 80px;">
-               RAG rating
-            </dt>
-            <dt class="govuk-summary-list__key">
-               Case Type
-            </dt>
-            <dt class="govuk-summary-list__key" style="text-align: center;">
-               Days open
-            </dt>
-          </div>
-          
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Settlebeck School Academy Trust
-            </dd>
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10078904</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              N / A
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Basic case </p>
-            </dd>
-            <dd class="govuk-summary-list__value" style="text-align: center;">
-              <p class="govuk-body"> 35 </p>
-            </dd>
-          </div>
-            
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Burnt Ash School Trust
-            </dd>
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 100789918</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-              <span class="govuk-tag govuk-tag-red">red</span
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Finance </p>
-            </dd>
-            <dd class="govuk-summary-list__value" style="text-align: center;">
-              <p class="govuk-body"> 23 </p>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Woodbrook Vale School Trust
-            </dd>
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10077789</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-green">green</span>
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Governance  </p>
-            </dd>
-            <dd class="govuk-summary-list__value" style="text-align: center;">
-              <p class="govuk-body"> 10 </p>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dd class="govuk-summary-list__value">
-             Highworth Warneford School Trust
-            </dt>
-            <dd class="govuk-summary-list__value">
-            <a href="#" class="govuk-link govuk-link--no-visited-state">
-               CI - 10075656</a>
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag govuk-tag-amber">amber</span>
-              <span class="govuk-tag govuk-tag-red">red</span
-            </dd>
-            <dd class="govuk-summary-list__value">
-              <p class="govuk-body"> Irregularity </p>
-            </dd>
-            <dd class="govuk-summary-list__value" style="text-align: center;">
-              <p class="govuk-body"> 6 </p>
-            </dd>
-          </div>
-
-        </dl>
-    </section>
-
-    <section>
-
-  
-    <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h2 class="govuk-fieldset__heading">
-        Create a case
-      </h2>
-    </legend>
-    <div id="p-hint" class="govuk-hint govuk-!-margin-bottom-6">
-      Select a trust to create a case, you can always add a concern later.
+    <div class="govuk-button-group flexalign__right">
+      <a class="govuk-link" href="#">Case history</a>
+      {{ govukButton({
+        text: "New case",
+        href: "new-case",
+        classes: "govuk-button--secondary"
+      }) }}
     </div>
 
-    <a href="/concerns/trust-name" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
-  Start now
-  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-  </svg></a>
-    
-{% endblock %}
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Your active casework (<span>5</span>)
+      </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="col">Trust</th>
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="col">Case ID</th>
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="col">RAG rating</th>
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="col">Case type</th>
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="col">Days open</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="row"><a href="#">Wintermute Academy Trust</a></th>
+          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">-</td>
+          <td class="govuk-table__cell govuk-table__cell__cases">-</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="row"><a href="#">Straylight Academies</a></th>
+          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1003845</a></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">
+            <span class="govuk-tag ragtag ragtag__red">Red</span></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">Safeguarding</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="row"><a href="#">The Linda Lee Academies Trust</a></th>
+          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">
+            <span class="govuk-tag ragtag ragtag__redamber">Red | Amber</span></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">Finance</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">12</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="row"><a href="#">Wintermute Academy Trust</a></th>
+          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">
+            <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">Governance</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">17</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header govuk-table__header__cases"
+              scope="row"><a href="#">Armitage Education Trust</a></th>
+          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">
+            <span class="govuk-tag ragtag ragtag__black">Black</span></td>
+          <td class="govuk-table__cell govuk-table__cell__cases">Finance</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">32</td>
+        </tr>
+      </tbody>
+    </table>
+<!-- 
+        <section>
+          <div class="govuk-form-group">
+            <fieldset aria-describedby="passport-issued-hint"
+                      class="govuk-fieldset"
+                      role="group">
+              <h2 class="govuk-fieldset__heading"><legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Create a case</legend></h2>
+              <div class="govuk-hint govuk-!-margin-bottom-6"
+                   id="p-hint">
+                Select a trust to create a case, you can always add a concern later.
+              </div><a class="govuk-button govuk-button--start"
+                        data-module="govuk-button"
+                        draggable="false"
+                        href="/concerns/trust-name"
+                        role="button">Start now <svg aria-hidden="true"
+                   class="govuk-button__start-icon"
+                   focusable="false"
+                   height="19"
+                   viewbox="0 0 33 40"
+                   width="17.5"
+                   xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h13l20 20-20 20H0l20-20z"
+                    fill="currentColor"></path></svg></a> {% endblock %}
+            </fieldset>
+          </div>
+        </section>
+        -->
+      </div>
+    </div>
+  </div>
+</body>
+</html>

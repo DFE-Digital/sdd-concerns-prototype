@@ -12,6 +12,7 @@
     "test": "npm run lint && gulp generate-assets && jest"
   },
   "dependencies": {
+    "@ministryofjustice/frontend": "^0.2.4",
     "acorn": "^7.1.1",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
@@ -40,7 +41,7 @@
     "marked": "^2.0.0",
     "moment": "^2.29.1",
     "notifications-node-client": "^4.7.2",
-    "nunjucks": "^3.2.1",
+    "nunjucks": "^3.2.3",
     "pluralize": "^8.0.0",
     "portscanner": "^2.1.1",
     "require-dir": "^1.0.0",

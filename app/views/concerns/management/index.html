@@ -1,22 +1,16 @@
 {% extends "layout.html" %}
 
-
-{% block beforeContent %}
-{{ govukBackLink({
-      "text": "Back",
-      "href": "javascript: window.history.go(-1)"
-    }) 
-  }}
-
-{% endblock %}
-
 {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
 {% block content %}
 
-<h2 class="govuk-hint"> CI 1004634 </h2>
+<a href="/concerns/closure/" role="button" draggable="false" class="govuk-button govuk-button--warning" style="float:right;">
+    Close case
+</a>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-9"> {{ outgoingTrust.trust_name }} </h1>
+<h1 class="govuk-heading-l"> Case CI 1004634 </h1>
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-9"> {{ outgoingTrust.trust_name }} </h2>
 
 <section>
 
@@ -30,11 +24,7 @@
                     Case details
                 </a>
             </li>
-            <li class="govuk-tabs__list-item">
-                <a class="govuk-tabs__tab" href="#timeline">
-                    Timeline
-                </a>
-            </li>
+           
             <li class="govuk-tabs__list-item">
                 <a class="govuk-tabs__tab" href="#details">
                     Trust Details
@@ -47,168 +37,160 @@
             </li>
         </ul>
 
+<!-- Case details tab -->
 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
 
-<!--
-            
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Primary concern:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['concern-type'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-4)">
-                            Change<span class="govuk-visually-hidden"> name</span>
-                        </a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Risk rating:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['risk-rating'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-2)">
-                            Change<span class="govuk-visually-hidden"> date of birth</span>
-                        </a>
-                    </dd>
-                </div>
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Direction of travel:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['travel-sort'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-1)">
-                            Change<span class="govuk-visually-hidden"> contact details</span>
-                        </a>
-                    </dd>
-                </div>
-
-                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Issue or concern Primary?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['primary'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-2)">
-                            Change<span class="govuk-visually-hidden"> contact details</span>
-                        </a>
-                    </dd>
-                </div>
-
-               
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Type of issue or concern:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['concern-type'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-3)">
-                            Change<span class="govuk-visually-hidden"> contact details</span>
-                        </a>
-                    </dd>
-                </div>
--->
             <dl class="govuk-summary-list">
-
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Issue:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['issue-text'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-1)">
-                            Change<span class="govuk-visually-hidden"> information</span>
-                        </a>
-                    </dd>
-                </div>
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Current status:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['current-status'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-1)">
-                            Change<span class="govuk-visually-hidden"> information</span>
-                        </a>
-                    </dd>
-                </div>
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Next steps:
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{ data['next-steps'] }}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-1)">
-                            Change<span class="govuk-visually-hidden"> information</span>
-                        </a>
-                    </dd>
+                  <dt class="govuk-summary-list__key">
+                    Current status
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    The current status of the case.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> status</span>
+                    </a>
+                  </dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Resolution strategy
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        This will not return any real data, for the purpose of the prototype to highlight the character
-                        count on the previous step.
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="javascript: window.history.go(-1)">
-                            Change<span class="govuk-visually-hidden"> information</span>
-                        </a>
-                    </dd>
+                  <dt class="govuk-summary-list__key">
+                    Direction of travel
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Deteriorating
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> direction of travel</span>
+                    </a>
+                  </dd>
                 </div>
-            </dl>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Primary concern
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Finance <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> primary concern</span>
+                    </a>
+                  </dd>
+                </div>
+                
+              </dl>
 
+            <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
-        </div>
+                <div class="govuk-accordion__section ">
 
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="timeline">
-
-            <div class="govuk-grid-row">
-
-                <h2 class="govuk-heading-m">Action</h2>
-
-                <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
-                    <div class="govuk-form-group">
-
-                        <div id="with-hint-hint" class="govuk-hint">
-                            Add an action you have taken for this case and or concern.
+                    <div class="govuk-accordion__section-header">
+                      <h2 class="govuk-accordion__section-heading">
+                        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                          Issue
+                        </span>
+                      </h2>
+                    </div>
+  
+                    <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" aria-labelledby="accordion-default-heading-1">
+                        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                            <div class="govuk-form-group">
+                              
+                              <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="2" aria-describedby="with-hint-info with-hint-hint">This is a short description of the case issue.</textarea>
+                            </div>
+                          
+                            <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                              You can enter up to 200 characters
+                            </div>
+                          
                         </div>
-                        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint"
-                            rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
                     </div>
+  
+                  </div>
+                
+                <div class="govuk-accordion__section ">
 
-                    <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-                        You can enter up to 200 characters
-                    </div>
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                        Next steps
+                      </span>
+                    </h2>
+                  </div>
 
-                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                        Add to timeline
-                    </button>
+                  <div id="accordion-default-content-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" aria-labelledby="accordion-default-heading-3">
+                    
+                    <p class='govuk-body'>17/08/2021</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Pellentesque lacinia ligula at dapibus luctus.</li>
+                        <li>Curabitur fringilla mi lacus, in lobortis nisl imperdiet vitae Phasellus a euismod turpis, in volutpat risus.</li>
+                        <li>Nullam lobortis, est bibendum dignissim pretium, quam ex fringilla neque.</li>
+                    </ul>
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                    <p class='govuk-body'>11/08/2021</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Pellentesque lacinia ligula at dapibus luctus.</li>
+                        <li>Curabitur fringilla mi lacus, in lobortis nisl imperdiet vitae Phasellus a euismod turpis, in volutpat risus.</li>
+                        <li>Nullam lobortis, est bibendum dignissim pretium, quam ex fringilla neque.</li>
+                    </ul>
+                    <p class='govuk-body'>09/08/2021</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Pellentesque lacinia ligula at dapibus luctus.</li>
+                        <li>Curabitur fringilla mi lacus, in lobortis nisl imperdiet vitae Phasellus a euismod turpis, in volutpat risus.</li>
+                        <li>Nullam lobortis, est bibendum dignissim pretium, quam ex fringilla neque.</li>
+                    </ul>
+                  </div>
 
                 </div>
+
+                <div class="govuk-accordion__section ">
+
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                        Desktop review
+                      </span>
+                    </h2>
+                  </div>
+
+                  <div id="accordion-default-content-4" class="govuk-accordion__section-content govuk-!-margin-bottom-6" aria-labelledby="accordion-default-heading-4">
+
+                    <p class='govuk-body'>
+                        This is your desktop review.
+                    </p>
+                    <p class='govuk-body'>
+                        Nulla vitae luctus lectus. Nam porttitor, lorem congue viverra mattis, mauris tortor scelerisque odio, eget finibus nisi lectus ac risus. Vivamus non mauris eros. Nunc nulla turpis, condimentum eget tortor quis, tristique pharetra est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nibh libero, ultricies sed tincidunt at, mattis vitae erat. Nulla vel aliquam tortor. Donec dapibus urna non diam hendrerit elementum. Maecenas non nisl ut massa mollis auctor.
+                    </p>
+        
+                    <p class='govuk-body'>
+                        Vestibulum eleifend ut turpis quis dignissim. Donec accumsan turpis enim, ac consequat libero tempor ut. Maecenas volutpat orci tellus, vitae sagittis ligula consectetur id. Aenean eu egestas mauris. Vivamus dui lacus, consequat sagittis ex ut, scelerisque placerat lectus. Phasellus eu vehicula quam, non luctus augue. Ut facilisis, lacus non interdum ornare, arcu felis fringilla nisl, ut eleifend tellus quam efficitur lacus. Pellentesque in dignissim felis. Maecenas ullamcorper placerat magna, at sollicitudin odio molestie eget. Fusce volutpat orci nec enim rutrum, et vestibulum sapien scelerisque. Mauris nec dolor enim. Praesent viverra ex id eros volutpat, ut pharetra turpis ultricies. Mauris suscipit, nulla eget imperdiet condimentum, leo quam eleifend nunc, sit amet porta quam lectus ac risus. Quisque dapibus odio vel dolor facilisis, quis consectetur orci faucibus.
+                    </p>
+                    
+                    <p class='govuk-body'>
+                        Praesent pulvinar metus eget sodales finibus. Ut et lorem eu nibh ultrices porttitor. Duis consectetur, elit et varius lobortis, odio tellus vestibulum turpis, semper cursus quam sapien eget nisl. Aliquam molestie augue tortor, eget porta dui molestie vel. Nulla consequat finibus dui, et pharetra odio molestie laoreet. Nunc malesuada, purus sit amet aliquet malesuada, augue quam pretium lacus, quis tincidunt diam tortor ac purus. Donec convallis vel elit in semper. Suspendisse et magna tristique, feugiat tortor nec, dictum dolor. Praesent iaculis malesuada eros, eget pretium metus. Quisque eget neque ut neque efficitur iaculis. Morbi nibh nulla, efficitur vitae efficitur eget, volutpat vitae sem. Donec porttitor justo a congue posuere. Sed condimentum dolor sit amet ipsum mattis aliquet.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="govuk-grid-row govuk-!-margin-top-9">
+                
+                <h2 class="govuk-heading-m"> Case timeline</h2>
+
+                <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    + Add
+                </button>
+
+                <!--
+                <a href="/concerns/elements/create-case" class="govuk-button govuk-button--secondary  govuk-link">
+                    Add a concern
+                </a>
+                -->
 
                 <div class="timeline">
                     <ul>
@@ -248,6 +230,8 @@
             </div>
 
         </div>
+
+<!-- Trust details tab -->
 
         <div class="govuk-tabs__panel" id="details">
 
@@ -299,6 +283,7 @@
             </table>
         </div>
 
+<!-- Academies tab -->
 
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="academies">
 
@@ -322,6 +307,42 @@
                         <td class="govuk-table__cell"> CI 1004634</td>
                     </tr>
 
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ outgoingTrust.trust_name }}</a>
+                        </td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
+                        <td class="govuk-table__cell"> CI 1004634</td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ outgoingTrust.trust_name }}</a>
+                        </td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
+                        <td class="govuk-table__cell"> CI 1004634</td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ outgoingTrust.trust_name }}</a>
+                        </td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
+                        <td class="govuk-table__cell"> CI 1004634</td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ outgoingTrust.trust_name }}</a>
+                        </td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
+                        <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
+                        <td class="govuk-table__cell"> CI 1004634</td>
+                    </tr>
+
                 </tbody>
             </table>
 
@@ -329,19 +350,5 @@
     </div>
 
 </section>
-
-<section>
-
-    <a href="/concerns/closure/" role="button" draggable="false" class="govuk-button govuk-button--warning govuk-!-margin-bottom-9" style="float:right;">
-        Close case
-    </a>
-
-    <a href="/concerns/elements/create-case" class="govuk-button govuk-button--secondary  govuk-link">
-        Add a concern
-    </a>
-
-
-</section>
-
 
 {% endblock %}

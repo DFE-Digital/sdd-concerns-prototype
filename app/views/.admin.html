@@ -1,0 +1,66 @@
+{% extends "layout-cc.html" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+    <h3 class="govuk-heading-m">Concerns prototype</h3>
+    <p class="govuk-body">This is the concerns casework prototype. Use this service to: 
+      <ul>
+        <li>create and manage a case</li>
+        <li>add a concern</li>
+        <li>view the case timeline</li>
+        <li>close the case and or concern</li>
+      </ul>
+    </p>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    {{ govukButton({
+      text: "Start now",
+      href: "/concerns/homepage",
+      isStartButton: true
+    }) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h2 class="govuk-heading-m">Pages</h2>
+  
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s">Policy pages</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="accessibility-statement" class="govuk-link">Accessibility statement</a></li>
+        <li><a href="cookies" class="govuk-link">Cookie policy</a></li>
+        <li><a href="privacy-policy" class="govuk-link">Privacy policy</a></li>
+      </ul>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s">Error pages</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="403" class="govuk-link">400 - Access denied</a></li>
+        <li><a href="404" class="govuk-link">404 - Page not found</a></li>
+        <li><a href="500" class="govuk-link">500 - Something went wrong</a></li>
+      </ul>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s">Pages not in the MVP</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/concerns/initial-contact-2" class="govuk-link">Initial contact</a></li>
+        <li><a href="/concerns/academy-overview" class="govuk-link">Academy overview</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+    <h2 class="govuk-heading-m">Before you start</h2>
+    <p class="govuk-body">Some of the pages that not made it in the MVP are still under exploration.</p>
+  </div>
+</div>
+
+
+
+    {% endblock %}

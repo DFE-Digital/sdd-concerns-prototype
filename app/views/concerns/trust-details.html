@@ -1,91 +1,354 @@
-{% extends "layout.html" %}
-
-{% block beforeContent %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  {% extends "layout.html" %}
+  
+  {% block beforeContent %}
     {% if data['autocompleted-outgoing-trust-id'] %}
-    <a class="govuk-back-link"
-       href="/concerns/trust-name.html">Back</a>
-    {% else %}
-    <a class="govuk-back-link"
-       href="/concerns/outgoing-trust-search.html?outgoing-trust-search-query={{ data['outgoing-trust-search-query'] }}">Back</a>
-    {% endif %}
-{% endblock %}
+    <a class="govuk-back-link" href="/concerns/trust-name.html">Back</a>
+  {% else %}
+  <a class="govuk-back-link" href="/concerns/outgoing-trust-search.html?outgoing-trust-search-query={{ data['outgoing-trust-search-query'] }}">Back</a>
+  {% endif %}
+  {% endblock %}
+  
+  {% block content %}
+  {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
-{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-    {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+        <h1 class="govuk-heading-xl">New case</h1>
+        
+<!-- Trust details -->
 
-    <div class="govuk-width-container">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-l">Trust details</h1>
-                <dl class="govuk-summary-list govuk-summary-list--no-border">
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Name</dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ trust.trust_name }}
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Companies House Number</dt>
-                        <dd class="govuk-summary-list__value">{{ trust.companies_house_number }}</dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Type</dt>
-                        <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Trust Reference Number</dt>
-                        <dd class="govuk-summary-list__value">{{ trust.trust_reference_number }}</dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">UKPRN</dt>
-                    <dd class="govuk-summary-list__value">{{ trust.ukprn }}</dd>
-                    <dd class="govuk-summary-list__value"></dd>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">UPIN</dt>
-                    <dd class="govuk-summary-list__value">{{ trust.upin }}</dd>
-                    <dd class="govuk-summary-list__value"></dd>
-                </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">Address</dt>
-                        <dd class="govuk-summary-list__value">
-                            <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
-                        </dd>
-                    </div>
-                </dl>
-                  <div class="govuk-grid-row">
+        <h2 class="govuk-heading-l">Trust details</h2>
+
+        <dl class="govuk-summary-list">
+          
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Name</dt>
+              <dd class="govuk-summary-list__value">
+                  {{ trust.trust_name }}
+              </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Companies House Number</dt>
+              <dd class="govuk-summary-list__value">{{ trust.companies_house_number }}</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Type</dt>
+              <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Trust Reference Number</dt>
+              <dd class="govuk-summary-list__value">{{ trust.trust_reference_number }}</dd>
+          </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">UKPRN</dt>
+          <dd class="govuk-summary-list__value">{{ trust.ukprn }}</dd>
+          <dd class="govuk-summary-list__value"></dd>
+          </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">UPIN</dt>
+          <dd class="govuk-summary-list__value">{{ trust.upin }}</dd>
+          <dd class="govuk-summary-list__value"></dd>
+      </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Address</dt>
+              <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
+              </dd>
+          </div>
+      </dl>
+
+        <div class="govuk-inset-text govuk-!-margin-bottom-9">
+          Before you create the case make sure the correct trust has been selected. Assign the case to a caseworker, and a unique case identifier number will be created for this case.
+        </div>
+
+<!-- FORM -->
+
+        <form action="/concerns/management/"
+              class="form"
+              method="post">
+
+        <!-- Q1 -->
+
+          <h2 class="govuk-heading-l">Case details</h2>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Issue
+              </legend>
+              <div class="govuk-hint" id="case-issue-hint">
+                Give a brief description of the issue
+              </div>
+              <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
+              </textarea>
+            </fieldset>
+          </div>
+          
+        <!-- Q2 -->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Next steps <span class="govuk-body">(optional)</span>
+              </legend>
+              <div class="govuk-hint" id="case-issue-hint">
+                Give a overview of the next steps
+              </div>
+              <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
+              </textarea>
+            </fieldset>
+          </div>
+          
+        <!-- Q3 -->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Is this a Concern?
+              </legend>
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 
-                    <p class="govuk-body" style="border-left: 5px solid red; padding-left: 10px;">
-                        Before you create the case make sure the correct trust has been selected.
-                        Assign the case to a caseworker, and a unique case identifier number will be created for this
-                        case.
-                    </p>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concern-wut-1" id="concern-yes" name="concern-wut" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="concern-yes">
+                    Yes
+                  </label>
+                </div>
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concern-wut-1">
+                      
+                      <div class="govuk-form-group">
+                        
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-1" name="concern-wut-1" type="radio" value="Safeguarding">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-1">
+                            Safeguarding
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Financial">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-2">
+                            Financial
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-3" name="concern-wut-1" type="radio" value="Governance">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-3">
+                            Governance
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-4" name="concern-wut-1" type="radio" value="Irregularity">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-4">
+                            Irregularity
+                          </label>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="concern-no" name="concern-wut" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="concern-no">
+                    No
+                  </label>
+                </div>
                 
+              </div>
+
+            </fieldset>
+          </div>
+          
+        <!-- Q4 -->
+
+        <div class="govuk-form-group govuk-!-margin-top-9">
+          <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Is there a whistleblower element?
+            </legend>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" data-aria-controls="whistleblower-wut" id="whistleblower-yes" name="whistleblower-wut" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="whistleblower-yes">
+                  Yes
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" data-aria-controls="whistleblower-wut" id="whistleblower-no" name="whistleblower-wut" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="whistleblower-no">
+                  No
+                </label>
+              </div>
+
             </div>
 
-            <form action="/concerns/elements/case-overview" method="post" class="form">
-                <div class="govuk-form-group">
-                    <label class="govuk-label" for="sort">
-                        Assign case to:
-                    </label>
-                    <select class="govuk-select" id="assigned" name="assigned"
-                        {{ checked("assigned", "Nikolaos Gkionis") }}>
-                        <option value="Nikolaos Gkionis" selected>My self</option>
-                        <option value="Jonathan Briggs">Jonathan Briggs</option>
-                        <option value="Harry Miles">Harry Miles</option>
-                        <option value="Harry Miles">Sharon Morris</option>
-                        <option value="Harry Miles">Faye Rumsen</option>
-                    </select>
-                </div>
-            </form>
-
-            <a href="/concerns/elements/case-overview.html" role="button" draggable="false"
-                class="govuk-button govuk-!-margin-top-6">
-                Create case
-            </a>
+          </fieldset>
         </div>
+
+        <!-- Q5 -->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              Assign case to
+            </legend>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assign-myself" name="assign-wut" type="radio" value="Myself">
+                <label class="govuk-label govuk-radios__label" for="assign-myself">
+                  Myself
+                </label>
+              </div>
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" data-aria-controls="assign-wut-2" id="assign-colleague" name="assign-wut" type="radio" value="Colleague">
+                <label class="govuk-label govuk-radios__label" for="assign-colleague">
+                  Colleague
+                </label>
+              </div>
+
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="assign-wut-2">
+                    
+                    <div class="govuk-form-group">
+                      
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="assign-colleague-1" name="assign-wut-2" type="radio" value="Carlotta Carlyle">
+                        <label class="govuk-label govuk-radios__label" for="assign-colleague-1">
+                          Carlotta Carlyle
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="assign-colleague-2" name="assign-wut-2" type="radio" value="Eddie Shoestring">
+                        <label class="govuk-label govuk-radios__label" for="assign-colleague-2">
+                          Eddie Shoestring
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="assign-colleague-3" name="assign-wut-2" type="radio" value="Harry Dresden">
+                        <label class="govuk-label govuk-radios__label" for="assign-colleague-3">
+                          Harry Dresden
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="assign-colleague-4" name="assign-wut-2" type="radio" value="Jessica Jones">
+                        <label class="govuk-label govuk-radios__label" for="assign-colleague-4">
+                          Jessica Jones
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="assign-colleague-5" name="assign-wut-2" type="radio" value="Veronica Mars">
+                        <label class="govuk-label govuk-radios__label" for="assign-colleague-5">
+                          Veronica Mars
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" data-aria-controls="assign-wut-3" id="assign-region" name="assign-wut" type="radio" value="Region">
+                    <label class="govuk-label govuk-radios__label" for="assign-region">
+                      RSC region
+                    </label>
+                  </div>
+    
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="assign-wut-3">
+                        
+                        <div class="govuk-form-group">
+                          
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-1" name="assign-wut-3" type="radio" value="NWLSC">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-1">
+                              NWLSC
+                            </label>
+                          </div>
+    
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-2" name="assign-wut-3" type="radio" value="EENEL">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-2">
+                              EENEL
+                            </label>
+                          </div>
+    
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-3" name="assign-wut-3" type="radio" value="SW">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-3">
+                              SW
+                            </label>
+                          </div>
+    
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-4" name="assign-wut-3" type="radio" value="SESL">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-4">
+                              SESL
+                            </label>
+                          </div>
+    
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-5" name="assign-wut-3" type="radio" value="WM">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-5">
+                              WM
+                            </label>
+                          </div>
+
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-3" name="assign-wut-3" type="radio" value="EMH">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-3">
+                              EMH
+                            </label>
+                          </div>
+    
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-4" name="assign-wut-3" type="radio" value="N">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-4">
+                              N
+                            </label>
+                          </div>
+    
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="assign-region-5" name="assign-wut-3" type="radio" value="l&WY">
+                            <label class="govuk-label govuk-radios__label" for="assign-region-5">
+                              L&WY
+                            </label>
+                          </div>
+    
+                        </div>
+    
+                      </div>
+          
+          <a class="govuk-button govuk-!-margin-top-6" draggable="false" href="/concerns/management" role="button">
+            Create case
+          </a>
+        </form>
+      </div>
     </div>
-</div>
-{% endblock %}
+  </div>{% endblock %}
+</body>
+</html>
