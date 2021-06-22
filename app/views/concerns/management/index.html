@@ -42,47 +42,52 @@
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
 
             <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Current status
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    The current status of the case.
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> status</span>
-                    </a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Direction of travel
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Deteriorating
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> direction of travel</span>
-                    </a>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Primary concern
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Finance <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span>
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                      Change<span class="govuk-visually-hidden"> primary concern</span>
-                    </a>
-                  </dd>
-                </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Primary concern
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Finance <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> primary concern</span>
+                  </a>
+                </dd>
+              </div>
+
+              <!--
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Current status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  The current status of the case.
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> status</span>
+                  </a>
+                </dd>
+              </div>
+              -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Direction of travel
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Deteriorating
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> direction of travel</span>
+                  </a>
+                </dd>
+              </div>
                 
-              </dl>
+            </dl>
 
             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
@@ -110,7 +115,33 @@
                         </div>
                     </div>
   
+                </div>
+
+                <div class="govuk-accordion__section ">
+
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                        Current status
+                      </span>
+                    </h2>
                   </div>
+
+                  <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" aria-labelledby="accordion-default-heading-1">
+                      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                          <div class="govuk-form-group">
+                            
+                            <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="2" aria-describedby="with-hint-info with-hint-hint">This is a short description of the case issue.</textarea>
+                          </div>
+                        
+                          <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                            You can enter up to 200 characters
+                          </div>
+                        
+                      </div>
+                  </div>
+
+              </div>
                 
                 <div class="govuk-accordion__section ">
 
@@ -152,7 +183,7 @@
                   <div class="govuk-accordion__section-header">
                     <h2 class="govuk-accordion__section-heading">
                       <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-                        Desktop review
+                        Resolution strategy
                       </span>
                     </h2>
                   </div>
