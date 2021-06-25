@@ -235,6 +235,21 @@ span.summary-validation-symbol {
     background: linear-gradient(90deg,#f89360 50.5%, #2bbf7a 50.5%);
   }
 }
+/// Accordion tweaks ///
+
+.govuk-accordion__section-heading, .govuk-accordion__section-button {
+  font-size:19px;
+  font-size: 1.1875rem;
+}
+
+.js-enabled .govuk-accordion__controls{
+  visibility: hidden;
+  height: 0;
+}
+
+.summary-list-margin-0 {
+  margin-bottom: -1px;
+}
 
 /// Tables ///
 
