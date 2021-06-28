@@ -257,6 +257,19 @@ span.summary-validation-symbol {
 
 .govuk-table__header__cases, .govuk-table__cell__cases {
     vertical-align: middle;
+    padding: 10px;
+}
+
+.govuk-table__header__right{
+  text-align: right;
+}
+
+.govuk-table__header:last-child, .govuk-table__cell:last-child{
+  padding-right: 10px;
+}
+
+.govuk-table__head{
+  background-color: #f3f2f1;
 }
 
 .tr__large {
