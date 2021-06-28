@@ -216,12 +216,13 @@ span.summary-validation-symbol {
 
 .ragtag {
   text-align: center;
+  text-transform: none;
   color: #000;
   margin: 0px 10px;
 
-  &__black {
+  &__redplus {
     color: #dbdbdb;
-    background-color: #262626;
+    background-color: #9c1618;
   }
 
   &__red {
