@@ -40,35 +40,24 @@
                   {{ trust.trust_name }}
               </dd>
           </div>
+
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Companies House Number</dt>
-              <dd class="govuk-summary-list__value">{{ trust.companies_house_number }}</dd>
+            <dt class="govuk-summary-list__key">Type</dt>
+            <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
           </div>
+
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Type</dt>
-              <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
+            <dt class="govuk-summary-list__key">Address</dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
+            </dd>
           </div>
+
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Trust Reference Number</dt>
-              <dd class="govuk-summary-list__value">{{ trust.trust_reference_number }}</dd>
+              <dt class="govuk-summary-list__key">Region</dt>
+              <dd class="govuk-summary-list__value">{{ trust.region }}</dd>
           </div>
-          <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">UKPRN</dt>
-          <dd class="govuk-summary-list__value">{{ trust.ukprn }}</dd>
-          <dd class="govuk-summary-list__value"></dd>
-          </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">UPIN</dt>
-          <dd class="govuk-summary-list__value">{{ trust.upin }}</dd>
-          <dd class="govuk-summary-list__value"></dd>
-      </div>
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Address</dt>
-              <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
-              </dd>
-          </div>
+          
       </dl>
 
 <!-- FORM -->
@@ -93,21 +82,23 @@
               </textarea>
             </fieldset>
           </div>
-          
-        <!-- Q2 -->
 
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Next steps <span class="govuk-body">(optional)</span>
-              </legend>
-              <div class="govuk-hint" id="case-issue-hint">
-                Give an overview of the next steps
-              </div>
-              <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
-              </textarea>
-            </fieldset>
-          </div>
+        <!-- Q2 -->
+        {{ govukTextarea({
+          id: 'nextSteps',
+          name: 'nextSteps',
+          attributes: {
+            'data-module': 'moj-rich-text-editor',
+            'data-moj-rich-text-editor-toolbar': 'bold,italic,underline,bullets,numbers'
+          },
+          label: {
+            html: 'Next steps <span class="govuk-body">(optional)</span>',
+            classes: 'govuk-!-font-weight-bold'
+          },
+          hint: {
+            text: "Give an overview of the next steps"
+          }
+        }) }}
 
         <!-- Q2a -->
 
