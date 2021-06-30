@@ -17,19 +17,16 @@
           <a class="govuk-tabs__tab" href="#concerns">Case details</a>
         </li>
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#details">Trust Details</a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#academies">Academies</a>
+          <a class="govuk-tabs__tab" href="#overview">Trust overview</a>
         </li>
       </ul>
 <!--Case details tab-->
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
-
+        <!--Overview-->
         <dl class="govuk-summary-list summary-list-margin-0">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Primary concern</dt>
-              <dd class="govuk-summary-list__value">Finance <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></dd>
+              <dd class="govuk-summary-list__value">Finance: Deficit <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">Change <span class="govuk-visually-hidden">primary concern</span></a>
               </dd>
@@ -43,8 +40,7 @@
               </dd>
             </div>
         </dl>
-
-<!--Accordions-->
+        <!--Accordions-->
         <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
           
           <div class="govuk-accordion__section">
@@ -65,6 +61,7 @@
                 </div>
               </div>
             </div>
+
           </div>
 
           <div class="govuk-accordion__section">
@@ -105,8 +102,6 @@
 
             <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
 
-              {%- from "govuk/components/textarea/macro.njk" import govukTextarea -%}
-
                 {{ govukTextarea({
                   id: 'body',
                   name: 'body',
@@ -136,6 +131,7 @@
               
             </div>
           </div>
+
           <div class="govuk-accordion__section">
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
@@ -157,110 +153,168 @@
             </div>
           </div>
         </div>
-<!--Timeline-->
-        <div class="govuk-!-margin-top-9">
 
-          <h3 class="govuk-heading-m">
-            Case timeline
-          </h3>
+<!-- Timeline -->
+      <div class="govuk-!-margin-top-9">
 
-          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            + Add
-          </button>
+        <h3 class="govuk-heading-m">
+          Case timeline
+        </h3>
 
-          <!-- <a href="/concerns/elements/create-case" class="govuk-button govuk-button==secondary  govuk-link">Add a concern</a> -->
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          + Add
+        </button>
 
-          <div class="timeline">
-            <ul>
-              <li>
-                <h2>Next steps:</h2>
-                <p>{{ data['next-steps'] }}</p>
-                <p class="time">2 September 2017 at 1.01pm</p>
-              </li>
-              <li>
-                <h2>Issue:</h2>
-                <p>{{ data['issue-text'] }}</p>
-                <p class="time">28 August 2017 at 8.12pm</p>
-              </li>
-              <li>
-                <h2>Issue or concern Primary? {{ data['primary'] }}</h2>
-                <h2>Case Id: CI 1004634</h2>
-                <p class="time">28 August 2017</p>
-              </li>
-              <li>
-                <h2>Type of issue or concern</h2>
-                <p>{{ data['types'] }}</p>
-                <p class="time">28 August 2017 at 8.14pm</p>
-              </li>
-              <li>
-                <h2>Case issue or concern</h2>
-                <p>{{ data['concern-type'] }}</p>
-                <p class="time">28 August 2017 at 8.12pm</p>
-              </li>
-              <li>
-                <h2>Assigned to: {{ data['assigned'] }}</h2>
-                <h2>Case Id: CI 1004634</h2>
-                <p class="time">28 August 2017</p>
-              </li>
-            </ul>
+        <!-- <a href="/concerns/elements/create-case" class="govuk-button govuk-button==secondary  govuk-link">Add a concern</a> -->
+
+        <div class="moj-timeline">
+
+          <div class="moj-timeline__item">
+
+            <div class="moj-timeline__header">
+              <h2 class="moj-timeline__title">Case created</h2>
+
+              <p class="moj-timeline__byline">by Alex Episeen</p>
+
+            </div>
+
+            <p class="moj-timeline__date">
+              <time datetime="2021-07-07T14:01:00.000Z">07 July 2021 at 2:01pm</time>
+            </p>
+
           </div>
 
         </div>
-      </div>
 
-<!-- Trust details tab -->
-      <div class="govuk-tabs__panel"
-           id="details">
+      </div>
+      
+    </div>
+
+<!-- Trust overviews tab -->
+      <div class="govuk-tabs__panel" id="overview">
+
         <table class="govuk-table">
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">UKPRN</td>
-              <td class="govuk-table__header">{{ outgoingTrust.ukprn }}</td>
+              <td class="govuk-table__header">UKPRN</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell">Contact</td>
-              <td class="govuk-table__header">{{ outgoingTrust.contact}}</td>
+              <td class="govuk-table__header">Contact</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.contact}}</td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">UPIN</td>
-              <td class="govuk-table__header">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__header">UPIN</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell">Telephone</td>
-              <td class="govuk-table__header">12345 67890</td>
+              <td class="govuk-table__header">Telephone</td>
+              <td class="govuk-table__cell">12345 67890</td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Type</td>
-              <td class="govuk-table__header">{{ outgoingTrust.establishment_type }}</td>
+              <td class="govuk-table__header">Type</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.establishment_type }}</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell">Email</td>
-              <td class="govuk-table__header">{{ outgoingTrust.email }}</td>
+              <td class="govuk-table__header">Email</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.email }}</td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Number of Academies</td>
-              <td class="govuk-table__header">1</td>
+              <td class="govuk-table__header">Academies</td>
+              <td class="govuk-table__cell">1</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell">Website</td>
-              <td class="govuk-table__header">{{ outgoingTrust.website }}</td>
+              <td class="govuk-table__header">Website</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.website }}</td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Local Authority</td>
-              <td class="govuk-table__header">{{ outgoingTrust.local_authority_name }}</td>
+              <td class="govuk-table__header">Local Authority</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.local_authority_name }}</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell">Address</td>
-              <td class="govuk-table__header">{{ outgoingTrust.address }}</td>
+              <td class="govuk-table__header">Address</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.address }}</td>
               <td></td>
             </tr>
           </tbody>
         </table>
-      </div>
-<!-- Academies tab -->
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden"
-           id="academies">
-        <table class="govuk-table">
+
+        <table class="govuk-table  govuk-!-margin-top-9">
+          <caption class="govuk-table__caption govuk-table__caption--m">
+            Open cases
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row tr__large">
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Case ID</th>
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Primary case type</th>
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">RAG rating</th>
+              <th class="govuk-table__header govuk-table__header__cases govuk-table__header__right"
+                  scope="col">Days open</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
+              <td class="govuk-table__cell govuk-table__cell__cases">Financial: Projected deficit</td>
+              <td class="govuk-table__cell govuk-table__cell__cases">
+                <span class="govuk-tag ragtag ragtag__redamber">Red | Amber</span></td>
+              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell--numeric">9</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1003845</a></td>
+              <td class="govuk-table__cell govuk-table__cell__cases">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell__cases">
+                <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">13</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="govuk-table  govuk-!-margin-top-9">
+          <caption class="govuk-table__caption govuk-table__caption--m">
+            RDD cases
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row tr__large">
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Case ID</th>
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Case type</th>
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Academy</th>
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Delivery officer</th>
+              <th class="govuk-table__header govuk-table__header__cases govuk-table__header__right"
+                  scope="col">Days open</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1005628</a></td>
+              <td class="govuk-table__cell govuk-table__cell__cases">Transfer In</td>
+              <td class="govuk-table__cell govuk-table__cell__cases">Finkle-McGraw Secondary</td>
+              <td class="govuk-table__cell govuk-table__cell__cases">John Hackworth</td>
+              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell--numeric">18</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1007446</a></td>
+              <td class="govuk-table__cell govuk-table__cell__cases">Change: Pupil numbers</td>
+              <td class="govuk-table__cell govuk-table__cell__cases">Settlebeck School</td>
+              <td class="govuk-table__cell govuk-table__cell__cases">John Hackworth</td>
+              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell--numeric">23</td>
+            </tr>
+          </tbody>
+        </table>
+    
+        <table class="govuk-table govuk-!-margin-top-9" id="academies">
+
+          <caption class="govuk-table__caption govuk-table__caption--m">
+            Academies
+          </caption>
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th class="govuk-table__header"
@@ -275,7 +329,9 @@
                   scope="col">Case Id</th>
             </tr>
           </thead>
+
           <tbody class="govuk-table__body">
+
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <a class="govuk-link"
@@ -286,6 +342,7 @@
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
             </tr>
+
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <a class="govuk-link"
@@ -296,6 +353,7 @@
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
             </tr>
+
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <a class="govuk-link"
@@ -306,6 +364,7 @@
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
             </tr>
+
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <a class="govuk-link"
@@ -316,6 +375,7 @@
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
             </tr>
+
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 <a class="govuk-link"
@@ -326,9 +386,14 @@
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
             </tr>
+
           </tbody>
+          
         </table>
+
+
       </div>
+
     </div>
   </section>
   {% endblock %}

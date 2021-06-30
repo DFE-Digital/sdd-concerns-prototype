@@ -221,7 +221,7 @@ span.summary-validation-symbol {
   margin: 0px 10px;
 
   &__redplus {
-    color: #dbdbdb;
+    color: rgb(240, 240,240);
     background-color: #9c1618;
   }
 
@@ -236,6 +236,11 @@ span.summary-validation-symbol {
   &__ambergreen {
     background: linear-gradient(90deg,#f89360 50.5%, #2bbf7a 50.5%);
   }
+
+  &__green {
+    background-color:#2bbf7a;
+  }
+
 }
 /// Accordion tweaks ///
 

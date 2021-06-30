@@ -17,7 +17,8 @@
       "contact": "Sarah Gibson (Chair) ",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2013-11-20T00:00:00Z",
-      "email": "s.gibson@wintermute.org"
+      "email": "s.gibson@wintermute.org",
+      "region": "L&WY"
     },
     {
       "id": "2",
@@ -36,8 +37,8 @@
       "contact": "Elliot Hill (Chair) ",
       "ofsted_rating": "Outstanding",
       "ofsted_inspection_date": "2019-10-03T00:00:00Z",
-      "email": "elliot.hill@straylightacademies.co.uk"
-      
+      "email": "elliot.hill@straylightacademies.co.uk",
+      "region": "L&WY"
     },
     {
       "id": "3",
@@ -56,7 +57,8 @@
       "contact": "Marlene Moore",
       "ofsted_rating": null,
       "ofsted_inspection_date": null,
-      "email": "marlene.moore@lindaleetrust.sch.uk"
+      "email": "marlene.moore@lindaleetrust.sch.uk",
+      "region": "L&WY"
     },
     {
       "id": "4",
@@ -75,7 +77,8 @@
       "contact": "Jeffery Noon (Chair) ",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2015-07-02T00:00:00Z",
-      "email": "j.noon@stisadorestrust.sch.uk"
+      "email": "j.noon@stisadorestrust.sch.uk",
+      "region": "L&WY"
     },
     {
       "id": "5",
@@ -94,7 +97,8 @@
       "contact": "Jane Nyquist (COO)",
       "ofsted_rating": "Requires Improvement",
       "ofsted_inspection_date": "2018-03-23T00:00:00Z",
-      "email": "jane.nyquist@henrydorsettacademies.com"
+      "email": "jane.nyquist@henrydorsettacademies.com",
+      "region": "L&WY"
     },
     {
       "id": "6",
@@ -113,7 +117,8 @@
       "contact": "Carolyn Fry (Chair)",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2013-01-24T00:00:00Z",
-      "email": "carolyn.fry@southarmitagetrust.sch.uk"
+      "email": "carolyn.fry@southarmitagetrust.sch.uk",
+      "region": "L&WY"
     },
     {
       "id": "7",
@@ -132,7 +137,8 @@
       "contact": "Elizabeth Shaw (CEO)",
       "ofsted_rating": "Good",
       "ofsted_inspection_date": "2015-04-16T00:00:00Z",
-      "email": "e.shaw@humbersidelearning.org"
+      "email": "e.shaw@humbersidelearning.org",
+      "region": "L&WY"
     },
     {
       "id": "8",
@@ -151,7 +157,8 @@
       "contact": "Tony Chocoloney (Chair) ",
       "ofsted_rating": "Outstanding",
       "ofsted_inspection_date": "2014-01-16T00:00:00Z",
-      "email": "tony.c@trinity.sch.uk"
+      "email": "tony.c@trinity.sch.uk",
+      "region": "L&WY"
     },
     {
       "id": "9",
@@ -170,7 +177,8 @@
       "contact": "Jonathan Bikkes (Chair) ",
       "ofsted_rating": "Outstanding",
       "ofsted_inspection_date": "2013-06-12T00:00:00Z",
-      "email": "j.bikkes@spcst.sch.uk"
+      "email": "j.bikkes@spcst.sch.uk",
+      "region": "L&WY"
     },
     {
       "id": "10",

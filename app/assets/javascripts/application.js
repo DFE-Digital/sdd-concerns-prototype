@@ -7,6 +7,7 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+  MOJFrontend.initAll()
 })
 
 // Submit form when any change detected
