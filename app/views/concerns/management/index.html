@@ -62,15 +62,7 @@
             </div>
 
             <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-1">
-              <!--Character count component-->
-              <div class="govuk-character-count" data-maxlength="500" data-module="govuk-character-count">
-                <div class="govuk-form-group">
-                  <textarea aria-describedby="with-hint-info with-hint-hint" class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="6">2019/20 audited accounts show a cumulative deficit of (£206k) (7.3% of income). The agreed recovery plan forecasts a cumulative deficit of (£131k) (4.2%) in 2020/21. Risk rating is Amber/Green, because although the cumulative deficit is greater than 5%, an agreed recovery plan is in place and evidence shows it has been adhered to for at least 3 months from November 2019 to January 2020.</textarea>
-                </div>
-                <div aria-live="polite" class="govuk-hint govuk-character-count__message" id="with-hint-info">
-                  You can enter up to 500 characters
-                </div>
-              </div>
+              <p>{{ data['issue-detail'] }}</p>
             </div>
 
           </div>

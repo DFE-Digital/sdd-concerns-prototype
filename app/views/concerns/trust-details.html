@@ -62,74 +62,79 @@
 
 <!-- FORM -->
 
-        <form action="/concerns/management/"
-              class="form"
-              method="post">
+        <form action="/concerns/management/" class="form" method="post">
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9">Case setup</h2>
 
         <!-- Q1 -->
 
-          <h2 class="govuk-heading-m  govuk-!-margin-top-9">Case setup</h2>
-
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="issue-detail">
                 Issue
-              </legend>
-              <!--<div class="govuk-hint" id="case-issue-hint">
-                Give a brief description of the issue
-              </div>-->
-              <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5"></textarea>
-            </fieldset>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="issue-detail" name="issue-detail" rows="5" aria-describedby="issue-detail-info"></textarea>
+            </div>
+          
+            <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 500 characters
+            </div>
+          
           </div>
 
         <!-- Q2 -->
-        {{ govukTextarea({
-          id: 'nextSteps',
-          name: 'nextSteps',
-          attributes: {
-            'data-module': 'moj-rich-text-editor',
-            'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
-          },
-          label: {
-            html: '<legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Next steps <span class="govuk-body">(optional)</span></legend>',
-            classes: 'govuk-!-font-weight-bold'
-          }
-        }) }}
+        <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="next-steps-detail">
+              Next steps <span class="govuk-body">(optional)</span>
+            </label>
+            <textarea class="govuk-textarea govuk-js-character-count" id="next-steps-detail" name="next-steps-detail" rows="5" aria-describedby="next-steps-detail-info"></textarea>
+          </div>
+        
+          <div id="next-steps-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+            You can enter up to 500 characters
+          </div>
+        
+        </div>  
 
         <!-- Q3 -->
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="1000">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="resolution-strategy">
               Resolution strategy <span class="govuk-body">(optional)</span>
-            </legend>
-            <!--<div class="govuk-hint" id="case-issue-hint">
-              Steps in a resolution strategy
-            </div>-->
-            <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5"></textarea>
-          </fieldset>
+            </label>
+            <textarea class="govuk-textarea govuk-js-character-count" id="resolution-strategy" name="resolution-strategy" rows="10" aria-describedby="resolution-strategy-info"></textarea>
+          </div>
+        
+          <div id="resolution-strategy-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+            You can enter up to 1000 characters
+          </div>
+        
         </div>
 
         <!-- Q4 -->
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="case-status">
               Case status <span class="govuk-body">(optional)</span>
-            </legend>
-            <!--<div class="govuk-hint" id="case-issue-hint">
-              Give a brief description of the current case status
-            </div>-->
-            <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5"></textarea>
-          </fieldset>
-        </div>
+            </label>
+            <textarea class="govuk-textarea govuk-js-character-count" id="case-status" name="case-status" rows="5" aria-describedby="case-status-info"></textarea>
+          </div>
+        
+          <div id="case-status-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+            You can enter up to 500 characters
+          </div>
+        
+        </div> 
           
         <!-- Q5 -->
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group govuk-!-margin-top-9">
           <fieldset class="govuk-fieldset">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
               Is this a Concern?
             </legend>
 
@@ -230,11 +235,11 @@
         <div class="govuk-form-group govuk-!-margin-top-9">
           <fieldset class="govuk-fieldset">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
               What is the Concern's risk rating?
             </legend>
             <div class="govuk-hint" id="case-issue-hint">
-              Use the <a href="#">Risk Management Framework</a> to asses the Concern RAG rating
+              Use the <a href="#">Risk Management Framework</a> to assess the Concern RAG rating
             </div>
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
@@ -284,7 +289,7 @@
         <div class="govuk-form-group govuk-!-margin-top-9">
           <fieldset class="govuk-fieldset">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
               Was this raised by a whistleblower?
             </legend>
 
@@ -314,7 +319,7 @@
           <div class="govuk-form-group govuk-!-margin-top-9">
             <fieldset class="govuk-fieldset">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
               Assign case to
             </legend>
 
@@ -380,7 +385,7 @@
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" data-aria-controls="assign-wut-3" id="assign-region" name="assign-wut" type="radio" value="Region">
                     <label class="govuk-label govuk-radios__label" for="assign-region">
-                      Region
+                      Territory
                     </label>
                   </div>
     
@@ -392,7 +397,7 @@
                             <input class="govuk-radios__input" id="assign-region-1" name="assign-wut-3" type="radio" value="NWLSC">
                             <label class="govuk-label govuk-radios__label" for="assign-region-1">
                               NWLSC
-                            </label>
+                             </label>
                           </div>
     
                           <div class="govuk-radios__item">
@@ -448,7 +453,7 @@
     
                       </div>
           
-          <a class="govuk-button govuk-!-margin-top-6" draggable="false" href="/concerns/management" role="button">
+          <a class="govuk-button govuk-!-margin-top-9" draggable="false" href="/concerns/management" role="button">
             Create case
           </a>
         </form>
