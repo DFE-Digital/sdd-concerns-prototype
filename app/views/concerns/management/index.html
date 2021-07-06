@@ -7,7 +7,7 @@
     {{ govukButton({
       text: "Back to casework",
       classes: "govuk-button--secondary",
-      href: "homepage"
+      href: "/concerns/homepage.html"
     }) }}
   
     {{ govukButton({
@@ -62,6 +62,7 @@
             </div>
 
             <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-1">
+              <a href="#" class="govuk-link float__right">Edit</a>
               <p>{{ data['issue-detail'] }}</p>
             </div>
 
@@ -78,7 +79,9 @@
             </div>
 
             <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-2">
-              <!--Character count component-->
+              <a href="#" class="govuk-link float__right">Edit</a>
+              <p>{{ data['current-status-detail'] }}</p>
+              <!--Character count component
               <div class="govuk-character-count" data-maxlength="1000" data-module="govuk-character-count">
                 <div class="govuk-form-group">
                   <textarea aria-describedby="with-hint-info with-hint-hint" class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="12">Current status of the case.</textarea>
@@ -88,7 +91,7 @@
                      id="with-hint-info">
                   You can enter up to 1000 characters
                 </div>
-              </div>
+              </div>-->
             </div>
 
           </div>
@@ -105,14 +108,17 @@
 
             <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
 
-                {{ govukTextarea({
-                  id: 'body',
-                  name: 'body',
-                  attributes: {
-                    'data-module': 'moj-rich-text-editor',
-                    'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
-                  }
-                }) }}
+              <a href="#" class="govuk-link float__right">Edit</a>
+              <p>{{ data['next-steps-detail'] }}</p>
+
+              <!--{{ govukTextarea({
+                id: 'body',
+                name: 'body',
+                attributes: {
+                  'data-module': 'moj-rich-text-editor',
+                  'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
+                }
+              }) }}-->
 
             </div>
           </div>
@@ -129,14 +135,17 @@
 
             <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
 
-                {{ govukTextarea({
-                  id: 'body',
-                  name: 'body',
-                  attributes: {
-                    'data-module': 'moj-rich-text-editor',
-                    'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
-                  }
-                }) }}
+              <a href="#" class="govuk-link float__right">Edit</a>
+              <p>{{ data['resolution-strategy-detail'] }}</p>
+
+              <!--{{ govukTextarea({
+                id: 'body',
+                name: 'body',
+                attributes: {
+                  'data-module': 'moj-rich-text-editor',
+                  'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
+                }
+              }) }}-->
 
             </div>
           </div>
@@ -162,10 +171,10 @@
             <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
               <ul class="govuk-list timeline-action-list">
                 <li>
-                  <a class="timeline-action" href="#">Note</a>
+                  <a class="timeline-action" href="#">Comment</a>
                 </li>
                 <li>
-                  <a class="timeline-action" href="elements/add-concern">Concern</a>
+                  <a class="timeline-action" href="add-concern">Concern</a>
                 </li>
                 <li>
                   <a class="timeline-action" href="#">Linked case(s)</a>
@@ -246,8 +255,8 @@
               <td class="govuk-table__cell">{{ outgoingTrust.contact}}</td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__header">UPIN</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__header">UID</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__header">Phone</td>
@@ -271,7 +280,7 @@
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__header">Local Authority</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.local_authority_name }}</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.local_authority }}</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__header">Address</td>
@@ -362,7 +371,7 @@
               <th class="govuk-table__header"
                   scope="col">Organisation</th>
               <th class="govuk-table__header"
-                  scope="col">UPIN</th>
+                  scope="col">UID</th>
               <th class="govuk-table__header"
                   scope="col">UKPRN</th>
               <th class="govuk-table__header"
@@ -379,7 +388,7 @@
                 <a class="govuk-link"
                     href="#">{{ outgoingTrust.trust_name }}</a>
               </td>
-              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
@@ -390,7 +399,7 @@
                 <a class="govuk-link"
                     href="#">{{ outgoingTrust.trust_name }}</a>
               </td>
-              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
@@ -401,7 +410,7 @@
                 <a class="govuk-link"
                     href="#">{{ outgoingTrust.trust_name }}</a>
               </td>
-              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
@@ -412,7 +421,7 @@
                 <a class="govuk-link"
                     href="#">{{ outgoingTrust.trust_name }}</a>
               </td>
-              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>
@@ -423,7 +432,7 @@
                 <a class="govuk-link"
                     href="#">{{ outgoingTrust.trust_name }}</a>
               </td>
-              <td class="govuk-table__cell">{{ outgoingTrust.upin }}</td>
+              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
               <td class="govuk-table__cell">{{ outgoingTrust.contact }}</td>
               <td class="govuk-table__cell">CI 1004634</td>

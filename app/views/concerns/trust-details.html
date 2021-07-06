@@ -8,7 +8,7 @@
   
   {% block beforeContent %}
     {% if data['autocompleted-outgoing-trust-id'] %}
-    <a class="govuk-back-link" href="/concerns/trust-name.html">Back</a>
+    <a class="govuk-back-link" href="/concerns/new-case.html">Back</a>
   {% else %}
   <a class="govuk-back-link" href="/concerns/outgoing-trust-search.html?outgoing-trust-search-query={{ data['outgoing-trust-search-query'] }}">Back</a>
   {% endif %}
@@ -79,31 +79,101 @@
                     <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concern-wut-1">
                       
                       <div class="govuk-form-group">
-                        
+
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Financial">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-2">
-                            Financial
+                          <input class="govuk-radios__input" id="concern-yes-1" name="concern-wut-1" type="radio" value="Compliance: Financial returns">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-1">
+                            Compliance: Financial returns
                           </label>
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-5" name="concern-wut-1" type="radio" value="Governance">
+                          <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Compliance: Financial reporting">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-2">
+                            Compliance: Financial reporting
+                          </label>
+                        </div>
+                        
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-3" name="concern-wut-1" type="radio" value="Financial: Defecit">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-3">
+                            Financial: Defecit
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-4" name="concern-wut-1" type="radio" value="Financial: Projected defecit / Low future surplus">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-4">
+                            Financial: Projected defecit / Low future surplus
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-5" name="concern-wut-1" type="radio" value="Financial: Cash flow shortfall">
                           <label class="govuk-label govuk-radios__label" for="concern-yes-5">
+                            Financial: Cash flow shortfall
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-6" name="concern-wut-1" type="radio" value="Financial: Clawback">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-6">
+                            Financial: Clawback
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-7" name="concern-wut-1" type="radio" value="Force Majeure">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-7">
+                            Force Majeure
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-8" name="concern-wut-1" type="radio" value="Governance">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-8">
                             Governance
                           </label>
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-8" name="concern-wut-1" type="radio" value="Irregularity">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-8">
-                            Irregularity
+                          <input class="govuk-radios__input" id="concern-yes-9" name="concern-wut-1" type="radio" value="Governance: Closure">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-9">
+                            Governance: Closure
                           </label>
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-1" name="concern-wut-1" type="radio" value="Safeguarding">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-1">
+                          <input class="govuk-radios__input" id="concern-yes-10" name="concern-wut-1" type="radio" value="Governance: Executive pay">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-10">
+                            Governance: Executive pay
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-11" name="concern-wut-1" type="radio" value="Governance: Safeguarding">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-11">
+                            Governance: Safeguarding
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-12" name="concern-wut-1" type="radio" value="Irregularity: Allegations and self reported concerns">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-12">
+                            Irregularity: Allegations and self reported concerns
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-13" name="concern-wut-1" type="radio" value="Irregularity: Related party transactions - in year">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-13">
+                            Irregularity: Related party transactions - in year
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="concern-yes-14" name="concern-wut-1" type="radio" value="Safeguarding Incident">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-14">
                             Safeguarding Incident
                           </label>
                         </div>
@@ -191,7 +261,7 @@
               <label class="govuk-label govuk-!-font-weight-bold" for="case-status">
                 Current status <span class="govuk-body">(optional)</span>
               </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="case-status" name="case-status" rows="5" aria-describedby="case-status-info"></textarea>
+              <textarea class="govuk-textarea govuk-js-character-count" id="case-status" name="current-status-detail" rows="5" aria-describedby="case-status-info"></textarea>
             </div>
           
             <div id="case-status-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
@@ -221,7 +291,7 @@
               <label class="govuk-label govuk-!-font-weight-bold" for="resolution-strategy">
                 Resolution strategy <span class="govuk-body">(optional)</span>
               </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="resolution-strategy" name="resolution-strategy" rows="10" aria-describedby="resolution-strategy-info"></textarea>
+              <textarea class="govuk-textarea govuk-js-character-count" id="resolution-strategy" name="resolution-strategy-detail" rows="10" aria-describedby="resolution-strategy-info"></textarea>
             </div>
           
             <div id="resolution-strategy-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
