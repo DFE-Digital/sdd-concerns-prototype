@@ -59,68 +59,7 @@
 
           <h2 class="govuk-heading-m govuk-!-margin-top-9">Case setup</h2>
 
-          <!-- Q1 -->
-
-          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="issue-detail">
-                Issue
-              </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="issue-detail" name="issue-detail" rows="5" aria-describedby="issue-detail-info"></textarea>
-            </div>
-          
-            <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-              You can enter up to 500 characters
-            </div>
-          
-          </div>
-
-          <!-- Q2 -->
-          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="next-steps-detail">
-                Next steps <span class="govuk-body">(optional)</span>
-              </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="next-steps-detail" name="next-steps-detail" rows="5" aria-describedby="next-steps-detail-info"></textarea>
-            </div>
-          
-            <div id="next-steps-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-              You can enter up to 500 characters
-            </div>
-          
-          </div>  
-
-          <!-- Q3 -->
-          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="1000">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="resolution-strategy">
-                Resolution strategy <span class="govuk-body">(optional)</span>
-              </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="resolution-strategy" name="resolution-strategy" rows="10" aria-describedby="resolution-strategy-info"></textarea>
-            </div>
-          
-            <div id="resolution-strategy-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-              You can enter up to 1000 characters
-            </div>
-          
-          </div>
-
-          <!-- Q4 -->
-          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="case-status">
-                Case status <span class="govuk-body">(optional)</span>
-              </label>
-              <textarea class="govuk-textarea govuk-js-character-count" id="case-status" name="case-status" rows="5" aria-describedby="case-status-info"></textarea>
-            </div>
-          
-            <div id="case-status-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-              You can enter up to 500 characters
-            </div>
-          
-          </div> 
-          
-          <!-- Q5 -->
+          <!-- Q Concern -->
           <div class="govuk-form-group govuk-!-margin-top-9">
             <fieldset class="govuk-fieldset">
 
@@ -142,30 +81,9 @@
                       <div class="govuk-form-group">
                         
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-1" name="concern-wut-1" type="radio" value="Safeguarding">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-1">
-                            Safeguarding
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Financial">
                           <label class="govuk-label govuk-radios__label" for="concern-yes-2">
-                            Financial: Deficit
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-3" name="concern-wut-1" type="radio" value="Financial">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-3">
-                            Financial: Projected deficit
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-4" name="concern-wut-1" type="radio" value="Financial">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-4">
-                            Financial: Viability
+                            Financial
                           </label>
                         </div>
 
@@ -177,20 +95,6 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-6" name="concern-wut-1" type="radio" value="Governance">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-6">
-                            Governance: Compliance
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-7" name="concern-wut-1" type="radio" value="Governance">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-7">
-                            Governance: Safeguarding
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="concern-yes-8" name="concern-wut-1" type="radio" value="Irregularity">
                           <label class="govuk-label govuk-radios__label" for="concern-yes-8">
                             Irregularity
@@ -198,9 +102,9 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-9" name="concern-wut-1" type="radio" value="Irregularit: Suspected fraudy">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-9">
-                            Irregularity: Suspected fraud
+                          <input class="govuk-radios__input" id="concern-yes-1" name="concern-wut-1" type="radio" value="Safeguarding">
+                          <label class="govuk-label govuk-radios__label" for="concern-yes-1">
+                            Safeguarding Incident
                           </label>
                         </div>
 
@@ -220,25 +124,18 @@
             </fieldset>
           </div>
         
-          <!-- Q6 -->
+          <!-- Q Risk rating -->
           <div class="govuk-form-group govuk-!-margin-top-9">
             <fieldset class="govuk-fieldset">
 
               <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
-                What is the Concern's risk rating?
+                If it is a Concern, what is the risk rating?
               </legend>
               <div class="govuk-hint" id="case-issue-hint">
-                Use the <a href="#">Risk Management Framework</a> to assess the Concern RAG rating
+                Use the <a href="/files/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the Concern RAG rating
               </div>
 
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-                
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" data-aria-controls="whistleblower-wut" id="whistleblower-yes" name="whistleblower-wut" type="radio" value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="whistleblower-yes">
-                    <span class="govuk-tag ragtag ragtag__green">Green</span>
-                  </label>
-                </div>
 
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" data-aria-controls="whistleblower-wut" id="whistleblower-yes" name="whistleblower-wut" type="radio" value="Yes">
@@ -271,9 +168,69 @@
               </div>
 
             </fieldset>
+          </div>          
+
+          <!-- Q Issue -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="issue-detail">
+                Issue
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="issue-detail" name="issue-detail" rows="5" aria-describedby="issue-detail-info"></textarea>
+            </div>
+          
+            <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 500 characters
+            </div>
+          
+          </div>
+
+          <!-- Q Current status -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="case-status">
+                Current status <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="case-status" name="case-status" rows="5" aria-describedby="case-status-info"></textarea>
+            </div>
+          
+            <div id="case-status-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 500 characters
+            </div>
+          
+          </div> 
+
+          <!-- Q Next steps -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="500">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="next-steps-detail">
+                Next steps <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="next-steps-detail" name="next-steps-detail" rows="5" aria-describedby="next-steps-detail-info"></textarea>
+            </div>
+          
+            <div id="next-steps-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 500 characters
+            </div>
+          
+          </div>  
+
+          <!-- Q Resolution strategy-->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="1000">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="resolution-strategy">
+                Resolution strategy <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count" id="resolution-strategy" name="resolution-strategy" rows="10" aria-describedby="resolution-strategy-info"></textarea>
+            </div>
+          
+            <div id="resolution-strategy-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 1000 characters
+            </div>
+          
           </div>
           
-          <!-- Q7 -->
+          <!-- Q Whistleblower-->
           <div class="govuk-form-group govuk-!-margin-top-9">
             <fieldset class="govuk-fieldset">
 
@@ -302,7 +259,7 @@
             </fieldset>
           </div>
 
-          <!-- Q8 -->
+          <!-- Q Assign to -->
           <div class="govuk-form-group govuk-!-margin-top-9">
             
             <fieldset class="govuk-fieldset">
@@ -447,7 +404,7 @@
           </div>
           
           <!-- Form submit -->
-          <button data-prevent-double-click="true" class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">
+          <button data-prevent-double-click="true" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
             Create case
           </button>
             
