@@ -33,8 +33,8 @@ router.post('/trust-details-one', function (req, res) {
   var projectStatus = req.session.data['case-type']
 
   // Check whether the variable matches a condition - your radio values 
-  if (projectStatus == "log"){
-  res.redirect('concerns/trust-details-log')
+  if (projectStatus == "record"){
+  res.redirect('concerns/trust-details-record')
   } else if (projectStatus == "concern"){
   res.redirect('concerns/trust-details-concern')
   } else if (projectStatus == "safeguarding"){
