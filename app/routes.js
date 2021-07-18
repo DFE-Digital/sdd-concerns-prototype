@@ -46,34 +46,62 @@ router.post('/trust-details-one', function (req, res) {
   })
 
 router.post('/trust-details-concern', function (req, res) {
-    
+
   // Make a variable and give it the value of your radio group's 'name'
-    var projectStatus = req.session.data['concernType-1']
+  var projectStatus = req.session.data['concernType']
+  // Check whether the variable matches a condition - your radio values 
+  if (projectStatus == "compliance"){
+  res.redirect('concerns/compliance')
+  }
+  else if (projectStatus == "financial"){
+  res.redirect('concerns/financial')
+  }
+  else if (projectStatus == "force-majeure"){
+  res.redirect('concerns/force-majeure')
+  }
+  else if (projectStatus == "governance"){
+  res.redirect('concerns/governance')
+  }
+  else if (projectStatus == "irregularity"){
+  res.redirect('concerns/irregularity')
+  }
 
-    // Check whether the variable matches a condition - your radio values 
-    if (projectStatus == "compliance-financial-reporting"){
-    res.redirect('concerns/compliance-financial-reporting')
-    } else if (projectStatus == "compliance-financial-returns"){
-    res.redirect('concerns/compliance-financial-returns')
-    }
-  })
+  /*
+  // Make a variable and give it the value of your radio group's 'name'
+  var projectStatus = req.session.data['concernType-1']
+  // Check whether the variable matches a condition - your radio values 
+  if (projectStatus == "compliance-financial-reporting"){
+  res.redirect('concerns/compliance-financial-reporting')
+  } else if (projectStatus == "compliance-financial-returns"){
+  res.redirect('concerns/compliance-financial-returns')
+  }
 
-/*
-router.post('/trust-details-concern', function (req, res) {
-     // Make a variable and give it the value of your radio group's 'name'
-     var projectStatus = req.session.data['concernType-2']
-     // Check whether the variable matches a condition - your radio values
-    } else if (projectStatus == "financial-deficit"){
-    res.redirect('concerns/financial-deficit')
-    } else if (projectStatus == "financial-projected-deficit"){
-    res.redirect('concerns/financial-projected-deficit')
-    } else if (projectStatus == "financial-cash-flow-shortfall"){
-    res.redirect('concerns/financial-cash-flow-shortfall')
-    } else if (projectStatus == "financial-clawback"){
-    res.redirect('concerns/financial-clawback')
-    }
-  })
+  var projectStatus = req.session.data['concernType-2']
+  // Check whether the variable matches a condition - your radio values
+  if (projectStatus == "financial-deficit"){
+  res.redirect('concerns/financial-deficit')
+  } else if (projectStatus == "financial-projected-deficit"){
+  res.redirect('concerns/financial-projected-deficit')
+  } else if (projectStatus == "financial-cash-flow-shortfall"){
+  res.redirect('concerns/financial-cash-flow-shortfall')
+  } else if (projectStatus == "financial-clawback"){
+  res.redirect('concerns/financial-clawback')
+  }
+
+  var projectStatus = req.session.data['concernType-4']
+  // Check whether the variable matches a condition - your radio values
+  if (projectStatus == "governance-governance"){
+  res.redirect('concerns/governance-governance')
+  } else if (projectStatus == "governance-closure"){
+  res.redirect('concerns/governance-closure')
+  } else if (projectStatus == "governance-executive-pay"){
+  res.redirect('concerns/governance-executive-pay')
+  } else if (projectStatus == "governance-safeguarding"){
+  res.redirect('concerns/governance-safeguarding')
+  }
 */
+
+  })
 
 
 module.exports = router
