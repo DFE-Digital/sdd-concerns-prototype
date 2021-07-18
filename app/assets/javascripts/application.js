@@ -15,10 +15,10 @@ $('.js-auto-submit').on('change', function(){
   $(this).closest('form').submit();
 });
 
-
 new MOJFrontend.ButtonMenu({
   container: $('.moj-button-menu'),
   mq: '(min-width: 200em)',
   buttonText: 'Actions',
   menuClasses: 'moj-button-menu__wrapper--right'
 });
+
