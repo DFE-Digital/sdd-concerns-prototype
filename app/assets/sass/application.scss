@@ -215,7 +215,6 @@ span.summary-validation-symbol {
   text-align: center;
   text-transform: none;
   color: #000;
-  margin: -5px 0;
   padding: 10px;
   &__redplus {
     color: rgb(240, 240,240);
@@ -265,17 +264,15 @@ span.summary-validation-symbol {
 }
 #action_content {
   background-color: #E9F1F8;
-  padding: 15px 25px;
+  padding: 15px;
 }
 
 /// Timeline ///
 
-.timeline-action-list li{
-  margin: 10px 0px;
-}
 .timeline_action{
   line-height: 1;
   text-align: left;
+  width: 100%;
   font-size: 19px;
   font-size: 1.1875rem;
   text-decoration: none;
@@ -311,9 +308,11 @@ span.summary-validation-symbol {
   background-color:#f2f5f7;
 }
 .tr__large {
-    height: 60px;
+  height: 60px;
 }
-
+.caseDetail_type {
+  margin-right: 15px;
+}
 /// Auto resize textareas ///
 .auto-resize {
   overflow: hidden;
