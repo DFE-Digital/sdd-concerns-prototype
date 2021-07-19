@@ -3,24 +3,22 @@
   {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
   {% block content %}
 
-  <div class="govuk-button-group" style="float: right;">
-    {{ govukButton({
-      text: "Back to casework",
-      classes: "govuk-button--secondary",
-      href: "/concerns/homepage.html"
-    }) }}
-  
-    {{ govukButton({
-      text: "Close case",
-      classes: "govuk-button--warning",
-      href: "/concerns/closure/"
-    }) }}
-  </div>
+  {{ govukButton({
+    text: "Back to casework",
+    classes: "govuk-button--secondary",
+    href: "/concerns/homepage.html"
+  }) }}
+
+  {{ govukButton({
+    text: "Close case",
+    classes: "govuk-button--warning float__right",
+    href: "/concerns/closure/"
+  }) }}
 
   <h1 class="govuk-heading-l">CI 1004634</h1>
   <h2 class="govuk-heading-m govuk-!-margin-bottom-9"> {{ outgoingTrust.trust_name }} </h2>
   <section>
-<!-- Tabs -->
+    <!-- Tabs -->
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">Trust</h2>
       <ul class="govuk-tabs__list">
@@ -31,13 +29,15 @@
           <a class="govuk-tabs__tab" href="#overview">Trust overview</a>
         </li>
       </ul>
-<!--Case details tab-->
+      <!--Case details tab-->
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
         <!--Overview-->
         <dl class="govuk-summary-list summary-list-margin-0">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Primary concern</dt>
-              <dd class="govuk-summary-list__value">Finance: Deficit <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></dd>
+              <dd class="govuk-summary-list__value">
+                <span class="caseDetail_type">Finance: Deficit</span><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+              </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="#">Change <span class="govuk-visually-hidden">primary concern</span></a>
               </dd>
@@ -51,6 +51,7 @@
               </dd>
             </div>
         </dl>
+
         <!--Accordions-->
         <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
           
@@ -152,127 +153,99 @@
 
         </div>
 
-<!-- Timeline -->
-      <div class="govuk-!-margin-top-9">
+        <!-- Case history -->
+        <div class="govuk-!-margin-top-9">
+          <h3 class="govuk-heading-m">
+            Case history
+          </h3>
 
-        <h3 class="govuk-heading-m">
-          Case history
-        </h3>
-
-        <div class="fitContent govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-          <div class="govuk-accordion__section">
-            <div id="action_header" class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="action_button">
-                  Actions
-                </span>
-              </h2>
-            </div>
-            <div id="action_content" class="govuk-accordion__section-content" aria-labelledby="action_button">
-              <ul class="govuk-list timeline-action-list">
-                <li>
-                  <a class="timeline_action" href="#">Comment</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="add-concern">Concern</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Financial</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">FNTI</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Forced termination of FA</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Investigation</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Letter</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Linked case(s)</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Outcome</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">PRA Support</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Recovery plan</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">SRMA</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">TFF</a>
-                </li>
-                <li>
-                  <a class="timeline_action" href="#">Whistleblower</a>
-                </li>
-                
-              </ul>
+          <!-- Actions -->
+          <div class="fitContent govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section">
+              <div id="action_header" class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="action_button">
+                    Actions
+                  </span>
+                </h2>
+              </div>
+              <div id="action_content" class="govuk-accordion__section-content" aria-labelledby="action_button">
+                <ul class="govuk-list timeline-action-list">
+                  <li>
+                    <button class="timeline_action" href="#">Comment</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="add-concern">Concern</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Financial</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">FNTI</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Forced termination of FA</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Investigation</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Letter</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Linked case(s)</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Outcome</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">PRA Support</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Recovery plan</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">SRMA</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">TFF</button>
+                  </li>
+                  <li>
+                    <button class="timeline_action" href="#">Whistleblower</button>
+                  </li>
+                  
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!--<div>
-          
-          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            + Add
-          </button>
+          <!-- Timeline -->
+          <div class="moj-timeline">
 
-          <div>
-            <ul class="govuk-list">
-              <li>
-                <button class="timeline_action" href="#">Note</button>
-              </li>
-              <li>
-                <button class="timeline_action" href="#">Concern</button>
-              </li>
-              <li>
-                <button class="timeline_action" href="#">Linked case(s)</button>
-              </li>
-              <li>
-                <button class="timeline_action" href="#">Whistleblower</button>
-              </li>
-              <li>
-                <button class="timeline_action" href="#">Outcome</button>
-              </li>
-            </ul>
-          </div>
-
-        </div>-->
-
-        <div class="moj-timeline">
-
-          <div class="moj-timeline__item">
-
-            <div class="moj-timeline__header">
-              <h2 class="moj-timeline__title">Case created</h2>
-
-              <p class="moj-timeline__byline">by Alex Episeen</p>
-
+            <div class="moj-timeline__item">
+              <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Case created</h2>
+                <p class="moj-timeline__byline">by Alex Episeen</p>
+              </div>
+              <p class="moj-timeline__date">
+                <time>19 July 2021 at 2:01pm</time>
+              </p>
+              <div class="moj-timeline__description">
+                <p><span class="caseDetail_type">Finance: Deficit</span><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></p>
+              </div>
             </div>
-
-            <p class="moj-timeline__date">
-              <time datetime="2021-07-07T14:01:00.000Z">07 July 2021 at 2:01pm</time>
-            </p>
 
           </div>
 
         </div>
-
-      </div>
       
-    </div>
+      </div>
 
-<!-- Trust overviews tab -->
+      <!-- Trust overviews tab -->
       <div class="govuk-tabs__panel" id="overview">
+
         <!--Trust deets-->
-        <table class="govuk-table">
+        <table class="govuk-table govuk-!-margin-bottom-9">
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td class="govuk-table__header">UKPRN</td>
@@ -319,10 +292,13 @@
         </table>
 
         <!--Open cases-->
-        <table class="govuk-table  govuk-!-margin-top-9">
+        <a href="/concerns/new-case.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19" style="float:right; margin-bottom:-45px;">Closed cases</a>
+
+        <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">
             Open cases
           </caption>
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row tr__large">
               <th class="govuk-table__header govuk-table__header__cases"
@@ -331,24 +307,24 @@
                   scope="col">Primary case type</th>
               <th class="govuk-table__header govuk-table__header__cases"
                   scope="col">RAG rating</th>
-              <th class="govuk-table__header govuk-table__header__cases govuk-table__header__right"
-                  scope="col">Days open</th>
+              <th class="govuk-table__header govuk-table__header__cases"
+                  scope="col">Created</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
-              <td class="govuk-table__cell govuk-table__cell__cases">Financial: Projected deficit</td>
-              <td class="govuk-table__cell govuk-table__cell__cases">
-                <span class="govuk-tag ragtag ragtag__redamber">Red | Amber</span></td>
-              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell--numeric">9</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><a href="#">CI-1004634</a></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
+                <td class="govuk-table__cell govuk-table__cell_middle">09-07-2021</td>
             </tr>
             <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1003845</a></td>
-              <td class="govuk-table__cell govuk-table__cell__cases">Safeguarding</td>
-              <td class="govuk-table__cell govuk-table__cell__cases">
-                <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">13</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><a href="#">CI-1003845</a></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
+                <td class="govuk-table__cell govuk-table__cell_middle">18-06-2021</td>
             </tr>
           </tbody>
         </table>
