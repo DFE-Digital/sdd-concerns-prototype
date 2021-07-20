@@ -14,43 +14,109 @@
 
 {% block content %}
 
-<h2 class="govuk-hint"> CI 1004634 </h2>
-
-<h1 class="govuk-heading-l govuk-!-margin-bottom-9"> Case closure for {{ outgoingTrust.trust_name }} </h1>
+<h1 class="govuk-heading-l"> Close case CI 1004634  </h1>
+<h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
 
 <section>
 
-<div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
-  <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="with-hint">
-        Can you provide a rationale?
-      </label>
-    </h1>
-    <div id="with-hint-hint" class="govuk-hint">
-      Explain why is this case or concern is closing and select the appropriate button below.
+  <form action="/concerns/homepage" method="post">
+  
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+            Case outcomes
+          </legend>
+        </h1>
+        <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="caseOutcomes" name="caseOutcomes" rows="3" aria-describedby="case outcomes"></textarea>
+      </div>
+      <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+        You can enter up to 200 characters
+      </div>
     </div>
-    <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-  </div>
+  
+    <div class="govuk-form-group govuk-!-margin-top-9">
+      <fieldset class="govuk-fieldset">
 
-  <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-    You can enter up to 200 characters
-  </div>
+        <legend class="govuk-heading-m govuk-heading-m govuk-!-font-weight-bold">
+          Do you need to monitor this case?
+        </legend>
 
-</div>
+        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" data-aria-controls="close-for-monitoring-yes" id="monitoring-yes" name="monitoring" type="radio" value="Yes">
+            <label class="govuk-label govuk-radios__label" for="monitoring-yes">
+              Yes
+            </label>
+          </div>
 
-        <div class="moj-button">
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="close-for-monitoring-yes">
+              <div class="govuk-form-group">
+                <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                  Date for follow up
+                </legend>
+                <div class="govuk-date-input" id="dateCreated">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dateCreatedDay">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateCreatedDay" name="dateCreatedDay" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dateCreatedMonth">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateCreatedMonth" name="dateCreatedMonth" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dateCreatedYear">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateCreatedYear" name="dateCreatedYear" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-             <a href="#" role="button" draggable="false" class="govuk-button govuk-button--secondary govuk-!-margin-right-3" data-module="govuk-button">
-              Close for monitoring
-            </a>
-
-            <a href="#" role="button" draggable="false" class="govuk-button govuk-button--warning" data-module="govuk-button">
-              Close case
-            </a>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" data-aria-controls="close-for-monitoring-no" id="monitoring-no" name="monitoring" type="radio" value="No">
+            <label class="govuk-label govuk-radios__label" for="monitoring-no">
+              No
+            </label>
+          </div>
 
         </div>
 
+      </fieldset>
+    </div>
 
+    <!--Close case-->
+    <button data-prevent-double-click="true" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+      Close case
+    </button>
+  
+  </form>
+
+<!--Auto resize textareas-->
+  <script>
+    var multipleFields=document.querySelectorAll('.auto-resize');
+    for(var i=0; i<multipleFields.length; i++){
+    multipleFields[i].addEventListener('input',autoResizeHeight,0);
+    }
+    // auto resize multiple textarea
+    function autoResizeHeight(){
+      this.style.height="auto";
+      this.style.height= this.scrollHeight+"px";
+      this.style.borderColor="green";
+    }
+  </script>
 
 </section>
 
