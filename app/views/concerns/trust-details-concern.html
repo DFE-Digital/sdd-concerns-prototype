@@ -56,6 +56,44 @@
         <!-- FORM -->
         <form action="/concerns/management/" class="form" method="post">
 
+           <!-- Q Whistleblower-->
+           <div class="govuk-form-group govuk-!-margin-top-9">
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-heading-m govuk-heading-m govuk-!-font-weight-bold">
+                Was this raised by a whistleblower?
+              </legend>
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="whistleblowerWut-yes" id="whistleblower-yes" name="whistleblowerWut" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="whistleblower-yes">
+                    Yes
+                  </label>
+                </div>
+
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="whistleblowerWut-yes">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="whistleblower-detail">
+                        Details
+                      </label>
+                      <textarea class="govuk-textarea" id="whistleblower-detail" name="whistleblower-detail" rows="6"></textarea>
+                    </div>
+                  </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="whistleblowerWut-no" id="whistleblower-no" name="whistleblowerWut" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="whistleblower-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+            </fieldset>
+          </div>
+
           <!--Q Concern type-->
           <div class="govuk-form-group govuk-!-margin-top-9">
             <fieldset class="govuk-fieldset">
