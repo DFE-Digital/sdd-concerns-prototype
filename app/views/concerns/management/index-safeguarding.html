@@ -1,91 +1,83 @@
-
-  {% extends "layout.html" %}
-  {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
-  {% block content %}
-
-  {{ govukButton({
-    text: "Back to casework",
-    classes: "govuk-button--secondary",
-    href: "/concerns/homepage.html"
-  }) }}
-
-  {{ govukButton({
-    text: "Close case",
-    classes: "govuk-button--warning float__right",
-    href: "/concerns/closure/"
-  }) }}
-
-  <h1 class="govuk-heading-l">CI 1004634</h1>
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-9"> {{ outgoingTrust.trust_name }} </h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  {% extends "layout.html" %} {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %} {% block content %} {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary", href: "/concerns/homepage.html" }) }}
+  {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
+  <h1 class="govuk-heading-l"
+      name="caseID">10483AC</h1>
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-9">{{ outgoingTrust.trust_name }}</h2>
   <section>
-    
     <!-- Tabs -->
-    <div class="govuk-tabs" data-module="govuk-tabs">
+    <div class="govuk-tabs"
+         data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">Trust</h2>
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#concerns">Case details</a>
+          <a class="govuk-tabs__tab"
+              href="#concerns">Case details</a>
         </li>
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#overview">Trust overview</a>
+          <a class="govuk-tabs__tab"
+              href="#overview">Trust overview</a>
         </li>
-      </ul>
-
-      <!--Case details tab-->
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
-
+      </ul><!--Case details tab-->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden"
+           id="concerns">
         <!--Overview-->
         <dl class="govuk-summary-list summary-list-margin-0">
+          <dd>
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Case type</dt>
-              <dd class="govuk-summary-list__value">
-                <span class="caseDetail_type">Safeguarding Incident</span><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Change <span class="govuk-visually-hidden">primary concern</span></a>
-              </dd>
+              <dl>
+                <dt class="govuk-summary-list__key">Case type</dt>
+                <dd class="govuk-summary-list__value"><span class="caseDetail_type">Safeguarding Incident</span><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link"
+                      href="#">Change <span class="govuk-visually-hidden">primary concern</span></a>
+                </dd>
+              </dl>
             </div>
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Direction of travel</dt>
-              <dd class="govuk-summary-list__value">Deteriorating</dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="#">Change <span class="govuk-visually-hidden">direction of travel</span>
-                </a>
-              </dd>
+              <dl>
+                <dt class="govuk-summary-list__key">Direction of travel</dt>
+                <dd class="govuk-summary-list__value">Deteriorating</dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link"
+                      href="#">Change <span class="govuk-visually-hidden">direction of travel</span></a>
+                </dd>
+              </dl>
             </div>
-        </dl>
-
-        <!--Accordions-->
-        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-          
+          </dd>
+        </dl><!--Accordions-->
+        <div class="govuk-accordion"
+             data-module="govuk-accordion"
+             id="accordion-default">
           <div class="govuk-accordion__section">
-
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
                     id="accordion-default-heading-1">Issue</span></h2>
             </div>
-
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-1">
-              <a href="#" class="govuk-link float__right">Edit</a>
+            <div aria-labelledby="accordion-default-heading-1"
+                 class="govuk-accordion__section-content govuk-!-margin-bottom-6"
+                 id="accordion-default-content-1">
+              <a class="govuk-link float__right"
+                   href="#">Edit</a>
               <p>{{ data['issue-detail'] }}</p>
             </div>
-
           </div>
-
           <div class="govuk-accordion__section">
-
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                  Current status
-                </span>
-              </h2>
+              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
+                    id="accordion-default-heading-1">Current status</span></h2>
             </div>
-
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-2">
-              <a href="#" class="govuk-link float__right">Edit</a>
-              <p>{{ data['current-status-detail'] }}</p>
-              <!--Character count component
+            <div aria-labelledby="accordion-default-heading-1"
+                 class="govuk-accordion__section-content govuk-!-margin-bottom-6"
+                 id="accordion-default-content-2">
+              <a class="govuk-link float__right"
+                   href="#">Edit</a>
+              <p>{{ data['current-status-detail'] }}</p><!--Character count component
               <div class="govuk-character-count" data-maxlength="1000" data-module="govuk-character-count">
                 <div class="govuk-form-group">
                   <textarea aria-describedby="with-hint-info with-hint-hint" class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="12">Current status of the case.</textarea>
@@ -97,25 +89,18 @@
                 </div>
               </div>-->
             </div>
-
           </div>
-
           <div class="govuk-accordion__section">
-
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
-                  Next steps
-                </span>
-              </h2>
+              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
+                    id="accordion-default-heading-3">Next steps</span></h2>
             </div>
-
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
-
-              <a href="#" class="govuk-link float__right">Edit</a>
-              <p>{{ data['next-steps-detail'] }}</p>
-
-              <!--{{ govukTextarea({
+            <div aria-labelledby="accordion-default-heading-3"
+                 class="govuk-accordion__section-content govuk-!-margin-bottom-6"
+                 id="accordion-default-content-3">
+              <a class="govuk-link float__right"
+                   href="#">Edit</a>
+              <p>{{ data['next-steps-detail'] }}</p><!--{{ govukTextarea({
                 id: 'body',
                 name: 'body',
                 attributes: {
@@ -123,26 +108,19 @@
                   'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
                 }
               }) }}-->
-
             </div>
           </div>
-
           <div class="govuk-accordion__section">
-
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
-                  Resolution strategy
-                </span>
-              </h2>
+              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
+                    id="accordion-default-heading-3">Resolution strategy</span></h2>
             </div>
-
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
-
-              <a href="#" class="govuk-link float__right">Edit</a>
-              <p>{{ data['resolution-strategy-detail'] }}</p>
-
-              <!--{{ govukTextarea({
+            <div aria-labelledby="accordion-default-heading-3"
+                 class="govuk-accordion__section-content govuk-!-margin-bottom-6"
+                 id="accordion-default-content-3">
+              <a class="govuk-link float__right"
+                   href="#">Edit</a>
+              <p>{{ data['resolution-strategy-detail'] }}</p><!--{{ govukTextarea({
                 id: 'body',
                 name: 'body',
                 attributes: {
@@ -150,103 +128,72 @@
                   'data-moj-rich-text-editor-toolbar': 'bullets,numbers'
                 }
               }) }}-->
-
             </div>
           </div>
-
-        </div>
-
-        <!-- Case history -->
+        </div><!-- Case history -->
         <div class="govuk-!-margin-top-9">
-          <h3 class="govuk-heading-m">
-            Case history
-          </h3>
-
-          <!-- Actions -->
-          <div class="fitContent govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <h3 class="govuk-heading-m">Case history</h3><!-- Actions -->
+          <div class="fitContent govuk-accordion"
+               data-module="govuk-accordion"
+               id="accordion-default">
             <div class="govuk-accordion__section">
-              <div id="action_header" class="govuk-accordion__section-header">
-                <h2 class="govuk-accordion__section-heading">
-                  <span class="govuk-accordion__section-button" id="action_button">
-                    Actions
-                  </span>
-                </h2>
+              <div class="govuk-accordion__section-header"
+                   id="action_header">
+                <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
+                      id="action_button">Actions</span></h2>
               </div>
-              <div id="action_content" class="govuk-accordion__section-content" aria-labelledby="action_button">
+              <div aria-labelledby="action_button"
+                   class="govuk-accordion__section-content"
+                   id="action_content">
                 <ul class="govuk-list timeline-action-list">
-                  <li>
-                    <button class="timeline_action" href="#">Comment</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="add-concern">Concern</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Financial</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">FNTI</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Forced termination of FA</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Investigation</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Letter</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Linked case(s)</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Outcome</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">PRA Support</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Recovery plan</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">SRMA</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">TFF</button>
-                  </li>
-                  <li>
-                    <button class="timeline_action" href="#">Whistleblower</button>
-                  </li>
-                  
+                  <li><button class="timeline_action"
+                          href="#">Comment</button></li>
+                  <li><button class="timeline_action"
+                          href="add-concern">Concern</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Financial</button></li>
+                  <li><button class="timeline_action"
+                          href="#">FNTI</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Forced termination of FA</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Investigation</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Letter</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Linked case(s)</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Outcome</button></li>
+                  <li><button class="timeline_action"
+                          href="#">PRA Support</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Recovery plan</button></li>
+                  <li><button class="timeline_action"
+                          href="#">SRMA</button></li>
+                  <li><button class="timeline_action"
+                          href="#">TFF</button></li>
+                  <li><button class="timeline_action"
+                          href="#">Whistleblower</button></li>
                 </ul>
               </div>
             </div>
-          </div>
-
-          <!-- Timeline -->
+          </div><!-- Timeline -->
           <div class="moj-timeline">
-
             <div class="moj-timeline__item">
               <div class="moj-timeline__header">
                 <h2 class="moj-timeline__title">Case created</h2>
                 <p class="moj-timeline__byline">by Alex Episeen</p>
               </div>
-              <p class="moj-timeline__date">
-                <time>19 July 2021 at 2:01pm</time>
-              </p>
+              <p class="moj-timeline__date"><time>19 July 2021 at 2:01pm</time></p>
               <div class="moj-timeline__description">
                 <p><span class="caseDetail_type">Safeguarding Incident</span><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></p>
               </div>
             </div>
-
           </div>
-
         </div>
-      
-      </div>
-
-      <!-- Trust overviews tab -->
-      <div class="govuk-tabs__panel" id="overview">
-
+      </div><!-- Trust overviews tab -->
+      <div class="govuk-tabs__panel"
+           id="overview">
         <!--Trust deets-->
         <table class="govuk-table govuk-!-margin-bottom-9">
           <tbody class="govuk-table__body">
@@ -292,16 +239,14 @@
               <td></td>
             </tr>
           </tbody>
-        </table>
-
-        <!--Open cases-->
-        <a href="/concerns/new-case.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19" style="float:right; margin-bottom:-45px;">Closed cases</a>
-
+        </table><!--Open cases-->
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19"
+             href="/concerns/new-case.html"
+             style="float:right; margin-bottom:-45px;">Closed cases</a>
         <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">
             Open cases
           </caption>
-
           <thead class="govuk-table__head">
             <tr class="govuk-table__row tr__large">
               <th class="govuk-table__header govuk-table__header__cases"
@@ -316,24 +261,24 @@
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell_middle"><a href="#">CI-1004634</a></td>
-              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
               <td class="govuk-table__cell govuk-table__cell_middle">
-                <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
-                <td class="govuk-table__cell govuk-table__cell_middle">09-07-2021</td>
+                <a href="#">CI-1004634</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">09-07-2021</td>
             </tr>
             <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell_middle"><a href="#">CI-1003845</a></td>
-              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
               <td class="govuk-table__cell govuk-table__cell_middle">
-                <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
-                <td class="govuk-table__cell govuk-table__cell_middle">18-06-2021</td>
+                <a href="#">CI-1003845</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">18-06-2021</td>
             </tr>
           </tbody>
-        </table>
-
-    <!--<table class="govuk-table  govuk-!-margin-top-9">
-          <caption class="govuk-table__caption govuk-table__caption--m">
+        </table><!--<table class="govuk-table  govuk-!-margin-top-9">
+          <caption class="govuk-table__caption govuk-table__caption==m">
             RDD cases
           </caption>
           <thead class="govuk-table__head">
@@ -356,25 +301,23 @@
               <td class="govuk-table__cell govuk-table__cell__cases">Transfer In</td>
               <td class="govuk-table__cell govuk-table__cell__cases">Finkle-McGraw Secondary</td>
               <td class="govuk-table__cell govuk-table__cell__cases">John Hackworth</td>
-              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell--numeric">18</td>
+              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell==numeric">18</td>
             </tr>
             <tr class="govuk-table__row tr__large">
               <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1007446</a></td>
               <td class="govuk-table__cell govuk-table__cell__cases">Change: Pupil numbers</td>
               <td class="govuk-table__cell govuk-table__cell__cases">Settlebeck School</td>
               <td class="govuk-table__cell govuk-table__cell__cases">John Hackworth</td>
-              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell--numeric">23</td>
+              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell==numeric">23</td>
             </tr>
           </tbody>
         </table>-->
-
         <!--Academies-->
-        <table class="govuk-table govuk-!-margin-top-9" id="academies">
-
+        <table class="govuk-table govuk-!-margin-top-9"
+               id="academies">
           <caption class="govuk-table__caption govuk-table__caption--m">
             Academies
           </caption>
-
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th class="govuk-table__header"
@@ -389,74 +332,81 @@
                   scope="col">Head</th>
             </tr>
           </thead>
-
           <tbody class="govuk-table__body">
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"> <a class="govuk-link" href="#">Botley School</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Botley School</a>
+              </td>
               <td class="govuk-table__cell">147759</td>
               <td class="govuk-table__cell">Primary, Academy sponsor led</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Mrs Josephine Reid</td>
             </tr>
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"> <a class="govuk-link" href="#">Chalgrove Community Primary School</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Chalgrove Community Primary School</a>
+              </td>
               <td class="govuk-table__cell">143969</td>
               <td class="govuk-table__cell">Primary, Academy converter</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Ms Samantha Gillion</td>
             </tr>
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"> <a class="govuk-link" href="#">Icknield Community College</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Icknield Community College</a>
+              </td>
               <td class="govuk-table__cell">143984</td>
               <td class="govuk-table__cell">Secondary, Academy converter</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Mr Mat Hunter</td>
             </tr>
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"> <a class="govuk-link" href="#">Matthew Arnold School</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Matthew Arnold School</a>
+              </td>
               <td class="govuk-table__cell">142104</td>
               <td class="govuk-table__cell">Secondary, Academy sponsor led</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Katherine Ryan</td>
             </tr>
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Stadhampton Primary School</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Stadhampton Primary School</a>
+              </td>
               <td class="govuk-table__cell">146481</td>
               <td class="govuk-table__cell">Primary, Academy converter</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Miss Emma Charnock</td>
             </tr>
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Watlington Primary School</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Watlington Primary School</a>
+              </td>
               <td class="govuk-table__cell">147281</td>
               <td class="govuk-table__cell">Primary, Academy converter</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Mrs Yvonne Hammerton-Jackson</td>
             </tr>
-
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Wood Green School</a> </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link"
+                    href="#">Wood Green School</a>
+              </td>
               <td class="govuk-table__cell">144008</td>
               <td class="govuk-table__cell">Secondary, Academy converter</td>
               <td class="govuk-table__cell">Oxfordshire</td>
               <td class="govuk-table__cell">Mr Robert Shadbolt</td>
             </tr>
-
           </tbody>
-          
         </table>
-
-
       </div>
-
     </div>
-  </section>
-  {% endblock %}
+  </section>{% endblock %}
 </body>
 </html>
