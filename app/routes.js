@@ -7,7 +7,7 @@ router.get('/concerns/outgoing-trust-search', (req, res) => {
   if (req.query['outgoing-trust-id']) {
     req.session.data['outgoing-trust-id'] = req.query['outgoing-trust-id']
     req.session.data['autocompleted-outgoing-trust-id'] = true
-    res.redirect('/concerns/trust-details-one')
+    res.redirect('/concerns/trust-details')
   } else {
     res.render('concerns/outgoing-trust-search')
   }
@@ -27,7 +27,7 @@ router.get('/concerns/incoming-trust-search', (req, res) => {
 // Case Setup Routes //
 
 // match the page here to form action //
-router.post('/trust-details-one', function (req, res) {
+router.post('/trust-details', function (req, res) {
 
   // Make a variable and give it the value of your radio group's 'name'
   var projectStatus = req.session.data['case-type']
