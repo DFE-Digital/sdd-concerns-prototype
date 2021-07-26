@@ -313,7 +313,9 @@ span.summary-validation-symbol {
 .caseDetail_type {
   margin-right: 10px;
 }
+
 /// Auto resize textareas ///
+
 .auto-resize {
   overflow: hidden;
   resize: none;
@@ -321,7 +323,24 @@ span.summary-validation-symbol {
   line-height: 1.45;
 }
 
+/// widths ///
+
+.dfe-width-15percent {
+  width: 15%;
+}
+.dfe-width-20percent {
+  width: 20%;
+}
+
 /// ///
+
+.wrapper_padding-top-20 {
+  padding-top: 20px;
+}
+
+.dfe_secondary {
+  background-color: #D2E2F1;
+}
 
 .float{
   &__right {
