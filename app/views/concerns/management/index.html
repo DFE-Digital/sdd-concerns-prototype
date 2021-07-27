@@ -273,7 +273,44 @@
               </div>
               <p class="moj-timeline__date"><time>19 July 2021 at 2:01pm</time></p>
               <div class="moj-timeline__description">
-                <p><span class="caseDetail_type">Finance: Deficit</span><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></p>
+                <p><span class="caseDetail_type">
+                  {% if data['concernSubType'] == 'compliance-financial-reporting' %}
+              <span class="caseDetail_type">Compliance: Financial reporting</span>
+              {% elif data['concernSubType'] == 'compliance-financial-returns' %}
+              <span class="caseDetail_type">Compliance: Financial returns</span>
+              {% elif data['concernSubType'] == 'financial-deficit' %}
+              <span class="caseDetail_type">Financial: Deficit</span>
+              {% elif data['concernSubType'] == 'financial-projected-deficit' %}
+              <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+              {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
+              <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+              {% elif data['concernSubType'] == 'financial-clawback' %}
+              <span class="caseDetail_type">Financial: Clawback</span>
+              {% elif data['concernType'] == 'force-majeure' %}
+              <span class= "caseDetail_type">Force Majeure</span>
+              {% elif data['concernSubType'] == 'governance-governance' %}
+              <span class="caseDetail_type">Governance: Governance</span>
+              {% elif data['concernSubType'] == 'governance-closure' %}
+              <span class= "caseDetail_type">Governance: Closure</span>
+              {% elif data['concernSubType'] == 'governance-executive-pay' %}
+              <span class="caseDetail_type">Governance: Executive Pay</span>
+              {% elif data['concernSubType'] == 'governance-safeguarding' %}
+              <span class="caseDetail_type">Governance: Safeguarding</span>
+              {% elif data['concernSubType'] == 'irregularity-allegations' %}
+              <span class="caseDetail_type">Iregularity: Allegations</span>
+              {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
+              <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+              {% endif %}
+              {% if data['riskType'] == 'amberGreen' %}
+              <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+              {% elif data['riskType'] == 'redAmber' %}
+              <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+              {% elif data['riskType'] == 'red' %}
+              <span class="govuk-tag ragtag ragtag__red">Red</span>
+              {% elif data['riskType'] == 'redPlus' %}
+              <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+              {% endif %}
+                </p>
               </div>
             </div>
           </div>
