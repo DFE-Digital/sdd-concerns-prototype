@@ -8,11 +8,16 @@
   {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
   {% block content %}
   
-  {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary dfe_secondary", href:
-  "/concerns/homepage.html" }) }}
-  {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
+  <div class="buttons-topOfPage">
+    {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary dfe_secondary", href:
+    "/concerns/homepage.html" }) }}
+    {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
+  </div>  
 
-  <h1 class="govuk-heading-l" name="caseID">10483AC</h1>
+  <h1 class="govuk-heading-l" name="caseID">
+    <span class="govuk-caption-m">Case ID</span>
+    10483AC
+  </h1>
   <h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
   
     <!-- Tabs -->

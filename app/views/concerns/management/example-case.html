@@ -8,12 +8,20 @@
   {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
   {% block content %}
   
-  {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary dfe_secondary", href:
-  "/concerns/homepage.html" }) }}
-  {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
+    <div class="buttons-topOfPage">
+      {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary dfe_secondary", href:
+        "/concerns/homepage.html" }) }}
+        {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/example-case-close" }) }}
+    </div>
 
-  <h1 class="govuk-heading-l" name="caseID">10244AC</h1>
-  <h2 class="govuk-heading-m">Wintermute Academy Trust</h2>
+    <h1 class="govuk-heading-l" name="caseID">
+        <span class="govuk-caption-m">Case ID</span>
+        10244AC
+    </h1>
+    
+    <h2 class="govuk-heading-m">
+        Wintermute Academy Trust
+    </h2>
   
     <!-- Tabs -->
     <div class="govuk-tabs" data-module="govuk-tabs">
@@ -36,7 +44,7 @@
               Primary Concern
             </dt>
             <dd class="govuk-summary-list__value">
-                <span class="caseDetail_type">Financial: Deficit</span><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+                <span class="caseDetail_type">Financial: Deficit</span><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
             </dd>
             <dd class="dfe-width-15percent govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -226,16 +234,108 @@
             </div>
           </div><!-- Timeline -->
           <div class="moj-timeline">
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Direction of travel</h2>
+                </div>
+                <p class="moj-timeline__date"><time>7 July 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p>Changed to Improving</p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Concern rating</h2>
+                </div>
+                <p class="moj-timeline__date"><time>7 July 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p>Changed to <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Next steps update</h2>
+                </div>
+                <p class="moj-timeline__date"><time>29 June 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p></p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Current status update</h2>
+                </div>
+                <p class="moj-timeline__date"><time>29 June 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p></p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">SRMA report received</h2>
+                </div>
+                <p class="moj-timeline__date"><time>25 June 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p><a href="#" class="govuk-link govuk-link--no-visited-state">srma-report_wat-943226.doc</a></p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Note</h2>
+                </div>
+                <p class="moj-timeline__date"><time>9 June 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p>Jenny Rivers met with the trust Chair and CFO.</p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Current status update</h2>
+                </div>
+                <p class="moj-timeline__date"><time>1 June 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p></p>
+                </div>
+            </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">SRMA requested</h2>
+                </div>
+                <p class="moj-timeline__date"><time>28 May 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p>Advisor Jenny Rivers has booked a visit for Wednesday 9th June.</p>
+                </div>
+            </div>
+
             <div class="moj-timeline__item">
               <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Case created</h2>
-                <p class="moj-timeline__byline">by Alex Episeen</p>
+                <h2 class="moj-timeline__title">Financial statement</h2>
               </div>
-              <p class="moj-timeline__date"><time>19 July 2021 at 2:01pm</time></p>
+              <p class="moj-timeline__date"><time>07 May 2021</time></p>
               <div class="moj-timeline__description">
-                <p><span class="caseDetail_type">Finance: Deficit</span><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></p>
+                <p><a href="#" class="govuk-link govuk-link--no-visited-state">wat_853518FS.doc</a></p>
               </div>
             </div>
+
+            <div class="moj-timeline__item">
+                <div class="moj-timeline__header">
+                  <h2 class="moj-timeline__title">Case opened</h2>
+                  <p class="moj-timeline__byline">by Alex Episeen</p>
+                </div>
+                <p class="moj-timeline__date"><time>30 April 2021</time></p>
+                <div class="moj-timeline__description">
+                  <p><span class="caseDetail_type">Concern - Finance: Deficit</span><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></p>
+                </div>
+              </div>
+
           </div>
         </div>
       </div>
