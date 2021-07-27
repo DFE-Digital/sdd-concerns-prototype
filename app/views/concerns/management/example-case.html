@@ -12,8 +12,8 @@
   "/concerns/homepage.html" }) }}
   {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
 
-  <h1 class="govuk-heading-l" name="caseID">10483AC</h1>
-  <h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
+  <h1 class="govuk-heading-l" name="caseID">10244AC</h1>
+  <h2 class="govuk-heading-m">Wintermute Academy Trust</h2>
   
     <!-- Tabs -->
     <div class="govuk-tabs" data-module="govuk-tabs">
@@ -36,42 +36,7 @@
               Primary Concern
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['concernSubType'] == 'compliance-financial-reporting' %}
-              <span class="caseDetail_type">Compliance: Financial reporting</span>
-              {% elif data['concernSubType'] == 'compliance-financial-returns' %}
-              <span class="caseDetail_type">Compliance: Financial returns</span>
-              {% elif data['concernSubType'] == 'financial-deficit' %}
-              <span class="caseDetail_type">Financial: Deficit</span>
-              {% elif data['concernSubType'] == 'financial-projected-deficit' %}
-              <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-              {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
-              <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-              {% elif data['concernSubType'] == 'financial-clawback' %}
-              <span class="caseDetail_type">Financial: Clawback</span>
-              {% elif data['concernType'] == 'force-majeure' %}
-              <span class= "caseDetail_type">Force Majeure</span>
-              {% elif data['concernSubType'] == 'governance-governance' %}
-              <span class="caseDetail_type">Governance: Governance</span>
-              {% elif data['concernSubType'] == 'governance-closure' %}
-              <span class= "caseDetail_type">Governance: Closure</span>
-              {% elif data['concernSubType'] == 'governance-executive-pay' %}
-              <span class="caseDetail_type">Governance: Executive Pay</span>
-              {% elif data['concernSubType'] == 'governance-safeguarding' %}
-              <span class="caseDetail_type">Governance: Safeguarding</span>
-              {% elif data['concernSubType'] == 'irregularity-allegations' %}
-              <span class="caseDetail_type">Iregularity: Allegations</span>
-              {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
-              <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
-              {% endif %}
-              {% if data['riskType'] == 'amberGreen' %}
-              <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
-              {% elif data['riskType'] == 'redAmber' %}
-              <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
-              {% elif data['riskType'] == 'red' %}
-              <span class="govuk-tag ragtag ragtag__red">Red</span>
-              {% elif data['riskType'] == 'redPlus' %}
-              <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
-              {% endif %}
+                <span class="caseDetail_type">Financial: Deficit</span><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
             </dd>
             <dd class="dfe-width-15percent govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -84,7 +49,7 @@
               Direction of travel
             </dt>
             <dd class="govuk-summary-list__value">
-              Deteriorating
+              Improving
             </dd>
             <dd class="dfe-width-15percent govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -110,7 +75,7 @@
 
               <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
                 <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['issue-detail'] }}</textarea>
+                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">Confirmed cumulative deficit of less than 5% of years total income in most recent audited accounts.</textarea>
                 </div>
               
                 <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
@@ -136,7 +101,7 @@
 
               <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
                 <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['current-status-detail'] }}</textarea>
+                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">An agreed trust financial recovery plan is now in place and has been adhered to for the last 3 months. The trust is on track to meet their predicted surplus carried forward position by the end of the year after making significant restructuring changes, implementing SRMA report savings and using financial benchmarking.</textarea>
                 </div>
               
                 <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
@@ -160,7 +125,7 @@
 
               <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
                 <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['next-steps-detail'] }}</textarea>
+                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">Take action to close based on the Risk Management Framework and action taken by the trust. Trust is no longer a concern and has a robust recovery plan in place.</textarea>
                 </div>
               
                 <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
@@ -183,7 +148,7 @@
 
               <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
                 <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['resolution-strategy-detail'] }}</textarea>
+                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">Work along side the trust to improve finances using SRMA action and ESFA available tools.</textarea>
                 </div>
               
                 <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
