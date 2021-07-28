@@ -264,8 +264,63 @@
                 </ul>
               </div>
             </div>
-          </div><!-- Timeline -->
+          </div>
+          
+          <!-- Timeline -->
           <div class="moj-timeline">
+
+            {% if data['whistleblowerWut'] == 'yes' %}
+            <div class="moj-timeline__item">
+              <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Whistleblower</h2>
+              </div>
+              <p class="moj-timeline__date"><time>28 July 2021</time></p>
+              <div class="moj-timeline__description">
+                <p>{{ data['whistleblower-detail'] }}</p>
+              </div>
+            </div>
+            {% endif %}
+
+            <div class="moj-timeline__item">
+              <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Resolution strategy updated</h2>
+              </div>
+              <p class="moj-timeline__date"><time>28 July 2021</time></p>
+              <div class="moj-timeline__description">
+                <p>{{ data['resolution-strategy-detail'] }}</p>
+              </div>
+            </div>
+
+            <div class="moj-timeline__item">
+              <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Next steps updated</h2>
+              </div>
+              <p class="moj-timeline__date"><time>28 July 2021</time></p>
+              <div class="moj-timeline__description">
+                <p>{{ data['next-steps-detail'] }}</p>
+              </div>
+            </div>
+
+            <div class="moj-timeline__item">
+              <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Current status updated</h2>
+              </div>
+              <p class="moj-timeline__date"><time>28 July 2021</time></p>
+              <div class="moj-timeline__description">
+                <p>{{ data['current-status-detail'] }}</p>
+              </div>
+            </div>
+
+            <div class="moj-timeline__item">
+              <div class="moj-timeline__header">
+                <h2 class="moj-timeline__title">Issue updated</h2>
+              </div>
+              <p class="moj-timeline__date"><time>28 July 2021</time></p>
+              <div class="moj-timeline__description">
+                <p>{{ data['issue-detail'] }}</p>
+              </div>
+            </div>
+
             <div class="moj-timeline__item">
               <div class="moj-timeline__header">
                 <h2 class="moj-timeline__title">Case created</h2>
@@ -315,6 +370,7 @@
             </div>
           </div>
         </div>
+        
       </div>
       
       <!-- Trust overviews tab -->
