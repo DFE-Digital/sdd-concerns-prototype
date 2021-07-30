@@ -252,7 +252,7 @@
                   <li><button class="timeline_action"
                           href="#">Outcome</button></li>
                   <li><button class="timeline_action"
-                          href="#">PRA Support</button></li>
+                          href="#">PMO Support</button></li>
                   <li><button class="timeline_action"
                           href="#">Recovery plan</button></li>
                   <li><button class="timeline_action"
@@ -282,13 +282,18 @@
             {% endif %}
 
             <div class="moj-timeline__item">
-              <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Resolution strategy updated</h2>
-              </div>
+              
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Resolution strategy update
+                  </span>
+                </summary>
+                  <div class="govuk-details__text">
+                    {{ data['resolution-strategy-detail'] }}
+                  </div>
+              </details>
               <p class="moj-timeline__date"><time>28 July 2021</time></p>
-              <div class="moj-timeline__description">
-                <p>{{ data['resolution-strategy-detail'] }}</p>
-              </div>
             </div>
 
             <div class="moj-timeline__item">
