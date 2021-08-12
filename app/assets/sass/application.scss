@@ -59,6 +59,11 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+// Create a class for a wider container
+.app-width-wide .govuk-width-container {
+  @include govuk-width-container(1200px);
+}
+
 h1.register-main-heading {
   font-size: 3rem;
 
@@ -294,8 +299,7 @@ span.summary-validation-symbol {
 
 /// Tables ///
 
-.govuk-table__header__cases, .govuk-table__cell_middle {
-    vertical-align: middle;
+.govuk-table__header, .govuk-table__cell {
     padding: 10px;
 }
 .govuk-table__header__right{
@@ -1264,133 +1268,6 @@ span.summary-validation-symbol {
 .time {
   color: #555;
   font-size: 16px;
-}
-
-.govuk-o-form-group {
-  margin-bottom: 20px;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-form-group {
-    margin-bottom: 30px;
-  }
-}
-
-.govuk-o-form-group .govuk-o-form-group:last-of-type {
-  margin-bottom: 0;
-}
-
-.govuk-o-form-group--error {
-  padding-left: 15px;
-  border-left: 5px solid #b10e1e;
-}
-
-.govuk-o-form-group--error .govuk-o-form-group {
-  padding: 0;
-  border: 0;
-}
-
-.govuk-o-grid {
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.govuk-o-grid:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.govuk-o-grid__item {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0 15px;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-grid__item {
-    float: left;
-  }
-}
-
-.govuk-o-grid__item--full {
-  width: 100%;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-grid__item--one-half {
-    width: 50%;
-  }
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-grid__item--one-third {
-    width: 33.33333%;
-  }
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-grid__item--two-thirds {
-    width: 66.66667%;
-  }
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-grid__item--one-quarter {
-    width: 25%;
-  }
-}
-
-.govuk-o-main-wrapper {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-main-wrapper {
-    padding-top: 30px;
-  }
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-main-wrapper {
-    padding-bottom: 30px;
-  }
-}
-
-.govuk-o-main-wrapper--l {
-  padding-top: 30px;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-main-wrapper--l {
-    padding-top: 50px;
-  }
-}
-
-.govuk-o-circle {
-  display: inline-block;
-  border-radius: 50%;
-  color: #ffffff;
-  background: #0b0c0c;
-  text-align: center;
-}
-
-.govuk-o-width-container {
-  max-width: 960px;
-  margin: 0 15px;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-o-width-container {
-    margin: 0 30px;
-  }
-}
-
-@media (min-width: 1020px) {
-  .govuk-o-width-container {
-    margin: 0 auto;
-  }
 }
 
 .govuk-card__flex-container {

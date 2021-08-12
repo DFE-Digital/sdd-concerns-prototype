@@ -42,6 +42,8 @@
 {% from "_components/timeline/macro.njk"   import appTimeline %}
 
 {# moj components #}
+{%- from "moj/components/timeline/macro.njk" import mojTimeline -%}
+{%- from "moj/components/badge/macro.njk" import mojBadge -%}
 {%- from "moj/components/filter/macro.njk" import mojFilter -%}
 {%- from "moj/components/button-menu/macro.njk" import mojButtonMenu -%}
 {%- from "moj/components/pagination/macro.njk" import mojPagination -%}
@@ -60,7 +62,7 @@
 
 {% block header %}
 
-  <!--{% include "_includes/cookie-banner.html" %}-->
+  
   {# Set serviceName in config.js. #}
 {% set headerClass = 'app-dark-header' if data.settings.useDarkHeader else 'app-light-header' %}
 {{ mojHeader({
@@ -70,7 +72,7 @@ href: '/'
 },
 serviceLabel: {
 text: 'Concerns casework',
-href: '/admin'
+href: '/'
 },
 navigation: {
 label: 'Account navigation',
@@ -87,7 +89,6 @@ items: [{
 }) }} 
 
 <!--
-
 <div class="moj-primary-navigation">
 
   <div class="moj-primary-navigation__container">
@@ -129,25 +130,21 @@ items: [{
   </div>
 
 </div>
-
-
-</div> 
-
 -->
 {% endblock %}
 
 {% block beforeContent %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  classes: 'govuk-!-margin-top-1',
-  html: 'This is a prototype of a new service. <a href="#" class="govuk-link">Give feedback to help us improve this service</a>.'
-}) }}
-{% block pageNavigation %}
-{% endblock %}
-{% block pageBanner %}
-{% endblock %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "prototype"
+    },
+    classes: 'govuk-!-margin-top-1',
+    html: 'This is a prototype of a new service. <a href="#" class="govuk-link">Give feedback to help us improve this service</a>.'
+  }) }}
+  {% block pageNavigation %}
+  {% endblock %}
+  {% block pageBanner %}
+  {% endblock %}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("wrapper_padding-top-20 govuk-main-wrapper--auto-spacing") %}
@@ -157,8 +154,7 @@ items: [{
     <li>Email: <a class="govuk-link govuk-footer__link" href="mailto:sddservicessupport@education.gov.uk">sddservicessupport<wbr>@education.gov.uk</a></li>
     <li>We aim to respond within 5 working days, or one working day for more urgent&nbsp;queries</li>
   </ul>
-  {% set guidanceLink = '/guidance' if data.settings.includeGuidance else '#' %}
-  <p class="govuk-body govuk-!-font-size-16"><a href="{{guidanceLink}}" class="govuk-link govuk-footer__link">Guidance</a></p>
+
 {% endset %}
 
 {% if useAutoStoreData %}
@@ -179,7 +175,7 @@ items: [{
           href: "/privacy-policy",
           text: "Privacy policy"
         },{
-          href: "/prototype-admin/clear-data.html",
+          href: "/admin/clear-data",
           text: "Clear data"
         }, {
           href: "/admin",
