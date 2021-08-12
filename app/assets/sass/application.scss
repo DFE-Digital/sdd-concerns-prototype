@@ -64,6 +64,11 @@ $govuk-assets-path: '/govuk/assets/';
   @include govuk-width-container(1200px);
 }
 
+// Search bar
+.dfe-searchBar-group {
+  margin-bottom: 0;
+}
+
 h1.register-main-heading {
   font-size: 3rem;
 
