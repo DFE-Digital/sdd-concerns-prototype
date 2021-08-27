@@ -1,4 +1,15 @@
-<!-- Include stylesheet -->
+
+{% extends "_templates/_page.html" %}
+{% set backLink = '/concerns/homepage' %}
+
+{% set pageHeading = 'How we use your personal data when you use Concerns casework' %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+  
+  <!-- Include stylesheet -->
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 <!-- Create the editor container -->
@@ -17,3 +28,8 @@
     theme: 'snow'
   });
 </script>
+
+</div>
+</div>
+
+{% endblock %}
