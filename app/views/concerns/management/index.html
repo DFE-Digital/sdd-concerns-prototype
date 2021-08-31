@@ -19,23 +19,10 @@
     10483AC
   </h1>
   <h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
-  
-    <!-- Tabs -->
-    <div class="govuk-tabs" data-module="govuk-tabs">
-      <ul class="govuk-tabs__list">
-        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#concerns">Case details</a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#overview">Trust overview</a>
-        </li>
-      </ul>
-      
-      <!--Case details tab-->
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="concerns">
+  <a href="#" class="govuk-link">Trust overview (TRAMS)</a>
 
         <!--Overview-->
-        <dl class="govuk-summary-list summary-list-margin-0">
+        <dl class="govuk-summary-list summary-list-margin-0 govuk-!-margin-top-6">
           <div class="govuk-summary-list__row">
             <dt class="dfe-width-20percent govuk-summary-list__key">
               Primary Concern
@@ -215,11 +202,10 @@
             </div>
           </div>{% endif %}
         </div>
-        
-        
+
         <!-- Case history -->
         <div class="govuk-!-margin-top-9">
-          <h3 class="govuk-heading-m">Case history</h3><!-- Actions -->
+          <h3 class="govuk-heading-m">Case timeline</h3><!-- Actions -->
           <div class="fitContent govuk-accordion"
                data-module="govuk-accordion"
                id="accordion-default">
@@ -375,224 +361,7 @@
             </div>
           </div>
         </div>
-        
-      </div>
-      
-      <!-- Trust overviews tab -->
-      <div class="govuk-tabs__panel" id="overview">
-        <!--Trust deets-->
-        <table class="govuk-table govuk-!-margin-bottom-9">
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__header">UKPRN</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.ukprn }}</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__header">Contact</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.contact}}</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__header">UID</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.uid }}</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__header">Phone</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.phone }}</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__header">Type</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.establishment_type }}</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__header">Email</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.email }}</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__header">Academies</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.academies }}</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__header">Website</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.website }}</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__header">Local Authority</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.local_authority }}</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__header">Address</td>
-              <td class="govuk-table__cell">{{ outgoingTrust.address }}</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table><!--Open cases-->
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19"
-             href="#"
-             style="float:right; margin-bottom:-45px;">Closed cases</a>
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">
-            Open cases
-          </caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row tr__large">
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Case ID</th>
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Primary case type</th>
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">RAG rating</th>
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Created</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell_middle">
-                <a href="#">CI-1004634</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
-              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
-              <td class="govuk-table__cell govuk-table__cell_middle">09-07-2021</td>
-            </tr>
-            <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell_middle">
-                <a href="#">CI-1003845</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
-              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
-              <td class="govuk-table__cell govuk-table__cell_middle">18-06-2021</td>
-            </tr>
-          </tbody>
-        </table><!--<table class="govuk-table  govuk-!-margin-top-9">
-          <caption class="govuk-table__caption govuk-table__caption==m">
-            RDD cases
-          </caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row tr__large">
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Case ID</th>
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Case type</th>
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Academy</th>
-              <th class="govuk-table__header govuk-table__header__cases"
-                  scope="col">Delivery officer</th>
-              <th class="govuk-table__header govuk-table__header__cases govuk-table__header__right"
-                  scope="col">Days open</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1005628</a></td>
-              <td class="govuk-table__cell govuk-table__cell__cases">Transfer In</td>
-              <td class="govuk-table__cell govuk-table__cell__cases">Finkle-McGraw Secondary</td>
-              <td class="govuk-table__cell govuk-table__cell__cases">John Hackworth</td>
-              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell==numeric">18</td>
-            </tr>
-            <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1007446</a></td>
-              <td class="govuk-table__cell govuk-table__cell__cases">Change: Pupil numbers</td>
-              <td class="govuk-table__cell govuk-table__cell__cases">Settlebeck School</td>
-              <td class="govuk-table__cell govuk-table__cell__cases">John Hackworth</td>
-              <td class="govuk-table__cell govuk-table__cell__cases govuk-table__cell==numeric">23</td>
-            </tr>
-          </tbody>
-        </table>-->
-        <!--Academies-->
-        <table class="govuk-table govuk-!-margin-top-9"
-               id="academies">
-          <caption class="govuk-table__caption govuk-table__caption--m">
-            Academies
-          </caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th class="govuk-table__header"
-                  scope="col">Academy</th>
-              <th class="govuk-table__header"
-                  scope="col">URN</th>
-              <th class="govuk-table__header"
-                  scope="col">Type</th>
-              <th class="govuk-table__header"
-                  scope="col">LA</th>
-              <th class="govuk-table__header"
-                  scope="col">Head</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Botley School</a>
-              </td>
-              <td class="govuk-table__cell">147759</td>
-              <td class="govuk-table__cell">Primary, Academy sponsor led</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Mrs Josephine Reid</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Chalgrove Community Primary School</a>
-              </td>
-              <td class="govuk-table__cell">143969</td>
-              <td class="govuk-table__cell">Primary, Academy converter</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Ms Samantha Gillion</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Icknield Community College</a>
-              </td>
-              <td class="govuk-table__cell">143984</td>
-              <td class="govuk-table__cell">Secondary, Academy converter</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Mr Mat Hunter</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Matthew Arnold School</a>
-              </td>
-              <td class="govuk-table__cell">142104</td>
-              <td class="govuk-table__cell">Secondary, Academy sponsor led</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Katherine Ryan</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Stadhampton Primary School</a>
-              </td>
-              <td class="govuk-table__cell">146481</td>
-              <td class="govuk-table__cell">Primary, Academy converter</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Miss Emma Charnock</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Watlington Primary School</a>
-              </td>
-              <td class="govuk-table__cell">147281</td>
-              <td class="govuk-table__cell">Primary, Academy converter</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Mrs Yvonne Hammerton-Jackson</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                <a class="govuk-link"
-                    href="#">Wood Green School</a>
-              </td>
-              <td class="govuk-table__cell">144008</td>
-              <td class="govuk-table__cell">Secondary, Academy converter</td>
-              <td class="govuk-table__cell">Oxfordshire</td>
-              <td class="govuk-table__cell">Mr Robert Shadbolt</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+
   {% endblock %}
 </body>
 </html>
