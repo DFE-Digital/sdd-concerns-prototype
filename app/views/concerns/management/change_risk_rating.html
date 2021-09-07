@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+    {% block content %}
+    
+    <h1 class="govuk-heading-l" name="caseID">
+        Change risk rating
+    </h1>
+
+    <!--Risk rating radios-->
+    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskType" type="radio" value="amberGreen">
+            <label class="govuk-label govuk-radios__label" for="riskRating">
+            <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+            </label>
+        </div>
+
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskType" type="radio" value="redAmber">
+            <label class="govuk-label govuk-radios__label" for="riskRating">
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+            </label>
+        </div>
+
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskType" type="radio" value="red">
+            <label class="govuk-label govuk-radios__label" for="riskRating">
+            <span class="govuk-tag ragtag ragtag__red">Red</span>
+            </label>
+        </div>
+
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskType" type="radio" value="redPlus">
+            <label class="govuk-label govuk-radios__label" for="riskRating">
+            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+            </label>
+        </div>
+
+    </div>
+
+    <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukButton({
+        text: "Apply",
+        href: "index"
+        }) }}
+        
+        <a class="govuk-link" href="javascript: window.history.go(-1)">Cancel</a>
+    </div>
+
+  {% endblock %}
+
+</body>
+</html>

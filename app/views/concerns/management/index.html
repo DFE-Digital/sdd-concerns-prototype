@@ -9,7 +9,7 @@
   {% block content %}
   
   <div class="buttons-topOfPage">
-    {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary dfe_secondary", href:
+    {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary", href:
     "/concerns/homepage.html" }) }}
     {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
   </div>  
@@ -55,6 +55,20 @@
               {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
               <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
               {% endif %}
+
+            </dd>
+            <dd class="dfe-width-15percent govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> primary concern</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="dfe-width-20percent govuk-summary-list__key">
+              Risk rating
+            </dt>
+            <dd class="govuk-summary-list__value">
               {% if data['riskType'] == 'amberGreen' %}
               <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
               {% elif data['riskType'] == 'redAmber' %}
@@ -66,11 +80,12 @@
               {% endif %}
             </dd>
             <dd class="dfe-width-15percent govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> name</span>
+              <a class="govuk-link" href="change_risk_rating">
+                Change<span class="govuk-visually-hidden"> risk rating</span>
               </a>
             </dd>
           </div>
+
           <div class="govuk-summary-list__row">
             <dt class="dfe-width-20percent govuk-summary-list__key">
               Direction of travel
@@ -203,165 +218,11 @@
           </div>{% endif %}
         </div>
 
-        <!-- Case history 
-        <div class="govuk-!-margin-top-9">
-          <h3 class="govuk-heading-m">Case timeline</h3><!-- Actions -->
-          <div class="fitContent govuk-accordion"
-               data-module="govuk-accordion"
-               id="accordion-default">
-            <div class="govuk-accordion__section">
-              <div class="govuk-accordion__section-header"
-                   id="action_header">
-                <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
-                      id="action_button">Add to case</span></h2>
-              </div>
-              <div aria-labelledby="action_button"
-                   class="govuk-accordion__section-content"
-                   id="action_content">
-                <ul class="govuk-list timeline-action-list">
-                  <li><button class="timeline_action"
-                          href="#">Comment</button></li>
-                  <li><button class="timeline_action"
-                          href="add-concern">Concern</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Financial</button></li>
-                  <li><button class="timeline_action"
-                          href="#">FNTI</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Forced termination of FA</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Investigation</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Letter</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Linked case(s)</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Outcome</button></li>
-                  <li><button class="timeline_action"
-                          href="#">PMO Support</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Recovery plan</button></li>
-                  <li><button class="timeline_action"
-                          href="#">SRMA</button></li>
-                  <li><button class="timeline_action"
-                          href="#">TFF</button></li>
-                  <li><button class="timeline_action"
-                          href="#">Whistleblower</button></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Timeline -->
-          <div class="moj-timeline">
-
-            {% if data['whistleblowerWut'] == 'yes' %}
-            <div class="moj-timeline__item">
-              <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Whistleblower</h2>
-              </div>
-              <p class="moj-timeline__date"><time>28 July 2021</time></p>
-              <div class="moj-timeline__description">
-                <p>{{ data['whistleblower-detail'] }}</p>
-              </div>
-            </div>
-            {% endif %}
-
-            <div class="moj-timeline__item">
-              
-              <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Resolution strategy update
-                  </span>
-                </summary>
-                  <div class="govuk-details__text">
-                    {{ data['resolution-strategy-detail'] }}
-                  </div>
-              </details>
-              <p class="moj-timeline__date"><time>28 July 2021</time></p>
-            </div>
-
-            <div class="moj-timeline__item">
-              <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Next steps updated</h2>
-              </div>
-              <p class="moj-timeline__date"><time>28 July 2021</time></p>
-              <div class="moj-timeline__description">
-                <p>{{ data['next-steps-detail'] }}</p>
-              </div>
-            </div>
-
-            <div class="moj-timeline__item">
-              <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Current status updated</h2>
-              </div>
-              <p class="moj-timeline__date"><time>28 July 2021</time></p>
-              <div class="moj-timeline__description">
-                <p>{{ data['current-status-detail'] }}</p>
-              </div>
-            </div>
-
-            <div class="moj-timeline__item">
-              <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Issue updated</h2>
-              </div>
-              <p class="moj-timeline__date"><time>28 July 2021</time></p>
-              <div class="moj-timeline__description">
-                <p>{{ data['issue-detail'] }}</p>
-              </div>
-            </div>
-
-            <div class="moj-timeline__item">
-              <div class="moj-timeline__header">
-                <h2 class="moj-timeline__title">Case created</h2>
-                <p class="moj-timeline__byline">by Alex Episeen</p>
-              </div>
-              <p class="moj-timeline__date"><time>19 July 2021 at 2:01pm</time></p>
-              <div class="moj-timeline__description">
-                <p><span class="caseDetail_type">
-                  {% if data['concernSubType'] == 'compliance-financial-reporting' %}
-              <span class="caseDetail_type">Compliance: Financial reporting</span>
-              {% elif data['concernSubType'] == 'compliance-financial-returns' %}
-              <span class="caseDetail_type">Compliance: Financial returns</span>
-              {% elif data['concernSubType'] == 'financial-deficit' %}
-              <span class="caseDetail_type">Financial: Deficit</span>
-              {% elif data['concernSubType'] == 'financial-projected-deficit' %}
-              <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-              {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
-              <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-              {% elif data['concernSubType'] == 'financial-clawback' %}
-              <span class="caseDetail_type">Financial: Clawback</span>
-              {% elif data['concernType'] == 'force-majeure' %}
-              <span class= "caseDetail_type">Force Majeure</span>
-              {% elif data['concernSubType'] == 'governance-governance' %}
-              <span class="caseDetail_type">Governance: Governance</span>
-              {% elif data['concernSubType'] == 'governance-closure' %}
-              <span class= "caseDetail_type">Governance: Closure</span>
-              {% elif data['concernSubType'] == 'governance-executive-pay' %}
-              <span class="caseDetail_type">Governance: Executive Pay</span>
-              {% elif data['concernSubType'] == 'governance-safeguarding' %}
-              <span class="caseDetail_type">Governance: Safeguarding</span>
-              {% elif data['concernSubType'] == 'irregularity-allegations' %}
-              <span class="caseDetail_type">Iregularity: Allegations</span>
-              {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
-              <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
-              {% endif %}
-              {% if data['riskType'] == 'amberGreen' %}
-              <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
-              {% elif data['riskType'] == 'redAmber' %}
-              <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
-              {% elif data['riskType'] == 'red' %}
-              <span class="govuk-tag ragtag ragtag__red">Red</span>
-              {% elif data['riskType'] == 'redPlus' %}
-              <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
-              {% endif %}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>-->
+       <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add to case
+      </button> 
 
   {% endblock %}
+
 </body>
 </html>
