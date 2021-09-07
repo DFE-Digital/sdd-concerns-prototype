@@ -243,6 +243,11 @@ span.summary-validation-symbol {
 
 /// Case page accordion tweaks ///
 
+.details {
+  display: inline-block;
+  max-width: 90%;
+}
+
 .js-enabled .govuk-accordion__section-toggle {
   display: inline-block;
     float: right;
