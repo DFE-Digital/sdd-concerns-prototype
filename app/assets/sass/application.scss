@@ -59,6 +59,11 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+// Body text is too tight
+.govuk-body-m, .govuk-body, p {
+  line-height: 1.5;
+}
+
 // Create a class for a wider container
 .app-width-wide .govuk-width-container {
   @include govuk-width-container(1200px);
@@ -255,6 +260,10 @@ span.summary-validation-symbol {
 
 .js-enabled .govuk-accordion__section-content {
   padding-bottom: 0;
+}
+
+.js-enabled .govuk-accordion__section-button {
+  padding-bottom: 10px;
 }
 
 .fitContent {

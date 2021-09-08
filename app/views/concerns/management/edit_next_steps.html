@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+    {% block content %}
+    
+    <h1 class="govuk-heading-l" name="caseID">
+        Edit next steps
+    </h1>
+
+    <form action="index" method="post">
+        <div class="govuk-form-group govuk-!-margin-top-9">
+            <fieldset class="govuk-fieldset">
+
+                <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
+                    <div class="govuk-form-group">
+                        <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['next-steps-detail'] }}</textarea>
+                    </div>
+                    <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 1000 characters
+                    </div>
+                </div>
+
+                <!--Button group-->
+                <div class="govuk-button-group govuk-!-margin-top-6">
+                    {{ govukButton({
+                    text: "Apply"
+                    }) }}
+                    
+                    <a class="govuk-link" href="javascript: window.history.go(-1)">Cancel</a>
+                </div>
+            
+            </fieldset>
+        </div>
+
+        <!--Auto resize textareas-->
+        <script>
+            var multipleFields=document.querySelectorAll('.auto-resize');
+            for(var i=0; i<multipleFields.length; i++){
+            multipleFields[i].addEventListener('input',autoResizeHeight,0);
+            }
+            // auto resize multiple textarea
+            function autoResizeHeight(){
+            this.style.height="auto";
+            this.style.height= this.scrollHeight+"px";
+            this.style.borderColor="green";
+            }
+        </script>
+        
+    </form>
+    
+    {% endblock %}
+
+</body>
+</html>

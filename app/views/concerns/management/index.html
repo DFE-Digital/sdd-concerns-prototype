@@ -118,8 +118,8 @@
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Issue</span>
               </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-1">
-              <a class="govuk-link float__right" href="#">Edit</a>
+            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-1">
+              <a class="govuk-link float__right" href="edit_issue">Edit</a>
               <div class="details">
                 <p>{{ data['issue-detail'] }}</p>
               </div>
@@ -132,8 +132,8 @@
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Current status</span>
               </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-2">
-              <a class="govuk-link float__right" href="#">Edit</a>
+            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-2">
+              <a class="govuk-link float__right" href="edit_current_status">Edit</a>
               <div class="details">
                 <p>{{ data['current-status-detail'] }}</p>
               </div>
@@ -146,8 +146,8 @@
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-3">Next steps</span>
               </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
-              <a class="govuk-link float__right" href="#">Edit</a>
+            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-3">
+              <a class="govuk-link float__right" href="edit_next_steps">Edit</a>
               <div class="details">
                 <p>{{ data['next-steps-detail'] }}</p>
               </div>
@@ -160,8 +160,8 @@
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-3">Case resolution</span>
               </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
-              <a class="govuk-link float__right" href="#">Edit</a>
+            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-3">
+              <a class="govuk-link float__right" href="edit_case_resolution">Edit</a>
               <div class="details">
                   <p>{{ data['resolution-strategy-detail'] }}</p>
               </div>
@@ -175,10 +175,9 @@
                     id="accordion-default-heading-1">Whistleblower</span></h2>
             </div>
             <div aria-labelledby="accordion-default-heading-1"
-                 class="govuk-accordion__section-content govuk-!-margin-bottom-6"
+                 class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6"
                  id="accordion-default-content-1">
-              <a class="govuk-link float__right"
-                   href="#">Edit</a>
+              <a class="govuk-link float__right" href="edit_whistleblower">Edit</a>
               <p>{{ data['whistleblower-detail'] }}</p>
             </div>
           </div>{% endif %}
@@ -189,6 +188,20 @@
       </button> 
 
   {% endblock %}
+
+  <!--Auto resize textareas-->
+  <script>
+    var multipleFields=document.querySelectorAll('.auto-resize');
+    for(var i=0; i<multipleFields.length; i++){
+    multipleFields[i].addEventListener('input',autoResizeHeight,0);
+    }
+    // auto resize multiple textarea
+    function autoResizeHeight(){
+      this.style.height="auto";
+      this.style.height= this.scrollHeight+"px";
+      this.style.borderColor="green";
+    }
+  </script>
 
 </body>
 </html>
