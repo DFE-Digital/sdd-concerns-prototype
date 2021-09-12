@@ -3,7 +3,8 @@
 <head>
   <title></title>
 </head>
-<body>
+<body onload="autoResizeHeight()">
+
     {% extends "layout.html" %}
     {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
     {% block content %}
@@ -38,6 +39,7 @@
         </div>
 
         <!--Auto resize textareas-->
+
         <script>
             var multipleFields=document.querySelectorAll('.auto-resize');
             for(var i=0; i<multipleFields.length; i++){

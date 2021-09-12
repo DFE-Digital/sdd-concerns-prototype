@@ -21,8 +21,9 @@
   <h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
   <a href="#" class="govuk-link">Trust overview (TRAMS)</a>
 
-        <!--Overview-->
         <dl class="govuk-summary-list summary-list-margin-0 govuk-!-margin-top-6">
+
+          <!-- Concern -->
           <div class="govuk-summary-list__row">
             <dt class="dfe-width-20percent govuk-summary-list__key">
               Primary Concern
@@ -55,7 +56,6 @@
               {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
               <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
               {% endif %}
-
             </dd>
             <dd class="dfe-width-15percent govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -64,6 +64,7 @@
             </dd>
           </div>
 
+          <!-- Risk rating -->
           <div class="govuk-summary-list__row">
             <dt class="dfe-width-20percent govuk-summary-list__key">
               Risk rating
@@ -86,6 +87,7 @@
             </dd>
           </div>
 
+          <!-- Direction of travel -->
           <div class="govuk-summary-list__row">
             <dt class="dfe-width-20percent govuk-summary-list__key">
               Direction of travel
@@ -105,6 +107,7 @@
               </a>
             </dd>
           </div>
+
         </dl>
                 
         <!--Accordions-->
@@ -190,6 +193,13 @@
   {% endblock %}
 
   <!--Auto resize textareas-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function autoResizeHeight(){
+      this.style.height="auto";
+      this.style.height= this.scrollHeight+"px";
+    });
+  </script>
+
   <script>
     var multipleFields=document.querySelectorAll('.auto-resize');
     for(var i=0; i<multipleFields.length; i++){
