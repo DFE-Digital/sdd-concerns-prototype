@@ -25,10 +25,11 @@
 
           <!-- Concern -->
           <div class="govuk-summary-list__row">
-            <dt class="dfe-width-20percent govuk-summary-list__key">
+            <dt class="dfe-width-30percent govuk-summary-list__key">
               Primary Concern
             </dt>
             <dd class="govuk-summary-list__value">
+              <!-- Concern type -->
               {% if data['concernSubType'] == 'compliance-financial-reporting' %}
               <span class="caseDetail_type">Compliance: Financial reporting</span>
               {% elif data['concernSubType'] == 'compliance-financial-returns' %}
@@ -56,20 +57,7 @@
               {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
               <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
               {% endif %}
-            </dd>
-            <dd class="dfe-width-15percent govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> primary concern</span>
-              </a>
-            </dd>
-          </div>
-
-          <!-- Risk rating -->
-          <div class="govuk-summary-list__row">
-            <dt class="dfe-width-20percent govuk-summary-list__key">
-              Risk rating
-            </dt>
-            <dd class="govuk-summary-list__value">
+              <!-- Risk type -->
               {% if data['riskType'] == 'amberGreen' %}
               <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
               {% elif data['riskType'] == 'redAmber' %}
@@ -81,15 +69,15 @@
               {% endif %}
             </dd>
             <dd class="dfe-width-15percent govuk-summary-list__actions">
-              <a class="govuk-link" href="change_risk_rating">
-                Change<span class="govuk-visually-hidden"> risk rating</span>
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> primary concern</span>
               </a>
             </dd>
           </div>
 
           <!-- Direction of travel -->
           <div class="govuk-summary-list__row">
-            <dt class="dfe-width-20percent govuk-summary-list__key">
+            <dt class="dfe-width-30percent govuk-summary-list__key">
               Direction of travel
             </dt>
             <dd class="govuk-summary-list__value">
@@ -111,11 +99,12 @@
         </dl>
                 
         <!--Accordions-->
+
         <div class="govuk-accordion"
              data-module="govuk-accordion"
              id="accordion-default">
 
-          <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Issue</span>
@@ -129,7 +118,7 @@
             </div>
           </div>
 
-          <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-2">Current status</span>
@@ -143,7 +132,7 @@
             </div>
           </div>
 
-          <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-3">Case aim</span>
@@ -157,7 +146,7 @@
             </div>
           </div>
 
-          <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-4">De-escalation point</span>
@@ -171,7 +160,7 @@
             </div>
           </div>
 
-          <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
               <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-5">Next steps</span>
