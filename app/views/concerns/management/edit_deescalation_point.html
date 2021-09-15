@@ -9,7 +9,7 @@
     {% block content %}
     
     <h1 class="govuk-heading-l" name="caseID">
-        Edit case resolution
+        Edit de-escalation point
     </h1>
 
     <form action="index" method="post">
@@ -18,7 +18,7 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
                     <div class="govuk-form-group">
-                        <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['resolution-strategy-detail'] }}</textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">{{ data['deescalation-point-detail'] }}</textarea>
                     </div>
                     <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
                         You can enter up to 1000 characters
