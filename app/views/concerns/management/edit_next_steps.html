@@ -38,7 +38,7 @@
         </div>
 
         <!--Auto resize textareas-->
-        <script>
+        <!--<script>
             var multipleFields=document.querySelectorAll('.auto-resize');
             for(var i=0; i<multipleFields.length; i++){
             multipleFields[i].addEventListener('input',autoResizeHeight,0);
@@ -49,6 +49,29 @@
             this.style.height= this.scrollHeight+"px";
             this.style.borderColor="green";
             }
+        </script>-->
+
+        <script>
+  
+            function AutoResizeTextarea ($module) {
+                this.$module = $module
+            }
+            
+            AutoResizeTextarea.prototype.init = function() {
+                this.resizeToContents()
+                this.$module.addEventListener('input', this.resizeToContents.bind(this))
+            }
+            
+            AutoResizeTextarea.prototype.resizeToContents = function() {
+                this.$module.style.height = "auto";
+                this.$module.style.height = this.$module.scrollHeight+"px";
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                for (textarea of document.querySelectorAll('textarea.auto-resize')) {
+                new AutoResizeTextarea(textarea).init()
+                }
+            })
         </script>
         
     </form>

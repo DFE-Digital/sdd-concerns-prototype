@@ -21,166 +21,186 @@
     <h2 class="govuk-heading-m">Wintermute Academy Trust</h2>
     <a href="#" class="govuk-link">Trust overview (TRAMS)</a>
 
-    <!--Overview-->
-        <dl class="govuk-summary-list summary-list-margin-0">
-          <div class="govuk-summary-list__row">
-            <dt class="dfe-width-20percent govuk-summary-list__key">
-              Primary Concern
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <span class="caseDetail_type">Financial: Deficit</span>
-            </dd>
-            <dd class="dfe-width-15percent govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> name</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="dfe-width-20percent govuk-summary-list__key">
-              Risk rating
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
-            </dd>
-            <dd class="dfe-width-15percent govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> name</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="dfe-width-20percent govuk-summary-list__key">
-              Direction of travel
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Improving
-            </dd>
-            <dd class="dfe-width-15percent govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> direction of travel</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
+    <dl class="govuk-summary-list summary-list-margin-0 govuk-!-margin-top-6">
+
+      <!-- Concern -->
+      <div class="govuk-summary-list__row">
+        <dt class="dfe-width-30percent govuk-summary-list__key">
+          Primary Concern
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Financial: Compliance
+        </dd>
+        <dd class="dfe-width-15percent govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> primary concern</span>
+          </a>
+        </dd>
+      </div>
+
+      <!-- Risk rating -->
+      <div class="govuk-summary-list__row">
+        <dt class="dfe-width-30percent govuk-summary-list__key">
+          Risk rating
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['riskType'] == 'amberGreen' %}
+            <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+            {% elif data['riskType'] == 'redAmber' %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+            {% elif data['riskType'] == 'red' %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span>
+            {% elif data['riskType'] == 'redPlus' %}
+            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+            {% else %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+          {% endif %}
+        </dd>
+        <dd class="dfe-width-15percent govuk-summary-list__actions">
+          <a class="govuk-link" href="change_risk_rating">
+            Change<span class="govuk-visually-hidden"> risk rating</span>
+          </a>
+        </dd>
+      </div>
+
+      <!-- Direction of travel -->
+      <div class="govuk-summary-list__row">
+        <dt class="dfe-width-30percent govuk-summary-list__key">
+          Direction of travel
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Unchanged
+        </dd>
+        <dd class="dfe-width-15percent govuk-summary-list__actions">
+          <a class="govuk-link" href="change_direction_of_travel">
+            Change<span class="govuk-visually-hidden"> direction of travel</span>
+          </a>
+        </dd>
+      </div>
+
+    </dl>
                 
-        <!--Accordions-->
-        <div class="govuk-accordion"
-             data-module="govuk-accordion"
-             id="accordion-default">
+      <!--Accordions-->
 
-          <div class="govuk-accordion__section">
-            <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
-                    id="accordion-default-heading-1">Issue</span></h2>
-            </div>
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-1">
+      <div class="govuk-accordion"
+            data-module="govuk-accordion"
+            id="accordion-default">
 
-              <!--<a class="govuk-link float__right" href="#">Edit</a>-->
-
-              <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
-                <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">Confirmed cumulative deficit of less than 5% of years total income in most recent audited accounts.</textarea>
-                </div>
-              
-                <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-                  You can enter up to 500 characters
-                </div>
-              
-              </div>
-
-              
-            </div>
-            
+        <div class="govuk-accordion__section govuk-accordion__section--expanded">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Issue</span>
+            </h2>
           </div>
-
-          <div class="govuk-accordion__section">
-            <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Current status</span>
-              </h2>
-            </div>
-
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-2">
-              <!--<a class="govuk-link float__right" href="#">Edit</a>-->
-
-              <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
-                <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">An agreed trust financial recovery plan is now in place and has been adhered to for the last 3 months. The trust is on track to meet their predicted surplus carried forward position by the end of the year after making significant restructuring changes, implementing SRMA report savings and using financial benchmarking.</textarea>
-                </div>
-              
-                <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-                  You can enter up to 500 characters
-                </div>
-              
-              </div>
-
+          <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-1">
+            <a class="govuk-link float__right" href="edit_issue">Edit</a>
+            <div class="details">
+              <p>Late return of Financial Statement 2019/20. The trust has not provided an updated version of the accounts and have yet to provide any assurance on a time when this will be submitted.</p>
             </div>
           </div>
-
-          <div class="govuk-accordion__section">
-            <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
-                    id="accordion-default-heading-3">Next steps</span></h2>
-            </div>
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6"
-                 id="accordion-default-content-3">
-                 
-                 <!--<a class="govuk-link float__right" href="#">Edit</a>-->
-
-              <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
-                <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">Take action to close based on the Risk Management Framework and action taken by the trust. Trust is no longer a concern and has a robust recovery plan in place.</textarea>
-                </div>
-              
-                <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-                  You can enter up to 500 characters
-                </div>
-              
-              </div>
-
-            </div>
-          </div>
-
-          <div class="govuk-accordion__section">
-            <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
-                    id="accordion-default-heading-3">Case resolution</span></h2>
-            </div>
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-bottom-6" id="accordion-default-content-3">
-
-              <!--<a class="govuk-link float__right" href="#">Edit</a>-->
-
-              <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
-                <div class="govuk-form-group">
-                  <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info">Work along side the trust to improve finances using SRMA action and ESFA available tools.</textarea>
-                </div>
-              
-                <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-                  You can enter up to 500 characters
-                </div>
-              
-              </div>
-
-            </div>
-          </div>
-          
-          {% if data['whistleblowerWut'] == 'yes' %}
-          <div class="govuk-accordion__section">
-            <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
-                    id="accordion-default-heading-1">Whistleblower</span></h2>
-            </div>
-            <div aria-labelledby="accordion-default-heading-1"
-                 class="govuk-accordion__section-content govuk-!-margin-bottom-6"
-                 id="accordion-default-content-1">
-              <a class="govuk-link float__right"
-                   href="#">Edit</a>
-              <p>{{ data['whistleblower-detail'] }}</p>
-            </div>
-          </div>{% endif %}
         </div>
 
+        <div class="govuk-accordion__section govuk-accordion__section--expanded">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">Current status</span>
+            </h2>
+          </div>
+          <div aria-labelledby="accordion-default-heading-2" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-2">
+            <a class="govuk-link float__right" href="edit_current_status">Edit</a>
+            <div class="details">
+              <p>Have contacted the Trust asking for a date of submission for the 2019/20 accounts. No assurances have been given and the trust is proving difficult to make contact with.</p>
+              <p>Have called the school and spoke to finance department. I was told that the head teacher will contact me back with regards to submission of the accounts and as to why the financial statement has not been submitted.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-accordion__section govuk-accordion__section--expanded">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3">Case aim</span>
+            </h2>
+          </div>
+          <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-3">
+            <a class="govuk-link float__right" href="edit_next_steps">Edit</a>
+            <div class="details">
+              <p>Ensure documents are submitted and assurances can be given by the trust as to why. Make sure no further late return of documents occur and there are no other concerns at the trust.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-accordion__section govuk-accordion__section--expanded">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-4">De-escalation point</span>
+            </h2>
+          </div>
+          <div aria-labelledby="accordion-default-heading-4" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-4">
+            <a class="govuk-link float__right" href="edit_next_steps">Edit</a>
+            <div class="details">
+              <p>Case can be closed when financial statements have been submitted and the trust has provided adequate assurances as to why this has happened. They will also have to have robust plans and procedures in place to make sure this does not occur again for the next submission of the accounts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-accordion__section govuk-accordion__section--expanded">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-5">Next steps</span>
+            </h2>
+          </div>
+          <div aria-labelledby="accordion-default-heading-5" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-5">
+            <a class="govuk-link float__right" href="edit_next_steps">Edit</a>
+            <div class="details">
+              <p>12/09/21 - Make contact with the trust for assurances and to solidify a date for submission</p>
+              <p>15/09/21 - Assess the financial statements once submitted and preform a financial statement assessment.</p>
+            </div>
+          </div>
+        </div>
+        
+        {% if data['whistleblowerWut'] == 'yes' %}
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
+                  id="accordion-default-heading-1">Whistleblower</span></h2>
+          </div>
+          <div aria-labelledby="accordion-default-heading-1"
+                class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6"
+                id="accordion-default-content-1">
+            <a class="govuk-link float__right" href="edit_whistleblower">Edit</a>
+            <p>{{ data['whistleblower-detail'] }}</p>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Add to case
+    </button> 
+
   {% endblock %}
+
+  <!--Auto resize textareas-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function autoResizeHeight(){
+      this.style.height="auto";
+      this.style.height= this.scrollHeight+"px";
+    });
+  </script>
+
+  <script>
+    var multipleFields=document.querySelectorAll('.auto-resize');
+    for(var i=0; i<multipleFields.length; i++){
+    multipleFields[i].addEventListener('input',autoResizeHeight,0);
+    }
+    // auto resize multiple textarea
+    function autoResizeHeight(){
+      this.style.height="auto";
+      this.style.height= this.scrollHeight+"px";
+      this.style.borderColor="green";
+    }
+  </script>
+
 </body>
 </html>
