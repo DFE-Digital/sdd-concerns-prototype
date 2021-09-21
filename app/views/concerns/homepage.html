@@ -110,7 +110,17 @@
             Financial: Compliance
           </td>
           <td class="govuk-table__cell">
-          <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+          {% if data['riskTypeEx'] == 'amberGreen' %}
+            <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+            {% elif data['riskTypeEx'] == 'redAmber' %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+            {% elif data['riskTypeEx'] == 'red' %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span>
+            {% elif data['riskTypeEx'] == 'redPlus' %}
+            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+            {% else %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+          {% endif %}
           </td>
           <td class="govuk-table__cell align_right">07-07-2021</td>
         </tr>

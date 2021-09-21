@@ -32,7 +32,7 @@
           Financial: Compliance
         </dd>
         <dd class="dfe-width-15percent govuk-summary-list__actions">
-          <a class="govuk-link" href="change_concern?from=concerns/management/example-case">
+          <a class="govuk-link" href="#">
             Change<span class="govuk-visually-hidden"> primary concern</span>
           </a>
         </dd>
@@ -44,20 +44,20 @@
           Risk rating
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['riskType'] == 'amberGreen' %}
+          {% if data['riskTypeEx'] == 'amberGreen' %}
             <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
-            {% elif data['riskType'] == 'redAmber' %}
+            {% elif data['riskTypeEx'] == 'redAmber' %}
             <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
-            {% elif data['riskType'] == 'red' %}
+            {% elif data['riskTypeEx'] == 'red' %}
             <span class="govuk-tag ragtag ragtag__red">Red</span>
-            {% elif data['riskType'] == 'redPlus' %}
+            {% elif data['riskTypeEx'] == 'redPlus' %}
             <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
             {% else %}
             <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
           {% endif %}
         </dd>
         <dd class="dfe-width-15percent govuk-summary-list__actions">
-          <a class="govuk-link" href="change_risk_rating?from=concerns/management/example-case">
+          <a class="govuk-link" href="change_risk_rating_example">
             Change<span class="govuk-visually-hidden"> risk rating</span>
           </a>
         </dd>
@@ -69,10 +69,18 @@
           Direction of travel
         </dt>
         <dd class="govuk-summary-list__value">
-          Unchanged
+         {% if data['directionOfTravelEx'] == 'deteriorating' %}
+            Deteriorating
+            {% elif data['directionOfTravelEx'] == 'unchaged' %}
+            Unchanged
+            {% elif data['directionOfTravelEx'] == 'improving' %}
+            Improving
+            {% else %}
+            Unchanged
+          {% endif %}
         </dd>
         <dd class="dfe-width-15percent govuk-summary-list__actions">
-          <a class="govuk-link" href="change_direction_of_travel">
+          <a class="govuk-link" href="change_direction_of_travel_example">
             Change<span class="govuk-visually-hidden"> direction of travel</span>
           </a>
         </dd>
