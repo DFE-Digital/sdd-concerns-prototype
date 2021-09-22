@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+
+{% block content %}
+
+{{ govukButton({
+    text: "Cancel",
+    classes: "govuk-button--secondary float__right",
+    href: "javascript: window.history.go(-1)"
+}) }}
+
+<h2 class="govuk-hint">CI 1004634</h2>
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9">Add a Concern</h1>
+
+<section>
+    
+    <form action="caseconcern" method="post" class="form">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset govuk-!-margin-bottom-9" aria-describedby="changed-name-hint">
+
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    What type of Concern?
+                </legend>
+
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Compliance: Financial reporting" name="concern-type" type="radio" value="Compliance: Financial reporting" {{ checked("concern-type", "Compliance-Financial-reporting") }}>
+                        <label class="govuk-label govuk-radios__label" for="Compliance: Financial reporting">
+                            Compliance: Financial reporting
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Compliance: Financial returns" name="concern-type" type="radio" value="Compliance: Financial returns" {{ checked("concern-type", "Compliance-Financial-returns") }}>
+                        <label class="govuk-label govuk-radios__label" for="Compliance: Financial returns">
+                            Compliance: Financial returns
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Financial: Deficit" name="concern-type" type="radio" value="Financial: Deficit" {{ checked("concern-type", "Financial-Deficit") }}>
+                        <label class="govuk-label govuk-radios__label" for="Financial: Deficit">
+                            Financial: Deficit
+                        </label>
+                    </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Financial: Projected deficit" name="concern-type" type="radio" value="Financial: Projected deficit" {{ checked("concern-type", "Financial-Projected-deficit") }}>
+                        <label class="govuk-label govuk-radios__label" for="Financial: Projected deficit">
+                            Financial: Projected deficit
+                        </label>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Financial: Cash flow shortfall" name="concern-type" type="radio" value="Financial: Cash flow shortfall" {{ checked("concern-type", "Financial-Cash-flow-shortfall") }}>
+                        <label class="govuk-label govuk-radios__label" for="Financial: Cash flow shortfall">
+                            Financial: Cash flow shortfall
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Force Majeure" name="concern-type" type="radio" value="Force Majeure" {{ checked("concern-type", "Force-Majeure") }}>
+                        <label class="govuk-label govuk-radios__label" for="Force Majeure">
+                            Force Majeure
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Governance" name="concern-type" type="radio" value="Governance" {{ checked("concern-type", "Governance") }}>
+                        <label class="govuk-label govuk-radios__label" for="Governance">
+                            Governance
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Governance: Closure" name="concern-type" type="radio" value="Governance: Closure" {{ checked("concern-type", "Governance-Closure") }}>
+                        <label class="govuk-label govuk-radios__label" for="Governance: Closure">
+                            Governance: Closure
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Governance: Safeguarding" name="concern-type" type="radio" value="Governance: Safeguarding" {{ checked("concern-type", "Governance-Safeguarding") }}>
+                        <label class="govuk-label govuk-radios__label" for="Governance: Safeguarding">
+                            Governance: Safeguarding
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Irregularity: Allegations and self reporting concerns" name="concern-type" type="radio" value="Irregularity: Allegations and self reporting concerns" {{ checked("concern-type", "Irregularity-Allegations") }}>
+                        <label class="govuk-label govuk-radios__label" for="Irregularity: Allegations and self reporting concerns">
+                            Irregularity: Allegations and self reporting concerns
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="Irregularity: Related party transactions - in year" name="concern-type" type="radio" value="Irregularity: Related party transactions - in year" {{ checked("concern-type", "Irregularity-related-party-transactions") }}>
+                        <label class="govuk-label govuk-radios__label" for="Irregularity: Related party transactions - in year">
+                            Irregularity: Related party transactions - in year
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="govuk-fieldset govuk-!-margin-bottom-9">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h1 class="govuk-fieldset__heading">
+                        What is the RAG rating for this Concern?
+                    </h1>
+                </legend>
+                <div class="govuk-radios">
+                    
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-2" name="risk-rating" type="radio"
+                            value="Green Amber" {{ checked("risk-rating", "Green Amber") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-2">
+                            <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></td>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-3" name="risk-rating" type="radio"
+                            value="Amber Red" {{ checked("risk-rating", "Amber Red") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-3">
+                            <span class="govuk-tag ragtag ragtag__redamber">Red | Amber</span></td>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-4" name="risk-rating" type="radio"
+                            value="Red" {{ checked("risk-rating", "Red") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-4">
+                            <span class="govuk-tag ragtag ragtag__red">Red</span></td>
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="risk-rating-4" name="risk-rating" type="radio"
+                            value="Red plus" {{ checked("risk-rating", "Red plus") }}>
+                        <label class="govuk-label govuk-radios__label" for="risk-rating-4">
+                            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></td>
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="govuk-fieldset govuk-!-margin-bottom-9">
+
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    What is the direction of travel?
+                </legend>
+                
+                <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="unchanged" name="travel-sort" type="radio"
+                            value="Unchanged" {{ checked("travel-sort", "unchanged") }}>
+                        <label class="govuk-label govuk-radios__label" for="unchanged">
+                            Unchanged
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="improving" name="travel-sort"
+                            type="radio" value="Improving" {{ checked("travel-sort", "Improving") }}>
+                        <label class="govuk-label govuk-radios__label" for="improving">
+                            Improving
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="declining" name="travel-sort"
+                            type="radio" value="Declining" {{ checked("travel-sort", "declining") }}>
+                        <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                            Declining
+                        </label>
+                    </div>
+            
+                </div>
+
+            </fieldset>
+
+        </div>
+
+
+        <button class="govuk-button" data-module="govuk-button">Add Concern</button>
+
+
+    </form>
+    {% endblock %}

@@ -7,6 +7,7 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+  MOJFrontend.initAll()
 })
 
 // Submit form when any change detected
@@ -14,10 +15,10 @@ $('.js-auto-submit').on('change', function(){
   $(this).closest('form').submit();
 });
 
-
 new MOJFrontend.ButtonMenu({
   container: $('.moj-button-menu'),
   mq: '(min-width: 200em)',
   buttonText: 'Actions',
   menuClasses: 'moj-button-menu__wrapper--right'
 });
+

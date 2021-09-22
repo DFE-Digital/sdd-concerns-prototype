@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+    {% block content %}
+    
+    <h1 class="govuk-heading-l" name="caseID">
+        Edit de-escalation point
+    </h1>
+
+    <form action="example-case" method="post">
+        <div class="govuk-form-group govuk-!-margin-top-9">
+            <fieldset class="govuk-fieldset">
+
+                <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
+                    <div class="govuk-form-group">
+                        <textarea class="govuk-textarea govuk-js-character-count auto-resize" name="deEscalation_example" rows="3" aria-describedby="deescalation-point-detail-info">{{ data['deEscalation_example'] }}</textarea>
+                    </div>
+                    <div id="deescalationPoint-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                        You can enter up to 1000 characters
+                    </div>
+                </div>
+
+                <!--Button group-->
+                <div class="govuk-button-group govuk-!-margin-top-6">
+                    {{ govukButton({
+                    text: "Apply"
+                    }) }}
+                    
+                    <a class="govuk-link" href="javascript: window.history.go(-1)">Cancel</a>
+                </div>
+            
+            </fieldset>
+        </div>
+
+        <!--Auto resize textareas-->
+        <script>
+  
+            function AutoResizeTextarea ($module) {
+                this.$module = $module
+            }
+            
+            AutoResizeTextarea.prototype.init = function() {
+                this.resizeToContents()
+                this.$module.addEventListener('input', this.resizeToContents.bind(this))
+            }
+            
+            AutoResizeTextarea.prototype.resizeToContents = function() {
+                this.$module.style.height = "auto";
+                this.$module.style.height = this.$module.scrollHeight+"px";
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                for (textarea of document.querySelectorAll('textarea.auto-resize')) {
+                new AutoResizeTextarea(textarea).init()
+                }
+            })
+        </script>
+        
+    </form>
+    
+    {% endblock %}
+
+</body>
+</html>

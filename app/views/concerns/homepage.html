@@ -1,117 +1,184 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 </head>
 <body>
+
+  {%- set htmlClasses = 'app-width-wide' -%}
   {% extends "layout.html" %} {% block content %}
-
   <div class="govuk-!-margin-top-0">
-
     {% from "govuk/components/button/macro.njk" import govukButton %}
-
     <div class="govuk-button-group flexalign__right">
-      <a class="govuk-link" href="#">Case history</a>
-      {{ govukButton({
-        text: "New case",
-        href: "new-case",
-        classes: "govuk-button--secondary"
-      }) }}
+      <a class="govuk-link"
+           href="#">Closed cases (TRAMS)</a> {{ govukButton({ text: "Create case", href: "new-case" }) }}
     </div>
-    
+
+    <!-- Active casework -->
+
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--m">
-        Your active casework (<span>5</span>)
+        Your active casework
       </caption>
+
       <thead class="govuk-table__head">
         <tr class="govuk-table__row tr__large">
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="col">Trust</th>
-          <th class="govuk-table__header govuk-table__header__cases"
+          <th class="govuk-table__header"
               scope="col">Case ID</th>
-          <th class="govuk-table__header govuk-table__header__cases"
+          <th class="govuk-table__header"
+          scope="col">Last update</th>
+          <th class="govuk-table__header"
+              scope="col">Trust/Academy</th>
+          <th class="govuk-table__header"
+              scope="col">Primary case type</th>
+          <th class="govuk-table__header"
               scope="col">RAG rating</th>
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="col">Case type</th>
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="col">Days open</th>
+           <th class="govuk-table__header align_right"
+              scope="col">Created</th>
         </tr>
       </thead>
+
       <tbody class="govuk-table__body">
+        
         <tr class="govuk-table__row tr__large">
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="row">Wintermute Academy Trust</th>
-          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">-</td>
-          <td class="govuk-table__cell govuk-table__cell__cases">-</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
+          <td class="govuk-table__cell">
+            <a href="#">10237AC</a>
+          </td>
+          <td class="govuk-table__cell">10-08-2021</td>
+          <td class="govuk-table__cell">
+            Straylight Academies
+            <br>
+            Hackworth Academy
+          </td>
+          <td class="govuk-table__cell">Safeguarding Incident</td>
+          <td class="govuk-table__cell">
+          <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+          </td>
+          <td class="govuk-table__cell align_right">09-08-2021</td>
         </tr>
+
         <tr class="govuk-table__row tr__large">
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="row">Straylight Academies</th>
-          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1003845</a></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">
-            <span class="govuk-tag ragtag ragtag__red">Red</span></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">Safeguarding</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+          <td class="govuk-table__cell">
+            <a href="#">10192AC</a>
+          </td>
+          <td class="govuk-table__cell">09-08-2021</td>
+          <td class="govuk-table__cell">Wintermute Academy Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Governance: Executive Pay
+          </td>
+          <td class="govuk-table__cell">
+            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+          </td>
+          <td class="govuk-table__cell align_right">28-06-2021</td>
         </tr>
+
         <tr class="govuk-table__row tr__large">
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="row">The Linda Lee Academies Trust</th>
-          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">
-            <span class="govuk-tag ragtag ragtag__redamber">Red | Amber</span></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">Finance</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">12</td>
+          <td class="govuk-table__cell">
+            <a href="#">10187AC</a>
+          </td>
+          <td class="govuk-table__cell">08-08-2021</td>
+          <td class="govuk-table__cell">Armitage Education Trust</td>
+          <td class="govuk-table__cell">Concern<br>Financial: Clawback</td>
+          <td class="govuk-table__cell"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
+          <td class="govuk-table__cell align_right">10-07-2021</td>
         </tr>
+
         <tr class="govuk-table__row tr__large">
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="row">Wintermute Academy Trust</th>
-          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">
-            <span class="govuk-tag ragtag ragtag__ambergreen">Amber | Green</span></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">Governance</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">17</td>
+          <td class="govuk-table__cell">
+            <a href="#">10194AC</a>
+          </td>
+          <td class="govuk-table__cell">06-08-2021</td>
+          <td class="govuk-table__cell">
+            The Linda Lee Academies Trust<br>
+            Matheson Secondary School
+          </td>
+          <td class="govuk-table__cell">Record<br>SRMA</td>
+          <td class="govuk-table__cell">
+            <span class="govuk-tag ragtag ragtag__green">Green</span>
+          </td>
+          <td class="govuk-table__cell align_right">05-08-2021</td>
         </tr>
+
         <tr class="govuk-table__row tr__large">
-          <th class="govuk-table__header govuk-table__header__cases"
-              scope="row">Armitage Education Trust</th>
-          <td class="govuk-table__cell govuk-table__cell__cases"><a href="#">CI-1004634</a></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">
-            <span class="govuk-tag ragtag ragtag__black">Black</span></td>
-          <td class="govuk-table__cell govuk-table__cell__cases">Finance</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">32</td>
+          <td class="govuk-table__cell">
+            <a href="/concerns/management/example-case">10244AC</a>
+          </td>
+          <td class="govuk-table__cell">29-07-2021</td>
+          <td class="govuk-table__cell">Wintermute Academy Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Financial: Compliance
+          </td>
+          <td class="govuk-table__cell">
+          {% if data['riskTypeEx'] == 'amberGreen' %}
+            <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+            {% elif data['riskTypeEx'] == 'redAmber' %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+            {% elif data['riskTypeEx'] == 'red' %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span>
+            {% elif data['riskTypeEx'] == 'redPlus' %}
+            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+            {% else %}
+            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+          {% endif %}
+          </td>
+          <td class="govuk-table__cell align_right">07-07-2021</td>
         </tr>
+
       </tbody>
     </table>
-<!-- 
-        <section>
-          <div class="govuk-form-group">
-            <fieldset aria-describedby="passport-issued-hint"
-                      class="govuk-fieldset"
-                      role="group">
-              <h2 class="govuk-fieldset__heading"><legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Create a case</legend></h2>
-              <div class="govuk-hint govuk-!-margin-bottom-6"
-                   id="p-hint">
-                Select a trust to create a case, you can always add a concern later.
-              </div><a class="govuk-button govuk-button--start"
-                        data-module="govuk-button"
-                        draggable="false"
-                        href="/concerns/trust-name"
-                        role="button">Start now <svg aria-hidden="true"
-                   class="govuk-button__start-icon"
-                   focusable="false"
-                   height="19"
-                   viewbox="0 0 33 40"
-                   width="17.5"
-                   xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h13l20 20-20 20H0l20-20z"
-                    fill="currentColor"></path></svg></a> {% endblock %}
-            </fieldset>
-          </div>
-        </section>
-        -->
-      </div>
-    </div>
+
+    <!-- Closed for monitoring -->
+    <table class="govuk-table govuk-!-margin-top-9">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Closed for monitoring
+      </caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header" scope="col">Case ID</th>
+          <th class="govuk-table__header" scope="col">Trust/Academy</th>
+          <th class="govuk-table__header" scope="col">Primary case type</th>
+          <th class="govuk-table__header align_right" scope="col">Review date</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10237AC</a>
+          </td>
+          <td class="govuk-table__cell">
+            Straylight Academies
+            <br>
+            John Percival Secondary
+          </td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Finance: Projected deficit
+          </td>
+          <td class="govuk-table__cell align_right">18-11-2021</td>
+        </tr>
+
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10192AC</a>
+          </td>
+          <td class="govuk-table__cell">Redpath Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Compliance: Financial reporting 
+          </td>
+          <td class="govuk-table__cell align_right">01-12-2022</td>
+        </tr>
+
+      </tbody>
+    </table>
+
   </div>
+  {% endblock %}
 </body>
+
 </html>

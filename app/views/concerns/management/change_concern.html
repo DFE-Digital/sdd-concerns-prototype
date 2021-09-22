@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+    {% block content %}
+    
+    <h1 class="govuk-heading-l" name="caseID">
+        Change concern
+    </h1>
+
+    <form action="/{{ data['from'] }}" method="post">
+        <div class="govuk-form-group govuk-!-margin-top-9">
+            <fieldset class="govuk-fieldset">
+
+                <!--Concern radios-->
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                <!--Compliance-->  
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-1" id="concern-compliance" name="concernType" type="radio" value="compliance">
+                  <label class="govuk-label govuk-radios__label" for="concern-compliance">
+                    Compliance
+                  </label>
+                </div>
+
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-1">
+                    
+                    <div class="govuk-form-group">
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-compliance-1" name="concernSubType" type="radio" value="compliance-financial-reporting">
+                        <label class="govuk-label govuk-radios__label" for="concern-compliance-1">
+                          Compliance: Financial reporting
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-compliance-2" name="concernSubType" type="radio" value="compliance-financial-returns">
+                        <label class="govuk-label govuk-radios__label" for="concern-compliance-2">
+                          Compliance: Financial returns
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                <!--Finance-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-2" id="concern-financial" name="concernType" type="radio" value="financial">
+                  <label class="govuk-label govuk-radios__label" for="concern-financial">
+                    Financial
+                  </label>
+                </div>
+      
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-2">
+                    
+                    <div class="govuk-form-group">
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-1" name="concernSubType" type="radio" value="financial-deficit">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-1">
+                          Financial: Deficit
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-2" name="concernSubType" type="radio" value="financial-projected-deficit">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-2">
+                          Financial: Projected deficit / Low future surplus
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-3" name="concernSubType" type="radio" value="financial-cash-flow-shortfall">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-3">
+                          Financial: Cash flow shortfall
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-4" name="concernSubType" type="radio" value="financial-clawback">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-4">
+                          Financial: Clawback
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  
+                <!--Force Majure-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-3" id="concern-force-majeure" name="concernType" type="radio" value="force-majeure">
+                  <label class="govuk-label govuk-radios__label" for="concern-force-majeure">
+                    Force Majeure
+                  </label>
+                </div>
+
+                <!--Governance-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-4" id="concern-governance" name="concernType" type="radio" value="governance">
+                  <label class="govuk-label govuk-radios__label" for="concern-governance">
+                    Governance
+                  </label>
+                </div>
+      
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-4">
+                    
+                    <div class="govuk-form-group">
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-1" name="concernSubType" type="radio" value="governance-governance">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-1">
+                          Governance: Governance
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-2" name="concernSubType" type="radio" value="governance-closure">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-2">
+                          Governance: Closure
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-3" name="concernSubType" type="radio" value="governance-executive-pay">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-3">
+                          Governance: Executive Pay
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-4" name="concernSubType" type="radio" value="governance-safeguarding">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-4">
+                          Governance: Safeguarding
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                <!--Irregularity-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-5" id="concern-irregularity" name="concernType" type="radio" value="irregularity">
+                  <label class="govuk-label govuk-radios__label" for="concern-irregularity">
+                    Irregularity
+                  </label>
+                </div>
+      
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-5">
+                    
+                    <div class="govuk-form-group">
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-irregularity-1" name="concernSubType" type="radio" value="irregularity-allegations">
+                        <label class="govuk-label govuk-radios__label" for="concern-irregularity-1">
+                          Irregularity: Allegations and self reported concerns
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-irregularity-2" name="concernSubType" type="radio" value="irregularity-related-party-transactions">
+                        <label class="govuk-label govuk-radios__label" for="concern-irregularity-2">
+                          Irregularity: Related party transactions - in year
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+              </div>
+
+                <!--Button group-->
+                <div class="govuk-button-group govuk-!-margin-top-6">
+                    {{ govukButton({
+                    text: "Apply"
+                    }) }}
+                    
+                    <a class="govuk-link" href="javascript: window.history.go(-1)">Cancel</a>
+                </div>
+            
+            </fieldset>
+        </div>
+    </form>
+    
+    {% endblock %}
+
+</body>
+</html>

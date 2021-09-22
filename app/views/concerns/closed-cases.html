@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Casework</title>
+</head>
+<body>
+
+  {%- set htmlClasses = 'app-width-wide' -%}
+  {% extends "layout.html" %} {% block content %}
+  <div class="govuk-!-margin-top-0">
+
+    <!-- Search -->
+    <div class="govuk-form-group dfe-searchBar-group">
+        <label class="govuk-label" for="width-20">
+            Search cases using Case ID, trust or academy name, or case type
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Search
+        </button>
+    </div>
+
+    <div class="govuk-button-group flexalign__right">
+        {{ govukButton({
+        text: "Go to active casework", classes: "govuk-button--secondary", href: "homepage"
+        }) }}
+    </div>
+
+    <!-- Your closed cases -->
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Your closed cases
+      </caption>
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row tr__large">
+          <th class="govuk-table__header" scope="col">Case ID</th>
+          <th class="govuk-table__header" scope="col">Trust/Academy</th>
+          <th class="govuk-table__header" scope="col">Primary case type</th>
+          <th class="govuk-table__header" scope="col">Closed</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10237AC</a>
+          </td>
+          <td class="govuk-table__cell">
+            Straylight Academies
+            <br>
+            John Percival Secondary
+          </td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Finance: Projected deficit
+          </td>
+          <td class="govuk-table__cell">18-07-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10192AC</a>
+          </td>
+          <td class="govuk-table__cell">Redpath Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Compliance: Financial reporting 
+          </td>
+          <td class="govuk-table__cell">23-04-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10237AC</a>
+          </td>
+          <td class="govuk-table__cell">
+            Straylight Academies
+            <br>
+            John Percival Secondary
+          </td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Finance: Projected deficit
+          </td>
+          <td class="govuk-table__cell">18-07-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10192AC</a>
+          </td>
+          <td class="govuk-table__cell">Redpath Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Compliance: Financial reporting 
+          </td>
+          <td class="govuk-table__cell">23-04-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10237AC</a>
+          </td>
+          <td class="govuk-table__cell">
+            Straylight Academies
+            <br>
+            John Percival Secondary
+          </td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Finance: Projected deficit
+          </td>
+          <td class="govuk-table__cell">18-07-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10192AC</a>
+          </td>
+          <td class="govuk-table__cell">Redpath Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Compliance: Financial reporting 
+          </td>
+          <td class="govuk-table__cell">23-04-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10237AC</a>
+          </td>
+          <td class="govuk-table__cell">
+            Straylight Academies
+            <br>
+            John Percival Secondary
+          </td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Finance: Projected deficit
+          </td>
+          <td class="govuk-table__cell">18-07-2021</td>
+        </tr>
+        <tr class="govuk-table__row tr__large">
+          <td class="govuk-table__cell">
+            <a href="#">10192AC</a>
+          </td>
+          <td class="govuk-table__cell">Redpath Trust</td>
+          <td class="govuk-table__cell">
+            Concern<br>
+            Compliance: Financial reporting 
+          </td>
+          <td class="govuk-table__cell">23-04-2021</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Regional cases
+    </button>
+
+  </div>
+  {% endblock %}
+</body>
+
+</html>

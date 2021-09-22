@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  {% extends "layout.html" %}
+  
+    {% block beforeContent %}
+        {{ govukBackLink({
+            "text": "Back",
+            "href": "javascript: window.history.go(-1)"
+            }) 
+        }}
+    {% endblock %}
+
+  {% block content %}
+  {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Create case</span>
+        <h1 class="govuk-heading-l">Concern </h1>
+        
+        <!-- Trust name -->
+        <!--<a href="/concerns/new-case.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19 govuk-!-margin-top-6" style="float:right;">Change trust</a>-->
+        <h2 class="govuk-heading-m">
+            {{ trust.trust_name }}
+        </h2>
+
+        <dl class="govuk-summary-list summary-list-margin-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Primary Concern
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['concernSubType'] == 'compliance-financial-reporting' %}
+              <span class="caseDetail_type">Compliance: Financial reporting</span>
+              {% elif data['concernSubType'] == 'compliance-financial-returns' %}
+              <span class="caseDetail_type">Compliance: Financial returns</span>
+              {% elif data['concernSubType'] == 'financial-deficit' %}
+              <span class="caseDetail_type">Financial: Deficit</span>
+              {% elif data['concernSubType'] == 'financial-projected-deficit' %}
+              <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+              {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
+              <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+              {% elif data['concernSubType'] == 'financial-clawback' %}
+              <span class="caseDetail_type">Financial: Clawback</span>
+              {% elif data['concernType'] == 'force-majeure' %}
+              <span class= "caseDetail_type">Force Majeure</span>
+              {% elif data['concernSubType'] == 'governance-governance' %}
+              <span class="caseDetail_type">Governance: Governance</span>
+              {% elif data['concernSubType'] == 'governance-closure' %}
+              <span class= "caseDetail_type">Governance: Closure</span>
+              {% elif data['concernSubType'] == 'governance-executive-pay' %}
+              <span class="caseDetail_type">Governance: Executive Pay</span>
+              {% elif data['concernSubType'] == 'governance-safeguarding' %}
+              <span class="caseDetail_type">Governance: Safeguarding</span>
+              {% elif data['concernSubType'] == 'irregularity-allegations' %}
+              <span class="caseDetail_type">Iregularity: Allegations</span>
+              {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
+              <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+              {% endif %}
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Risk rating
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['riskType'] == 'amberGreen' %}
+              <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+              {% elif data['riskType'] == 'redAmber' %}
+              <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+              {% elif data['riskType'] == 'red' %}
+              <span class="govuk-tag ragtag ragtag__red">Red</span>
+              {% elif data['riskType'] == 'redPlus' %}
+              <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+              {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Direction of travel
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Deteriorating</p>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- FORM -->
+        <form action="/concerns/management/" class="form" method="post">
+
+          <!-- Q Whistleblower
+          <div class="govuk-form-group govuk-!-margin-top-9">
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-heading-s govuk-!-font-weight-bold">
+                Was this raised by a whistleblower?
+              </legend>
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="whistleblowerWut-yes" id="whistleblower-yes" name="whistleblowerWut" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="whistleblower-yes">
+                    Yes
+                  </label>
+                </div>
+
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="whistleblowerWut-yes">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label" for="whistleblower-detail">
+                        Details
+                      </label>
+                      <textarea class="govuk-textarea" id="whistleblower-detail" name="whistleblower-detail" rows="6"></textarea>
+                    </div>
+                  </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="whistleblowerWut-no" id="whistleblower-no" name="whistleblowerWut" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="whistleblower-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+            </fieldset>
+          </div> -->
+
+          <h2 class="govuk-heading-l govuk-!-margin-top-9">Initial case details</h2>
+          <div id="initial-details-hint" class="govuk-hint">
+            You only need enter the issue at this stage. Further details can be included on the case management page when you have them.
+          </div>
+          
+          <!-- Q Issue -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="2000">
+            <div class="govuk-form-group">
+              <label class="govuk-heading-m" for="issue-detail">
+                Issue
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="issue-detail" name="issue-detail" rows="3" aria-describedby="issue-detail-info"></textarea>
+            </div>
+            <div id="issue-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 2000 characters
+            </div>
+          </div>
+
+          <!-- Q Current status -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="4000">
+            <div class="govuk-form-group">
+              <label class="govuk-heading-m" for="current-status">
+                Current status <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="current-status" name="current-status-detail" rows="3" aria-describedby="current-status-info"></textarea>
+            </div>
+            <div id="current-status-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 4000 characters
+            </div>
+          </div>
+
+          <!-- Q Case Aim -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="1000">
+            <div class="govuk-form-group">
+              <label class="govuk-heading-m" for="case-aim-detail">
+                Case aim <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="case-aim-detail" name="case-aim-detail" rows="3" aria-describedby="case-aim-detail-info"></textarea>
+            </div>
+            <div id="case-aim-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 1000 characters
+            </div>
+          </div>
+
+          <!-- Q De-escalation point -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="1000">
+            <div class="govuk-form-group">
+              <label class="govuk-heading-m" for="deescalation-point-detail">
+                De-escalation point <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="deescalation-point-detail" name="deescalation-point-detail" rows="3" aria-describedby="deescalation-point-detail-info"></textarea>
+            </div>
+            <div id="deescalation-point-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 1000 characters
+            </div>
+          </div>
+
+          <!-- Q Next steps -->
+          <div class="govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="4000">
+            <div class="govuk-form-group">
+              <label class="govuk-heading-m" for="next-steps-detail">
+                Next steps <span class="govuk-body">(optional)</span>
+              </label>
+              <textarea class="govuk-textarea govuk-js-character-count auto-resize" id="next-steps-detail" name="next-steps-detail" rows="3" aria-describedby="next-steps-detail-info"></textarea>
+            </div>
+            <div id="next-steps-detail-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+              You can enter up to 4000 characters
+            </div>
+          </div>  
+
+          <!--Date
+          <div class="govuk-form-group govuk-!-margin-top-9">
+            <fieldset class="govuk-fieldset" role="group">
+              <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                Date created
+              </legend>
+              <div class="govuk-date-input" id="dateCreated">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="dateCreatedDay">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateCreatedDay" name="dateCreatedDay" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="dateCreatedMonth">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateCreatedMonth" name="dateCreatedMonth" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="dateCreatedYear">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateCreatedYear" name="dateCreatedYear" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>-->
+
+          <!-- Q Assign to 
+          <div class="govuk-form-group govuk-!-margin-top-9">
+            
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                Assign case to
+              </legend>
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                
+                <div class="govuk-radios__item">
+                  <input checked="checked" class="govuk-radios__input" id="assign-myself" name="assign-wut" type="radio" value="Myself">
+                  <label class="govuk-label govuk-radios__label" for="assign-myself">
+                    Myself
+                  </label>
+                </div>
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="assign-wut-2" id="assign-colleague" name="assign-wut" type="radio" value="Colleague">
+                  <label class="govuk-label govuk-radios__label" for="assign-colleague">
+                    Colleague
+                  </label>
+                </div>
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="assign-wut-2">
+                      
+                      <div class="govuk-form-group">
+                        
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-colleague-1" name="assign-wut-2" type="radio" value="Carlotta Carlyle">
+                          <label class="govuk-label govuk-radios__label" for="assign-colleague-1">
+                            Carlotta Carlyle
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-colleague-2" name="assign-wut-2" type="radio" value="Eddie Shoestring">
+                          <label class="govuk-label govuk-radios__label" for="assign-colleague-2">
+                            Eddie Shoestring
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-colleague-3" name="assign-wut-2" type="radio" value="Harry Dresden">
+                          <label class="govuk-label govuk-radios__label" for="assign-colleague-3">
+                            Harry Dresden
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-colleague-4" name="assign-wut-2" type="radio" value="Jessica Jones">
+                          <label class="govuk-label govuk-radios__label" for="assign-colleague-4">
+                            Jessica Jones
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-colleague-5" name="assign-wut-2" type="radio" value="Veronica Mars">
+                          <label class="govuk-label govuk-radios__label" for="assign-colleague-5">
+                            Veronica Mars
+                          </label>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="assign-wut-3" id="assign-region" name="assign-wut" type="radio" value="Region">
+                  <label class="govuk-label govuk-radios__label" for="assign-region">
+                    Territory
+                  </label>
+                </div>
+      
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="assign-wut-3">
+                      
+                      <div class="govuk-form-group">
+                        
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-1" name="assign-wut-3" type="radio" value="NWLSC">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-1">
+                            NWLSC
+                          </label>
+                        </div>
+  
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-2" name="assign-wut-3" type="radio" value="EENEL">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-2">
+                            EENEL
+                          </label>
+                        </div>
+  
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-3" name="assign-wut-3" type="radio" value="SW">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-3">
+                            SW
+                          </label>
+                        </div>
+  
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-4" name="assign-wut-3" type="radio" value="SESL">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-4">
+                            SESL
+                          </label>
+                        </div>
+  
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-5" name="assign-wut-3" type="radio" value="WM">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-5">
+                            WM
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-3" name="assign-wut-3" type="radio" value="EMH">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-3">
+                            EMH
+                          </label>
+                        </div>
+  
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-4" name="assign-wut-3" type="radio" value="N">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-4">
+                            N
+                          </label>
+                        </div>
+  
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="assign-region-5" name="assign-wut-3" type="radio" value="l&WY">
+                          <label class="govuk-label govuk-radios__label" for="assign-region-5">
+                            L&WY
+                          </label>
+                        </div>
+  
+                      </div>
+  
+                    </div>
+
+              </div>
+
+            </fieldset>
+          </div> -->
+
+          <!--Create case-->
+          <div class="govuk-button-group">
+            <button data-prevent-double-click="true" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button"">
+              Create case
+            </button>
+            <a class="govuk-link" href="homepage">Cancel</a>
+          </div>
+
+          <!--Grab today's date
+          <script>
+            let currentDate = new Date();
+            let dateCreatedDay = currentDate.getDate()
+            let dateCreatedMonth = currentDate.getMonth() + 1
+            let dateCreatedYear = currentDate.getFullYear()
+            document.querySelector("#dateCreatedDay").value = dateCreatedDay;
+            document.querySelector("#dateCreatedMonth").value = dateCreatedMonth;
+            document.querySelector("#dateCreatedYear").value = dateCreatedYear;
+          </script>-->
+
+          <!--Auto resize textareas-->
+          <script>
+  
+            function AutoResizeTextarea ($module) {
+                this.$module = $module
+            }
+            
+            AutoResizeTextarea.prototype.init = function() {
+                this.resizeToContents()
+                this.$module.addEventListener('input', this.resizeToContents.bind(this))
+            }
+            
+            AutoResizeTextarea.prototype.resizeToContents = function() {
+                this.$module.style.height = "auto";
+                this.$module.style.height = this.$module.scrollHeight+"px";
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                for (textarea of document.querySelectorAll('textarea.auto-resize')) {
+                new AutoResizeTextarea(textarea).init()
+                }
+            })
+          </script>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+</body>
+
+</html>

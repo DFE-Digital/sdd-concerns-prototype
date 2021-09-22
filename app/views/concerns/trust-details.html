@@ -6,14 +6,6 @@
 <body>
   {% extends "layout.html" %}
   
-  {% block beforeContent %}
-    {% if data['autocompleted-outgoing-trust-id'] %}
-    <a class="govuk-back-link" href="/concerns/trust-name.html">Back</a>
-  {% else %}
-  <a class="govuk-back-link" href="/concerns/outgoing-trust-search.html?outgoing-trust-search-query={{ data['outgoing-trust-search-query'] }}">Back</a>
-  {% endif %}
-  {% endblock %}
-  
   {% block content %}
   {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
@@ -21,16 +13,11 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">New case</h1>
+        <h1 class="govuk-heading-l">Create case</h1>
         
-<!-- Trust details -->
-
-        <h2 class="govuk-heading-l">Trust details</h2>
-<!--
-        <div class="govuk-inset-text govuk-!-margin-bottom-9">
-          Before you create the case make sure the correct trust has been selected. Assign the case to a caseworker, and a unique case identifier number will be created for this case.
-        </div>
--->
+        <!-- Trust details -->
+        <a href="/concerns/new-case.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19 govuk-!-margin-top-6" style="float:right;">Change trust</a>
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Check trust details</h2>
 
         <dl class="govuk-summary-list">
           
@@ -40,367 +27,94 @@
                   {{ trust.trust_name }}
               </dd>
           </div>
+
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Companies House Number</dt>
-              <dd class="govuk-summary-list__value">{{ trust.companies_house_number }}</dd>
+            <dt class="govuk-summary-list__key">Type</dt>
+            <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
           </div>
+
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Type</dt>
-              <dd class="govuk-summary-list__value">{{ trust.establishment_type }}</dd>
+            <dt class="govuk-summary-list__key">Address</dt>
+            <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
+            </dd>
           </div>
+
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Trust Reference Number</dt>
-              <dd class="govuk-summary-list__value">{{ trust.trust_reference_number }}</dd>
-          </div>
-          <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">UKPRN</dt>
-          <dd class="govuk-summary-list__value">{{ trust.ukprn }}</dd>
-          <dd class="govuk-summary-list__value"></dd>
-          </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">UPIN</dt>
-          <dd class="govuk-summary-list__value">{{ trust.upin }}</dd>
-          <dd class="govuk-summary-list__value"></dd>
-      </div>
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Address</dt>
-              <dd class="govuk-summary-list__value">
-                  <p class="govuk-body">{{ trust.address | trustAddressToHtml | safe }}</p>
-              </dd>
-          </div>
-      </dl>
-
-<!-- FORM -->
-
-        <form action="/concerns/management/"
-              class="form"
-              method="post">
-
-        <!-- Q1 -->
-
-          <h2 class="govuk-heading-l">Case setup</h2>
-
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Issue
-              </legend>
-              <div class="govuk-hint" id="case-issue-hint">
-                Give a brief description of the issue
-              </div>
-              <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
-              </textarea>
-            </fieldset>
+              <dt class="govuk-summary-list__key">Region</dt>
+              <dd class="govuk-summary-list__value">{{ trust.region }}</dd>
           </div>
           
-        <!-- Q2 -->
-
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Next steps <span class="govuk-body">(optional)</span>
-              </legend>
-              <div class="govuk-hint" id="case-issue-hint">
-                Give an overview of the next steps
-              </div>
-              <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
-              </textarea>
-            </fieldset>
-          </div>
-
-        <!-- Q2a -->
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Resolution strategy <span class="govuk-body">(optional)</span>
-            </legend>
-            <div class="govuk-hint" id="case-issue-hint">
-              Steps in a resolution strategy
-            </div>
-            <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
-            </textarea>
-          </fieldset>
-        </div>
-
-        <!-- Q2b -->
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Case status<span class="govuk-body">(optional)</span>
-            </legend>
-            <div class="govuk-hint" id="case-issue-hint">
-              Give a brief description of the current case status
-            </div>
-            <textarea aria-describedby="case-issue-hint" class="govuk-textarea" id="case-issue" name="case-issue" rows="5">
-            </textarea>
-          </fieldset>
-        </div>
-          
-        <!-- Q3 -->
-
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Is this a Concern?
-              </legend>
-
-              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-                
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" data-aria-controls="concern-wut-1" id="concern-yes" name="concern-wut" type="radio" value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="concern-yes">
-                    Yes
-                  </label>
-                </div>
-
-                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concern-wut-1">
-                      
-                      <div class="govuk-form-group">
-                        
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-1" name="concern-wut-1" type="radio" value="Safeguarding">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-1">
-                            Safeguarding
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Financial">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-2">
-                            Financial: Deficit
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Financial">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-2">
-                            Financial: Projected deficit
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-2" name="concern-wut-1" type="radio" value="Financial">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-2">
-                            Financial: Visibility
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-3" name="concern-wut-1" type="radio" value="Governance">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-3">
-                            Governance
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-4" name="concern-wut-1" type="radio" value="Irregularity">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-4">
-                            Irregularity
-                          </label>
-                        </div>
-
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="concern-yes-5" name="concern-wut-1" type="radio" value="Irregularit: Suspected fraudy">
-                          <label class="govuk-label govuk-radios__label" for="concern-yes-5">
-                            Irregularity: Suspected fraud
-                          </label>
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="concern-no" name="concern-wut" type="radio" value="No">
-                  <label class="govuk-label govuk-radios__label" for="concern-no">
-                    No
-                  </label>
-                </div>
-                
-              </div>
-
-            </fieldset>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Companies House</dt>
+            <dd class="govuk-summary-list__value"><a href="#">{{ trust.companies_house }}</a></dd>
           </div>
           
-        <!-- Q4 -->
+        </dl>
 
-        <div class="govuk-form-group govuk-!-margin-top-9">
-          <fieldset class="govuk-fieldset">
-
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Is there a whistleblower element?
-            </legend>
-
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-              
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="whistleblower-wut" id="whistleblower-yes" name="whistleblower-wut" type="radio" value="Yes">
-                <label class="govuk-label govuk-radios__label" for="whistleblower-yes">
-                  Yes
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="whistleblower-wut" id="whistleblower-no" name="whistleblower-wut" type="radio" value="No">
-                <label class="govuk-label govuk-radios__label" for="whistleblower-no">
-                  No
-                </label>
-              </div>
-
-            </div>
-
-          </fieldset>
-        </div>
-
-        <!-- Q5 -->
+        <!-- FORM -->
+        <form action="/trust-details" method="post">
 
           <div class="govuk-form-group govuk-!-margin-top-9">
             <fieldset class="govuk-fieldset">
 
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Assign case to
-            </legend>
+              <legend class="govuk-heading-m govuk-heading-m govuk-!-font-weight-bold">
+                What type of case is this?
+              </legend>
 
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-              
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="assign-myself" name="assign-wut" type="radio" value="Myself">
-                <label class="govuk-label govuk-radios__label" for="assign-myself">
-                  Myself
-                </label>
-              </div>
-              
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="assign-wut-2" id="assign-colleague" name="assign-wut" type="radio" value="Colleague">
-                <label class="govuk-label govuk-radios__label" for="assign-colleague">
-                  Colleague
-                </label>
-              </div>
+              <div class="govuk-radios">
 
-                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="assign-wut-2">
-                    
-                    <div class="govuk-form-group">
-                      
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="assign-colleague-1" name="assign-wut-2" type="radio" value="Carlotta Carlyle">
-                        <label class="govuk-label govuk-radios__label" for="assign-colleague-1">
-                          Carlotta Carlyle
-                        </label>
-                      </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="case-type" name="case-type" type="radio" value="record" aria-describedby="case-type-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="case-type">
+                    Record
+                  </label>
+                  <!--<div id="case-type-item-hint" class="govuk-hint govuk-radios__hint">
+                    Log information when it is not a Concern
+                  </div>--> 
+                </div>
 
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="assign-colleague-2" name="assign-wut-2" type="radio" value="Eddie Shoestring">
-                        <label class="govuk-label govuk-radios__label" for="assign-colleague-2">
-                          Eddie Shoestring
-                        </label>
-                      </div>
-
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="assign-colleague-3" name="assign-wut-2" type="radio" value="Harry Dresden">
-                        <label class="govuk-label govuk-radios__label" for="assign-colleague-3">
-                          Harry Dresden
-                        </label>
-                      </div>
-
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="assign-colleague-4" name="assign-wut-2" type="radio" value="Jessica Jones">
-                        <label class="govuk-label govuk-radios__label" for="assign-colleague-4">
-                          Jessica Jones
-                        </label>
-                      </div>
-
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="assign-colleague-5" name="assign-wut-2" type="radio" value="Veronica Mars">
-                        <label class="govuk-label govuk-radios__label" for="assign-colleague-5">
-                          Veronica Mars
-                        </label>
-                      </div>
-
-                    </div>
-
+                <!--<div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="case-type-4" name="case-type" type="radio" value="srma" aria-describedby="case-type-4-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="case-type-4">
+                    SRMA
+                  </label>
+                  <div id="case-type-4-item-hint" class="govuk-hint govuk-radios__hint">
+                    A proactive SRMA visit
                   </div>
+                </div>-->
 
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" data-aria-controls="assign-wut-3" id="assign-region" name="assign-wut" type="radio" value="Region">
-                    <label class="govuk-label govuk-radios__label" for="assign-region">
-                      RSC region
-                    </label>
-                  </div>
-    
-                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="assign-wut-3">
-                        
-                        <div class="govuk-form-group">
-                          
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-1" name="assign-wut-3" type="radio" value="NWLSC">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-1">
-                              NWLSC
-                            </label>
-                          </div>
-    
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-2" name="assign-wut-3" type="radio" value="EENEL">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-2">
-                              EENEL
-                            </label>
-                          </div>
-    
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-3" name="assign-wut-3" type="radio" value="SW">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-3">
-                              SW
-                            </label>
-                          </div>
-    
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-4" name="assign-wut-3" type="radio" value="SESL">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-4">
-                              SESL
-                            </label>
-                          </div>
-    
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-5" name="assign-wut-3" type="radio" value="WM">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-5">
-                              WM
-                            </label>
-                          </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="case-type-3" name="case-type" type="radio" value="safeguarding" aria-describedby="case-type-3-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="case-type-3">
+                    Safeguarding Incident
+                  </label>
+                </div>
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="case-type-2" name="case-type" type="radio" value="concern" aria-describedby="case-type-2-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="case-type-2">
+                    Concern
+                  </label> 
+                </div>
+                
+              </div>
+            </fieldset>
+          </div>
 
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-3" name="assign-wut-3" type="radio" value="EMH">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-3">
-                              EMH
-                            </label>
-                          </div>
-    
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-4" name="assign-wut-3" type="radio" value="N">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-4">
-                              N
-                            </label>
-                          </div>
-    
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="assign-region-5" name="assign-wut-3" type="radio" value="l&WY">
-                            <label class="govuk-label govuk-radios__label" for="assign-region-5">
-                              L&WY
-                            </label>
-                          </div>
-    
-                        </div>
-    
-                      </div>
-          
-          <a class="govuk-button govuk-!-margin-top-6" draggable="false" href="/concerns/management" role="button">
-            Create case
-          </a>
-        </form>
+          <button class="govuk-button" data-module="govuk-button">
+              Continue
+          </button>
+
+      </form>
+        <!-- CLOSE EXAMPLE -->
+
+        <script type="text/javascript">
+        </script>
+
       </div>
     </div>
-  </div>{% endblock %}
+  </div>
+  {% endblock %}
 </body>
 </html>
