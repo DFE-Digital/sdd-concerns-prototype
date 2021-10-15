@@ -210,14 +210,6 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Companies house
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a href="#">08765432</a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
               Type
             </dt>
             <dd class="govuk-summary-list__value">
@@ -242,30 +234,6 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Group ID
-            </dt>
-            <dd class="govuk-summary-list__value">
-              RT01388
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              UID
-            </dt>
-            <dd class="govuk-summary-list__value">
-              2424
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              UKPRN
-            </dt>
-            <dd class="govuk-summary-list__value">
-              10045678
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
               Number of academies
             </dt>
             <dd class="govuk-summary-list__value">
@@ -286,6 +254,31 @@
             </dt>
             <dd class="govuk-summary-list__value">
               2080 (82%)
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Group ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              RT01388
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              UID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2424
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              UKPRN
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10045678
             </dd>
           </div>
         </dl>
@@ -320,6 +313,15 @@
 
         <!-- Financial detail -->
         <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Companies house
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a href="#">08765432</a>
+            </dd>
+          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               In-year balance 2019-2020
@@ -345,40 +347,6 @@
             </dd>
           </div>
         </dl>
-
-        <!-- Open cases -->
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19  govuk-!-margin-top-9" href="/concerns/new-case.html" style="float:right; margin-bottom:-30px;">Closed cases</a>
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">
-            Open cases
-          </caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row tr__large">
-              <th class="govuk-table__header govuk-table__header__cases" scope="col">Case ID</th>
-              <th class="govuk-table__header govuk-table__header__cases" scope="col">Primary case type</th>
-              <th class="govuk-table__header govuk-table__header__cases" scope="col">RAG rating</th>
-              <th class="govuk-table__header govuk-table__header__cases" scope="col">Created</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell_middle">
-                <a href="#">CI-1004634</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
-              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
-              <td class="govuk-table__cell govuk-table__cell_middle">09-07-2021</td>
-            </tr>
-            <tr class="govuk-table__row tr__large">
-              <td class="govuk-table__cell govuk-table__cell_middle">
-                <a href="#">CI-1003845</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
-              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
-              <td class="govuk-table__cell govuk-table__cell_middle">18-06-2021</td>
-            </tr>
-          </tbody>
-        </table>
 
         <!-- Academies -->
         <table class="govuk-table govuk-!-margin-top-9" id="academies">
@@ -421,6 +389,81 @@
               <td class="govuk-table__cell">Primary, Academy converter</td>
               <td class="govuk-table__cell">South Cambridgeshire</td>
               <td class="govuk-table__cell">Miss Emma Charnock</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Cases -->
+        <table class="govuk-table">
+
+          <caption class="govuk-table__caption govuk-table__caption--m">
+            Other cases
+          </caption>
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row tr__large">
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Case ID</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Primary concern</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Risk rating</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Date closed</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Status</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1004634</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Open</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1003845</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Open</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1003217</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Financial: Deficit</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">13-03-2021</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1003221</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">26-11-2020</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1002876</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Financial: Deficit</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">05-06-2019</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1001548</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">17-05-2018</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
             </tr>
           </tbody>
         </table>
