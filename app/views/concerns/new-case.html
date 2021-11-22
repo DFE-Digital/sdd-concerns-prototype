@@ -21,8 +21,8 @@
         
         <h1 class="govuk-heading-m">Create case</h1>
 
-        <form method="get" action="/concerns/new_case_concern_type">
-          <div class="govuk-form-group">
+        <form method="get" action="/concerns/new_case_001" id="search-form">
+          <div class="govuk-form-group search-group">
             <fieldset class="govuk-fieldset" data-required data-error="Search cannot be blank" aria-required="true">
 
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -35,15 +35,14 @@
                 Search by name, trust reference number or companies house number
               </label>
 
-              <input class="govuk-input form-control" name="outgoing-trust-search-query" id="outgoing-trust-search-query" type="text" aria-describedby="outgoing-trust-search-query-hint">
-              
+              <input class="govuk-input form-control" name="outgoing-trust-search-query" id="outgoing-trust-search-query" type="text" aria-describedby="outgoing-trust-search-query-hint">              
               <div id="autocomplete-container">
               </div>
 
             </fieldset>
           </div>
 
-          <button class="govuk-button" type="submit">Next step</button>
+          <input class="govuk-input form-control" id="search-icon" type="submit">
 
         </form>
         

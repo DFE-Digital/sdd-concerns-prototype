@@ -59,6 +59,69 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+.grid-column-full-width {
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+
+#search-icon {
+  width: 40px;
+  height: 40px;
+  float: left;
+  padding: 6px;
+  background: green url(/public/images/icon-search.svg) no-repeat 7px 50%;
+  text-indent: -5000px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.search-group {
+  display:inline-block;
+  flex: 1;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+
+#search-form {
+  align-items: flex-end;
+  display: flex;
+}
+
+.moj-header__container {
+  max-width: 1200px;
+}
+
+.header_buttons {
+  margin-right: -15px;
+  display: inline-block;
+  float: right;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.header_buttons a.govuk-button {
+  margin-right: 15px;
+}
+
+.button-noMargin {
+  margin-bottom: 5px;
+}
+
 // Body text is too tight
 .govuk-body-m, .govuk-body, p {
   line-height: 1.5;
