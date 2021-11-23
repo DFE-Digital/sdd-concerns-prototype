@@ -28,7 +28,7 @@
                         {{ trust.trust_name }} ({{ trust.region }})
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                    <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19 govuk-!-margin-top-6" style="float:right;">Change trust</a>
+                    <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
                     </dd>
                 </div>
 
@@ -75,7 +75,7 @@
                     </dd>
 
                     <dd class="govuk-summary-list__actions">
-                    <a href="#" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19 govuk-!-margin-top-6" style="float:right;">Edit</a>
+                    <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
                     </dd>
                 </div>
 
@@ -85,15 +85,15 @@
         <div class="govuk-grid-column-two-thirds">
 
             <!-- Buttons -->
-            <div class="govuk-button-group">
+            <div class="govuk-button-group govuk-!-margin-top-6">
             {{ govukButton({
                 text: "Next step",
-                href: "new_case_003"
+                href: "new_case_details_001"
             }) }}
             {{ govukButton({
                 text: "Add another concern",
                 classes: "govuk-button--secondary",
-                href: "new_case_002a"
+                href: "new_case_concerns_003"
             }) }}
             <a class="govuk-link" href="homepage">Cancel</a>
             </div>

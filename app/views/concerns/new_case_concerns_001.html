@@ -28,7 +28,7 @@
                   {{ trust.trust_name }} ({{ trust.region }})
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a href="/concerns/new-case.html" class="govuk-link govuk-link--no-visited-state govuk-!-font-size-19 govuk-!-margin-top-6" style="float:right;">Change trust</a>
+                <a href="/concerns/new-case.html" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
               </dd>
           </div>
 
@@ -36,12 +36,10 @@
       </div>
 
       <div class="govuk-grid-column-two-thirds">
-        <!-- FORM -->
-        <form action="/concerns/new_case_002" class="form" method="post">
 
           <!--Q Concern type one-->
-          <div class="govuk-form-group govuk-!-margin-top-9">
-            <fieldset class="govuk-fieldset govuk-!-margin-top-9">
+          <div class="govuk-form-group govuk-!-margin-top-6">
+            <fieldset class="govuk-fieldset">
       
               <legend class="govuk-heading-m">
                 Concern type
@@ -296,15 +294,15 @@
             </fieldset>
           </div>
 
-          <!--Buttons-->
-          <div class="govuk-button-group govuk-!-margin-top-9">
-            <button data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
-              Add to case
-            </button>
+          <!-- Buttons -->
+            <div class="govuk-button-group govuk-!-margin-top-9">
+            {{ govukButton({
+                text: "Add to case",
+                href: "new_case_concerns_002"
+            }) }}
             <a class="govuk-link" href="homepage">Cancel</a>
-          </div>
+            </div>
 
-        </form>
       </div>
 
     </div>

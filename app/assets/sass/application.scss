@@ -59,6 +59,10 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+.concernListing {
+  margin-top: 10px;
+}
+
 .grid-column-full-width {
   width: 100%;
   float: left;
