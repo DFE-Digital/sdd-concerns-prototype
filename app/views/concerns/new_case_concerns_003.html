@@ -83,270 +83,273 @@
 
       <div class="govuk-grid-column-two-thirds">
 
-        <!--Q Concern type -->
-        <div class="govuk-form-group govuk-!-margin-top-6">
-          <fieldset class="govuk-fieldset">
-    
-            <legend class="govuk-heading-m">
-              Concern type
-            </legend>
-            <div class="govuk-hint" id="case-issue-hint">
-              Use the <a href="/public/docs/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the type of Concern
-            </div>
+        <form action="new_case_concerns_004" class="form" method="post">
 
-            <!--Concern radios-->
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-
-              <!--Compliance-->  
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="concernType-221" id="concern-compliance-20" name="concernTypeTwo" type="radio" value="compliance">
-                <label class="govuk-label govuk-radios__label" for="concern-compliance-20">
-                  Compliance
-                </label>
+          <!--Q Concern type -->
+          <div class="govuk-form-group govuk-!-margin-top-6">
+            <fieldset class="govuk-fieldset">
+      
+              <legend class="govuk-heading-m">
+                Concern type
+              </legend>
+              <div class="govuk-hint" id="case-issue-hint">
+                Use the <a href="/public/docs/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the type of Concern
               </div>
 
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-221">
-                  
-                  <div class="govuk-form-group">
+              <!--Concern radios-->
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-compliance-21" name="concernSubTypeTwo" type="radio" value="compliance-financial-reporting">
-                      <label class="govuk-label govuk-radios__label" for="concern-compliance-21">
-                        Compliance: Financial reporting
-                      </label>
-                    </div>
+                <!--Compliance-->  
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-21" id="concern-compliance-20" name="concernTypeTwo" type="radio" value="compliance">
+                  <label class="govuk-label govuk-radios__label" for="concern-compliance-20">
+                    Compliance
+                  </label>
+                </div>
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-compliance-22" name="concernSubTypeTwo" type="radio" value="compliance-financial-returns">
-                      <label class="govuk-label govuk-radios__label" for="concern-compliance-22">
-                        Compliance: Financial returns
-                      </label>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-21">
+                    
+                    <div class="govuk-form-group">
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-compliance-21" name="concernSubTypeTwo" type="radio" value="compliance-financial-reporting">
+                        <label class="govuk-label govuk-radios__label" for="concern-compliance-21">
+                          Compliance: Financial reporting
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-compliance-22" name="concernSubTypeTwo" type="radio" value="compliance-financial-returns">
+                        <label class="govuk-label govuk-radios__label" for="concern-compliance-22">
+                          Compliance: Financial returns
+                        </label>
+                      </div>
+
                     </div>
 
                   </div>
 
+                <!--Finance-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-22" id="concern-financial-20" name="concernTypeTwo" type="radio" value="financial">
+                  <label class="govuk-label govuk-radios__label" for="concern-financial-20">
+                    Financial
+                  </label>
+                </div>
+      
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-22">
+                    
+                    <div class="govuk-form-group">
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-21" name="concernSubTypeTwo" type="radio" value="financial-deficit">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-21">
+                          Financial: Deficit
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-22" name="concernSubTypeTwo" type="radio" value="financial-projected-deficit">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-22">
+                          Financial: Projected deficit / Low future surplus
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-23" name="concernSubTypeTwo" type="radio" value="financial-cash-flow-shortfall">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-23">
+                          Financial: Cash flow shortfall
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-financial-24" name="concernSubTypeTwo" type="radio" value="financial-clawback">
+                        <label class="govuk-label govuk-radios__label" for="concern-financial-24">
+                          Financial: Clawback
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  
+                <!--Force Majure-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-23" id="concern-force-majeure-20" name="concernTypeTwo" type="radio" value="force-majeure">
+                  <label class="govuk-label govuk-radios__label" for="concern-force-majeure-20">
+                    Force Majeure
+                  </label>
                 </div>
 
-              <!--Finance-->
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="concernType-22" id="concern-financial-20" name="concernTypeTwo" type="radio" value="financial">
-                <label class="govuk-label govuk-radios__label" for="concern-financial-20">
-                  Financial
-                </label>
-              </div>
-    
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-22">
-                  
-                  <div class="govuk-form-group">
+                <!--Governance-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-24" id="concern-governance-20" name="concernTypeTwo" type="radio" value="governance">
+                  <label class="govuk-label govuk-radios__label" for="concern-governance-20">
+                    Governance
+                  </label>
+                </div>
+      
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-24">
+                    
+                    <div class="govuk-form-group">
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-financial-21" name="concernSubTypeTwo" type="radio" value="financial-deficit">
-                      <label class="govuk-label govuk-radios__label" for="concern-financial-21">
-                        Financial: Deficit
-                      </label>
-                    </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-21" name="concernSubTypeTwo" type="radio" value="governance-governance">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-21">
+                          Governance: Governance
+                        </label>
+                      </div>
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-financial-22" name="concernSubTypeTwo" type="radio" value="financial-projected-deficit">
-                      <label class="govuk-label govuk-radios__label" for="concern-financial-22">
-                        Financial: Projected deficit / Low future surplus
-                      </label>
-                    </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-22" name="concernSubTypeTwo" type="radio" value="governance-closure">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-22">
+                          Governance: Closure
+                        </label>
+                      </div>
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-financial-23" name="concernSubTypeTwo" type="radio" value="financial-cash-flow-shortfall">
-                      <label class="govuk-label govuk-radios__label" for="concern-financial-23">
-                        Financial: Cash flow shortfall
-                      </label>
-                    </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-23" name="concernSubTypeTwo" type="radio" value="governance-executive-pay">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-23">
+                          Governance: Executive Pay
+                        </label>
+                      </div>
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-financial-24" name="concernSubTypeTwo" type="radio" value="financial-clawback">
-                      <label class="govuk-label govuk-radios__label" for="concern-financial-24">
-                        Financial: Clawback
-                      </label>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-governance-24" name="concernSubTypeTwo" type="radio" value="governance-safeguarding">
+                        <label class="govuk-label govuk-radios__label" for="concern-governance-24">
+                          Governance: Safeguarding
+                        </label>
+                      </div>
+
                     </div>
 
                   </div>
 
+                <!--Irregularity-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="concernType-25" id="concern-irregularity-20" name="concernTypeTwo" type="radio" value="irregularity">
+                  <label class="govuk-label govuk-radios__label" for="concern-irregularity-20">
+                    Irregularity
+                  </label>
                 </div>
-                
-              <!--Force Majure-->
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="concernType-23" id="concern-force-majeure-20" name="concernTypeTwo" type="radio" value="force-majeure">
-                <label class="govuk-label govuk-radios__label" for="concern-force-majeure-20">
-                  Force Majeure
-                </label>
-              </div>
+      
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-25">
+                    
+                    <div class="govuk-form-group">
 
-              <!--Governance-->
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="concernType-24" id="concern-governance-20" name="concernTypeTwo" type="radio" value="governance">
-                <label class="govuk-label govuk-radios__label" for="concern-governance-20">
-                  Governance
-                </label>
-              </div>
-    
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-24">
-                  
-                  <div class="govuk-form-group">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-irregularity-21" name="concernSubTypeTwo" type="radio" value="irregularity-allegations">
+                        <label class="govuk-label govuk-radios__label" for="concern-irregularity-21">
+                          Irregularity: Allegations and self reported concerns
+                        </label>
+                      </div>
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-governance-21" name="concernSubTypeTwo" type="radio" value="governance-governance">
-                      <label class="govuk-label govuk-radios__label" for="concern-governance-21">
-                        Governance: Governance
-                      </label>
-                    </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="concern-irregularity-22" name="concernSubTypeTwo" type="radio" value="irregularity-related-party-transactions">
+                        <label class="govuk-label govuk-radios__label" for="concern-irregularity-22">
+                          Irregularity: Related party transactions - in year
+                        </label>
+                      </div>
 
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-governance-22" name="concernSubTypeTwo" type="radio" value="governance-closure">
-                      <label class="govuk-label govuk-radios__label" for="concern-governance-22">
-                        Governance: Closure
-                      </label>
-                    </div>
-
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-governance-23" name="concernSubTypeTwo" type="radio" value="governance-executive-pay">
-                      <label class="govuk-label govuk-radios__label" for="concern-governance-23">
-                        Governance: Executive Pay
-                      </label>
-                    </div>
-
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-governance-24" name="concernSubTypeTwo" type="radio" value="governance-safeguarding">
-                      <label class="govuk-label govuk-radios__label" for="concern-governance-24">
-                        Governance: Safeguarding
-                      </label>
                     </div>
 
                   </div>
 
+              </div>
+
+            </fieldset>
+          </div>
+
+          <!-- Q Risk rating -->
+          <div class="govuk-form-group govuk-!-margin-top-6">
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-heading-m">
+                Concern risk rating
+              </legend>
+
+              <!--Risk rating radios-->
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="amberGreen">
+                  <label class="govuk-label govuk-radios__label" for="riskRating-20">
+                    <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+                  </label>
                 </div>
 
-              <!--Irregularity-->
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="concernType-25" id="concern-irregularity-20" name="concernTypeTwo" type="radio" value="irregularity">
-                <label class="govuk-label govuk-radios__label" for="concern-irregularity-20">
-                  Irregularity
-                </label>
-              </div>
-    
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="concernType-25">
-                  
-                  <div class="govuk-form-group">
-
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-irregularity-21" name="concernSubTypeTwo" type="radio" value="irregularity-allegations">
-                      <label class="govuk-label govuk-radios__label" for="concern-irregularity-21">
-                        Irregularity: Allegations and self reported concerns
-                      </label>
-                    </div>
-
-                    <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="concern-irregularity-22" name="concernSubTypeTwo" type="radio" value="irregularity-related-party-transactions">
-                      <label class="govuk-label govuk-radios__label" for="concern-irregularity-22">
-                        Irregularity: Related party transactions - in year
-                      </label>
-                    </div>
-
-                  </div>
-
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="redAmber">
+                  <label class="govuk-label govuk-radios__label" for="riskRating-20">
+                    <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+                  </label>
                 </div>
 
-            </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="red">
+                  <label class="govuk-label govuk-radios__label" for="riskRating-20">
+                    <span class="govuk-tag ragtag ragtag__red">Red</span>
+                  </label>
+                </div>
 
-          </fieldset>
-        </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="redPlus">
+                  <label class="govuk-label govuk-radios__label" for="riskRating-20">
+                    <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+                  </label>
+                </div>
 
-        <!-- Q Risk rating -->
-        <div class="govuk-form-group govuk-!-margin-top-6">
-          <fieldset class="govuk-fieldset">
-
-            <legend class="govuk-heading-m">
-              Concern risk rating
-            </legend>
-
-            <!--Risk rating radios-->
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="amberGreen">
-                <label class="govuk-label govuk-radios__label" for="riskRating-20">
-                  <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
-                </label>
               </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="redAmber">
-                <label class="govuk-label govuk-radios__label" for="riskRating-20">
-                  <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
-                </label>
+            </fieldset>
+          </div>
+
+          <!-- Q Direction of travel -->
+          <div hidden class="govuk-form-group govuk-!-margin-top-6">
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-heading-m">
+                Direction of travel
+              </legend>
+
+              <!--Direction of travel radios-->
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="improving">
+                  <label class="govuk-label govuk-radios__label" for="direction">
+                    Improving
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="unchanged">
+                  <label class="govuk-label govuk-radios__label" for="direction">
+                    Unchanged
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="deteriorating" checked>
+                  <label class="govuk-label govuk-radios__label" for="direction">
+                    Deteriorating
+                  </label>
+                </div>
+
               </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="red">
-                <label class="govuk-label govuk-radios__label" for="riskRating-20">
-                  <span class="govuk-tag ragtag ragtag__red">Red</span>
-                </label>
-              </div>
+            </fieldset>
+          </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="riskTypeTwo" id="riskRating-20" name="riskTypeTwo" type="radio" value="redPlus">
-                <label class="govuk-label govuk-radios__label" for="riskRating-20">
-                  <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
-                </label>
-              </div>
+          <!--Buttons-->
+          <div class="govuk-button-group govuk-!-margin-top-9">
+            {{ govukButton({
+              text: "Add to case"
+            }) }}
+            <a class="govuk-link" href="homepage">Cancel</a>
+          </div>
 
-            </div>
-
-          </fieldset>
-        </div>
-
-        <!-- Q Direction of travel -->
-        <div hidden class="govuk-form-group govuk-!-margin-top-6">
-          <fieldset class="govuk-fieldset">
-
-            <legend class="govuk-heading-m">
-              Direction of travel
-            </legend>
-
-            <!--Direction of travel radios-->
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="improving">
-                <label class="govuk-label govuk-radios__label" for="direction">
-                  Improving
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="unchanged">
-                <label class="govuk-label govuk-radios__label" for="direction">
-                  Unchanged
-                </label>
-              </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="deteriorating" checked>
-                <label class="govuk-label govuk-radios__label" for="direction">
-                  Deteriorating
-                </label>
-              </div>
-
-            </div>
-
-          </fieldset>
-        </div>
-
-        <!--Buttons-->
-        <div class="govuk-button-group govuk-!-margin-top-9">
-          {{ govukButton({
-            text: "Add to case",
-            href: "new_case_concerns_004"
-          }) }}
-          <a class="govuk-link" href="homepage">Cancel</a>
-        </div>
+        </form>
 
       </div>
 

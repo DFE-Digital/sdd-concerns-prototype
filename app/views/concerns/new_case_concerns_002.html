@@ -64,13 +64,13 @@
                         {% endif %}
 
                          {% if data['riskType'] == 'amberGreen' %}
-                        <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
                         {% elif data['riskType'] == 'redAmber' %}
-                        <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
                         {% elif data['riskType'] == 'red' %}
-                        <span class="govuk-tag ragtag ragtag__red">Red</span>
+                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
                         {% elif data['riskType'] == 'redPlus' %}
-                        <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
                         {% endif %}
                     </dd>
 

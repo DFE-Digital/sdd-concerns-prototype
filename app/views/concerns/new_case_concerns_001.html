@@ -14,7 +14,7 @@
       
       <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">Create case</span>
-        <h1 class="govuk-heading-l">Concerns</h1>
+        <h1 class="govuk-heading-l">Details</h1>
       </div>
 
       <div class="grid-column-full-width">
@@ -36,6 +36,8 @@
       </div>
 
       <div class="govuk-grid-column-two-thirds">
+
+        <form action="new_case_concerns_002" class="form" method="post">
 
           <!--Q Concern type one-->
           <div class="govuk-form-group govuk-!-margin-top-6">
@@ -297,11 +299,12 @@
           <!-- Buttons -->
             <div class="govuk-button-group govuk-!-margin-top-9">
             {{ govukButton({
-                text: "Add to case",
-                href: "new_case_concerns_002"
+                text: "Add to case"
             }) }}
             <a class="govuk-link" href="homepage">Cancel</a>
             </div>
+
+        </form>
 
       </div>
 
