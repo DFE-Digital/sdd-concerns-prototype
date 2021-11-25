@@ -20,72 +20,86 @@
     10483AC
   </h1>
   <h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
-  <a href="#" class="govuk-link">Trust overview (TRAMS)</a>
+
+  <!-- Tabs -->
+  <div class="govuk-tabs" data-module="govuk-tabs">
+    
+    <h2 class="govuk-tabs__title">Contents</h2>
+    
+    <ul class="govuk-tabs__list">
+      <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+        <a class="govuk-tabs__tab" href="#case-detail">Case detail</a>
+      </li>
+      <li class="govuk-tabs__list-item">
+        <a class="govuk-tabs__tab" href="#trust-overview">Trust overview</a>
+      </li>
+    </ul>
+
+      <!-- Case detail tab -->
+      <div class="govuk-tabs__panel" id="case-detail">
 
         <dl class="govuk-summary-list">
                 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Trust</dt>
-                <dd class="govuk-summary-list__value">
-                    {{ trust.trust_name }} ({{ trust.region }})
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
-                </dd>
-            </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Trust</dt>
+              <dd class="govuk-summary-list__value">
+                  {{ trust.trust_name }} ({{ trust.region }})
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
+              </dd>
+          </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">Concerns</dt>
-                <dd class="govuk-summary-list__value">
-                    {% if data['concernSubType'] == 'compliance-financial-reporting' %}
-                    <span class="caseDetail_type">Compliance: Financial reporting</span>
-                    {% elif data['concernSubType'] == 'compliance-financial-returns' %}
-                    <span class="caseDetail_type">Compliance: Financial returns</span>
-                    {% elif data['concernSubType'] == 'financial-deficit' %}
-                    <span class="caseDetail_type">Financial: Deficit</span>
-                    {% elif data['concernSubType'] == 'financial-projected-deficit' %}
-                    <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-                    {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
-                    <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-                    {% elif data['concernSubType'] == 'financial-clawback' %}
-                    <span class="caseDetail_type">Financial: Clawback</span>
-                    {% elif data['concernType'] == 'force-majeure' %}
-                    <span class= "caseDetail_type">Force Majeure</span>
-                    {% elif data['concernSubType'] == 'governance-governance' %}
-                    <span class="caseDetail_type">Governance: Governance</span>
-                    {% elif data['concernSubType'] == 'governance-closure' %}
-                    <span class= "caseDetail_type">Governance: Closure</span>
-                    {% elif data['concernSubType'] == 'governance-executive-pay' %}
-                    <span class="caseDetail_type">Governance: Executive Pay</span>
-                    {% elif data['concernSubType'] == 'governance-safeguarding' %}
-                    <span class="caseDetail_type">Governance: Safeguarding</span>
-                    {% elif data['concernSubType'] == 'irregularity-allegations' %}
-                    <span class="caseDetail_type">Iregularity: Allegations</span>
-                    {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
-                    <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
-                    {% endif %}
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Concerns</dt>
+              <dd class="govuk-summary-list__value">
+                  {% if data['concernSubType'] == 'compliance-financial-reporting' %}
+                  <span class="caseDetail_type">Compliance: Financial reporting</span>
+                  {% elif data['concernSubType'] == 'compliance-financial-returns' %}
+                  <span class="caseDetail_type">Compliance: Financial returns</span>
+                  {% elif data['concernSubType'] == 'financial-deficit' %}
+                  <span class="caseDetail_type">Financial: Deficit</span>
+                  {% elif data['concernSubType'] == 'financial-projected-deficit' %}
+                  <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+                  {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
+                  <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+                  {% elif data['concernSubType'] == 'financial-clawback' %}
+                  <span class="caseDetail_type">Financial: Clawback</span>
+                  {% elif data['concernType'] == 'force-majeure' %}
+                  <span class= "caseDetail_type">Force Majeure</span>
+                  {% elif data['concernSubType'] == 'governance-governance' %}
+                  <span class="caseDetail_type">Governance: Governance</span>
+                  {% elif data['concernSubType'] == 'governance-closure' %}
+                  <span class= "caseDetail_type">Governance: Closure</span>
+                  {% elif data['concernSubType'] == 'governance-executive-pay' %}
+                  <span class="caseDetail_type">Governance: Executive Pay</span>
+                  {% elif data['concernSubType'] == 'governance-safeguarding' %}
+                  <span class="caseDetail_type">Governance: Safeguarding</span>
+                  {% elif data['concernSubType'] == 'irregularity-allegations' %}
+                  <span class="caseDetail_type">Iregularity: Allegations</span>
+                  {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
+                  <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+                  {% endif %}
 
-                        {% if data['riskType'] == 'amberGreen' %}
-                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
-                    {% elif data['riskType'] == 'redAmber' %}
-                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
-                    {% elif data['riskType'] == 'red' %}
-                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
-                    {% elif data['riskType'] == 'redPlus' %}
-                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
-                    {% endif %}
-                </dd>
+                      {% if data['riskType'] == 'amberGreen' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                  {% elif data['riskType'] == 'redAmber' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                  {% elif data['riskType'] == 'red' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                  {% elif data['riskType'] == 'redPlus' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                  {% endif %}
+              </dd>
 
-                <dd class="govuk-summary-list__actions">
-                <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
-                </dd>
-            </div>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
+          </div>
 
         </dl>
                 
         <!--Accordions-->
-
-
         <div class="govuk-accordion"
              data-module="govuk-accordion"
              id="accordion-default">
@@ -175,9 +189,280 @@
           </div>{% endif %}
         </div>
 
-       <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Add to case
-      </button> 
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add to case
+        </button> 
+
+      </div>
+
+      <!-- Trust overview tab -->
+      <div class="govuk-tabs__panel" id="trust-overview">
+
+        <!-- Trust detail -->
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Multi-academy trust
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Straylight Road, Berne, Cambridgeshire CB26 9NM
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Local authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              South Cambridgeshire
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of academies
+            </dt>
+            <dd class="govuk-summary-list__value">
+              3
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Total pupil capacity
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2526
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of pupils
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2080 (82%)
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Group ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              RT01388
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              UID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2424
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              UKPRN
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10045678
+            </dd>
+          </div>
+        </dl>
+
+        <!-- Contact detail -->
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Main contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Bill Gibson (Chair)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01223 456789
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              b.gibson@wintermuteacademy.ac.uk
+            </dd>
+          </div>
+        </dl>
+
+        <!-- Financial detail -->
+        <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Companies house
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a href="#">08765432</a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              In-year balance 2019-2020
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span style="color: #d4351c;">-£429k</span>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Revenue reserve
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £668k
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last financial report
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a href="#">View financial report</a>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- Academies -->
+        <table class="govuk-table govuk-!-margin-top-9" id="academies">
+          <caption class="govuk-table__caption govuk-table__caption--m">
+            Academies
+          </caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Academy</th>
+              <th class="govuk-table__header" scope="col">URN</th>
+              <th class="govuk-table__header" scope="col">Type</th>
+              <th class="govuk-table__header" scope="col">LA</th>
+              <th class="govuk-table__header" scope="col">Head</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a class="govuk-link" href="#">Icknield Community College</a>
+              </td>
+              <td class="govuk-table__cell">143984</td>
+              <td class="govuk-table__cell">Secondary, Academy converter</td>
+              <td class="govuk-table__cell">South Cambridgeshire</td>
+              <td class="govuk-table__cell">Mr Mat Hunter</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a class="govuk-link" href="#">Matthew Arnold School</a>
+              </td>
+              <td class="govuk-table__cell">142104</td>
+              <td class="govuk-table__cell">Secondary, Academy sponsor led</td>
+              <td class="govuk-table__cell">South Cambridgeshire</td>
+              <td class="govuk-table__cell">Katherine Ryan</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <a class="govuk-link" href="#">Stadhampton Primary School</a>
+              </td>
+              <td class="govuk-table__cell">146481</td>
+              <td class="govuk-table__cell">Primary, Academy converter</td>
+              <td class="govuk-table__cell">South Cambridgeshire</td>
+              <td class="govuk-table__cell">Miss Emma Charnock</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Cases -->
+        <table class="govuk-table govuk-!-margin-top-9" id="otherCases">
+
+          <caption class="govuk-table__caption govuk-table__caption--m">
+            Other cases
+          </caption>
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row tr__large">
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Case ID</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Primary concern</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Risk rating</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Date closed</th>
+              <th class="govuk-table__header govuk-table__header__cases" scope="col">Status</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1004634</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Compliance: Financial reporting</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Open</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1003845</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Open</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1003217</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Financial: Deficit</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">13-03-2021</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1003221</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">26-11-2020</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1002876</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Financial: Deficit</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">05-06-2019</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+            <tr class="govuk-table__row tr__large">
+              <td class="govuk-table__cell govuk-table__cell_middle">
+                <a href="#">CI-1001548</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Safeguarding</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">-</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">17-05-2018</td>
+              <td class="govuk-table__cell govuk-table__cell_middle">Closed</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+  
+  </div>
 
   {% endblock %}
 
