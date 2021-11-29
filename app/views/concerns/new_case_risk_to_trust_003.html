@@ -14,7 +14,7 @@
       
         <div class="govuk-grid-column-two-thirds">
             <span class="govuk-caption-l">Create case</span>
-            <h1 class="govuk-heading-l">Concerns</h1>
+            <h1 class="govuk-heading-l">Trust risk</h1>
         </div>
 
         <div class="grid-column-full-width">
@@ -172,19 +172,102 @@
 
         <div class="govuk-grid-column-two-thirds">
 
-            <!-- Buttons -->
-            <div class="govuk-button-group govuk-!-margin-top-6">
-            {{ govukButton({
-                text: "Next step",
-                href: "new_case_risk_to_trust_003"
-            }) }}
-            {{ govukButton({
-                text: "Add another concern",
-                classes: "govuk-button--secondary",
-                href: "#"
-            }) }}
-            <a class="govuk-link" href="homepage">Cancel</a>
-            </div>
+            <form action="new_case_details_003" class="form" method="post">
+
+                <!-- Q Risk rating -->
+                <div class="govuk-form-group govuk-!-margin-top-6">
+                    <fieldset class="govuk-fieldset">
+
+                    <legend class="govuk-heading-m">
+                        What is the risk to the trust?
+                    </legend>
+
+                    <div class="govuk-hint" id="case-issue-hint">
+                        Use the <a href="/public/docs/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the risk to the trust.
+                    </div>
+
+                    <!--Risk rating radios-->
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="trustRisk" id="trustRiskRating" name="trustRisk" type="radio" value="amberGreen">
+                        <label class="govuk-label govuk-radios__label" for="trustRiskRating">
+                            <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+                        </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="trustRisk" id="trustRiskRating" name="trustRisk" type="radio" value="redAmber">
+                        <label class="govuk-label govuk-radios__label" for="trustRiskRating">
+                            <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+                        </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="trustRisk" id="trustRiskRating" name="trustRisk" type="radio" value="red">
+                        <label class="govuk-label govuk-radios__label" for="trustRiskRating">
+                            <span class="govuk-tag ragtag ragtag__red">Red</span>
+                        </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="trustRisk" id="trustRiskRating" name="trustRisk" type="radio" value="redPlus">
+                        <label class="govuk-label govuk-radios__label" for="trustRiskRating">
+                            <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+                        </label>
+                        </div>
+
+                    </div>
+
+                    </fieldset>
+                </div>
+
+                <!-- Q Direction of travel -->
+                <div hidden class="govuk-form-group govuk-!-margin-top-9">
+                    <fieldset class="govuk-fieldset">
+
+                    <legend class="govuk-heading-m">
+                        Direction of travel
+                    </legend>
+
+                    <!--Direction of travel radios-->
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="improving">
+                        <label class="govuk-label govuk-radios__label" for="direction">
+                            Improving
+                        </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="unchanged">
+                        <label class="govuk-label govuk-radios__label" for="direction">
+                            Unchanged
+                        </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="directionOfTravel" id="direction" name="directionOfTravel" type="radio" value="deteriorating" checked>
+                        <label class="govuk-label govuk-radios__label" for="direction">
+                            Deteriorating
+                        </label>
+                        </div>
+
+                    </div>
+
+                    </fieldset>
+                </div>
+
+                <!-- Buttons -->
+                <div class="govuk-button-group govuk-!-margin-top-9">
+                {{ govukButton({
+                    text: "Next step"
+                }) }}
+                <a class="govuk-link" href="homepage">Cancel</a>
+                </div>
+
+            </form>
 
         </div>
 

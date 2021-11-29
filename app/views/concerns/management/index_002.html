@@ -43,10 +43,10 @@
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Trust</dt>
                 <dd class="govuk-summary-list__value">
-                    {{ trust.trust_name }} ({{ trust.region }})
+                  {{ trust.trust_name }} ({{ trust.region }})
+                  </br>{{ trust.address }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
                 </dd>
             </div>
 
@@ -143,10 +143,44 @@
 
             </div>
 
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Risk to trust</dt>
+              <dd class="govuk-summary-list__value">
+                  {% if data['trustRisk'] == 'amberGreen' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                  {% elif data['trustRisk'] == 'redAmber' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                  {% elif data['trustRisk'] == 'red' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                  {% elif data['trustRisk'] == 'redPlus' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                  {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Direction of travel</dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['directionOfTravel'] == 'improving' %}
+                  Improving
+                {% elif data['directionOfTravel'] == 'unchanged' %}
+                  Unchanged
+                {% elif data['directionOfTravel'] == 'deteriorating' %}
+                  Deteriorating
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
+            </div>
+
         </dl>
                 
         <!--Accordions-->
-        <div class="govuk-accordion"
+        <div class="govuk-accordion govuk-!-margin-top-9"
              data-module="govuk-accordion"
              id="accordion-default">
 
@@ -259,7 +293,7 @@
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-              Straylight Road, Berne, Cambridgeshire CB26 9NM
+              {{ trust.address }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -267,7 +301,7 @@
               Local authority
             </dt>
             <dd class="govuk-summary-list__value">
-              South Cambridgeshire
+              {{ trust.region }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">

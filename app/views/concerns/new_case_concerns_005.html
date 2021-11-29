@@ -25,9 +25,10 @@
                     <dt class="govuk-summary-list__key">Trust</dt>
                     <dd class="govuk-summary-list__value">
                         {{ trust.trust_name }} ({{ trust.region }})
+                        </br>{{ trust.address }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                    <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
+                        <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
                     </dd>
                 </div>
 
@@ -138,8 +139,9 @@
                     <legend class="govuk-heading-m">
                         Concern type
                     </legend>
+                    
                     <div class="govuk-hint" id="case-issue-hint">
-                        Use the <a href="/public/docs/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the type of Concern
+                        Use the <a href="/public/docs/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the type of concern and the level of risk.
                     </div>
 
                     <!--Concern radios-->

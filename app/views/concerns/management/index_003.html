@@ -45,150 +45,184 @@
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Trust</dt>
                 <dd class="govuk-summary-list__value">
-                    {{ trust.trust_name }} ({{ trust.region }})
+                  {{ trust.trust_name }} ({{ trust.region }})
+                  </br>{{ trust.address }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Change trust</a>
                 </dd>
             </div>
 
             <div class="govuk-summary-list__row">
 
-                <dt class="govuk-summary-list__key">Concerns</dt>
-                <dd class="govuk-summary-list__value">
+              <dt class="govuk-summary-list__key">Concerns</dt>
+              <dd class="govuk-summary-list__value">
 
-                    <div>
-                        {% if data['concernSubType'] == 'compliance-financial-reporting' %}
-                        <span class="caseDetail_type">Compliance: Financial reporting</span>
-                        {% elif data['concernSubType'] == 'compliance-financial-returns' %}
-                        <span class="caseDetail_type">Compliance: Financial returns</span>
-                        {% elif data['concernSubType'] == 'financial-deficit' %}
-                        <span class="caseDetail_type">Financial: Deficit</span>
-                        {% elif data['concernSubType'] == 'financial-projected-deficit' %}
-                        <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-                        {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
-                        <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-                        {% elif data['concernSubType'] == 'financial-clawback' %}
-                        <span class="caseDetail_type">Financial: Clawback</span>
-                        {% elif data['concernType'] == 'force-majeure' %}
-                        <span class= "caseDetail_type">Force Majeure</span>
-                        {% elif data['concernSubType'] == 'governance-governance' %}
-                        <span class="caseDetail_type">Governance: Governance</span>
-                        {% elif data['concernSubType'] == 'governance-closure' %}
-                        <span class= "caseDetail_type">Governance: Closure</span>
-                        {% elif data['concernSubType'] == 'governance-executive-pay' %}
-                        <span class="caseDetail_type">Governance: Executive Pay</span>
-                        {% elif data['concernSubType'] == 'governance-safeguarding' %}
-                        <span class="caseDetail_type">Governance: Safeguarding</span>
-                        {% elif data['concernSubType'] == 'irregularity-allegations' %}
-                        <span class="caseDetail_type">Iregularity: Allegations</span>
-                        {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
-                        <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
-                        {% endif %}
+                <div>
+                    {% if data['concernSubType'] == 'compliance-financial-reporting' %}
+                    <span class="caseDetail_type">Compliance: Financial reporting</span>
+                    {% elif data['concernSubType'] == 'compliance-financial-returns' %}
+                    <span class="caseDetail_type">Compliance: Financial returns</span>
+                    {% elif data['concernSubType'] == 'financial-deficit' %}
+                    <span class="caseDetail_type">Financial: Deficit</span>
+                    {% elif data['concernSubType'] == 'financial-projected-deficit' %}
+                    <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+                    {% elif data['concernSubType'] == 'financial-cash-flow-shortfall' %}
+                    <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+                    {% elif data['concernSubType'] == 'financial-clawback' %}
+                    <span class="caseDetail_type">Financial: Clawback</span>
+                    {% elif data['concernType'] == 'force-majeure' %}
+                    <span class= "caseDetail_type">Force Majeure</span>
+                    {% elif data['concernSubType'] == 'governance-governance' %}
+                    <span class="caseDetail_type">Governance: Governance</span>
+                    {% elif data['concernSubType'] == 'governance-closure' %}
+                    <span class= "caseDetail_type">Governance: Closure</span>
+                    {% elif data['concernSubType'] == 'governance-executive-pay' %}
+                    <span class="caseDetail_type">Governance: Executive Pay</span>
+                    {% elif data['concernSubType'] == 'governance-safeguarding' %}
+                    <span class="caseDetail_type">Governance: Safeguarding</span>
+                    {% elif data['concernSubType'] == 'irregularity-allegations' %}
+                    <span class="caseDetail_type">Iregularity: Allegations</span>
+                    {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
+                    <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+                    {% endif %}
 
-                        {% if data['riskType'] == 'amberGreen' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
-                        {% elif data['riskType'] == 'redAmber' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
-                        {% elif data['riskType'] == 'red' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
-                        {% elif data['riskType'] == 'redPlus' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
-                        {% endif %}
-                    </div>
+                    {% if data['riskType'] == 'amberGreen' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                    {% elif data['riskType'] == 'redAmber' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                    {% elif data['riskType'] == 'red' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                    {% elif data['riskType'] == 'redPlus' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                    {% endif %}
+                </div>
 
-                    <div class="concernListing">
-                        {% if data['concernSubTypeTwo'] == 'compliance-financial-reporting' %}
-                        <span class="caseDetail_type">Compliance: Financial reporting</span>
-                        {% elif data['concernSubTypeTwo'] == 'compliance-financial-returns' %}
-                        <span class="caseDetail_type">Compliance: Financial returns</span>
-                        {% elif data['concernSubTypeTwo'] == 'financial-deficit' %}
-                        <span class="caseDetail_type">Financial: Deficit</span>
-                        {% elif data['concernSubTypeTwo'] == 'financial-projected-deficit' %}
-                        <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-                        {% elif data['concernSubTypeTwo'] == 'financial-cash-flow-shortfall' %}
-                        <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-                        {% elif data['concernSubTypeTwo'] == 'financial-clawback' %}
-                        <span class="caseDetail_type">Financial: Clawback</span>
-                        {% elif data['concernTypeTwo'] == 'force-majeure' %}
-                        <span class= "caseDetail_type">Force Majeure</span>
-                        {% elif data['concernSubTypeTwo'] == 'governance-governance' %}
-                        <span class="caseDetail_type">Governance: Governance</span>
-                        {% elif data['concernSubTypeTwo'] == 'governance-closure' %}
-                        <span class= "caseDetail_type">Governance: Closure</span>
-                        {% elif data['concernSubTypeTwo'] == 'governance-executive-pay' %}
-                        <span class="caseDetail_type">Governance: Executive Pay</span>
-                        {% elif data['concernSubTypeTwo'] == 'governance-safeguarding' %}
-                        <span class="caseDetail_type">Governance: Safeguarding</span>
-                        {% elif data['concernSubTypeTwo'] == 'irregularity-allegations' %}
-                        <span class="caseDetail_type">Iregularity: Allegations</span>
-                        {% elif data['concernSubTypeTwo'] == 'irregularity-related-party-transactions' %}
-                        <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
-                        {% endif %}
+                <div class="concernListing">
+                    {% if data['concernSubTypeTwo'] == 'compliance-financial-reporting' %}
+                    <span class="caseDetail_type">Compliance: Financial reporting</span>
+                    {% elif data['concernSubTypeTwo'] == 'compliance-financial-returns' %}
+                    <span class="caseDetail_type">Compliance: Financial returns</span>
+                    {% elif data['concernSubTypeTwo'] == 'financial-deficit' %}
+                    <span class="caseDetail_type">Financial: Deficit</span>
+                    {% elif data['concernSubTypeTwo'] == 'financial-projected-deficit' %}
+                    <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+                    {% elif data['concernSubTypeTwo'] == 'financial-cash-flow-shortfall' %}
+                    <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+                    {% elif data['concernSubTypeTwo'] == 'financial-clawback' %}
+                    <span class="caseDetail_type">Financial: Clawback</span>
+                    {% elif data['concernTypeTwo'] == 'force-majeure' %}
+                    <span class= "caseDetail_type">Force Majeure</span>
+                    {% elif data['concernSubTypeTwo'] == 'governance-governance' %}
+                    <span class="caseDetail_type">Governance: Governance</span>
+                    {% elif data['concernSubTypeTwo'] == 'governance-closure' %}
+                    <span class= "caseDetail_type">Governance: Closure</span>
+                    {% elif data['concernSubTypeTwo'] == 'governance-executive-pay' %}
+                    <span class="caseDetail_type">Governance: Executive Pay</span>
+                    {% elif data['concernSubTypeTwo'] == 'governance-safeguarding' %}
+                    <span class="caseDetail_type">Governance: Safeguarding</span>
+                    {% elif data['concernSubTypeTwo'] == 'irregularity-allegations' %}
+                    <span class="caseDetail_type">Iregularity: Allegations</span>
+                    {% elif data['concernSubTypeTwo'] == 'irregularity-related-party-transactions' %}
+                    <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+                    {% endif %}
 
-                        {% if data['riskTypeTwo'] == 'amberGreen' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
-                        {% elif data['riskTypeTwo'] == 'redAmber' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
-                        {% elif data['riskTypeTwo'] == 'red' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
-                        {% elif data['riskTypeTwo'] == 'redPlus' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
-                        {% endif %}
-                    </div>
+                    {% if data['riskTypeTwo'] == 'amberGreen' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                    {% elif data['riskTypeTwo'] == 'redAmber' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                    {% elif data['riskTypeTwo'] == 'red' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                    {% elif data['riskTypeTwo'] == 'redPlus' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                    {% endif %}
+                </div>
 
-                    <div class="concernListing">
-                        {% if data['concernSubTypeThree'] == 'compliance-financial-reporting' %}
-                        <span class="caseDetail_type">Compliance: Financial reporting</span>
-                        {% elif data['concernSubTypeThree'] == 'compliance-financial-returns' %}
-                        <span class="caseDetail_type">Compliance: Financial returns</span>
-                        {% elif data['concernSubTypeThree'] == 'financial-deficit' %}
-                        <span class="caseDetail_type">Financial: Deficit</span>
-                        {% elif data['concernSubTypeThree'] == 'financial-projected-deficit' %}
-                        <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-                        {% elif data['concernSubTypeThree'] == 'financial-cash-flow-shortfall' %}
-                        <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-                        {% elif data['concernSubTypeThree'] == 'financial-clawback' %}
-                        <span class="caseDetail_type">Financial: Clawback</span>
-                        {% elif data['concernTypeThree'] == 'force-majeure' %}
-                        <span class= "caseDetail_type">Force Majeure</span>
-                        {% elif data['concernSubTypeThree'] == 'governance-governance' %}
-                        <span class="caseDetail_type">Governance: Governance</span>
-                        {% elif data['concernSubTypeThree'] == 'governance-closure' %}
-                        <span class= "caseDetail_type">Governance: Closure</span>
-                        {% elif data['concernSubTypeThree'] == 'governance-executive-pay' %}
-                        <span class="caseDetail_type">Governance: Executive Pay</span>
-                        {% elif data['concernSubTypeThree'] == 'governance-safeguarding' %}
-                        <span class="caseDetail_type">Governance: Safeguarding</span>
-                        {% elif data['concernSubTypeThree'] == 'irregularity-allegations' %}
-                        <span class="caseDetail_type">Iregularity: Allegations</span>
-                        {% elif data['concernSubTypeThree'] == 'irregularity-related-party-transactions' %}
-                        <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
-                        {% endif %}
+                <div class="concernListing">
+                    {% if data['concernSubTypeThree'] == 'compliance-financial-reporting' %}
+                    <span class="caseDetail_type">Compliance: Financial reporting</span>
+                    {% elif data['concernSubTypeThree'] == 'compliance-financial-returns' %}
+                    <span class="caseDetail_type">Compliance: Financial returns</span>
+                    {% elif data['concernSubTypeThree'] == 'financial-deficit' %}
+                    <span class="caseDetail_type">Financial: Deficit</span>
+                    {% elif data['concernSubTypeThree'] == 'financial-projected-deficit' %}
+                    <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+                    {% elif data['concernSubTypeThree'] == 'financial-cash-flow-shortfall' %}
+                    <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+                    {% elif data['concernSubTypeThree'] == 'financial-clawback' %}
+                    <span class="caseDetail_type">Financial: Clawback</span>
+                    {% elif data['concernTypeThree'] == 'force-majeure' %}
+                    <span class= "caseDetail_type">Force Majeure</span>
+                    {% elif data['concernSubTypeThree'] == 'governance-governance' %}
+                    <span class="caseDetail_type">Governance: Governance</span>
+                    {% elif data['concernSubTypeThree'] == 'governance-closure' %}
+                    <span class= "caseDetail_type">Governance: Closure</span>
+                    {% elif data['concernSubTypeThree'] == 'governance-executive-pay' %}
+                    <span class="caseDetail_type">Governance: Executive Pay</span>
+                    {% elif data['concernSubTypeThree'] == 'governance-safeguarding' %}
+                    <span class="caseDetail_type">Governance: Safeguarding</span>
+                    {% elif data['concernSubTypeThree'] == 'irregularity-allegations' %}
+                    <span class="caseDetail_type">Iregularity: Allegations</span>
+                    {% elif data['concernSubTypeThree'] == 'irregularity-related-party-transactions' %}
+                    <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+                    {% endif %}
 
-                        {% if data['riskTypeThree'] == 'amberGreen' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
-                        {% elif data['riskTypeThree'] == 'redAmber' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
-                        {% elif data['riskTypeThree'] == 'red' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
-                        {% elif data['riskTypeThree'] == 'redPlus' %}
-                        <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
-                        {% endif %}
-                    </div>
+                    {% if data['riskTypeThree'] == 'amberGreen' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                    {% elif data['riskTypeThree'] == 'redAmber' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                    {% elif data['riskTypeThree'] == 'red' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                    {% elif data['riskTypeThree'] == 'redPlus' %}
+                    <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                    {% endif %}
+                </div>
 
-                </dd>
+              </dd>
 
-                <dd class="govuk-summary-list__actions">
-                <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
-                </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
 
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Risk to trust</dt>
+              <dd class="govuk-summary-list__value">
+                  {% if data['trustRisk'] == 'amberGreen' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                  {% elif data['trustRisk'] == 'redAmber' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                  {% elif data['trustRisk'] == 'red' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                  {% elif data['trustRisk'] == 'redPlus' %}
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                  {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Direction of travel</dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['directionOfTravel'] == 'improving' %}
+                  Improving
+                {% elif data['directionOfTravel'] == 'unchanged' %}
+                  Unchanged
+                {% elif data['directionOfTravel'] == 'deteriorating' %}
+                  Deteriorating
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
             </div>
 
         </dl>
                     
         <!--Accordions-->
-        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion govuk-!-margin-top-9" data-module="govuk-accordion" id="accordion-default">
 
             <div class="govuk-accordion__section govuk-accordion__section--expanded">
                 <div class="govuk-accordion__section-header">
@@ -299,7 +333,7 @@
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-              Straylight Road, Berne, Cambridgeshire CB26 9NM
+              {{ trust.address }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -307,7 +341,7 @@
               Local authority
             </dt>
             <dd class="govuk-summary-list__value">
-              South Cambridgeshire
+              {{ trust.region }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
