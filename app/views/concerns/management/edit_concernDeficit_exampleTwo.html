@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  {% extends "layout.html" %}
+
+  {% block content %}
+  {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Case ID 10194AC</span>
+            <h1 class="govuk-heading-l">Edit concern</h1>
+        </div>
+
+        <div class="grid-column-full-width">
+        
+            <!-- Trust details -->
+            <dl class="govuk-summary-list">
+            
+                <!-- Trust -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Trust</dt>
+                    <dd class="govuk-summary-list__value">
+                        Wintermute Academy Trust
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+
+                <!-- Concern #1 -->
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-summary-list__subRow">Concern</dt>
+                    <dd class="govuk-summary-list__value govuk-summary-list__subRow">
+                    {% if data['concernSubTypeExTwoEd'] == 'compliance-financial-reporting' %}
+                    <span class="caseDetail_type">Compliance: Financial reporting</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'compliance-financial-returns' %}
+                    <span class="caseDetail_type">Compliance: Financial returns</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'financial-deficit' %}
+                    <span class="caseDetail_type">Financial: Deficit</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'financial-projected-deficit' %}
+                    <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'financial-cash-flow-shortfall' %}
+                    <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'financial-clawback' %}
+                    <span class="caseDetail_type">Financial: Clawback</span>
+                    {% elif data['concernTypeEx'] == 'force-majeure' %}
+                    <span class= "caseDetail_type">Force Majeure</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'governance-governance' %}
+                    <span class="caseDetail_type">Governance: Governance</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'governance-closure' %}
+                    <span class= "caseDetail_type">Governance: Closure</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'governance-executive-pay' %}
+                    <span class="caseDetail_type">Governance: Executive Pay</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'governance-safeguarding' %}
+                    <span class="caseDetail_type">Governance: Safeguarding</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'irregularity-allegations' %}
+                    <span class="caseDetail_type">Iregularity: Allegations</span>
+                    {% elif data['concernSubTypeExTwoEd'] == 'irregularity-related-party-transactions' %}
+                    <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+                    {% else %}
+                    <span class="caseDetail_type">Financial: Deficit</span>
+                    {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__value govuk-summary-list__subRow">
+                    
+                    </dd>
+                    <dd class="govuk-summary-list__actions govuk-summary-list__subRow">
+
+                    </dd>
+                </div>
+
+            </dl>
+
+        </div>
+
+        <div>
+            {{ govukButton({ text: "Close concern", classes: "govuk-button--warning float__right close_item", href: "/concerns/closure/" }) }}
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+
+            <form action="/{{ data['from'] }}" class="form" method="post">
+
+                <!-- Q Risk rating -->
+                <div class="govuk-form-group govuk-!-margin-top-6">
+                <fieldset class="govuk-fieldset">
+
+                    <legend class="govuk-heading-m">
+                    Concern risk rating
+                    </legend>
+
+                    <div class="govuk-hint" id="case-issue-hint">
+                        Use the <a href="/public/docs/Risk_Management_Framework.pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">Risk Management Framework (opens in new tab)</a> to assess the revised level of risk.
+                    </div>
+
+                    <!--Risk rating radios-->
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskTypeExTwoEd" type="radio" value="amberGreen">
+                        <label class="govuk-label govuk-radios__label" for="riskRating">
+                        <span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span>
+                        </label>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskTypeExTwoEd" type="radio" value="redAmber">
+                        <label class="govuk-label govuk-radios__label" for="riskRating">
+                        <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+                        </label>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskTypeExTwoEd" type="radio" value="red">
+                        <label class="govuk-label govuk-radios__label" for="riskRating">
+                        <span class="govuk-tag ragtag ragtag__red">Red</span>
+                        </label>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" data-aria-controls="riskType" id="riskRating" name="riskTypeExTwoEd" type="radio" value="redPlus">
+                        <label class="govuk-label govuk-radios__label" for="riskRating">
+                        <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
+                        </label>
+                    </div>
+
+                    </div>
+
+                </fieldset>
+                </div>
+
+                <!-- Buttons -->
+                <div class="govuk-button-group govuk-!-margin-top-9">
+                    {{ govukButton({
+                    text: "Save changes"
+                    }) }}
+                    <a class="govuk-link" href="example-case">Cancel</a>
+                </div>
+
+            </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+</body>
+
+</html>

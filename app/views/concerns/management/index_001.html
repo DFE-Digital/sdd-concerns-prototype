@@ -4,23 +4,26 @@
   <title></title>
 </head>
 <body>
-  {% extends "layout.html" %}
-  {% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
-    {% block content %}
-  
-  <div class="buttons-topOfPage">
-    {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary", href:
-    "/concerns/homepage.html" }) }}
-    {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
-  </div>  
+{% extends "layout.html" %}
 
-  <h1 class="govuk-heading-l" name="caseID">
-    <span class="govuk-caption-m">Case ID</span>
-    10483AC
-  </h1>
-  <h2 class="govuk-heading-m">{{ outgoingTrust.trust_name }}</h2>
+{% block content %}
+{% set trust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
 
-  <!-- Tabs -->
+    <div class="buttons-topOfPage">
+        {{ govukButton({ text: "Back to casework", classes: "govuk-button--secondary", href:
+        "/concerns/homepage.html" }) }}
+        {{ govukButton({ text: "Close case", classes: "govuk-button--warning float__right", href: "/concerns/closure/" }) }}
+    </div>  
+
+    <h1 class="govuk-heading-l" name="caseID">
+        <span class="govuk-caption-m">Case ID</span>
+        10483AC
+    </h1>
+    <h2 class="govuk-heading-m">
+        {{ outgoingTrust.trust_name }}
+    </h2>
+
+    <!-- Tabs -->
   <div class="govuk-tabs" data-module="govuk-tabs">
     
     <h2 class="govuk-tabs__title">Contents</h2>
@@ -34,25 +37,64 @@
       </li>
     </ul>
 
-      <!-- Case detail tab -->
-      <div class="govuk-tabs__panel" id="case-detail">
-
+    <!-- Case detail tab -->
+    <div class="govuk-tabs__panel" id="case-detail">
+    
         <dl class="govuk-summary-list">
                 
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Trust</dt>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Trust</dt>
+                <dd class="govuk-summary-list__address">
+                  {{ trust.trust_name }} ({{ trust.region }})
+                  </br>{{ trust.address }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                </dd>
+            </div>
+
+            <!-- Risk to trust -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Risk to trust</dt>
               <dd class="govuk-summary-list__value">
-                {{ trust.trust_name }} ({{ trust.region }})
-                </br>{{ trust.address }}
+                {% if data['trustRisk'] == 'amberGreen' %}
+                <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                {% elif data['trustRisk'] == 'redAmber' %}
+                <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+                {% elif data['trustRisk'] == 'red' %}
+                <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+                {% elif data['trustRisk'] == 'redPlus' %}
+                <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+                {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-            
+                <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
               </dd>
-          </div>
+            </div>
 
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">Concerns</dt>
+            <!-- Direction of travel -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Direction of travel</dt>
               <dd class="govuk-summary-list__value">
+                {% if data['directionOfTravel'] == 'improving' %}
+                Improving
+                {% elif data['directionOfTravel'] == 'unchanged' %}
+                Unchanged
+                {% elif data['directionOfTravel'] == 'deteriorating' %}
+                Deteriorating
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+              </dd>
+            </div>
+
+            <!-- Concern #1 -->
+            <div class="govuk-summary-list__row">
+
+              <dt class="govuk-summary-list__key govuk-summary-list__subRow">Concerns</dt>
+              <dd class="govuk-summary-list__value govuk-summary-list__subRow">
+
+                <div>
                   {% if data['concernSubType'] == 'compliance-financial-reporting' %}
                   <span class="caseDetail_type">Compliance: Financial reporting</span>
                   {% elif data['concernSubType'] == 'compliance-financial-returns' %}
@@ -80,8 +122,14 @@
                   {% elif data['concernSubType'] == 'irregularity-related-party-transactions' %}
                   <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
                   {% endif %}
+                </div>
 
-                      {% if data['riskType'] == 'amberGreen' %}
+              </dd>
+
+              <dd class="govuk-summary-list__value govuk-summary-list__subRow">
+
+                <div>
+                  {% if data['riskType'] == 'amberGreen' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
                   {% elif data['riskType'] == 'redAmber' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
@@ -90,146 +138,126 @@
                   {% elif data['riskType'] == 'redPlus' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
                   {% endif %}
+                </div>
+
               </dd>
 
-              <dd class="govuk-summary-list__actions">
+              <dd class="govuk-summary-list__actions govuk-summary-list__subRow">
               <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
               </dd>
-          </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Risk to trust</dt>
-            <dd class="govuk-summary-list__value">
-                {% if data['trustRisk'] == 'amberGreen' %}
-                <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
-                {% elif data['trustRisk'] == 'redAmber' %}
-                <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
-                {% elif data['trustRisk'] == 'red' %}
-                <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
-                {% elif data['trustRisk'] == 'redPlus' %}
-                <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
-                {% endif %}
-            </dd>
+            </div>
 
-            <dd class="govuk-summary-list__actions">
-            <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
-            </dd>
-          </div>
+            <!-- Add concern -->
+            <div class="govuk-summary-list__row">
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">Direction of travel</dt>
-            <dd class="govuk-summary-list__value">
-                {% if data['directionOfTravel'] == 'improving' %}
-                  Improving
-                {% elif data['directionOfTravel'] == 'unchanged' %}
-                  Unchanged
-                {% elif data['directionOfTravel'] == 'deteriorating' %}
-                  Deteriorating
-                {% endif %}
-            </dd>
+              <dt class="govuk-summary-list__key"></dt>
+              <dd class="govuk-summary-list__value">
+                <div>
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Add concern</a>
+                </div>
+              </dd>
+              <dd class="govuk-summary-list__actions"></dd>
 
-            <dd class="govuk-summary-list__actions">
-            <a href="#" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
-            </dd>
-          </div>
+            </div>
 
         </dl>
-                
+                    
         <!--Accordions-->
         <div class="govuk-accordion govuk-!-margin-top-9" data-module="govuk-accordion" id="accordion-default">
 
-          <div class="govuk-accordion__section govuk-accordion__section--expanded">
-            <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Issue</span>
-              </h2>
+            <div class="govuk-accordion__section govuk-accordion__section--expanded">
+                <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">Issue</span>
+                    </h2>
+                </div>
+                <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-1">
+                    <a class="govuk-link float__right" href="edit_issue?from=concerns/management/index">Edit</a>
+                    <div class="details">
+                    <p>{{ data['issue-detail'] }}</p>
+                    </div>
+                </div>
             </div>
-            <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-1">
-              <a class="govuk-link float__right" href="edit_issue?from=concerns/management/index">Edit</a>
-              <div class="details">
-                <p>{{ data['issue-detail'] }}</p>
-              </div>
-            </div>
-          </div>
 
-          <div class="govuk-accordion__section govuk-accordion__section--expanded">
+            <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
+                <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-2">Current status</span>
-              </h2>
+                </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-2" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-2">
-              <a class="govuk-link float__right" href="edit_current_status?from=concerns/management/index">Edit</a>
-              <div class="details">
+            <div aria-labelledby="accordion-default-heading-2" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-2">
+                <a class="govuk-link float__right" href="edit_current_status?from=concerns/management/index">Edit</a>
+                <div class="details">
                 <p>{{ data['current-status-detail'] }}</p>
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
 
-          <div class="govuk-accordion__section govuk-accordion__section--expanded">
+            <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
+                <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-3">Case aim</span>
-              </h2>
+                </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-3">
-              <a class="govuk-link float__right" href="edit_case_aim?from=concerns/management/index">Edit</a>
-              <div class="details">
+            <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-3">
+                <a class="govuk-link float__right" href="edit_case_aim?from=concerns/management/index">Edit</a>
+                <div class="details">
                 <p>{{ data['case-aim-detail'] }}</p>
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
 
-          <div class="govuk-accordion__section govuk-accordion__section--expanded">
+            <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
+                <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-4">De-escalation point</span>
-              </h2>
+                </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-4" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-4">
-              <a class="govuk-link float__right" href="edit_deescalation_point?from=concerns/management/index">Edit</a>
-              <div class="details">
+            <div aria-labelledby="accordion-default-heading-4" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-4">
+                <a class="govuk-link float__right" href="edit_deescalation_point?from=concerns/management/index">Edit</a>
+                <div class="details">
                 <p>{{ data['deescalation-point-detail'] }}</p>
-              </div>
+                </div>
             </div>
-          </div>
+            </div>
 
-          <div class="govuk-accordion__section govuk-accordion__section--expanded">
+            <div class="govuk-accordion__section govuk-accordion__section--expanded">
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading">
+                <h2 class="govuk-accordion__section-heading">
                 <span class="govuk-accordion__section-button" id="accordion-default-heading-5">Next steps</span>
-              </h2>
+                </h2>
             </div>
-            <div aria-labelledby="accordion-default-heading-5" class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6" id="accordion-default-content-5">
-              <a class="govuk-link float__right" href="edit_next_steps?from=concerns/management/index">Edit</a>
-              <div class="details">
+            <div aria-labelledby="accordion-default-heading-5" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-5">
+                <a class="govuk-link float__right" href="edit_next_steps?from=concerns/management/index">Edit</a>
+                <div class="details">
                 <p>{{ data['next-steps-detail'] }}</p>
-              </div>
+                </div>
             </div>
-          </div>
-          
-          {% if data['whistleblowerWut'] == 'yes' %}
-          <div class="govuk-accordion__section">
+            </div>
+            
+            {% if data['whistleblowerWut'] == 'yes' %}
+            <div class="govuk-accordion__section">
             <div class="govuk-accordion__section-header">
-              <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
+                <h2 class="govuk-accordion__section-heading"><span class="govuk-accordion__section-button"
                     id="accordion-default-heading-1">Whistleblower</span></h2>
             </div>
             <div aria-labelledby="accordion-default-heading-1"
-                 class="govuk-accordion__section-content govuk-!-margin-top-3 govuk-!-margin-bottom-6"
-                 id="accordion-default-content-1">
-              <a class="govuk-link float__right" href="edit_whistleblower?from=concerns/management/index">Edit</a>
-              <p>{{ data['whistleblower-detail'] }}</p>
+                    class="govuk-accordion__section-content  govuk-!-margin-bottom-6"
+                    id="accordion-default-content-1">
+                <a class="govuk-link float__right" href="edit_whistleblower?from=concerns/management/index">Edit</a>
+                <p>{{ data['whistleblower-detail'] }}</p>
             </div>
-          </div>{% endif %}
+            </div>{% endif %}
         </div>
 
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Add to case
-        </button> 
+        Add to case
+        </button>
+    
+    </div>
 
-      </div>
-
-      <!-- Trust overview tab -->
+    <!-- Trust overview tab -->
       <div class="govuk-tabs__panel" id="trust-overview">
 
         <!-- Trust detail -->
@@ -495,31 +523,29 @@
         </table>
 
       </div>
-  
-  </div>
+      
+    {% endblock %}
 
-  {% endblock %}
+    <!--Auto resize textareas-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function autoResizeHeight(){
+        this.style.height="auto";
+        this.style.height= this.scrollHeight+"px";
+        });
+    </script>
 
-  <!--Auto resize textareas-->
-  <script>
-    document.addEventListener("DOMContentLoaded", function autoResizeHeight(){
-      this.style.height="auto";
-      this.style.height= this.scrollHeight+"px";
-    });
-  </script>
-
-  <script>
-    var multipleFields=document.querySelectorAll('.auto-resize');
-    for(var i=0; i<multipleFields.length; i++){
-    multipleFields[i].addEventListener('input',autoResizeHeight,0);
-    }
-    // auto resize multiple textarea
-    function autoResizeHeight(){
-      this.style.height="auto";
-      this.style.height= this.scrollHeight+"px";
-      this.style.borderColor="green";
-    }
-  </script>
+    <script>
+        var multipleFields=document.querySelectorAll('.auto-resize');
+        for(var i=0; i<multipleFields.length; i++){
+        multipleFields[i].addEventListener('input',autoResizeHeight,0);
+        }
+        // auto resize multiple textarea
+        function autoResizeHeight(){
+        this.style.height="auto";
+        this.style.height= this.scrollHeight+"px";
+        this.style.borderColor="green";
+        }
+    </script>
 
 </body>
 </html>

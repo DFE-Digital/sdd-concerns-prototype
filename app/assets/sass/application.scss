@@ -59,8 +59,9 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-.concernListing {
-  margin-top: 10px;
+.govuk-summary-list__subRow {
+  border-bottom: none;
+  padding: 5px 0;
 }
 
 .grid-column-full-width {
@@ -318,6 +319,10 @@ span.summary-validation-symbol {
 
 /// Case page accordion tweaks ///
 
+.close_item{
+  margin-top: 30px;
+}
+
 .details {
   display: inline-block;
   max-width: 90%;
@@ -329,6 +334,7 @@ span.summary-validation-symbol {
 }
 
 .js-enabled .govuk-accordion__section-content {
+  padding-top: 0;
   padding-bottom: 0;
 }
 
@@ -351,12 +357,32 @@ span.summary-validation-symbol {
   margin-bottom: -1px;
 }
 
-.govuk-summary-list__key {
-    width: 20%;
-}
+.govuk-summary-list {
 
-.govuk-summary-list__value {
+  &__key {
+    width: 20%;
+  }
+
+  &__address {
     width: 60%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: table-cell;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b1b4b6;
+    margin: 0;
+  }
+
+  &__value {
+    width: 50%;
+  }
+
+  &__actions {
+    width: 30%;
+  }
+
 }
 
 /// Action accordion ///

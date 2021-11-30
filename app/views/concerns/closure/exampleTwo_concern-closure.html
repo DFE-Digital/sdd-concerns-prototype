@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) 
+  }}
+
+{% endblock %}
+
+{% set outgoingTrust = data['trusts'] | getTrustById(data['outgoing-trust-id']) %}
+
+{% block content %}
+
+<h2 class="govuk-hint">Case ID 10194AC</h2>
+
+<h1 class="govuk-heading-l govuk-!-margin-bottom-9">Close concern</h1>
+
+<dl class="govuk-summary-list">
+            
+    <!-- Trust -->
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Trust</dt>
+        <dd class="govuk-summary-list__value">
+            Acer Trust
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+    <!-- Concern #2 -->
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Concern</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['concernSubTypeExAdd'] == 'compliance-financial-reporting' %}
+            <span class="caseDetail_type">Compliance: Financial reporting</span>
+            {% elif data['concernSubTypeExAdd'] == 'compliance-financial-returns' %}
+            <span class="caseDetail_type">Compliance: Financial returns</span>
+            {% elif data['concernSubTypeExAdd'] == 'financial-deficit' %}
+            <span class="caseDetail_type">Financial: Deficit</span>
+            {% elif data['concernSubTypeExAdd'] == 'financial-projected-deficit' %}
+            <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+            {% elif data['concernSubTypeExAdd'] == 'financial-cash-flow-shortfall' %}
+            <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+            {% elif data['concernSubTypeExAdd'] == 'financial-clawback' %}
+            <span class="caseDetail_type">Financial: Clawback</span>
+            {% elif data['concernTypeExAdd'] == 'force-majeure' %}
+            <span class= "caseDetail_type">Force Majeure</span>
+            {% elif data['concernSubTypeExAdd'] == 'governance-governance' %}
+            <span class="caseDetail_type">Governance: Governance</span>
+            {% elif data['concernSubTypeExAdd'] == 'governance-closure' %}
+            <span class= "caseDetail_type">Governance: Closure</span>
+            {% elif data['concernSubTypeExAdd'] == 'governance-executive-pay' %}
+            <span class="caseDetail_type">Governance: Executive Pay</span>
+            {% elif data['concernSubTypeExAdd'] == 'governance-safeguarding' %}
+            <span class="caseDetail_type">Governance: Safeguarding</span>
+            {% elif data['concernSubTypeExAdd'] == 'irregularity-allegations' %}
+            <span class="caseDetail_type">Iregularity: Allegations</span>
+            {% elif data['concernSubTypeExAdd'] == 'irregularity-related-party-transactions' %}
+            <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
+            {% else %}
+            <span class="caseDetail_type">Financial: Cash flow shortfall</span>
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__value">
+            {% if data['riskTypeExAdd'] == 'amberGreen' %}
+            <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+            {% elif data['riskTypeExAdd'] == 'redAmber' %}
+            <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+            {% elif data['riskTypeExAdd'] == 'red' %}
+            <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
+            {% elif data['riskTypeExAdd'] == 'redPlus' %}
+            <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
+            {% else %}
+            <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
+            {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+</dl>
+
+<form action="/concerns/management/example-case-two-edited" class="form" method="post">
+
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
+    <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="with-hint">
+            Rationale
+        </label>
+        </h1>
+        <div id="with-hint-hint" class="govuk-hint">
+        Explain why this concern is closing
+        </div>
+        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+    </div>
+
+    <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+        You can enter up to 500 characters
+    </div>
+
+    </div>
+
+    <div class="govuk-form-group govuk-!-margin-top-9">
+        <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-heading-m govuk-heading-m govuk-!-font-weight-bold">
+                Do you need to close this concern for monitoring?
+            </legend>
+
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                
+                <div class="govuk-radios__item">
+                <input class="govuk-radios__input" data-aria-controls="close-for-monitoring-yes" id="monitoring-yes" name="monitoring" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="monitoring-yes">
+                    Yes
+                </label>
+                </div>
+
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="close-for-monitoring-yes">
+                    <div class="govuk-form-group">
+                    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                        Date to review
+                    </legend>
+                    <div class="govuk-date-input" id="dateCreated">
+                        <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateCreatedDay">
+                            Day
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateCreatedDay" name="dateCreatedDay" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateCreatedMonth">
+                            Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateCreatedMonth" name="dateCreatedMonth" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateCreatedYear">
+                            Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateCreatedYear" name="dateCreatedYear" type="text" pattern="[0-9]*" inputmode="numeric">
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="govuk-radios__item">
+                <input class="govuk-radios__input" data-aria-controls="close-for-monitoring-no" id="monitoring-no" name="monitoring" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="monitoring-no">
+                    No
+                </label>
+                </div>
+
+            </div>
+
+        </fieldset>
+    </div>
+
+    <!--Close case-->
+    <button data-prevent-double-click="true" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+        Close concern
+    </button>
+
+</form>
+
+{% endblock %}

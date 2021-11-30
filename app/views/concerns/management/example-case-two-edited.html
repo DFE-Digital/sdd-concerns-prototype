@@ -16,11 +16,11 @@
 
     <h1 class="govuk-heading-l" name="caseID">
       <span class="govuk-caption-m">Case ID</span>
-      10244AC
+      10194AC
     </h1>
 
     <h2 class="govuk-heading-m">
-      Wintermute Academy Trust
+      Acer Trust
     </h2>
 
     <!-- Tabs -->
@@ -48,7 +48,7 @@
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Trust</dt>
                 <dd class="govuk-summary-list__value">
-                    Wintermute Academy Trust
+                    Acer Trust
                 </dd>
                 <dd class="govuk-summary-list__actions">
                 </dd>
@@ -68,11 +68,11 @@
                 {% elif data['trustRiskEx'] == 'redPlus' %}
                 <span class="govuk-tag ragtag ragtag__redplus">Red Plus</span>
                 {% else %}
-                <span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span>
+                <span class="govuk-tag ragtag ragtag__red">Red</span>
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a href="change_risk_rating_example?from=concerns/management/example-case" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+                <a href="change_risk_rating_example?from=concerns/management/example-case-two-edited" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
               </dd>
             </div>
 
@@ -87,11 +87,11 @@
                 {% elif data['directionOfTravelEx'] == 'improving' %}
                 Improving
                 {% else %}
-                Unchanged
+                Deteriorating
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a href="change_direction_of_travel_example?from=concerns/management/example-case" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+                <a href="change_direction_of_travel_example?from=concerns/management/example-case-two-edited" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
               </dd>
             </div>
 
@@ -99,51 +99,51 @@
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key govuk-summary-list__subRow">Concerns</dt>
                 <dd class="govuk-summary-list__value govuk-summary-list__subRow">
-                  {% if data['concernSubTypeEx'] == 'compliance-financial-reporting' %}
+                  {% if data['concernSubTypeExTwoEd'] == 'compliance-financial-reporting' %}
                   <span class="caseDetail_type">Compliance: Financial reporting</span>
-                  {% elif data['concernSubTypeEx'] == 'compliance-financial-returns' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'compliance-financial-returns' %}
                   <span class="caseDetail_type">Compliance: Financial returns</span>
-                  {% elif data['concernSubTypeEx'] == 'financial-deficit' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'financial-deficit' %}
                   <span class="caseDetail_type">Financial: Deficit</span>
-                  {% elif data['concernSubTypeEx'] == 'financial-projected-deficit' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'financial-projected-deficit' %}
                   <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
-                  {% elif data['concernSubTypeEx'] == 'financial-cash-flow-shortfall' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'financial-cash-flow-shortfall' %}
                   <span class="caseDetail_type">Financial: Cash flow shortfall</span>
-                  {% elif data['concernSubTypeEx'] == 'financial-clawback' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'financial-clawback' %}
                   <span class="caseDetail_type">Financial: Clawback</span>
-                  {% elif data['concernTypeEx'] == 'force-majeure' %}
+                  {% elif data['concernTypeExTwoEd'] == 'force-majeure' %}
                   <span class= "caseDetail_type">Force Majeure</span>
-                  {% elif data['concernSubTypeEx'] == 'governance-governance' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'governance-governance' %}
                   <span class="caseDetail_type">Governance: Governance</span>
-                  {% elif data['concernSubTypeEx'] == 'governance-closure' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'governance-closure' %}
                   <span class= "caseDetail_type">Governance: Closure</span>
-                  {% elif data['concernSubTypeEx'] == 'governance-executive-pay' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'governance-executive-pay' %}
                   <span class="caseDetail_type">Governance: Executive Pay</span>
-                  {% elif data['concernSubTypeEx'] == 'governance-safeguarding' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'governance-safeguarding' %}
                   <span class="caseDetail_type">Governance: Safeguarding</span>
-                  {% elif data['concernSubTypeEx'] == 'irregularity-allegations' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'irregularity-allegations' %}
                   <span class="caseDetail_type">Iregularity: Allegations</span>
-                  {% elif data['concernSubTypeEx'] == 'irregularity-related-party-transactions' %}
+                  {% elif data['concernSubTypeExTwoEd'] == 'irregularity-related-party-transactions' %}
                   <span class="caseDetail_type">Irregularity: Related party transactions - in year</span>
                   {% else %}
-                  <span class="caseDetail_type">Financial: Projected deficit / Low future surplus</span>
+                  <span class="caseDetail_type">Financial: Deficit</span>
                   {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__value govuk-summary-list__subRow">
-                  {% if data['riskTypeEx'] == 'amberGreen' %}
+                  {% if data['riskTypeExTwoEd'] == 'amberGreen' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
-                  {% elif data['riskTypeEx'] == 'redAmber' %}
+                  {% elif data['riskTypeExTwoEd'] == 'redAmber' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
-                  {% elif data['riskTypeEx'] == 'red' %}
+                  {% elif data['riskTypeExTwoEd'] == 'red' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span></div>
-                  {% elif data['riskTypeEx'] == 'redPlus' %}
+                  {% elif data['riskTypeExTwoEd'] == 'redPlus' %}
                   <div class="tag-block"><span class="govuk-tag ragtag ragtag__redplus">Red Plus</span></div>
                   {% else %}
-                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__amber">Amber</span><span class="govuk-tag ragtag ragtag__green">Green</span></div>
+                  <div class="tag-block"><span class="govuk-tag ragtag ragtag__red">Red</span><span class="govuk-tag ragtag ragtag__amber">Amber</span></div>
                   {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions govuk-summary-list__subRow">
-                <a href="edit_concerns_example?from=concerns/management/example-case" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
+                <a href="edit_concernDeficit_exampleTwo?from=concerns/management/example-case-two-edited" class="govuk-link govuk-link--no-visited-state" style="float:right;">Edit</a>
               </dd>
             </div>
 
@@ -153,7 +153,7 @@
               <dt class="govuk-summary-list__key"></dt>
               <dd class="govuk-summary-list__value">
                 <div>
-                  <a href="example-add_concern?from=concerns/management/example-case" class="govuk-link govuk-link--no-visited-state">Add concern</a>
+                  <a href="#" class="govuk-link govuk-link--no-visited-state">Add concern</a>
                 </div>
               </dd>
               <dd class="govuk-summary-list__actions"></dd>
@@ -172,9 +172,9 @@
                 </h2>
               </div>
               <div aria-labelledby="accordion-default-heading-1" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-1">
-                <a class="govuk-link float__right" href="edit_issue_example?from=concerns/management/example-case">Edit</a>
+                <a class="govuk-link float__right" href="edit_issue_example?from=concerns/management/example-case-two-edited">Edit</a>
                 <div class="details">
-                  <p>{{ data['issue_example'] | nl2br | safe }}</p>
+                  <p>{{ data['issue_exampleTwo'] | nl2br | safe }}</p>
                 </div>
               </div>
             </div>
@@ -186,9 +186,9 @@
                 </h2>
               </div>
               <div aria-labelledby="accordion-default-heading-2" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-2">
-                <a class="govuk-link float__right" href="edit_currentstatus_example?from=concerns/management/example-case">Edit</a>
+                <a class="govuk-link float__right" href="edit_currentstatus_example?from=concerns/management/example-case-two-edited">Edit</a>
                 <div class="details">
-                  <p>{{ data['currentStatus_example'] | nl2br | safe }}</p>
+                  <p>{{ data['currentStatus_exampleTwo'] | nl2br | safe }}</p>
                 </div>
               </div>
             </div>
@@ -200,9 +200,9 @@
                 </h2>
               </div>
               <div aria-labelledby="accordion-default-heading-3" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-3">
-                <a class="govuk-link float__right" href="edit_caseaim_example?from=concerns/management/example-case">Edit</a>
+                <a class="govuk-link float__right" href="edit_caseaim_example?from=concerns/management/example-case-two-edited">Edit</a>
                 <div class="details">
-                  <p>{{ data['caseAim_example'] | nl2br | safe }}</p>
+                  <p>{{ data['caseAim_exampleTwo'] | nl2br | safe }}</p>
                 </div>
               </div>
             </div>
@@ -214,9 +214,9 @@
                 </h2>
               </div>
               <div aria-labelledby="accordion-default-heading-4" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-4">
-                <a class="govuk-link float__right" href="edit_deescalationpoint_example?from=concerns/management/example-case">Edit</a>
+                <a class="govuk-link float__right" href="edit_deescalationpoint_example?from=concerns/management/example-case-two-edited">Edit</a>
                 <div class="details">
-                  <p>{{ data['deEscalation_example'] | nl2br | safe }}</p>
+                  <p>{{ data['deEscalation_exampleTwo'] | nl2br | safe }}</p>
                 </div>
               </div>
             </div>
@@ -228,9 +228,9 @@
                 </h2>
               </div>
               <div aria-labelledby="accordion-default-heading-5" class="govuk-accordion__section-content  govuk-!-margin-bottom-6" id="accordion-default-content-5">
-                <a class="govuk-link float__right" href="edit_next_steps_example?from=concerns/management/example-case">Edit</a>
+                <a class="govuk-link float__right" href="edit_next_steps_example?from=concerns/management/example-case-two-edited">Edit</a>
                 <div class="details">
-                  <p>{{ data['nextSteps_example'] | nl2br | safe }}</p>
+                  <p>{{ data['nextSteps_exampleTwo'] | nl2br | safe }}</p>
                 </div>
               </div>
             </div>
