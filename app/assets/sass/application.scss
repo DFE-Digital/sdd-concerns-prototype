@@ -10,7 +10,6 @@ $govuk-assets-path: '/govuk/assets/';
 
 @import "node_modules/@ministryofjustice/frontend/moj/all";
 
-
 // Patterns that aren't in Frontend
 @import "patterns/step-by-step-header";
 @import "patterns/step-by-step-nav";
@@ -55,7 +54,6 @@ $govuk-assets-path: '/govuk/assets/';
 // Academies
 
 @import "components/dashboard";
-
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
